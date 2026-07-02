@@ -1,8 +1,9 @@
-const CACHE_NAME = "fluide-shell-v2";
+const CACHE_NAME = "fluide-shell-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./catalog.html",
+  "./fonts.css?v=1",
   "./styles.css?v=4",
   "./catalog.css?v=2",
   "./pwa.js",
@@ -10,6 +11,11 @@ const APP_SHELL = [
   "./app-icon.svg",
   "./app-icon-192.png",
   "./app-icon-512.png",
+  "./MazzardH-Light.woff2",
+  "./MazzardH-Regular.woff2",
+  "./MazzardH-Medium.woff2",
+  "./MazzardH-SemiBold.woff2",
+  "./MazzardH-Bold.woff2",
   "./логотип FLUIDE белый.svg",
   "./логотип FLUIDE сниний.svg",
   "./затемнение на фон синее.svg"
