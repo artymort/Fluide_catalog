@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f4f0e6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="FLUIDE" />
+    <title>FLUIDE — подбор аромата</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="app-icon-192.png" />
+    <link rel="stylesheet" href="fonts.css?v=1" />
+    <link rel="stylesheet" href="selection.css?v=1" />
+  </head>
+  <body>
+    <main class="selection-screen">
+      <header class="selection-header">
+        <a class="selection-back" href="catalog.html" aria-label="Вернуться в главное меню">←</a>
+        <img class="selection-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        <p class="selection-step" aria-label="Первый шаг из четырех">01 / 04</p>
+      </header>
+
+      <section class="selection-content" aria-labelledby="selection-title">
+        <div class="selection-heading">
+          <p class="selection-kicker">Подбор аромата</p>
+          <h1 id="selection-title">Для кого выбираем аромат?</h1>
+          <p class="selection-help">Выберите один вариант</p>
+        </div>
+
+        <form class="selection-form" id="selection-form">
+          <div class="selection-options">
+            <label class="selection-option selection-option--pink">
+              <input type="radio" name="gender" value="женский" />
+              <span class="selection-option__number">01</span>
+              <span class="selection-option__mark" aria-hidden="true">✓</span>
+              <span class="selection-option__title">Женский</span>
+              <span class="selection-option__caption">34 аромата в коллекции</span>
+            </label>
+
+            <label class="selection-option selection-option--blue">
+              <input type="radio" name="gender" value="мужской" />
+              <span class="selection-option__number">02</span>
+              <span class="selection-option__mark" aria-hidden="true">✓</span>
+              <span class="selection-option__title">Мужской</span>
+              <span class="selection-option__caption">24 аромата в коллекции</span>
+            </label>
+
+            <label class="selection-option selection-option--ink">
+              <input type="radio" name="gender" value="унисекс" />
+              <span class="selection-option__number">03</span>
+              <span class="selection-option__mark" aria-hidden="true">✓</span>
+              <span class="selection-option__title">Унисекс</span>
+              <span class="selection-option__caption">41 аромат в коллекции</span>
+            </label>
+          </div>
+
+          <button class="selection-next" type="submit" disabled>
+            Продолжить
+            <span aria-hidden="true">→</span>
+          </button>
+          <p class="selection-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <div class="rotate-message" role="status">
+      <img src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+      <p>Поверните устройство горизонтально</p>
+    </div>
+
+    <script src="pwa.js"></script>
+    <script src="selection.js"></script>
+  </body>
+</html>
