@@ -10,8 +10,18 @@ window.visualViewport?.addEventListener("resize", updateAppHeight);
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch((error) => {
-      console.error("Не удалось зарегистрировать Service Worker:", error);
-    });
+    navigator.serviceWorker
+      .register("./sw.js", { updateViaCache: "none" })
+      .then((registration) => registration.update())
+      .catch((error) => {
+        console.error("Не удалось зарегистрировать Service Worker:", error);
+      });
+  });
+
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
   });
 }

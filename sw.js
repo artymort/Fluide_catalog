@@ -1,4 +1,4 @@
-const CACHE_NAME = "fluide-shell-v5";
+const CACHE_NAME = "fluide-shell-v6";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -44,6 +44,21 @@ self.addEventListener("fetch", (event) => {
 
   if (request.method !== "GET" || url.origin !== self.location.origin) return;
   if (request.headers.has("range") || url.pathname.endsWith(".mp4")) return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match("./index.html")))
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(request).then((cached) => {
