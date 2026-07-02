@@ -20,6 +20,16 @@ if (savedGender) {
 }
 
 options.forEach((option) => {
+  option.addEventListener("focus", () => {
+    if (option.matches(":focus-visible")) {
+      option.closest(".selection-option").classList.add("is-keyboard-focused");
+    }
+  });
+
+  option.addEventListener("blur", () => {
+    option.closest(".selection-option").classList.remove("is-keyboard-focused");
+  });
+
   option.addEventListener("change", () => {
     sessionStorage.setItem("fluide-selection-gender", option.value);
     updateSelectedCard(option);
