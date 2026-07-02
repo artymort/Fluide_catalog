@@ -1,0 +1,131 @@
+/* Файлы Mazzard H будут подключены сюда после их добавления в проект. */
+:root {
+  font-family: "Mazzard H", "Montserrat", Arial, sans-serif;
+  color: #17213d;
+  background: #10224c;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.welcome {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 480px;
+  isolation: isolate;
+  overflow: hidden;
+  background: #10224c;
+}
+
+.welcome__video,
+.welcome__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.welcome__video {
+  z-index: 0;
+}
+
+.welcome__overlay {
+  z-index: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.welcome__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: clamp(32px, 6vh, 76px) clamp(24px, 6vw, 96px);
+}
+
+.welcome__button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(320px, 32vw, 520px);
+  min-height: clamp(72px, 8.5vh, 104px);
+  margin: 0;
+  padding: 20px 44px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  color: #19213a;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(12 24 60 / 12%);
+  font-size: clamp(22px, 2vw, 32px);
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.welcome__button:hover {
+  transform: translate(-50%, calc(-50% - 2px));
+  background: #f7f8fc;
+  box-shadow: 0 14px 36px rgb(12 24 60 / 20%);
+}
+
+.welcome__button:active {
+  transform: translate(-50%, calc(-50% + 1px)) scale(0.99);
+}
+
+.welcome__button:focus-visible {
+  outline: 4px solid rgb(255 255 255 / 55%);
+  outline-offset: 5px;
+}
+
+.welcome__logo {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(32px, 6vh, 76px);
+  width: clamp(190px, 17vw, 290px);
+  height: auto;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .welcome__content {
+    padding: 32px 20px 48px;
+  }
+
+  .welcome__button {
+    min-width: min(100%, 340px);
+    min-height: 68px;
+    padding-inline: 28px;
+    font-size: 20px;
+  }
+
+  .welcome__logo {
+    bottom: 48px;
+    width: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome__button {
+    transition: none;
+  }
+}
