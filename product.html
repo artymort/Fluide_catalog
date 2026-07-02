@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f0e6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="FLUIDE" />
+    <title>FLUIDE — аромат</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="app-icon-192.png" />
+    <link rel="stylesheet" href="fonts.css?v=1" />
+    <link rel="stylesheet" href="product.css?v=1" />
+  </head>
+  <body>
+    <main class="detail-screen">
+      <header class="detail-header">
+        <a class="detail-back" href="results.html" aria-label="Вернуться к каталогу">←</a>
+        <img class="detail-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        <a class="detail-menu" href="catalog.html">Главное меню</a>
+      </header>
+
+      <article class="detail" id="product-detail" aria-live="polite">
+        <p class="detail-loading">Загрузка аромата…</p>
+      </article>
+    </main>
+
+    <script src="pwa.js"></script>
+    <script src="product.js?v=1"></script>
+  </body>
+</html>

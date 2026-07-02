@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f0e6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="FLUIDE" />
+    <title>FLUIDE — выбранные ароматы</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="app-icon-192.png" />
+    <link rel="stylesheet" href="fonts.css?v=1" />
+    <link rel="stylesheet" href="results.css?v=1" />
+  </head>
+  <body>
+    <main class="store-screen">
+      <header class="store-header">
+        <a class="round-link" href="selection.html" aria-label="Вернуться к подбору">←</a>
+        <img class="store-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        <a class="store-menu-link" href="catalog.html">Главное меню</a>
+      </header>
+
+      <section class="store-intro">
+        <div>
+          <p class="store-kicker">Каталог FLUIDE</p>
+          <h1>Подходящие ароматы</h1>
+        </div>
+        <label class="store-search">
+          <span class="visually-hidden">Поиск ароматов</span>
+          <input id="search" type="search" placeholder="Поиск по названию или номеру" />
+        </label>
+      </section>
+
+      <div class="store-layout">
+        <aside class="filters" aria-label="Фильтры каталога">
+          <div class="filters__heading">
+            <h2>Фильтры</h2>
+            <button id="reset-filters" type="button">Сбросить</button>
+          </div>
+
+          <fieldset>
+            <legend>Пол</legend>
+            <label><input type="checkbox" name="gender" value="женский" /> Женский</label>
+            <label><input type="checkbox" name="gender" value="мужской" /> Мужской</label>
+            <label><input type="checkbox" name="gender" value="унисекс" /> Унисекс</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Категория</legend>
+            <label><input type="checkbox" name="category" value="Люкс" /> Люкс</label>
+            <label><input type="checkbox" name="category" value="Селектив" /> Селектив</label>
+            <label><input type="checkbox" name="category" value="Суперлюкс" /> Суперлюкс</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Концентрация</legend>
+            <label><input type="checkbox" name="concentration" value="Eau de parfum" /> Парфюмерная вода</label>
+            <label><input type="checkbox" name="concentration" value="Eau de extrait" /> Экстракт</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Насыщенность</legend>
+            <label><input type="checkbox" name="intensity" value="light" /> Лёгкая</label>
+            <label><input type="checkbox" name="intensity" value="balanced" /> Сбалансированная</label>
+            <label><input type="checkbox" name="intensity" value="intense" /> Насыщенная</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Направление</legend>
+            <select id="family-filter">
+              <option value="">Все направления</option>
+              <option>Цветочные</option>
+              <option>Фруктовые</option>
+              <option>Цитрусовые</option>
+              <option>Древесные</option>
+              <option>Сладкие</option>
+              <option>Свежие</option>
+              <option>Пряные и восточные</option>
+            </select>
+          </fieldset>
+        </aside>
+
+        <section class="products" aria-live="polite">
+          <div class="products__summary">
+            <p id="result-count">Загрузка ароматов…</p>
+            <select id="sort-products" aria-label="Сортировка">
+              <option value="recommended">Сначала рекомендуемые</option>
+              <option value="number">По номеру</option>
+              <option value="name">По названию</option>
+              <option value="oil-desc">Сначала насыщенные</option>
+            </select>
+          </div>
+          <div class="products-grid" id="products-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="pwa.js"></script>
+    <script src="results.js?v=1"></script>
+  </body>
+</html>

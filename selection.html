@@ -16,7 +16,7 @@
     <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="app-icon-192.png" />
     <link rel="stylesheet" href="fonts.css?v=1" />
-    <link rel="stylesheet" href="selection.css?v=2" />
+    <link rel="stylesheet" href="selection.css?v=3" />
   </head>
   <body>
     <main class="selection-screen">
@@ -30,40 +30,19 @@
         <div class="selection-heading">
           <p class="selection-kicker">Подбор аромата</p>
           <h1 id="selection-title">Для кого выбираем аромат?</h1>
-          <p class="selection-help">Выберите один вариант</p>
+          <p class="selection-help" id="selection-help">Выберите один вариант</p>
         </div>
 
         <form class="selection-form" id="selection-form">
-          <div class="selection-options">
-            <label class="selection-option selection-option--pink">
-              <input type="radio" name="gender" value="женский" />
-              <span class="selection-option__number">01</span>
-              <span class="selection-option__mark" aria-hidden="true">✓</span>
-              <span class="selection-option__title">Женский</span>
-              <span class="selection-option__caption">34 аромата в коллекции</span>
-            </label>
+          <div class="selection-options" id="selection-options"></div>
 
-            <label class="selection-option selection-option--blue">
-              <input type="radio" name="gender" value="мужской" />
-              <span class="selection-option__number">02</span>
-              <span class="selection-option__mark" aria-hidden="true">✓</span>
-              <span class="selection-option__title">Мужской</span>
-              <span class="selection-option__caption">24 аромата в коллекции</span>
-            </label>
-
-            <label class="selection-option selection-option--ink">
-              <input type="radio" name="gender" value="унисекс" />
-              <span class="selection-option__number">03</span>
-              <span class="selection-option__mark" aria-hidden="true">✓</span>
-              <span class="selection-option__title">Унисекс</span>
-              <span class="selection-option__caption">41 аромат в коллекции</span>
-            </label>
+          <div class="selection-actions">
+            <button class="selection-previous" type="button" hidden>Назад</button>
+            <button class="selection-next" type="submit" disabled>
+              Продолжить
+              <span aria-hidden="true">→</span>
+            </button>
           </div>
-
-          <button class="selection-next" type="submit" disabled>
-            Продолжить
-            <span aria-hidden="true">→</span>
-          </button>
           <p class="selection-status" aria-live="polite"></p>
         </form>
       </section>
@@ -75,6 +54,6 @@
     </div>
 
     <script src="pwa.js"></script>
-    <script src="selection.js"></script>
+    <script src="selection.js?v=2"></script>
   </body>
 </html>
