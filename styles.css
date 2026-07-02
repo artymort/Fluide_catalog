@@ -22,8 +22,10 @@ body {
 .welcome {
   position: relative;
   width: 100%;
+  height: 100vh;
   height: 100dvh;
-  min-height: 480px;
+  height: var(--app-height, 100dvh);
+  min-height: min(480px, var(--app-height, 100vh));
   isolation: isolate;
   overflow: hidden;
   background: #10224c;
@@ -53,7 +55,12 @@ body {
   z-index: 2;
   width: 100%;
   height: 100%;
-  padding: clamp(32px, 6vh, 76px) clamp(24px, 6vw, 96px);
+  padding: clamp(24px, 5vh, 64px) clamp(24px, 6vw, 96px);
+  padding:
+    max(clamp(24px, 5vh, 64px), env(safe-area-inset-top))
+    max(clamp(24px, 6vw, 96px), env(safe-area-inset-right))
+    max(clamp(24px, 5vh, 64px), env(safe-area-inset-bottom))
+    max(clamp(24px, 6vw, 96px), env(safe-area-inset-left));
 }
 
 .welcome__button {
@@ -100,7 +107,8 @@ body {
 .welcome__logo {
   position: absolute;
   left: 50%;
-  bottom: clamp(32px, 6vh, 76px);
+  bottom: clamp(20px, 4.5vh, 56px);
+  bottom: max(clamp(20px, 4.5vh, 56px), env(safe-area-inset-bottom));
   width: clamp(190px, 17vw, 290px);
   height: auto;
   transform: translateX(-50%);
