@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="FLUIDE" />
-    <title>FLUIDE — все ароматы</title>
+    <title>FLUIDE — каталог</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="app-icon-192.png" />
@@ -25,7 +25,7 @@
       <section class="store-intro">
         <div>
           <p class="store-kicker" id="results-kicker">Каталог FLUIDE</p>
-          <h1 id="results-title">Все ароматы</h1>
+          <h1 id="results-title">Каталог</h1>
         </div>
         <label class="store-search">
           <span class="visually-hidden">Поиск ароматов</span>
@@ -39,6 +39,22 @@
             <h2>Фильтры</h2>
             <button id="reset-filters" type="button">Сбросить</button>
           </div>
+
+          <fieldset>
+            <legend>Тип продукции</legend>
+            <select id="product-type-filter">
+              <option value="">Вся продукция</option>
+              <option value="fragrance">Парфюм-спрей</option>
+              <option value="solid-perfume">Твёрдый парфюм</option>
+              <option value="home-fragrance">Парфюм для дома</option>
+              <option value="candle">Свечи</option>
+              <option value="diffuser">Аромадиффузоры</option>
+              <option value="body-cream">Крем для тела</option>
+              <option value="hand-soap">Мыло</option>
+              <option value="hair-spray">Спрей для волос</option>
+              <option value="car-fragrance">Автопарфюм</option>
+            </select>
+          </fieldset>
 
           <fieldset>
             <legend>Пол</legend>
@@ -98,6 +114,6 @@
     </main>
 
     <script src="pwa.js"></script>
-    <script src="results.js?v=3"></script>
+    <script src="results.js?v=4"></script>
   </body>
 </html>

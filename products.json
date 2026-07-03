@@ -1,0 +1,342 @@
+[
+  {
+    "id": "product-01",
+    "kind": "product",
+    "name": "Парфюм для дома La Sultan 300 мл",
+    "title": "Парфюм для дома La Sultan 300 мл",
+    "productType": "home-fragrance",
+    "typeLabel": "Парфюм для дома",
+    "volume": "300 мл",
+    "price": 550
+  },
+  {
+    "id": "product-02",
+    "kind": "product",
+    "name": "Парфюм для дома Citrus Rush 300 мл",
+    "title": "Парфюм для дома Citrus Rush 300 мл",
+    "productType": "home-fragrance",
+    "typeLabel": "Парфюм для дома",
+    "volume": "300 мл",
+    "price": 550
+  },
+  {
+    "id": "product-03",
+    "kind": "product",
+    "name": "Парфюм для дома Sea Salt 300 мл",
+    "title": "Парфюм для дома Sea Salt 300 мл",
+    "productType": "home-fragrance",
+    "typeLabel": "Парфюм для дома",
+    "volume": "300 мл",
+    "price": 550
+  },
+  {
+    "id": "product-04",
+    "kind": "product",
+    "name": "Крем для тела La Sultan 300 мл",
+    "title": "Крем для тела La Sultan 300 мл",
+    "productType": "body-cream",
+    "typeLabel": "Крем для тела",
+    "volume": "300 мл",
+    "price": 890
+  },
+  {
+    "id": "product-05",
+    "kind": "product",
+    "name": "Крем для тела Dream Touch 300 мл",
+    "title": "Крем для тела Dream Touch 300 мл",
+    "productType": "body-cream",
+    "typeLabel": "Крем для тела",
+    "volume": "300 мл",
+    "price": 890
+  },
+  {
+    "id": "product-06",
+    "kind": "product",
+    "name": "Парфюмированное мыло для рук Amber in The Garden",
+    "title": "Парфюмированное мыло для рук Amber in The Garden",
+    "productType": "hand-soap",
+    "typeLabel": "Мыло",
+    "volume": "",
+    "price": 550
+  },
+  {
+    "id": "product-07",
+    "kind": "product",
+    "name": "Набор из четырех свечей",
+    "title": "Набор из четырех свечей",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "",
+    "price": 1300
+  },
+  {
+    "id": "product-08",
+    "kind": "product",
+    "name": "Набор свечей \" Три Медведя\"",
+    "title": "Набор свечей \" Три Медведя\"",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "",
+    "price": 1100
+  },
+  {
+    "id": "product-09",
+    "kind": "product",
+    "name": "Набор из трех свечей",
+    "title": "Набор из трех свечей",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "",
+    "price": 1100
+  },
+  {
+    "id": "product-10",
+    "kind": "product",
+    "name": "Набор свечей \"Дух лошади\"",
+    "title": "Набор свечей \"Дух лошади\"",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "",
+    "price": 1100
+  },
+  {
+    "id": "product-11",
+    "kind": "product",
+    "name": "Аромасвеча гипс \"Ракушка\"",
+    "title": "Аромасвеча гипс \"Ракушка\"",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "",
+    "price": 890
+  },
+  {
+    "id": "product-12",
+    "kind": "product",
+    "name": "Аромасвеча в стекле балерина 50 мл",
+    "title": "Аромасвеча в стекле балерина 50 мл",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "50 мл",
+    "price": 650
+  },
+  {
+    "id": "product-13",
+    "kind": "product",
+    "name": "Аромасвеча в стекле балерина 100 мл",
+    "title": "Аромасвеча в стекле балерина 100 мл",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "100 мл",
+    "price": 890
+  },
+  {
+    "id": "product-14",
+    "kind": "product",
+    "name": "Аромасвеча в стекле балерина 200 мл",
+    "title": "Аромасвеча в стекле балерина 200 мл",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "200 мл",
+    "price": 1590
+  },
+  {
+    "id": "product-15",
+    "kind": "product",
+    "name": "Аромасвеча гипс \"Грут\"",
+    "title": "Аромасвеча гипс \"Грут\"",
+    "productType": "candle",
+    "typeLabel": "Свечи",
+    "volume": "",
+    "price": 1350
+  },
+  {
+    "id": "product-16",
+    "kind": "product",
+    "name": "Аромадиффузор Белый Лотос 100 мл",
+    "title": "Аромадиффузор Белый Лотос 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-17",
+    "kind": "product",
+    "name": "Аромадиффузор Orange&Cinnamon 100 мл",
+    "title": "Аромадиффузор Orange&Cinnamon 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-18",
+    "kind": "product",
+    "name": "Аромадиффузор Sapin Mandarin 100 мл",
+    "title": "Аромадиффузор Sapin Mandarin 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-19",
+    "kind": "product",
+    "name": "Аромадиффузор Манго 100 мл",
+    "title": "Аромадиффузор Манго 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-20",
+    "kind": "product",
+    "name": "Аромадиффузор Black Pepper 100 мл",
+    "title": "Аромадиффузор Black Pepper 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-21",
+    "kind": "product",
+    "name": "Аромадиффузор Белый чай 100 мл",
+    "title": "Аромадиффузор Белый чай 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-22",
+    "kind": "product",
+    "name": "Аромадиффузор Cashmere 100 мл",
+    "title": "Аромадиффузор Cashmere 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-23",
+    "kind": "product",
+    "name": "Аромадиффузор La Sultan 100 мл",
+    "title": "Аромадиффузор La Sultan 100 мл",
+    "productType": "diffuser",
+    "typeLabel": "Аромадиффузоры",
+    "volume": "100 мл",
+    "price": 1350
+  },
+  {
+    "id": "product-24",
+    "kind": "product",
+    "name": "Твердый парфюм РО 47 So Sexy",
+    "title": "Твердый парфюм РО 47 So Sexy",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-25",
+    "kind": "product",
+    "name": "Твердый парфюм РО 24 Fleur Narcotic",
+    "title": "Твердый парфюм РО 24 Fleur Narcotic",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-26",
+    "kind": "product",
+    "name": "Твердый парфюм РО 6 Hayti",
+    "title": "Твердый парфюм РО 6 Hayti",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-27",
+    "kind": "product",
+    "name": "Твердый парфюм PO 22 Escentric Molecule 02",
+    "title": "Твердый парфюм PO 22 Escentric Molecule 02",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-28",
+    "kind": "product",
+    "name": "Твердый парфюм PO 512 Thank U Next",
+    "title": "Твердый парфюм PO 512 Thank U Next",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-29",
+    "kind": "product",
+    "name": "Твердый парфюм PO 20 Taj sun-set",
+    "title": "Твердый парфюм PO 20 Taj sun-set",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-30",
+    "kind": "product",
+    "name": "Твердый парфюм PO 16 Cr-Aventus",
+    "title": "Твердый парфюм PO 16 Cr-Aventus",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-31",
+    "kind": "product",
+    "name": "Твердый парфюм РО 32 Symphony",
+    "title": "Твердый парфюм РО 32 Symphony",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-32",
+    "kind": "product",
+    "name": "Твердый парфюм РО 31 Limensite",
+    "title": "Твердый парфюм РО 31 Limensite",
+    "productType": "solid-perfume",
+    "typeLabel": "Твёрдый парфюм",
+    "volume": "",
+    "price": 990
+  },
+  {
+    "id": "product-33",
+    "kind": "product",
+    "name": "Парфюм для машины",
+    "title": "Парфюм для машины",
+    "productType": "car-fragrance",
+    "typeLabel": "Автопарфюм",
+    "volume": "",
+    "price": 300
+  },
+  {
+    "id": "product-34",
+    "kind": "product",
+    "name": "Спрей для волос FLUIDE 200 мл",
+    "title": "Спрей для волос FLUIDE 200 мл",
+    "productType": "hair-spray",
+    "typeLabel": "Спрей для волос",
+    "volume": "200 мл",
+    "price": 650
+  }
+]
