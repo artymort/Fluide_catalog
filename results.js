@@ -9,7 +9,8 @@ const backLink = document.querySelector("#results-back");
 const recommendedSort = document.querySelector("#recommended-sort");
 const checkboxFilters = [...document.querySelectorAll('.filters input[type="checkbox"]')];
 const recommendationParams = new URLSearchParams(window.location.search);
-const isAllMode = recommendationParams.get("mode") === "all";
+const isAllMode = document.body.dataset.catalogMode === "all" || recommendationParams.get("mode") === "all";
+const catalogPage = isAllMode ? "all.html" : "results.html";
 
 let fragrances = [];
 
@@ -46,7 +47,7 @@ function recommendationScore(item) {
 
 function cardMarkup(item) {
   const family = item.families[0] || "Аромат";
-  const returnUrl = `results.html${window.location.search}`;
+  const returnUrl = `${catalogPage}${window.location.search}`;
   return `
     <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
       <div class="product-card__visual">
@@ -116,7 +117,7 @@ resetButton.addEventListener("click", () => {
   [...recommendationParams.keys()].forEach((key) => {
     if (key !== "mode") recommendationParams.delete(key);
   });
-  history.replaceState(null, "", isAllMode ? "results.html?mode=all" : "results.html?mode=selection");
+  history.replaceState(null, "", isAllMode ? "all.html" : "results.html?mode=selection");
   applyFilters();
 });
 

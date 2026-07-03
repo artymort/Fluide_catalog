@@ -4,7 +4,7 @@ const id = productParams.get("id");
 const returnUrl = productParams.get("return");
 const backLink = document.querySelector(".detail-back");
 
-if (returnUrl && /^results\.html(?:\?|$)/.test(returnUrl)) {
+if (returnUrl && /^(?:all|results)\.html(?:\?|$)/.test(returnUrl)) {
   backLink.href = returnUrl;
 }
 
