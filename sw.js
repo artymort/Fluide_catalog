@@ -1,4 +1,4 @@
-const CACHE_NAME = "fluide-shell-v8";
+const CACHE_NAME = "fluide-shell-v9";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -13,9 +13,9 @@ const APP_SHELL = [
   "./results.css?v=1",
   "./product.css?v=1",
   "./pwa.js",
-  "./selection.js?v=2",
-  "./results.js?v=1",
-  "./product.js?v=1",
+  "./selection.js?v=3",
+  "./results.js?v=2",
+  "./product.js?v=2",
   "./fragrances.json",
   "./manifest.webmanifest",
   "./app-icon.svg",

@@ -4,10 +4,24 @@ const searchInput = document.querySelector("#search");
 const familyFilter = document.querySelector("#family-filter");
 const sortSelect = document.querySelector("#sort-products");
 const resetButton = document.querySelector("#reset-filters");
+const pageTitle = document.querySelector("#results-title");
+const backLink = document.querySelector("#results-back");
+const recommendedSort = document.querySelector("#recommended-sort");
 const checkboxFilters = [...document.querySelectorAll('.filters input[type="checkbox"]')];
 const recommendationParams = new URLSearchParams(window.location.search);
+const isAllMode = recommendationParams.get("mode") === "all";
 
 let fragrances = [];
+
+function configurePageMode() {
+  if (!isAllMode) return;
+  document.title = "FLUIDE — все ароматы";
+  pageTitle.textContent = "Все ароматы";
+  backLink.href = "catalog.html";
+  backLink.setAttribute("aria-label", "Вернуться в главное меню");
+  recommendedSort.remove();
+  sortSelect.value = "number";
+}
 
 function intensityMatches(item, intensity) {
   if (intensity === "light") return item.oilPercent <= 22;
@@ -32,8 +46,9 @@ function recommendationScore(item) {
 
 function cardMarkup(item) {
   const family = item.families[0] || "Аромат";
+  const returnUrl = `results.html${window.location.search}`;
   return `
-    <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}">
+    <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
       <div class="product-card__visual">
         <span class="product-card__meta">FLUIDE Atelier</span>
         <span class="product-card__number">${item.id}</span>
@@ -98,10 +113,14 @@ resetButton.addEventListener("click", () => {
   checkboxFilters.forEach((input) => { input.checked = false; });
   familyFilter.value = "";
   searchInput.value = "";
-  [...recommendationParams.keys()].forEach((key) => recommendationParams.delete(key));
-  history.replaceState(null, "", "results.html");
+  [...recommendationParams.keys()].forEach((key) => {
+    if (key !== "mode") recommendationParams.delete(key);
+  });
+  history.replaceState(null, "", isAllMode ? "results.html?mode=all" : "results.html?mode=selection");
   applyFilters();
 });
+
+configurePageMode();
 
 fetch("./fragrances.json")
   .then((response) => {

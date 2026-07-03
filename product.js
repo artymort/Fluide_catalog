@@ -1,5 +1,12 @@
 const detail = document.querySelector("#product-detail");
-const id = new URLSearchParams(window.location.search).get("id");
+const productParams = new URLSearchParams(window.location.search);
+const id = productParams.get("id");
+const returnUrl = productParams.get("return");
+const backLink = document.querySelector(".detail-back");
+
+if (returnUrl && /^results\.html(?:\?|$)/.test(returnUrl)) {
+  backLink.href = returnUrl;
+}
 
 const noteLabels = {
   top: "Верхние",

@@ -17,15 +17,15 @@
   <body>
     <main class="store-screen">
       <header class="store-header">
-        <a class="round-link" href="selection.html" aria-label="Вернуться к подбору">←</a>
+        <a class="round-link" id="results-back" href="selection.html" aria-label="Вернуться к подбору">←</a>
         <img class="store-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
         <a class="store-menu-link" href="catalog.html">Главное меню</a>
       </header>
 
       <section class="store-intro">
         <div>
-          <p class="store-kicker">Каталог FLUIDE</p>
-          <h1>Подходящие ароматы</h1>
+          <p class="store-kicker" id="results-kicker">Каталог FLUIDE</p>
+          <h1 id="results-title">Подходящие ароматы</h1>
         </div>
         <label class="store-search">
           <span class="visually-hidden">Поиск ароматов</span>
@@ -86,7 +86,7 @@
           <div class="products__summary">
             <p id="result-count">Загрузка ароматов…</p>
             <select id="sort-products" aria-label="Сортировка">
-              <option value="recommended">Сначала рекомендуемые</option>
+              <option id="recommended-sort" value="recommended">Сначала рекомендуемые</option>
               <option value="number">По номеру</option>
               <option value="name">По названию</option>
               <option value="oil-desc">Сначала насыщенные</option>
@@ -98,6 +98,6 @@
     </main>
 
     <script src="pwa.js"></script>
-    <script src="results.js?v=1"></script>
+    <script src="results.js?v=2"></script>
   </body>
 </html>

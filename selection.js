@@ -113,6 +113,7 @@ form.addEventListener("submit", (event) => {
   }
 
   const params = new URLSearchParams();
+  params.set("mode", "selection");
   Object.entries(answers).forEach(([key, value]) => {
     if (value) params.set(key, value);
   });
