@@ -2,4 +2,5 @@
 *.xlsx
 *.csv
 __pycache__/
+.venv/
 FLUIDE matched images/
