@@ -42,7 +42,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/011.webp"
+    "image": "images/fragrances/011.webp",
+    "thumbnail": "images/fragrances/thumbs/011.webp"
   },
   {
     "id": "100",
@@ -75,7 +76,8 @@
       "Цитрусовые",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/100.webp"
+    "image": "images/fragrances/100.webp",
+    "thumbnail": "images/fragrances/thumbs/100.webp"
   },
   {
     "id": "046",
@@ -107,7 +109,8 @@
       "Цитрусовые",
       "Сладкие"
     ],
-    "image": "images/fragrances/046.webp"
+    "image": "images/fragrances/046.webp",
+    "thumbnail": "images/fragrances/thumbs/046.webp"
   },
   {
     "id": "282",
@@ -136,7 +139,8 @@
       "Цитрусовые",
       "Древесные"
     ],
-    "image": "images/fragrances/282.webp"
+    "image": "images/fragrances/282.webp",
+    "thumbnail": "images/fragrances/thumbs/282.webp"
   },
   {
     "id": "044",
@@ -173,7 +177,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/044.webp"
+    "image": "images/fragrances/044.webp",
+    "thumbnail": "images/fragrances/thumbs/044.webp"
   },
   {
     "id": "087",
@@ -221,7 +226,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/087.webp"
+    "image": "images/fragrances/087.webp",
+    "thumbnail": "images/fragrances/thumbs/087.webp"
   },
   {
     "id": "013",
@@ -254,7 +260,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/013.webp"
+    "image": "images/fragrances/013.webp",
+    "thumbnail": "images/fragrances/thumbs/013.webp"
   },
   {
     "id": "019",
@@ -334,7 +341,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/049.webp"
+    "image": "images/fragrances/049.webp",
+    "thumbnail": "images/fragrances/thumbs/049.webp"
   },
   {
     "id": "146",
@@ -367,7 +375,8 @@
       "Цитрусовые",
       "Древесные"
     ],
-    "image": "images/fragrances/146.webp"
+    "image": "images/fragrances/146.webp",
+    "thumbnail": "images/fragrances/thumbs/146.webp"
   },
   {
     "id": "091",
@@ -406,7 +415,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/091.webp"
+    "image": "images/fragrances/091.webp",
+    "thumbnail": "images/fragrances/thumbs/091.webp"
   },
   {
     "id": "027",
@@ -442,7 +452,8 @@
       "Древесные",
       "Сладкие"
     ],
-    "image": "images/fragrances/027.webp"
+    "image": "images/fragrances/027.webp",
+    "thumbnail": "images/fragrances/thumbs/027.webp"
   },
   {
     "id": "017",
@@ -479,7 +490,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/017.webp"
+    "image": "images/fragrances/017.webp",
+    "thumbnail": "images/fragrances/thumbs/017.webp"
   },
   {
     "id": "029",
@@ -519,7 +531,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/029.webp"
+    "image": "images/fragrances/029.webp",
+    "thumbnail": "images/fragrances/thumbs/029.webp"
   },
   {
     "id": "141",
@@ -554,7 +567,8 @@
       "Древесные",
       "Свежие"
     ],
-    "image": "images/fragrances/141.webp"
+    "image": "images/fragrances/141.webp",
+    "thumbnail": "images/fragrances/thumbs/141.webp"
   },
   {
     "id": "018",
@@ -592,7 +606,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/018.webp"
+    "image": "images/fragrances/018.webp",
+    "thumbnail": "images/fragrances/thumbs/018.webp"
   },
   {
     "id": "048",
@@ -621,7 +636,8 @@
       "Фруктовые",
       "Сладкие"
     ],
-    "image": "images/fragrances/048.webp"
+    "image": "images/fragrances/048.webp",
+    "thumbnail": "images/fragrances/thumbs/048.webp"
   },
   {
     "id": "047",
@@ -647,7 +663,8 @@
       "Фруктовые",
       "Цитрусовые"
     ],
-    "image": "images/fragrances/047.webp"
+    "image": "images/fragrances/047.webp",
+    "thumbnail": "images/fragrances/thumbs/047.webp"
   },
   {
     "id": "020",
@@ -684,7 +701,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/020.webp"
+    "image": "images/fragrances/020.webp",
+    "thumbnail": "images/fragrances/thumbs/020.webp"
   },
   {
     "id": "014",
@@ -719,7 +737,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/014.webp"
+    "image": "images/fragrances/014.webp",
+    "thumbnail": "images/fragrances/thumbs/014.webp"
   },
   {
     "id": "512",
@@ -751,7 +770,8 @@
       "Фруктовые",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/512.webp"
+    "image": "images/fragrances/512.webp",
+    "thumbnail": "images/fragrances/thumbs/512.webp"
   },
   {
     "id": "509",
@@ -790,7 +810,8 @@
       "Древесные",
       "Сладкие"
     ],
-    "image": "images/fragrances/509.webp"
+    "image": "images/fragrances/509.webp",
+    "thumbnail": "images/fragrances/thumbs/509.webp"
   },
   {
     "id": "500",
@@ -814,7 +835,8 @@
     "families": [
       "Сладкие"
     ],
-    "image": "images/fragrances/500.webp"
+    "image": "images/fragrances/500.webp",
+    "thumbnail": "images/fragrances/thumbs/500.webp"
   },
   {
     "id": "541",
@@ -850,7 +872,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/541.webp"
+    "image": "images/fragrances/541.webp",
+    "thumbnail": "images/fragrances/thumbs/541.webp"
   },
   {
     "id": "137",
@@ -885,7 +908,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/137.webp"
+    "image": "images/fragrances/137.webp",
+    "thumbnail": "images/fragrances/thumbs/137.webp"
   },
   {
     "id": "334",
@@ -958,7 +982,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/507.webp"
+    "image": "images/fragrances/507.webp",
+    "thumbnail": "images/fragrances/thumbs/507.webp"
   },
   {
     "id": "028",
@@ -993,7 +1018,8 @@
       "Сладкие",
       "Свежие"
     ],
-    "image": "images/fragrances/028.webp"
+    "image": "images/fragrances/028.webp",
+    "thumbnail": "images/fragrances/thumbs/028.webp"
   },
   {
     "id": "057",
@@ -1028,7 +1054,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/057.webp"
+    "image": "images/fragrances/057.webp",
+    "thumbnail": "images/fragrances/thumbs/057.webp"
   },
   {
     "id": "523",
@@ -1065,7 +1092,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/523.webp"
+    "image": "images/fragrances/523.webp",
+    "thumbnail": "images/fragrances/thumbs/523.webp"
   },
   {
     "id": "173",
@@ -1109,7 +1137,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/173.webp"
+    "image": "images/fragrances/173.webp",
+    "thumbnail": "images/fragrances/thumbs/173.webp"
   },
   {
     "id": "002",
@@ -1147,7 +1176,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/002.webp"
+    "image": "images/fragrances/002.webp",
+    "thumbnail": "images/fragrances/thumbs/002.webp"
   },
   {
     "id": "148",
@@ -1186,7 +1216,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/148.webp"
+    "image": "images/fragrances/148.webp",
+    "thumbnail": "images/fragrances/thumbs/148.webp"
   },
   {
     "id": "518",
@@ -1227,7 +1258,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/518.webp"
+    "image": "images/fragrances/518.webp",
+    "thumbnail": "images/fragrances/thumbs/518.webp"
   },
   {
     "id": "090",
@@ -1269,7 +1301,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/090.webp"
+    "image": "images/fragrances/090.webp",
+    "thumbnail": "images/fragrances/thumbs/090.webp"
   },
   {
     "id": "070",
@@ -1309,7 +1342,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/070.webp"
+    "image": "images/fragrances/070.webp",
+    "thumbnail": "images/fragrances/thumbs/070.webp"
   },
   {
     "id": "152",
@@ -1346,7 +1380,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/152.webp"
+    "image": "images/fragrances/152.webp",
+    "thumbnail": "images/fragrances/thumbs/152.webp"
   },
   {
     "id": "035",
@@ -1380,7 +1415,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/035.webp"
+    "image": "images/fragrances/035.webp",
+    "thumbnail": "images/fragrances/thumbs/035.webp"
   },
   {
     "id": "012",
@@ -1423,7 +1459,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/012.webp"
+    "image": "images/fragrances/012.webp",
+    "thumbnail": "images/fragrances/thumbs/012.webp"
   },
   {
     "id": "003",
@@ -1462,7 +1499,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/003.webp"
+    "image": "images/fragrances/003.webp",
+    "thumbnail": "images/fragrances/thumbs/003.webp"
   },
   {
     "id": "153",
@@ -1505,7 +1543,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/153.webp"
+    "image": "images/fragrances/153.webp",
+    "thumbnail": "images/fragrances/thumbs/153.webp"
   },
   {
     "id": "030",
@@ -1541,7 +1580,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/030.webp"
+    "image": "images/fragrances/030.webp",
+    "thumbnail": "images/fragrances/thumbs/030.webp"
   },
   {
     "id": "093",
@@ -1582,7 +1622,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/093.webp"
+    "image": "images/fragrances/093.webp",
+    "thumbnail": "images/fragrances/thumbs/093.webp"
   },
   {
     "id": "045",
@@ -1625,7 +1666,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/045.webp"
+    "image": "images/fragrances/045.webp",
+    "thumbnail": "images/fragrances/thumbs/045.webp"
   },
   {
     "id": "183",
@@ -1659,7 +1701,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/183.webp"
+    "image": "images/fragrances/183.webp",
+    "thumbnail": "images/fragrances/thumbs/183.webp"
   },
   {
     "id": "096",
@@ -1709,7 +1752,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/096.webp"
+    "image": "images/fragrances/096.webp",
+    "thumbnail": "images/fragrances/thumbs/096.webp"
   },
   {
     "id": "156",
@@ -1744,7 +1788,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/156.webp"
+    "image": "images/fragrances/156.webp",
+    "thumbnail": "images/fragrances/thumbs/156.webp"
   },
   {
     "id": "034",
@@ -1783,7 +1828,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/034.webp"
+    "image": "images/fragrances/034.webp",
+    "thumbnail": "images/fragrances/thumbs/034.webp"
   },
   {
     "id": "111",
@@ -1819,7 +1865,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/111.webp"
+    "image": "images/fragrances/111.webp",
+    "thumbnail": "images/fragrances/thumbs/111.webp"
   },
   {
     "id": "081",
@@ -1859,7 +1906,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/081.webp"
+    "image": "images/fragrances/081.webp",
+    "thumbnail": "images/fragrances/thumbs/081.webp"
   },
   {
     "id": "185",
@@ -1895,7 +1943,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/185.webp"
+    "image": "images/fragrances/185.webp",
+    "thumbnail": "images/fragrances/thumbs/185.webp"
   },
   {
     "id": "036",
@@ -1932,7 +1981,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/036.webp"
+    "image": "images/fragrances/036.webp",
+    "thumbnail": "images/fragrances/thumbs/036.webp"
   },
   {
     "id": "015",
@@ -1971,7 +2021,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/015.webp"
+    "image": "images/fragrances/015.webp",
+    "thumbnail": "images/fragrances/thumbs/015.webp"
   },
   {
     "id": "016",
@@ -2012,7 +2063,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/016.webp"
+    "image": "images/fragrances/016.webp",
+    "thumbnail": "images/fragrances/thumbs/016.webp"
   },
   {
     "id": "528",
@@ -2051,7 +2103,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/528.webp"
+    "image": "images/fragrances/528.webp",
+    "thumbnail": "images/fragrances/thumbs/528.webp"
   },
   {
     "id": "198",
@@ -2089,7 +2142,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/198.webp"
+    "image": "images/fragrances/198.webp",
+    "thumbnail": "images/fragrances/thumbs/198.webp"
   },
   {
     "id": "031",
@@ -2126,7 +2180,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/031.webp"
+    "image": "images/fragrances/031.webp",
+    "thumbnail": "images/fragrances/thumbs/031.webp"
   },
   {
     "id": "071",
@@ -2159,7 +2214,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/071.webp"
+    "image": "images/fragrances/071.webp",
+    "thumbnail": "images/fragrances/thumbs/071.webp"
   },
   {
     "id": "004",
@@ -2189,7 +2245,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/004.webp"
+    "image": "images/fragrances/004.webp",
+    "thumbnail": "images/fragrances/thumbs/004.webp"
   },
   {
     "id": "037",
@@ -2227,7 +2284,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/037.webp"
+    "image": "images/fragrances/037.webp",
+    "thumbnail": "images/fragrances/thumbs/037.webp"
   },
   {
     "id": "195",
@@ -2255,7 +2313,8 @@
       "Цитрусовые",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/195.webp"
+    "image": "images/fragrances/195.webp",
+    "thumbnail": "images/fragrances/thumbs/195.webp"
   },
   {
     "id": "508",
@@ -2298,7 +2357,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/508.webp"
+    "image": "images/fragrances/508.webp",
+    "thumbnail": "images/fragrances/thumbs/508.webp"
   },
   {
     "id": "001",
@@ -2334,7 +2394,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/001.webp"
+    "image": "images/fragrances/001.webp",
+    "thumbnail": "images/fragrances/thumbs/001.webp"
   },
   {
     "id": "170",
@@ -2368,7 +2429,8 @@
       "Древесные",
       "Сладкие"
     ],
-    "image": "images/fragrances/170.webp"
+    "image": "images/fragrances/170.webp",
+    "thumbnail": "images/fragrances/thumbs/170.webp"
   },
   {
     "id": "008",
@@ -2412,7 +2474,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/008.webp"
+    "image": "images/fragrances/008.webp",
+    "thumbnail": "images/fragrances/thumbs/008.webp"
   },
   {
     "id": "025",
@@ -2449,7 +2512,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/025.webp"
+    "image": "images/fragrances/025.webp",
+    "thumbnail": "images/fragrances/thumbs/025.webp"
   },
   {
     "id": "033",
@@ -2501,7 +2565,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/033.webp"
+    "image": "images/fragrances/033.webp",
+    "thumbnail": "images/fragrances/thumbs/033.webp"
   },
   {
     "id": "050",
@@ -2564,7 +2629,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/503.webp"
+    "image": "images/fragrances/503.webp",
+    "thumbnail": "images/fragrances/thumbs/503.webp"
   },
   {
     "id": "129",
@@ -2594,7 +2660,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/129.webp"
+    "image": "images/fragrances/129.webp",
+    "thumbnail": "images/fragrances/thumbs/129.webp"
   },
   {
     "id": "039",
@@ -2634,7 +2701,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/039.webp"
+    "image": "images/fragrances/039.webp",
+    "thumbnail": "images/fragrances/thumbs/039.webp"
   },
   {
     "id": "053",
@@ -2662,7 +2730,8 @@
       "Древесные",
       "Сладкие"
     ],
-    "image": "images/fragrances/053.webp"
+    "image": "images/fragrances/053.webp",
+    "thumbnail": "images/fragrances/thumbs/053.webp"
   },
   {
     "id": "038",
@@ -2695,7 +2764,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/038.webp"
+    "image": "images/fragrances/038.webp",
+    "thumbnail": "images/fragrances/thumbs/038.webp"
   },
   {
     "id": "022",
@@ -2721,7 +2791,8 @@
     "families": [
       "Цветочные"
     ],
-    "image": "images/fragrances/022.webp"
+    "image": "images/fragrances/022.webp",
+    "thumbnail": "images/fragrances/thumbs/022.webp"
   },
   {
     "id": "021",
@@ -2747,7 +2818,8 @@
     "families": [
       "Цветочные"
     ],
-    "image": "images/fragrances/021.webp"
+    "image": "images/fragrances/021.webp",
+    "thumbnail": "images/fragrances/thumbs/021.webp"
   },
   {
     "id": "024",
@@ -2785,7 +2857,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/024.webp"
+    "image": "images/fragrances/024.webp",
+    "thumbnail": "images/fragrances/thumbs/024.webp"
   },
   {
     "id": "536",
@@ -2858,7 +2931,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/023.webp"
+    "image": "images/fragrances/023.webp",
+    "thumbnail": "images/fragrances/thumbs/023.webp"
   },
   {
     "id": "026",
@@ -2896,7 +2970,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/026.webp"
+    "image": "images/fragrances/026.webp",
+    "thumbnail": "images/fragrances/thumbs/026.webp"
   },
   {
     "id": "063",
@@ -2937,7 +3012,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/063.webp"
+    "image": "images/fragrances/063.webp",
+    "thumbnail": "images/fragrances/thumbs/063.webp"
   },
   {
     "id": "006",
@@ -3067,7 +3143,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/527.webp"
+    "image": "images/fragrances/527.webp",
+    "thumbnail": "images/fragrances/thumbs/527.webp"
   },
   {
     "id": "040",
@@ -3107,7 +3184,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/040.webp"
+    "image": "images/fragrances/040.webp",
+    "thumbnail": "images/fragrances/thumbs/040.webp"
   },
   {
     "id": "041",
@@ -3152,7 +3230,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/041.webp"
+    "image": "images/fragrances/041.webp",
+    "thumbnail": "images/fragrances/thumbs/041.webp"
   },
   {
     "id": "533",
@@ -3190,7 +3269,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/533.webp"
+    "image": "images/fragrances/533.webp",
+    "thumbnail": "images/fragrances/thumbs/533.webp"
   },
   {
     "id": "180",
@@ -3279,7 +3359,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/502.webp"
+    "image": "images/fragrances/502.webp",
+    "thumbnail": "images/fragrances/thumbs/502.webp"
   },
   {
     "id": "179",
@@ -3305,7 +3386,8 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/179.webp"
+    "image": "images/fragrances/179.webp",
+    "thumbnail": "images/fragrances/thumbs/179.webp"
   },
   {
     "id": "535",
@@ -3333,7 +3415,8 @@
       "Древесные",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/535.webp"
+    "image": "images/fragrances/535.webp",
+    "thumbnail": "images/fragrances/thumbs/535.webp"
   },
   {
     "id": "032",
@@ -3359,7 +3442,8 @@
       "Цитрусовые",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/032.webp"
+    "image": "images/fragrances/032.webp",
+    "thumbnail": "images/fragrances/thumbs/032.webp"
   },
   {
     "id": "517",
@@ -3394,7 +3478,8 @@
       "Цитрусовые",
       "Свежие"
     ],
-    "image": "images/fragrances/517.webp"
+    "image": "images/fragrances/517.webp",
+    "thumbnail": "images/fragrances/thumbs/517.webp"
   },
   {
     "id": "516",
@@ -3428,7 +3513,8 @@
       "Цитрусовые",
       "Древесные"
     ],
-    "image": "images/fragrances/516.webp"
+    "image": "images/fragrances/516.webp",
+    "thumbnail": "images/fragrances/thumbs/516.webp"
   },
   {
     "id": "042",
@@ -3463,7 +3549,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/042.webp"
+    "image": "images/fragrances/042.webp",
+    "thumbnail": "images/fragrances/thumbs/042.webp"
   },
   {
     "id": "043",
@@ -3486,7 +3573,8 @@
     "families": [
       "Сладкие"
     ],
-    "image": "images/fragrances/043.webp"
+    "image": "images/fragrances/043.webp",
+    "thumbnail": "images/fragrances/thumbs/043.webp"
   },
   {
     "id": "526",
@@ -3521,7 +3609,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/526.webp"
+    "image": "images/fragrances/526.webp",
+    "thumbnail": "images/fragrances/thumbs/526.webp"
   },
   {
     "id": "510",
@@ -3556,7 +3645,8 @@
       "Сладкие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/510.webp"
+    "image": "images/fragrances/510.webp",
+    "thumbnail": "images/fragrances/thumbs/510.webp"
   },
   {
     "id": "505",
@@ -3585,6 +3675,7 @@
       "Свежие",
       "Пряные и восточные"
     ],
-    "image": "images/fragrances/505.webp"
+    "image": "images/fragrances/505.webp",
+    "thumbnail": "images/fragrances/thumbs/505.webp"
   }
 ]

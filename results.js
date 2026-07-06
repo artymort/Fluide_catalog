@@ -92,8 +92,9 @@ function cardMarkup(item) {
   const family = item.families[0] || "Аромат";
   const price = fragrancePrices[item.category]?.[30];
   const returnUrl = `${catalogPage}${window.location.search}`;
-  const visual = item.image
-    ? `<img class="product-card__image" src="${item.image}" alt="Флакон ${item.title}" loading="lazy" decoding="async" />
+  const cardImage = item.thumbnail || item.image;
+  const visual = cardImage
+    ? `<img class="product-card__image" src="${cardImage}" alt="Флакон ${item.title}" loading="lazy" decoding="async" />
         <span class="product-card__number product-card__number--with-image">${item.id}</span>`
     : `<span class="product-card__number">${item.id}</span>`;
   return `

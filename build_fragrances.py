@@ -93,6 +93,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
     notes_raw = str(row[9] or "").strip()
     oil_percent = int(row[3]) if row[3] is not None else None
     image_path = IMAGES / f"{number}.webp"
+    thumbnail_path = IMAGES / "thumbs" / f"{number}.webp"
     fragrances.append(
         {
             "id": number,
@@ -107,6 +108,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
             "notesRaw": notes_raw,
             "families": detect_families(notes_raw),
             **({"image": f"images/fragrances/{number}.webp"} if image_path.exists() else {}),
+            **({"thumbnail": f"images/fragrances/thumbs/{number}.webp"} if thumbnail_path.exists() else {}),
         }
     )
 
