@@ -214,6 +214,21 @@ button, input, select { font: inherit; }
   letter-spacing: -.04em;
 }
 
+.product-card__image {
+  width: calc(100% - 36px);
+  height: calc(100% - 34px);
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgb(67 72 101 / 16%));
+}
+
+.product-card__number--with-image {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  font-size: 17px;
+  opacity: .64;
+}
+
 .product-card__meta {
   position: absolute;
   top: 12px;

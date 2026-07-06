@@ -33,11 +33,15 @@ function notesMarkup(notes) {
 
 function renderProduct(item) {
   const prices = fragrancePrices[item.category];
+  const visual = item.image
+    ? `<img class="detail-visual__image" src="${item.image}" alt="Флакон ${item.title}" />
+       <span class="detail-visual__number detail-visual__number--with-image">${item.id}</span>`
+    : `<span class="detail-visual__number">${item.id}</span>`;
   document.title = `FLUIDE ${item.title}`;
   detail.innerHTML = `
     <div class="detail-visual">
       <span class="detail-visual__brand">FLUIDE Atelier</span>
-      <span class="detail-visual__number">${item.id}</span>
+      ${visual}
       <span class="detail-visual__caption">30 мл</span>
     </div>
     <div class="detail-content">

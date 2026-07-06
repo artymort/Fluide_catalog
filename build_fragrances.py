@@ -11,6 +11,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "Новый Список ароматов FLUIDE (1).xlsx"
 OUTPUT = ROOT / "fragrances.json"
+IMAGES = ROOT / "images" / "fragrances"
 
 FAMILY_KEYWORDS = {
     "Цветочные": [
@@ -91,6 +92,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
     number = str(row[0]).strip().zfill(3)
     notes_raw = str(row[9] or "").strip()
     oil_percent = int(row[3]) if row[3] is not None else None
+    image_path = IMAGES / f"{number}.webp"
     fragrances.append(
         {
             "id": number,
@@ -104,6 +106,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
             "notes": split_notes(notes_raw),
             "notesRaw": notes_raw,
             "families": detect_families(notes_raw),
+            **({"image": f"images/fragrances/{number}.webp"} if image_path.exists() else {}),
         }
     )
 
