@@ -12,6 +12,7 @@ const checkboxFilters = [...document.querySelectorAll('.filters input[type="chec
 const recommendationParams = new URLSearchParams(window.location.search);
 const isAllMode = document.body.dataset.catalogMode === "all" || recommendationParams.get("mode") === "all";
 const catalogPage = isAllMode ? "all.html" : "results.html";
+const catalogStateKeys = ["catalogState", "q", "type", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity"];
 
 let fragrances = [];
 const fragrancePrices = {
@@ -38,6 +39,32 @@ function intensityMatches(item, intensity) {
 
 function selectedValues(name) {
   return checkboxFilters.filter((input) => input.name === name && input.checked).map((input) => input.value);
+}
+
+function setRepeatedParam(params, key, values) {
+  params.delete(key);
+  values.forEach((value) => params.append(key, value));
+}
+
+function saveCatalogState() {
+  const params = new URLSearchParams(window.location.search);
+  params.set("catalogState", "1");
+  const scalarState = {
+    q: searchInput.value.trim(),
+    type: productTypeFilter?.value || "",
+    filterFamily: familyFilter.value,
+    sort: sortSelect.value,
+  };
+  Object.entries(scalarState).forEach(([key, value]) => {
+    if (value) params.set(key, value);
+    else params.delete(key);
+  });
+  setRepeatedParam(params, "filterGender", selectedValues("gender"));
+  setRepeatedParam(params, "filterCategory", selectedValues("category"));
+  setRepeatedParam(params, "filterConcentration", selectedValues("concentration"));
+  setRepeatedParam(params, "filterIntensity", selectedValues("intensity"));
+  const query = params.toString();
+  history.replaceState(null, "", `${catalogPage}${query ? `?${query}` : ""}`);
 }
 
 function recommendationScore(item) {
@@ -82,6 +109,7 @@ function cardMarkup(item) {
 }
 
 function applyFilters() {
+  saveCatalogState();
   const genders = selectedValues("gender");
   const categories = selectedValues("category");
   const concentrations = selectedValues("concentration");
@@ -121,12 +149,25 @@ function applyFilters() {
 
 function applyQueryDefaults() {
   const params = new URLSearchParams(window.location.search);
+  const hasSavedState = params.get("catalogState") === "1";
   const gender = params.get("gender");
   const family = params.get("family");
+  const savedFilters = {
+    gender: params.getAll("filterGender"),
+    category: params.getAll("filterCategory"),
+    concentration: params.getAll("filterConcentration"),
+    intensity: params.getAll("filterIntensity"),
+  };
   checkboxFilters.forEach((input) => {
-    if (input.name === "gender" && input.value === gender) input.checked = true;
+    const savedValues = savedFilters[input.name] || [];
+    if (savedValues.includes(input.value) || (!hasSavedState && input.name === "gender" && input.value === gender)) {
+      input.checked = true;
+    }
   });
-  if (family) familyFilter.value = family;
+  familyFilter.value = params.get("filterFamily") || (!hasSavedState ? family : "") || "";
+  searchInput.value = params.get("q") || "";
+  if (productTypeFilter) productTypeFilter.value = params.get("type") || "";
+  if (params.get("sort")) sortSelect.value = params.get("sort");
 }
 
 checkboxFilters.forEach((input) => input.addEventListener("change", applyFilters));
@@ -141,6 +182,7 @@ resetButton.addEventListener("click", () => {
   [...recommendationParams.keys()].forEach((key) => {
     if (key !== "mode") recommendationParams.delete(key);
   });
+  catalogStateKeys.forEach((key) => recommendationParams.delete(key));
   history.replaceState(null, "", isAllMode ? "all.html" : "results.html?mode=selection");
   applyFilters();
 });
