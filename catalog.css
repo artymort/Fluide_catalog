@@ -203,7 +203,7 @@ body {
 
 .menu-card--featured .menu-card__caption {
   max-width: 70%;
-  font-size: clamp(12px, 1vw, 16px);
+  font-size: clamp(15px, 1.1vw, 17px);
 }
 
 .menu-card--blue {
@@ -229,7 +229,7 @@ body {
 
 .menu-card__title {
   max-width: 90%;
-  font-size: clamp(18px, 1.75vw, 28px);
+  font-size: clamp(21px, 1.75vw, 28px);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.025em;
@@ -237,7 +237,7 @@ body {
 
 .menu-card__caption {
   margin-top: 7px;
-  font-size: clamp(11px, 0.9vw, 14px);
+  font-size: clamp(14px, 1vw, 16px);
   line-height: 1.25;
   opacity: 0.68;
 }
