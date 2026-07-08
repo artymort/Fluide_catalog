@@ -117,7 +117,7 @@ body {
 }
 
 .menu-heading {
-  padding-right: clamp(12px, 2vw, 32px);
+  text-align: center;
 }
 
 .menu-kicker {
@@ -139,7 +139,7 @@ body {
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: clamp(10px, 1.25vw, 20px);
   min-height: 0;
   padding-top: clamp(18px, 3.2vh, 36px);
