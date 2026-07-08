@@ -4,13 +4,13 @@
   "description": "Интерактивный каталог ароматов FLUIDE Atelier",
   "lang": "ru",
   "id": "./",
-  "start_url": "./index.html",
+  "start_url": "./catalog.html",
   "scope": "./",
   "display": "fullscreen",
   "display_override": ["fullscreen", "standalone"],
   "orientation": "landscape",
-  "background_color": "#10224c",
-  "theme_color": "#10224c",
+  "background_color": "#f4f0e6",
+  "theme_color": "#f4f0e6",
   "icons": [
     {
       "src": "app-icon-192.png",

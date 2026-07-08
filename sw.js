@@ -1,4 +1,4 @@
-const CACHE_NAME = "fluide-shell-v19";
+const CACHE_NAME = "fluide-shell-v20";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,7 +8,6 @@ const APP_SHELL = [
   "./results.html",
   "./product.html",
   "./fonts.css?v=1",
-  "./styles.css?v=4",
   "./catalog.css?v=3",
   "./selection.css?v=3",
   "./results.css?v=6",
@@ -28,9 +27,7 @@ const APP_SHELL = [
   "./MazzardH-Medium.woff2",
   "./MazzardH-SemiBold.woff2",
   "./MazzardH-Bold.woff2",
-  "./логотип FLUIDE белый.svg",
   "./логотип FLUIDE сниний.svg",
-  "./затемнение на фон синее.svg"
 ];
 
 self.addEventListener("install", (event) => {
