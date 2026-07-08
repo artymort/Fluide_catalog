@@ -32,14 +32,30 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("pageshow", keepScreenAwake);
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./sw.js", { updateViaCache: "none" })
-      .then((registration) => registration.update())
-      .catch((error) => {
-        console.error("Не удалось зарегистрировать Service Worker:", error);
+  let serviceWorkerRegistration = null;
+
+  async function registerAndUpdateServiceWorker() {
+    try {
+      serviceWorkerRegistration ||= await navigator.serviceWorker.register("./sw.js", {
+        updateViaCache: "none",
       });
+      await serviceWorkerRegistration.update();
+    } catch (error) {
+      console.error("Не удалось обновить Service Worker:", error);
+    }
+  }
+
+  if (document.readyState === "complete") {
+    registerAndUpdateServiceWorker();
+  } else {
+    window.addEventListener("load", registerAndUpdateServiceWorker, { once: true });
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") registerAndUpdateServiceWorker();
   });
+  window.addEventListener("pageshow", registerAndUpdateServiceWorker);
+  window.setInterval(registerAndUpdateServiceWorker, 5 * 60 * 1000);
 
   let refreshing = false;
   navigator.serviceWorker.addEventListener("controllerchange", () => {
