@@ -1,4 +1,4 @@
-const CACHE_NAME = "fluide-shell-v21";
+const CACHE_NAME = "fluide-shell-v22";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,7 +8,7 @@ const APP_SHELL = [
   "./results.html",
   "./product.html",
   "./fonts.css?v=1",
-  "./catalog.css?v=3",
+  "./catalog.css?v=4",
   "./selection.css?v=3",
   "./results.css?v=6",
   "./product.css?v=4",
