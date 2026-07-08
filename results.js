@@ -25,7 +25,7 @@ function configurePageMode() {
   if (!isAllMode) return;
   document.title = "FLUIDE — каталог";
   pageTitle.textContent = "Каталог";
-  backLink.href = "catalog.html";
+  backLink.href = "index.html";
   backLink.setAttribute("aria-label", "Вернуться в главное меню");
   recommendedSort.remove();
   sortSelect.value = "number";

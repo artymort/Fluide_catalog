@@ -2,15 +2,81 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="refresh" content="0; url=./catalog.html" />
-    <title>FLUIDE — парфюмерный каталог</title>
-    <link rel="canonical" href="./catalog.html" />
-    <script>
-      window.location.replace("./catalog.html");
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f0e6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="FLUIDE" />
+    <title>FLUIDE — главное меню</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="app-icon-192.png" />
+    <link rel="stylesheet" href="fonts.css?v=1" />
+    <link rel="stylesheet" href="catalog.css?v=3" />
   </head>
   <body>
-    <p><a href="./catalog.html">Открыть главное меню FLUIDE</a></p>
+    <main class="menu-screen">
+      <header class="menu-header">
+        <img class="menu-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+      </header>
+
+      <section class="menu-content" aria-labelledby="menu-title">
+        <div class="menu-heading">
+          <p class="menu-kicker">Парфюмерный каталог</p>
+          <h1 id="menu-title">Откройте свой аромат</h1>
+        </div>
+
+        <nav class="menu-grid" aria-label="Главное меню каталога">
+          <a class="menu-card menu-card--primary" href="selection.html">
+            <span class="menu-card__number">01</span>
+            <span class="menu-card__title">Подобрать аромат</span>
+            <span class="menu-card__caption">Ответьте на несколько вопросов</span>
+          </a>
+
+          <a class="menu-card menu-card--blue" href="all.html">
+            <span class="menu-card__number">02</span>
+            <span class="menu-card__title">Каталог</span>
+            <span class="menu-card__caption">Ароматы, уход и товары для дома</span>
+          </a>
+
+          <a class="menu-card" href="#collections">
+            <span class="menu-card__number">03</span>
+            <span class="menu-card__title">Коллекции</span>
+            <span class="menu-card__caption">Ароматы по настроению</span>
+          </a>
+
+          <a class="menu-card menu-card--peach" href="#bestsellers">
+            <span class="menu-card__number">04</span>
+            <span class="menu-card__title">Бестселлеры</span>
+            <span class="menu-card__caption">Выбор наших гостей</span>
+          </a>
+
+          <a class="menu-card menu-card--pink" href="#new">
+            <span class="menu-card__number">05</span>
+            <span class="menu-card__title">Новинки</span>
+            <span class="menu-card__caption">Последние поступления</span>
+          </a>
+
+          <a class="menu-card" href="#gifts">
+            <span class="menu-card__number">06</span>
+            <span class="menu-card__title">Подарочные решения</span>
+            <span class="menu-card__caption">Для особенных случаев</span>
+          </a>
+
+          <a class="menu-card menu-card--brand" href="#brand">
+            <span class="menu-card__number">07</span>
+            <span class="menu-card__title">О бренде</span>
+            <span class="menu-card__caption">Философия FLUIDE Atelier</span>
+          </a>
+        </nav>
+      </section>
+    </main>
+
+    <div class="rotate-message" role="status">
+      <img src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+      <p>Поверните устройство горизонтально</p>
+    </div>
+    <script src="pwa.js"></script>
   </body>
 </html>

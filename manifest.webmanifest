@@ -4,7 +4,7 @@
   "description": "Интерактивный каталог ароматов FLUIDE Atelier",
   "lang": "ru",
   "id": "./",
-  "start_url": "./catalog.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",
   "display_override": ["fullscreen", "standalone"],
