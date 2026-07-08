@@ -242,6 +242,14 @@ body {
   opacity: 0.68;
 }
 
+.menu-card:not(.menu-card--featured) .menu-card__title {
+  min-height: 2.1em;
+}
+
+.menu-card:not(.menu-card--featured) .menu-card__caption {
+  min-height: 2.5em;
+}
+
 .rotate-message {
   display: none;
 }
