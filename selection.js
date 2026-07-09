@@ -68,6 +68,10 @@ const answers = JSON.parse(sessionStorage.getItem("fluide-selection") || "{}");
 let currentStep = 0;
 let fragrances = [];
 
+function activeStepKeys() {
+  return steps.slice(0, currentStep + 1).map((step) => step.key);
+}
+
 function answerValues(key) {
   const value = answers[key];
   if (Array.isArray(value)) return value;
@@ -107,11 +111,16 @@ function metadataMatches(item, key, selectedValues) {
 
 function countMatches() {
   if (!fragrances.length) return null;
+  const activeKeys = activeStepKeys();
+  const gender = activeKeys.includes("gender") ? answers.gender : "";
+  const families = activeKeys.includes("family") ? answerValues("family") : [];
+  const occasions = activeKeys.includes("occasion") ? answerValues("occasion") : [];
+  const seasons = activeKeys.includes("season") ? answerValues("season") : [];
   return fragrances.filter((item) => (
-    genderMatches(item, answers.gender)
-    && (!answerValues("family").length || answerValues("family").some((family) => item.families.includes(family)))
-    && metadataMatches(item, "occasion", answerValues("occasion"))
-    && metadataMatches(item, "season", answerValues("season"))
+    genderMatches(item, gender)
+    && (!families.length || families.some((family) => item.families.includes(family)))
+    && metadataMatches(item, "occasion", occasions)
+    && metadataMatches(item, "season", seasons)
   )).length;
 }
 
@@ -121,7 +130,7 @@ function updateStatus() {
     status.textContent = "Считаем подходящие ароматы…";
     return;
   }
-  status.textContent = `Сейчас подходит ароматов: ${count}`;
+  status.textContent = `Сейчас подходит ароматов: ${count} из ${fragrances.length}`;
 }
 
 function optionMarkup(option, index, step, selectedValues) {
