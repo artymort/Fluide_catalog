@@ -256,7 +256,9 @@ body {
 }
 
 .selection-back:focus-visible,
-.selection-next:focus-visible {
+.selection-next:focus-visible,
+.selection-previous:focus-visible,
+.selection-skip:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 4px;
 }
@@ -274,7 +276,8 @@ body {
 }
 
 .selection-next,
-.selection-previous {
+.selection-previous,
+.selection-skip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -297,6 +300,13 @@ body {
   color: var(--ink);
   background: transparent;
   border: 1px solid rgb(67 72 101 / 24%);
+}
+
+.selection-skip {
+  min-width: 150px;
+  color: var(--ink);
+  background: rgb(255 255 255 / 42%);
+  border: 1px solid rgb(67 72 101 / 18%);
 }
 
 .selection-next:disabled {
@@ -343,7 +353,8 @@ body {
   }
 
   .selection-next,
-  .selection-previous {
+  .selection-previous,
+  .selection-skip {
     min-height: 54px;
   }
 }

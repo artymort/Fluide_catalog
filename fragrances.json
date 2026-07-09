@@ -42,6 +42,15 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/011.webp",
     "thumbnail": "images/fragrances/thumbs/011.webp"
   },
@@ -76,6 +85,15 @@
       "Цитрусовые",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "spring"
+    ],
     "image": "images/fragrances/100.webp",
     "thumbnail": "images/fragrances/thumbs/100.webp"
   },
@@ -109,6 +127,13 @@
       "Цитрусовые",
       "Сладкие"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "spring"
+    ],
     "image": "images/fragrances/046.webp",
     "thumbnail": "images/fragrances/thumbs/046.webp"
   },
@@ -138,6 +163,14 @@
       "Фруктовые",
       "Цитрусовые",
       "Древесные"
+    ],
+    "occasion": [
+      "evening",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/282.webp",
     "thumbnail": "images/fragrances/thumbs/282.webp"
@@ -176,6 +209,13 @@
       "Цитрусовые",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "winter"
     ],
     "image": "images/fragrances/044.webp",
     "thumbnail": "images/fragrances/thumbs/044.webp"
@@ -226,6 +266,15 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/087.webp",
     "thumbnail": "images/fragrances/thumbs/087.webp"
   },
@@ -259,6 +308,14 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/013.webp",
     "thumbnail": "images/fragrances/thumbs/013.webp"
@@ -301,6 +358,16 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "winter",
+      "spring"
     ]
   },
   {
@@ -341,6 +408,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/049.webp",
     "thumbnail": "images/fragrances/thumbs/049.webp"
   },
@@ -374,6 +449,14 @@
       "Цветочные",
       "Цитрусовые",
       "Древесные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/146.webp",
     "thumbnail": "images/fragrances/thumbs/146.webp"
@@ -415,6 +498,14 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/091.webp",
     "thumbnail": "images/fragrances/thumbs/091.webp"
   },
@@ -451,6 +542,14 @@
       "Цитрусовые",
       "Древесные",
       "Сладкие"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/027.webp",
     "thumbnail": "images/fragrances/thumbs/027.webp"
@@ -489,6 +588,14 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/017.webp",
     "thumbnail": "images/fragrances/thumbs/017.webp"
@@ -531,6 +638,14 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/029.webp",
     "thumbnail": "images/fragrances/thumbs/029.webp"
   },
@@ -566,6 +681,15 @@
       "Цитрусовые",
       "Древесные",
       "Свежие"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/141.webp",
     "thumbnail": "images/fragrances/thumbs/141.webp"
@@ -606,6 +730,15 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/018.webp",
     "thumbnail": "images/fragrances/thumbs/018.webp"
   },
@@ -636,6 +769,13 @@
       "Фруктовые",
       "Сладкие"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "spring"
+    ],
     "image": "images/fragrances/048.webp",
     "thumbnail": "images/fragrances/thumbs/048.webp"
   },
@@ -662,6 +802,14 @@
     "families": [
       "Фруктовые",
       "Цитрусовые"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/047.webp",
     "thumbnail": "images/fragrances/thumbs/047.webp"
@@ -701,6 +849,14 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "summer"
+    ],
     "image": "images/fragrances/020.webp",
     "thumbnail": "images/fragrances/thumbs/020.webp"
   },
@@ -737,6 +893,14 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/014.webp",
     "thumbnail": "images/fragrances/thumbs/014.webp"
   },
@@ -769,6 +933,15 @@
       "Цветочные",
       "Фруктовые",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/512.webp",
     "thumbnail": "images/fragrances/thumbs/512.webp"
@@ -810,6 +983,15 @@
       "Древесные",
       "Сладкие"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/509.webp",
     "thumbnail": "images/fragrances/thumbs/509.webp"
   },
@@ -834,6 +1016,13 @@
     "notesRaw": "Основные: ваниль, кашмеран",
     "families": [
       "Сладкие"
+    ],
+    "occasion": [
+      "everyday"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/500.webp",
     "thumbnail": "images/fragrances/thumbs/500.webp"
@@ -872,6 +1061,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/541.webp",
     "thumbnail": "images/fragrances/thumbs/541.webp"
   },
@@ -907,6 +1104,17 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/137.webp",
     "thumbnail": "images/fragrances/thumbs/137.webp"
@@ -949,6 +1157,15 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ]
   },
   {
@@ -981,6 +1198,13 @@
       "Цветочные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/507.webp",
     "thumbnail": "images/fragrances/thumbs/507.webp"
@@ -1018,6 +1242,16 @@
       "Сладкие",
       "Свежие"
     ],
+    "occasion": [
+      "everyday",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "autumn",
+      "spring"
+    ],
     "image": "images/fragrances/028.webp",
     "thumbnail": "images/fragrances/thumbs/028.webp"
   },
@@ -1053,6 +1287,12 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday"
+    ],
+    "season": [
+      "autumn"
     ],
     "image": "images/fragrances/057.webp",
     "thumbnail": "images/fragrances/thumbs/057.webp"
@@ -1091,6 +1331,13 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "date"
+    ],
+    "season": [
+      "autumn"
     ],
     "image": "images/fragrances/523.webp",
     "thumbnail": "images/fragrances/thumbs/523.webp"
@@ -1137,6 +1384,15 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/173.webp",
     "thumbnail": "images/fragrances/thumbs/173.webp"
   },
@@ -1175,6 +1431,15 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/002.webp",
     "thumbnail": "images/fragrances/thumbs/002.webp"
@@ -1215,6 +1480,15 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/148.webp",
     "thumbnail": "images/fragrances/thumbs/148.webp"
@@ -1257,6 +1531,14 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "spring"
     ],
     "image": "images/fragrances/518.webp",
     "thumbnail": "images/fragrances/thumbs/518.webp"
@@ -1301,6 +1583,15 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/090.webp",
     "thumbnail": "images/fragrances/thumbs/090.webp"
   },
@@ -1342,6 +1633,15 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/070.webp",
     "thumbnail": "images/fragrances/thumbs/070.webp"
   },
@@ -1380,6 +1680,13 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/152.webp",
     "thumbnail": "images/fragrances/thumbs/152.webp"
   },
@@ -1414,6 +1721,14 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/035.webp",
     "thumbnail": "images/fragrances/thumbs/035.webp"
@@ -1459,6 +1774,14 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/012.webp",
     "thumbnail": "images/fragrances/thumbs/012.webp"
   },
@@ -1498,6 +1821,15 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/003.webp",
     "thumbnail": "images/fragrances/thumbs/003.webp"
@@ -1543,6 +1875,17 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
     "image": "images/fragrances/153.webp",
     "thumbnail": "images/fragrances/thumbs/153.webp"
   },
@@ -1579,6 +1922,15 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/030.webp",
     "thumbnail": "images/fragrances/thumbs/030.webp"
@@ -1621,6 +1973,13 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/093.webp",
     "thumbnail": "images/fragrances/thumbs/093.webp"
@@ -1666,6 +2025,14 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/045.webp",
     "thumbnail": "images/fragrances/thumbs/045.webp"
   },
@@ -1700,6 +2067,15 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/183.webp",
     "thumbnail": "images/fragrances/thumbs/183.webp"
@@ -1752,6 +2128,15 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/096.webp",
     "thumbnail": "images/fragrances/thumbs/096.webp"
   },
@@ -1787,6 +2172,16 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/156.webp",
     "thumbnail": "images/fragrances/thumbs/156.webp"
@@ -1828,6 +2223,14 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/034.webp",
     "thumbnail": "images/fragrances/thumbs/034.webp"
   },
@@ -1864,6 +2267,14 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/111.webp",
     "thumbnail": "images/fragrances/thumbs/111.webp"
@@ -1906,6 +2317,14 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/081.webp",
     "thumbnail": "images/fragrances/thumbs/081.webp"
   },
@@ -1942,6 +2361,14 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/185.webp",
     "thumbnail": "images/fragrances/thumbs/185.webp"
@@ -1980,6 +2407,15 @@
       "Древесные",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/036.webp",
     "thumbnail": "images/fragrances/thumbs/036.webp"
@@ -2020,6 +2456,14 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/015.webp",
     "thumbnail": "images/fragrances/thumbs/015.webp"
@@ -2063,6 +2507,15 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/016.webp",
     "thumbnail": "images/fragrances/thumbs/016.webp"
   },
@@ -2103,6 +2556,15 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/528.webp",
     "thumbnail": "images/fragrances/thumbs/528.webp"
   },
@@ -2142,6 +2604,15 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/198.webp",
     "thumbnail": "images/fragrances/thumbs/198.webp"
   },
@@ -2180,6 +2651,15 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/031.webp",
     "thumbnail": "images/fragrances/thumbs/031.webp"
   },
@@ -2214,6 +2694,15 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/071.webp",
     "thumbnail": "images/fragrances/thumbs/071.webp"
   },
@@ -2244,6 +2733,14 @@
       "Цветочные",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/004.webp",
     "thumbnail": "images/fragrances/thumbs/004.webp"
@@ -2284,6 +2781,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/037.webp",
     "thumbnail": "images/fragrances/thumbs/037.webp"
   },
@@ -2312,6 +2817,14 @@
     "families": [
       "Цитрусовые",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer"
     ],
     "image": "images/fragrances/195.webp",
     "thumbnail": "images/fragrances/thumbs/195.webp"
@@ -2357,6 +2870,15 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/508.webp",
     "thumbnail": "images/fragrances/thumbs/508.webp"
   },
@@ -2394,6 +2916,13 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/001.webp",
     "thumbnail": "images/fragrances/thumbs/001.webp"
   },
@@ -2428,6 +2957,13 @@
     "families": [
       "Древесные",
       "Сладкие"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/170.webp",
     "thumbnail": "images/fragrances/thumbs/170.webp"
@@ -2474,6 +3010,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/008.webp",
     "thumbnail": "images/fragrances/thumbs/008.webp"
   },
@@ -2511,6 +3055,13 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/025.webp",
     "thumbnail": "images/fragrances/thumbs/025.webp"
@@ -2565,6 +3116,13 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/033.webp",
     "thumbnail": "images/fragrances/thumbs/033.webp"
   },
@@ -2591,6 +3149,14 @@
     "families": [
       "Цветочные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ]
   },
   {
@@ -2629,6 +3195,14 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/503.webp",
     "thumbnail": "images/fragrances/thumbs/503.webp"
   },
@@ -2659,6 +3233,13 @@
     "families": [
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/129.webp",
     "thumbnail": "images/fragrances/thumbs/129.webp"
@@ -2701,6 +3282,16 @@
       "Свежие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "spring"
+    ],
     "image": "images/fragrances/039.webp",
     "thumbnail": "images/fragrances/thumbs/039.webp"
   },
@@ -2729,6 +3320,14 @@
       "Цитрусовые",
       "Древесные",
       "Сладкие"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn"
     ],
     "image": "images/fragrances/053.webp",
     "thumbnail": "images/fragrances/thumbs/053.webp"
@@ -2764,6 +3363,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/038.webp",
     "thumbnail": "images/fragrances/thumbs/038.webp"
   },
@@ -2791,6 +3398,15 @@
     "families": [
       "Цветочные"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/022.webp",
     "thumbnail": "images/fragrances/thumbs/022.webp"
   },
@@ -2817,6 +3433,14 @@
     "notesRaw": "Основные: амброксан, изо е супер, ирис, жасмин",
     "families": [
       "Цветочные"
+    ],
+    "occasion": [
+      "everyday",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ],
     "image": "images/fragrances/021.webp",
     "thumbnail": "images/fragrances/thumbs/021.webp"
@@ -2857,6 +3481,16 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "autumn",
+      "spring"
+    ],
     "image": "images/fragrances/024.webp",
     "thumbnail": "images/fragrances/thumbs/024.webp"
   },
@@ -2892,6 +3526,14 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ]
   },
   {
@@ -2931,6 +3573,15 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "autumn",
+      "spring"
+    ],
     "image": "images/fragrances/023.webp",
     "thumbnail": "images/fragrances/thumbs/023.webp"
   },
@@ -2969,6 +3620,14 @@
       "Цитрусовые",
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/026.webp",
     "thumbnail": "images/fragrances/thumbs/026.webp"
@@ -3012,6 +3671,15 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/063.webp",
     "thumbnail": "images/fragrances/thumbs/063.webp"
   },
@@ -3049,6 +3717,15 @@
       "Фруктовые",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "date",
+      "walk"
+    ],
+    "season": [
+      "autumn",
+      "spring"
     ]
   },
   {
@@ -3101,6 +3778,15 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ]
   },
   {
@@ -3143,6 +3829,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/527.webp",
     "thumbnail": "images/fragrances/thumbs/527.webp"
   },
@@ -3183,6 +3877,14 @@
       "Древесные",
       "Сладкие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/040.webp",
     "thumbnail": "images/fragrances/thumbs/040.webp"
@@ -3230,6 +3932,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/041.webp",
     "thumbnail": "images/fragrances/thumbs/041.webp"
   },
@@ -3269,6 +3979,13 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/533.webp",
     "thumbnail": "images/fragrances/thumbs/533.webp"
   },
@@ -3300,6 +4017,13 @@
     "families": [
       "Цитрусовые",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ]
   },
   {
@@ -3327,6 +4051,13 @@
     "families": [
       "Древесные",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "date"
+    ],
+    "season": [
+      "autumn"
     ]
   },
   {
@@ -3359,6 +4090,13 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/502.webp",
     "thumbnail": "images/fragrances/thumbs/502.webp"
   },
@@ -3385,6 +4123,12 @@
     "families": [
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday"
+    ],
+    "season": [
+      "summer"
     ],
     "image": "images/fragrances/179.webp",
     "thumbnail": "images/fragrances/thumbs/179.webp"
@@ -3415,6 +4159,13 @@
       "Древесные",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/535.webp",
     "thumbnail": "images/fragrances/thumbs/535.webp"
   },
@@ -3441,6 +4192,15 @@
     "families": [
       "Цитрусовые",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/032.webp",
     "thumbnail": "images/fragrances/thumbs/032.webp"
@@ -3478,6 +4238,15 @@
       "Цитрусовые",
       "Свежие"
     ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
+    ],
     "image": "images/fragrances/517.webp",
     "thumbnail": "images/fragrances/thumbs/517.webp"
   },
@@ -3512,6 +4281,14 @@
       "Цветочные",
       "Цитрусовые",
       "Древесные"
+    ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/516.webp",
     "thumbnail": "images/fragrances/thumbs/516.webp"
@@ -3549,6 +4326,13 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/042.webp",
     "thumbnail": "images/fragrances/thumbs/042.webp"
   },
@@ -3572,6 +4356,13 @@
     "notesRaw": "Основные: ваниль",
     "families": [
       "Сладкие"
+    ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
     ],
     "image": "images/fragrances/043.webp",
     "thumbnail": "images/fragrances/thumbs/043.webp"
@@ -3609,6 +4400,13 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/526.webp",
     "thumbnail": "images/fragrances/thumbs/526.webp"
   },
@@ -3645,6 +4443,14 @@
       "Сладкие",
       "Пряные и восточные"
     ],
+    "occasion": [
+      "evening",
+      "date"
+    ],
+    "season": [
+      "autumn",
+      "winter"
+    ],
     "image": "images/fragrances/510.webp",
     "thumbnail": "images/fragrances/thumbs/510.webp"
   },
@@ -3674,6 +4480,15 @@
       "Цитрусовые",
       "Свежие",
       "Пряные и восточные"
+    ],
+    "occasion": [
+      "everyday",
+      "gym",
+      "walk"
+    ],
+    "season": [
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/505.webp",
     "thumbnail": "images/fragrances/thumbs/505.webp"

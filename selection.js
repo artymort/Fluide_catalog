@@ -5,23 +5,40 @@ const help = document.querySelector("#selection-help");
 const stepCounter = document.querySelector(".selection-step");
 const nextButton = form.querySelector(".selection-next");
 const previousButton = form.querySelector(".selection-previous");
+const skipButton = form.querySelector(".selection-skip");
 const status = form.querySelector(".selection-status");
 
 const steps = [
   {
     key: "gender",
-    title: "Для кого выбираем аромат?",
+    title: "Кому подбираем аромат?",
     help: "Выберите один вариант",
+    type: "single",
     options: [
-      { value: "женский", label: "Женский", caption: "34 аромата", tone: "pink" },
-      { value: "мужской", label: "Мужской", caption: "24 аромата", tone: "blue" },
-      { value: "унисекс", label: "Унисекс", caption: "41 аромат", tone: "ink" },
+      { value: "женский", label: "Женские", caption: "Покажем женские и унисекс", tone: "pink" },
+      { value: "мужской", label: "Мужские", caption: "Покажем мужские и унисекс", tone: "blue" },
+      { value: "унисекс", label: "Унисекс", caption: "Только универсальные ароматы", tone: "ink" },
+    ],
+  },
+  {
+    key: "occasion",
+    title: "Для какого случая?",
+    help: "Можно выбрать несколько вариантов",
+    type: "multi",
+    compact: true,
+    options: [
+      { value: "everyday", label: "На каждый день", caption: "Спокойные и универсальные", tone: "cream" },
+      { value: "evening", label: "Вечерние", caption: "Более выразительные", tone: "ink" },
+      { value: "date", label: "Свидание", caption: "Мягкие и запоминающиеся", tone: "pink" },
+      { value: "gym", label: "Спортзал", caption: "Чистые и лёгкие", tone: "blue" },
+      { value: "walk", label: "Прогулка", caption: "Свежие и непринуждённые", tone: "peach" },
     ],
   },
   {
     key: "family",
     title: "Какие ноты вам ближе?",
-    help: "Выберите главное направление",
+    help: "Можно выбрать несколько направлений",
+    type: "multi",
     compact: true,
     options: [
       { value: "Цветочные", label: "Цветочные", caption: "Роза, жасмин, пион", tone: "pink" },
@@ -31,40 +48,90 @@ const steps = [
       { value: "Сладкие", label: "Сладкие", caption: "Ваниль, пралине, какао", tone: "pink" },
       { value: "Свежие", label: "Свежие", caption: "Морские, зелёные, чайные", tone: "blue" },
       { value: "Пряные и восточные", label: "Пряные", caption: "Перец, амбра, шафран", tone: "peach" },
-      { value: "", label: "Неважно", caption: "Покажем все направления", tone: "cream" },
     ],
   },
   {
-    key: "intensity",
-    title: "Какую насыщенность предпочитаете?",
-    help: "Ориентируемся на долю парфюмерного масла",
+    key: "season",
+    title: "Для какого времени года?",
+    help: "Можно выбрать несколько сезонов",
+    type: "multi",
     options: [
-      { value: "light", label: "Лёгкая", caption: "20–22% масла", tone: "cream" },
-      { value: "balanced", label: "Сбалансированная", caption: "25–28% масла", tone: "blue" },
-      { value: "intense", label: "Насыщенная", caption: "30–35% масла", tone: "ink" },
-    ],
-  },
-  {
-    key: "concentration",
-    title: "Какой формат вам ближе?",
-    help: "Последний шаг",
-    options: [
-      { value: "Eau de parfum", label: "Парфюмерная вода", caption: "Eau de parfum", tone: "pink" },
-      { value: "Eau de extrait", label: "Парфюмерный экстракт", caption: "Eau de extrait", tone: "ink" },
-      { value: "", label: "Неважно", caption: "Показать оба формата", tone: "cream" },
+      { value: "summer", label: "Лето", caption: "Лёгкие и свежие", tone: "blue" },
+      { value: "autumn", label: "Осень", caption: "Тёплые и мягкие", tone: "peach" },
+      { value: "winter", label: "Зима", caption: "Плотные и стойкие", tone: "ink" },
+      { value: "spring", label: "Весна", caption: "Цветочные и чистые", tone: "pink" },
     ],
   },
 ];
 
 const answers = JSON.parse(sessionStorage.getItem("fluide-selection") || "{}");
 let currentStep = 0;
+let fragrances = [];
 
-function optionMarkup(option, index, key, selected) {
-  const checked = selected === option.value ? " checked" : "";
-  const selectedClass = selected === option.value ? " is-selected" : "";
+function answerValues(key) {
+  const value = answers[key];
+  if (Array.isArray(value)) return value;
+  if (value) return [value];
+  return [];
+}
+
+function setAnswer(key, value, type) {
+  if (type === "single") {
+    answers[key] = value;
+  } else {
+    const values = new Set(answerValues(key));
+    if (values.has(value)) values.delete(value);
+    else values.add(value);
+    answers[key] = [...values];
+  }
+  sessionStorage.setItem("fluide-selection", JSON.stringify(answers));
+}
+
+function clearStepAnswer(key) {
+  delete answers[key];
+  sessionStorage.setItem("fluide-selection", JSON.stringify(answers));
+}
+
+function genderMatches(item, selectedGender) {
+  if (!selectedGender) return true;
+  if (selectedGender === "унисекс") return item.gender === "унисекс";
+  return item.gender === selectedGender || item.gender === "унисекс";
+}
+
+function metadataMatches(item, key, selectedValues) {
+  if (!selectedValues.length) return true;
+  const itemValues = Array.isArray(item[key]) ? item[key] : [];
+  if (!itemValues.length) return true;
+  return selectedValues.some((value) => itemValues.includes(value));
+}
+
+function countMatches() {
+  if (!fragrances.length) return null;
+  return fragrances.filter((item) => (
+    genderMatches(item, answers.gender)
+    && (!answerValues("family").length || answerValues("family").some((family) => item.families.includes(family)))
+    && metadataMatches(item, "occasion", answerValues("occasion"))
+    && metadataMatches(item, "season", answerValues("season"))
+  )).length;
+}
+
+function updateStatus() {
+  const count = countMatches();
+  if (count === null) {
+    status.textContent = "Считаем подходящие ароматы…";
+    return;
+  }
+  status.textContent = `Сейчас подходит ароматов: ${count}`;
+}
+
+function optionMarkup(option, index, step, selectedValues) {
+  const selected = selectedValues.includes(option.value);
+  const checked = selected ? " checked" : "";
+  const selectedClass = selected ? " is-selected" : "";
+  const inputType = step.type === "single" ? "radio" : "checkbox";
   return `
     <label class="selection-option selection-option--${option.tone}${selectedClass}">
-      <input type="radio" name="${key}" value="${option.value}"${checked} />
+      <input type="${inputType}" name="${step.key}" value="${option.value}"${checked} />
       <span class="selection-option__number">${String(index + 1).padStart(2, "0")}</span>
       <span class="selection-option__mark" aria-hidden="true"></span>
       <span class="selection-option__title">${option.label}</span>
@@ -72,29 +139,35 @@ function optionMarkup(option, index, key, selected) {
     </label>`;
 }
 
+function updateNextState(step) {
+  nextButton.disabled = answerValues(step.key).length === 0;
+}
+
 function renderStep() {
   const step = steps[currentStep];
-  const selected = Object.prototype.hasOwnProperty.call(answers, step.key) ? answers[step.key] : null;
+  const selectedValues = answerValues(step.key);
   title.textContent = step.title;
   help.textContent = step.help;
-  stepCounter.textContent = `${String(currentStep + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
+  stepCounter.textContent = `Шаг ${String(currentStep + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
   stepCounter.setAttribute("aria-label", `Шаг ${currentStep + 1} из ${steps.length}`);
   optionsContainer.dataset.compact = step.compact ? "true" : "false";
   optionsContainer.innerHTML = step.options
-    .map((option, index) => optionMarkup(option, index, step.key, selected))
+    .map((option, index) => optionMarkup(option, index, step, selectedValues))
     .join("");
   previousButton.hidden = currentStep === 0;
-  nextButton.disabled = selected === null;
   nextButton.firstChild.textContent = currentStep === steps.length - 1 ? "Показать ароматы " : "Продолжить ";
-  status.textContent = "";
+  updateNextState(step);
+  updateStatus();
 
   optionsContainer.querySelectorAll("input").forEach((input) => {
     input.addEventListener("change", () => {
-      answers[step.key] = input.value;
-      sessionStorage.setItem("fluide-selection", JSON.stringify(answers));
-      optionsContainer.querySelectorAll(".selection-option").forEach((card) => card.classList.remove("is-selected"));
-      input.closest(".selection-option").classList.add("is-selected");
-      nextButton.disabled = false;
+      setAnswer(step.key, input.value, step.type);
+      if (step.type === "single") {
+        optionsContainer.querySelectorAll(".selection-option").forEach((card) => card.classList.remove("is-selected"));
+      }
+      input.closest(".selection-option").classList.toggle("is-selected", input.checked);
+      updateNextState(step);
+      updateStatus();
     });
 
     input.addEventListener("focus", () => {
@@ -104,8 +177,7 @@ function renderStep() {
   });
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+function goNext() {
   if (currentStep < steps.length - 1) {
     currentStep += 1;
     renderStep();
@@ -114,10 +186,21 @@ form.addEventListener("submit", (event) => {
 
   const params = new URLSearchParams();
   params.set("mode", "selection");
-  Object.entries(answers).forEach(([key, value]) => {
-    if (value) params.set(key, value);
+  if (answers.gender) params.set("gender", answers.gender);
+  ["occasion", "family", "season"].forEach((key) => {
+    answerValues(key).forEach((value) => params.append(key, value));
   });
   window.location.href = `results.html?${params.toString()}`;
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  goNext();
+});
+
+skipButton.addEventListener("click", () => {
+  clearStepAnswer(steps[currentStep].key);
+  goNext();
 });
 
 previousButton.addEventListener("click", () => {
@@ -126,5 +209,18 @@ previousButton.addEventListener("click", () => {
     renderStep();
   }
 });
+
+fetch("./fragrances.json")
+  .then((response) => {
+    if (!response.ok) throw new Error("Не удалось загрузить каталог");
+    return response.json();
+  })
+  .then((data) => {
+    fragrances = data;
+    updateStatus();
+  })
+  .catch(() => {
+    status.textContent = "Не удалось посчитать ароматы. Подбор всё равно доступен.";
+  });
 
 renderStep();

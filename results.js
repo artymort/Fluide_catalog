@@ -12,7 +12,7 @@ const checkboxFilters = [...document.querySelectorAll('.filters input[type="chec
 const recommendationParams = new URLSearchParams(window.location.search);
 const isAllMode = document.body.dataset.catalogMode === "all" || recommendationParams.get("mode") === "all";
 const catalogPage = isAllMode ? "all.html" : "results.html";
-const catalogStateKeys = ["catalogState", "q", "type", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity"];
+const catalogStateKeys = ["catalogState", "q", "type", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity", "gender", "family", "occasion", "season"];
 
 let fragrances = [];
 const fragrancePrices = {
@@ -35,6 +35,24 @@ function intensityMatches(item, intensity) {
   if (intensity === "light") return item.oilPercent <= 22;
   if (intensity === "balanced") return item.oilPercent >= 25 && item.oilPercent <= 28;
   return item.oilPercent >= 30;
+}
+
+function genderValuesForSelection(gender) {
+  if (gender === "мужской") return ["мужской", "унисекс"];
+  if (gender === "женский") return ["женский", "унисекс"];
+  if (gender === "унисекс") return ["унисекс"];
+  return [];
+}
+
+function recommendationValues(key) {
+  return recommendationParams.getAll(key).filter(Boolean);
+}
+
+function metadataMatches(item, key, selectedValues) {
+  if (!selectedValues.length) return true;
+  const itemValues = Array.isArray(item[key]) ? item[key] : [];
+  if (!itemValues.length) return true;
+  return selectedValues.some((value) => itemValues.includes(value));
 }
 
 function selectedValues(name) {
@@ -69,11 +87,13 @@ function saveCatalogState() {
 
 function recommendationScore(item) {
   let score = 0;
-  const family = recommendationParams.get("family");
-  const intensity = recommendationParams.get("intensity");
+  const families = recommendationValues("family");
+  const occasions = recommendationValues("occasion");
+  const seasons = recommendationValues("season");
   const concentration = recommendationParams.get("concentration");
-  if (family && item.families.includes(family)) score += 4;
-  if (intensity && intensityMatches(item, intensity)) score += 2;
+  if (families.some((family) => item.families.includes(family))) score += 4;
+  if (metadataMatches(item, "occasion", occasions) && occasions.length) score += 2;
+  if (metadataMatches(item, "season", seasons) && seasons.length) score += 2;
   if (concentration && item.concentration === concentration) score += 1;
   return score;
 }
@@ -122,15 +142,24 @@ function applyFilters() {
   const family = familyFilter.value;
   const productType = productTypeFilter?.value || "";
   const query = searchInput.value.trim().toLowerCase();
+  const hasSavedState = recommendationParams.get("catalogState") === "1";
+  const selectionGenders = !isAllMode && !hasSavedState ? genderValuesForSelection(recommendationParams.get("gender")) : [];
+  const selectionFamilies = !isAllMode ? recommendationValues("family") : [];
+  const selectionOccasions = !isAllMode ? recommendationValues("occasion") : [];
+  const selectionSeasons = !isAllMode ? recommendationValues("season") : [];
   const hasFragranceFilters = genders.length || categories.length || concentrations.length || intensities.length || family;
   const filtered = fragrances.filter((item) => {
     const haystack = `${item.id} ${item.title} ${item.original || ""} ${item.typeLabel || ""}`.toLowerCase();
     if (productType && item.productType !== productType) return false;
     if (item.kind === "product") return !hasFragranceFilters && (!query || haystack.includes(query));
     return (!genders.length || genders.includes(item.gender))
+      && (!selectionGenders.length || selectionGenders.includes(item.gender))
       && (!categories.length || categories.includes(item.category))
       && (!concentrations.length || concentrations.includes(item.concentration))
       && (!family || item.families.includes(family))
+      && (!selectionFamilies.length || selectionFamilies.some((selectedFamily) => item.families.includes(selectedFamily)))
+      && metadataMatches(item, "occasion", selectionOccasions)
+      && metadataMatches(item, "season", selectionSeasons)
       && (!query || haystack.includes(query))
       && (!intensities.length || intensities.some((intensity) => intensityMatches(item, intensity)));
   });
@@ -156,7 +185,8 @@ function applyQueryDefaults() {
   const params = new URLSearchParams(window.location.search);
   const hasSavedState = params.get("catalogState") === "1";
   const gender = params.get("gender");
-  const family = params.get("family");
+  const families = params.getAll("family");
+  const selectionGenders = genderValuesForSelection(gender);
   const savedFilters = {
     gender: params.getAll("filterGender"),
     category: params.getAll("filterCategory"),
@@ -165,11 +195,11 @@ function applyQueryDefaults() {
   };
   checkboxFilters.forEach((input) => {
     const savedValues = savedFilters[input.name] || [];
-    if (savedValues.includes(input.value) || (!hasSavedState && input.name === "gender" && input.value === gender)) {
+    if (savedValues.includes(input.value) || (!hasSavedState && input.name === "gender" && selectionGenders.includes(input.value))) {
       input.checked = true;
     }
   });
-  familyFilter.value = params.get("filterFamily") || (!hasSavedState ? family : "") || "";
+  familyFilter.value = params.get("filterFamily") || (!hasSavedState && families.length === 1 ? families[0] : "") || "";
   searchInput.value = params.get("q") || "";
   if (productTypeFilter) productTypeFilter.value = params.get("type") || "";
   if (params.get("sort")) sortSelect.value = params.get("sort");
