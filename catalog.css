@@ -159,7 +159,8 @@ body {
   border-radius: clamp(16px, 1.7vw, 26px);
   color: var(--ink);
   background:
-    linear-gradient(135deg, rgb(255 255 255 / 84%) 0%, rgb(248 245 238 / 70%) 54%, rgb(244 240 230 / 58%) 100%),
+    radial-gradient(circle at 78% 18%, rgb(255 255 255 / 62%), transparent 30%),
+    linear-gradient(135deg, rgb(255 255 255 / 82%), rgb(244 240 230 / 58%)),
     rgb(255 255 255 / 42%);
   box-shadow:
     0 18px 42px rgb(67 72 101 / 8%),
@@ -167,6 +168,16 @@ body {
   text-decoration: none;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+.menu-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 86% 18%, rgb(255 255 255 / 36%), transparent 28%),
+    linear-gradient(135deg, rgb(255 255 255 / 18%), transparent 68%);
 }
 
 .menu-card::after {
@@ -196,7 +207,9 @@ body {
 .menu-card--primary {
   color: var(--white);
   background:
-    linear-gradient(135deg, #5b607c 0%, #434865 46%, #343a55 100%);
+    radial-gradient(circle at 78% 18%, rgb(159 182 223 / 30%), transparent 30%),
+    linear-gradient(135deg, rgb(255 255 255 / 13%), transparent 62%),
+    linear-gradient(135deg, #434865 0%, #333951 100%);
 }
 
 .menu-card--featured {
@@ -219,19 +232,22 @@ body {
 
 .menu-card--blue {
   background:
-    linear-gradient(135deg, rgb(159 182 223 / 84%) 0%, rgb(191 207 234 / 72%) 52%, rgb(232 238 249 / 58%) 100%),
+    radial-gradient(circle at 80% 16%, rgb(255 255 255 / 58%), transparent 32%),
+    linear-gradient(135deg, rgb(159 182 223 / 80%), rgb(255 255 255 / 50%)),
     var(--blue);
 }
 
 .menu-card--peach {
   background:
-    linear-gradient(135deg, rgb(234 182 168 / 82%) 0%, rgb(244 207 197 / 70%) 56%, rgb(255 247 241 / 56%) 100%),
+    radial-gradient(circle at 80% 16%, rgb(255 255 255 / 48%), transparent 32%),
+    linear-gradient(135deg, rgb(234 182 168 / 76%), rgb(255 255 255 / 52%)),
     var(--peach);
 }
 
 .menu-card--pink {
   background:
-    linear-gradient(135deg, rgb(236 176 181 / 82%) 0%, rgb(246 203 208 / 70%) 56%, rgb(255 246 247 / 56%) 100%),
+    radial-gradient(circle at 80% 16%, rgb(255 255 255 / 48%), transparent 32%),
+    linear-gradient(135deg, rgb(236 176 181 / 76%), rgb(255 255 255 / 52%)),
     var(--pink);
 }
 
