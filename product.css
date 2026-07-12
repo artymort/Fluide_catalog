@@ -51,7 +51,8 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .detail {
   display: grid;
   grid-template-columns: minmax(300px, .8fr) minmax(420px, 1.2fr);
-  gap: clamp(28px, 5vw, 80px);
+  column-gap: clamp(28px, 5vw, 80px);
+  row-gap: 10px;
   min-height: 0;
   padding: clamp(24px, 4vh, 52px) clamp(10px, 4vw, 60px);
   overflow-y: auto;
@@ -158,7 +159,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 }
 
 @media (max-width: 1180px) {
-  .detail { grid-template-columns: minmax(280px, .75fr) minmax(400px, 1.25fr); gap: 28px; padding-right: 22px; padding-left: 22px; }
+  .detail { grid-template-columns: minmax(280px, .75fr) minmax(400px, 1.25fr); column-gap: 28px; row-gap: 10px; padding-right: 22px; padding-left: 22px; }
   .detail-content h1 { font-size: 52px; }
   .purchase-panel__heading,
   .purchase-panel__action { gap: 12px; }
