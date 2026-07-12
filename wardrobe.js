@@ -167,6 +167,7 @@ function setProgress(stage) {
 function setScreen(screen) {
   currentScreen = screen;
   content.scrollTop = 0;
+  content.classList.toggle("wardrobe-content--fitting", screen === "fitting");
   const progressStage = ["welcome", "profile", "dislikes", "moods", "roles", "processing"].includes(screen)
     ? "profile"
     : screen === "fitting" ? "fitting" : "wardrobe";
@@ -598,13 +599,17 @@ function fittingCardMarkup(item, index) {
 function renderFitting() {
   setScreen("fitting");
   content.innerHTML = `
-    <p class="wardrobe-kicker">Первая примерка</p>
-    <h1 class="wardrobe-title">Ваши пять ароматов готовы</h1>
-    <p class="wardrobe-lead">Покажите экран консультанту. Он подготовит пять пронумерованных блоттеров — по одному на каждую роль.</p>
-    <div class="fitting-grid">${state.recommendations.map(fittingCardMarkup).join("")}</div>
-    <div class="wardrobe-actions">
-      <button class="wardrobe-button wardrobe-button--secondary" id="fitting-back" type="button">Изменить роли</button>
-      <button class="wardrobe-button" id="finish-wardrobe" type="button">Завершить гардероб</button>
+    <div class="fitting-screen">
+      <div class="fitting-heading">
+        <p class="wardrobe-kicker">Первая примерка</p>
+        <h1 class="wardrobe-title">Ваши пять ароматов готовы</h1>
+        <p class="wardrobe-lead">Покажите экран консультанту: он подготовит пять блоттеров, по одному на каждую роль.</p>
+      </div>
+      <div class="fitting-grid">${state.recommendations.map(fittingCardMarkup).join("")}</div>
+      <div class="wardrobe-actions fitting-actions">
+        <button class="wardrobe-button wardrobe-button--secondary" id="fitting-back" type="button">Изменить роли</button>
+        <button class="wardrobe-button" id="finish-wardrobe" type="button">Завершить гардероб</button>
+      </div>
     </div>`;
   document.querySelectorAll("[data-reaction]").forEach((button) => button.addEventListener("click", () => {
     state.reactions[button.dataset.slot] = button.dataset.reaction;
