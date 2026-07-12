@@ -640,9 +640,8 @@ function renderFinal() {
           </div>
           <div class="offer-prices">
             <div class="offer-price"><span>Обычная стоимость</span><s>15 000 ₽</s></div>
-            <div class="offer-price offer-price--total"><span>Стоимость гардероба</span><strong>9 900 ₽</strong></div>
+            <div class="offer-price"><span>Ваш комплект</span><strong>9 900 ₽</strong></div>
             <div class="offer-price"><span>Ваша выгода</span><strong>5 100 ₽</strong></div>
-            <div class="offer-price"><span>Персональный подбор</span><strong>Включён</strong></div>
           </div>
           <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить весь гардероб</button>
         </aside>
