@@ -179,6 +179,7 @@ function setScreen(screen) {
   currentScreen = screen;
   content.scrollTop = 0;
   content.classList.toggle("wardrobe-content--fitting", screen === "fitting");
+  content.classList.toggle("wardrobe-content--final", screen === "final");
   const progressStage = ["welcome", "gender", "profile", "dislikes", "moods", "roles", "processing"].includes(screen)
     ? "profile"
     : screen === "fitting" ? "fitting" : "wardrobe";
@@ -615,32 +616,41 @@ function showReplacementDialog(slot) {
 function finalCardMarkup(item, index) {
   const role = roleDefinitions[state.roles[index]];
   return `<article class="final-card">
-    <div class="final-visual"><span class="final-role">${role.name}</span>${fragranceVisual(item)}</div>
-    <div class="final-body"><h2>${escapeHtml(item.title)}</h2><p class="final-reason">${role.reason}</p></div>
+    <span class="final-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>
+    <div class="final-visual">${fragranceVisual(item)}</div>
+    <div class="final-body"><h2>${escapeHtml(item.title)}</h2><span>30 мл</span></div>
   </article>`;
 }
 
 function renderFinal() {
   setScreen("final");
   content.innerHTML = `
-    <p class="wardrobe-kicker">Персональная коллекция</p>
-    <h1 class="wardrobe-title">Ваш парфюмерный гардероб готов</h1>
-    <div class="final-layout">
-      <div class="final-grid">${state.recommendations.map(finalCardMarkup).join("")}</div>
-      <aside class="offer">
-        <p class="offer-kicker">Персональный комплект</p>
-        <h2>5 ароматов</h2>
-        <p class="offer-volume">5 флаконов × 30 мл</p>
-        <div class="offer-price"><span>Обычная стоимость</span><s>15 000 ₽</s></div>
-        <div class="offer-price"><span>Стоимость гардероба</span><strong>9 900 ₽</strong></div>
-        <div class="offer-price"><span>Ваша выгода</span><strong>5 100 ₽</strong></div>
-        <div class="offer-price"><span>Персональный подбор</span><strong>0 ₽</strong></div>
-        <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить весь гардероб</button>
-      </aside>
-    </div>
-    <div class="wardrobe-actions">
-      <button class="wardrobe-button wardrobe-button--secondary" id="final-back" type="button">Назад</button>
-      <button class="wardrobe-button wardrobe-button--secondary" id="restart-wardrobe" type="button">Собрать заново</button>
+    <div class="final-screen">
+      <div class="final-heading">
+        <p class="wardrobe-kicker">Персональная коллекция</p>
+        <h1 class="wardrobe-title">Ваш парфюмерный гардероб готов</h1>
+      </div>
+      <div class="final-layout">
+        <div class="final-grid">${state.recommendations.map(finalCardMarkup).join("")}</div>
+        <aside class="offer">
+          <div class="offer-heading">
+            <p class="offer-kicker">Персональный комплект</p>
+            <h2>5 ароматов</h2>
+            <p class="offer-volume">5 флаконов × 30 мл</p>
+          </div>
+          <div class="offer-prices">
+            <div class="offer-price"><span>Обычная стоимость</span><s>15 000 ₽</s></div>
+            <div class="offer-price offer-price--total"><span>Стоимость гардероба</span><strong>9 900 ₽</strong></div>
+            <div class="offer-price"><span>Ваша выгода</span><strong>5 100 ₽</strong></div>
+            <div class="offer-price"><span>Персональный подбор</span><strong>Включён</strong></div>
+          </div>
+          <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить весь гардероб</button>
+        </aside>
+      </div>
+      <div class="wardrobe-actions final-actions">
+        <button class="wardrobe-button wardrobe-button--secondary" id="final-back" type="button">Назад</button>
+        <button class="wardrobe-button wardrobe-button--secondary" id="restart-wardrobe" type="button">Собрать заново</button>
+      </div>
     </div>`;
   document.querySelector("#add-wardrobe").addEventListener("click", (event) => {
     localStorage.setItem("fluide-cart-count", "5");

@@ -649,10 +649,8 @@ body {
   text-transform: uppercase;
 }
 
-.final-role { position: absolute; z-index: 1; top: 9px; left: 11px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-
 .fitting-body,
-.final-body { display: flex; flex: 1; flex-direction: column; padding: 14px; border-top: 1px solid rgb(67 72 101 / 10%); }
+.final-body { padding: 14px; border-top: 1px solid rgb(67 72 101 / 10%); }
 .fitting-body { min-height: 0; padding: 13px 12px 12px; }
 .fitting-body h2,
 .final-body h2 { margin: 0; font-size: clamp(14px, 1.2vw, 18px); font-weight: 400; line-height: 1.1; }
@@ -681,21 +679,80 @@ body {
 .fitting-confirmation span { opacity: .55; }
 .fitting-confirmation strong { font-size: 16px; font-weight: 400; text-transform: none; }
 
-.final-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
-  gap: clamp(24px, 3vw, 48px);
-  margin-top: 28px;
+.wardrobe-content--final {
+  padding-top: clamp(14px, 2.4vh, 24px);
+  padding-bottom: 0;
+  overflow: hidden;
 }
 
-.final-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
-.final-card { min-height: 100%; }
-.final-body { padding: 11px; }
-.final-reason { margin-bottom: 0; }
+.final-screen {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(14px, 2.2vh, 22px);
+  height: 100%;
+  min-height: 0;
+}
+
+.final-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(270px, 25vw, 340px);
+  align-items: center;
+  gap: clamp(12px, 1.7vw, 24px);
+  min-height: 0;
+  margin: 0;
+}
+
+.final-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(7px, .9vw, 13px);
+  height: clamp(300px, 48vh, 390px);
+  max-height: 100%;
+  min-height: 0;
+  margin: 0;
+}
+
+.final-card {
+  display: grid;
+  grid-template-rows: 30px minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.final-role {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0 10px;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(67 72 101 / 10%);
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.final-visual {
+  aspect-ratio: auto;
+  min-height: 0;
+  padding: clamp(8px, 1.2vw, 16px);
+}
+
+.final-visual img { max-width: 100%; max-height: 100%; }
+.final-body { min-height: 72px; padding: 10px; }
+.final-body h2 { min-height: 2.3em; font-size: clamp(13px, 1.1vw, 17px); line-height: 1.15; overflow-wrap: anywhere; }
+.final-body > span { display: block; margin-top: 7px; font-size: 11px; opacity: .52; }
+.final-actions { margin-top: 0; }
+.final-actions .wardrobe-button { min-height: 48px; padding-top: 10px; padding-bottom: 10px; }
 
 .offer {
-  align-self: stretch;
-  padding: clamp(20px, 2.4vw, 34px);
+  display: flex;
+  flex-direction: column;
+  height: clamp(300px, 48vh, 390px);
+  max-height: 100%;
+  min-height: 0;
+  padding: clamp(18px, 2.2vw, 30px);
   border: 1px solid rgb(67 72 101 / 16%);
   border-radius: 8px;
   color: var(--white);
@@ -704,12 +761,14 @@ body {
 
 .offer-kicker { margin: 0; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; opacity: .65; }
 .offer h2 { margin: 8px 0 0; font-size: clamp(24px, 2.4vw, 36px); font-weight: 400; }
-.offer-volume { margin: 8px 0 26px; opacity: .7; }
-.offer-price { display: flex; align-items: end; justify-content: space-between; gap: 14px; padding: 12px 0; border-top: 1px solid rgb(255 255 255 / 18%); }
+.offer-volume { margin: 6px 0 clamp(16px, 2.5vh, 26px); opacity: .7; }
+.offer-prices { min-height: 0; }
+.offer-price { display: flex; align-items: end; justify-content: space-between; gap: 14px; padding: clamp(8px, 1.5vh, 12px) 0; border-top: 1px solid rgb(255 255 255 / 18%); }
 .offer-price span { font-size: 12px; opacity: .64; }
-.offer-price strong { font-size: 19px; font-weight: 400; }
+.offer-price strong { font-size: 17px; font-weight: 400; white-space: nowrap; }
+.offer-price--total strong { font-size: 21px; }
 .offer-price s { opacity: .55; }
-.offer .wardrobe-button { width: 100%; margin-top: 22px; color: var(--ink); border-color: var(--white); background: var(--white); }
+.offer .wardrobe-button { width: 100%; min-height: 48px; margin-top: auto; padding: 11px 16px; color: var(--ink); border-color: var(--white); background: var(--white); }
 
 .wardrobe-dialog {
   width: min(760px, calc(100vw - 48px));
@@ -736,8 +795,7 @@ body {
 
 @media (max-width: 1250px) {
   .wardrobe-progress { display: none; }
-  .final-layout { grid-template-columns: 1fr; }
-  .final-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .final-layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); }
 }
 
 @media (max-width: 900px) {
@@ -746,6 +804,16 @@ body {
   .fitting-body { padding-right: 8px; padding-left: 8px; }
   .fitting-body h2 { font-size: 14px; }
   .reaction { padding-right: 3px; padding-left: 3px; font-size: 10px; }
+  .final-layout { grid-template-columns: minmax(0, 1fr) 240px; gap: 8px; }
+  .final-grid { gap: 5px; }
+  .final-role { padding-right: 6px; padding-left: 6px; font-size: 8px; }
+  .final-body { min-height: 64px; padding: 7px; }
+  .final-body h2 { font-size: 12px; }
+  .offer { padding: 16px; }
+  .offer-price { gap: 8px; }
+  .offer-price span { font-size: 10px; }
+  .offer-price strong { font-size: 14px; }
+  .offer-price--total strong { font-size: 18px; }
 }
 
 @media (max-height: 650px) {
@@ -774,6 +842,20 @@ body {
   .reactions { padding: 6px; }
   .reaction { min-height: 34px; font-size: 11px; }
   .fitting-actions .wardrobe-button { min-height: 42px; }
+  .final-screen { gap: 8px; }
+  .final-heading .wardrobe-kicker { display: none; }
+  .final-heading .wardrobe-title { font-size: 30px; }
+  .final-card { grid-template-rows: 26px minmax(0, 1fr) auto; }
+  .final-body { min-height: 56px; padding-top: 7px; padding-bottom: 6px; }
+  .final-body h2 { min-height: 2.25em; font-size: 12px; }
+  .final-body > span { margin-top: 4px; font-size: 9px; }
+  .offer { padding-top: 14px; padding-bottom: 14px; }
+  .offer-kicker { display: none; }
+  .offer h2 { margin-top: 0; font-size: 23px; }
+  .offer-volume { margin: 3px 0 10px; font-size: 12px; }
+  .offer-price { padding-top: 6px; padding-bottom: 6px; }
+  .offer .wardrobe-button { min-height: 42px; }
+  .final-actions .wardrobe-button { min-height: 42px; }
 }
 
 @media (orientation: portrait) and (max-width: 700px) {
