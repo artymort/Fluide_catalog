@@ -1,4 +1,4 @@
-const CACHE_NAME = "fluide-shell-v34";
+const CACHE_NAME = "fluide-shell-v35";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -15,7 +15,7 @@ const APP_SHELL = [
   "./results.css?v=8",
   "./wardrobe.css?v=2",
   "./product.css?v=5",
-  "./pwa.js?v=3",
+  "./pwa.js?v=4",
   "./selection.js?v=5",
   "./results.js?v=11",
   "./wardrobe.js?v=2",
@@ -37,6 +37,10 @@ const APP_SHELL = [
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
   self.skipWaiting();
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
@@ -66,6 +70,22 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(() => caches.match(request).then((cached) => cached || caches.match("./index.html")))
+    );
+    return;
+  }
+
+  const networkFirst = [".css", ".js", ".json", ".webmanifest"].some((extension) => url.pathname.endsWith(extension));
+  if (networkFirst) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
     );
     return;
   }

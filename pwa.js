@@ -45,13 +45,16 @@ window.addEventListener("pageshow", keepScreenAwake);
 
 if ("serviceWorker" in navigator) {
   let serviceWorkerRegistration = null;
+  const serviceWorkerUrl = "./sw.js?v=35";
 
   async function registerAndUpdateServiceWorker() {
     try {
-      serviceWorkerRegistration ||= await navigator.serviceWorker.register("./sw.js", {
+      serviceWorkerRegistration ||= await navigator.serviceWorker.register(serviceWorkerUrl, {
+        scope: "./",
         updateViaCache: "none",
       });
       await serviceWorkerRegistration.update();
+      serviceWorkerRegistration.waiting?.postMessage({ type: "SKIP_WAITING" });
     } catch (error) {
       console.error("Не удалось обновить Service Worker:", error);
     }
@@ -67,7 +70,7 @@ if ("serviceWorker" in navigator) {
     if (document.visibilityState === "visible") registerAndUpdateServiceWorker();
   });
   window.addEventListener("pageshow", registerAndUpdateServiceWorker);
-  window.setInterval(registerAndUpdateServiceWorker, 5 * 60 * 1000);
+  window.setInterval(registerAndUpdateServiceWorker, 60 * 1000);
 
   let refreshing = false;
   navigator.serviceWorker.addEventListener("controllerchange", () => {
