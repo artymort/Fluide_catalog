@@ -176,25 +176,28 @@ function renderWelcome() {
       <p class="wardrobe-kicker">Цифровой парфюмерный стилист FLUIDE</p>
       <h1 class="wardrobe-title">Парфюмерный гардероб</h1>
       <p class="wardrobe-lead">Расскажите, какие ароматы вам нравятся и как вы хотите звучать. Стилист соберёт пять разных ароматов, а консультант подготовит их к примерке.</p>
-      <div class="welcome-facts" aria-label="Условия персонального подбора">
-        <span>Бесплатно</span><span>3–5 минут</span><span>5 ароматов</span>
-      </div>
       <div class="wardrobe-actions wardrobe-actions--centered">
         <button class="wardrobe-button" id="start-wardrobe" type="button">Начать подбор</button>
         <button class="wardrobe-button wardrobe-button--secondary" id="show-how" type="button">Как это работает</button>
       </div>
+      <div class="welcome-bottles" aria-hidden="true">
+        <img src="images/fragrances/thumbs/129.webp" alt="" loading="eager" />
+        <img src="images/fragrances/thumbs/029.webp" alt="" loading="eager" />
+        <img src="images/fragrances/thumbs/195.webp" alt="" loading="eager" />
+        <img src="images/fragrances/thumbs/087.webp" alt="" loading="eager" />
+        <img src="images/fragrances/thumbs/041.webp" alt="" loading="eager" />
+      </div>
       <div class="welcome-process" aria-label="Как проходит подбор">
         <div class="welcome-process__step">
-          <span>01</span><div><h2>Опишите свой вкус</h2><p>Знакомые ароматы, желаемое впечатление и то, чего хочется избежать.</p></div>
+          <span>01</span><div><h2>Опишите свой вкус</h2><p>Любимые ароматы и границы вкуса.</p></div>
         </div>
         <div class="welcome-process__step">
-          <span>02</span><div><h2>Получите пять образов</h2><p>Каждый аромат решает свою задачу и не повторяет остальные.</p></div>
+          <span>02</span><div><h2>Получите пять образов</h2><p>Пять разных задач без повторов.</p></div>
         </div>
         <div class="welcome-process__step">
-          <span>03</span><div><h2>Примерьте в бутике</h2><p>Консультант подготовит пять пронумерованных блоттеров.</p></div>
+          <span>03</span><div><h2>Примерьте в бутике</h2><p>Пять блоттеров у консультанта.</p></div>
         </div>
       </div>
-      <p class="welcome-result"><span>Ваш результат</span> Основа · Собранность · Перезагрузка · Притяжение · Акцент</p>
     </div>`;
   document.querySelector("#start-wardrobe").addEventListener("click", () => {
     resetState();

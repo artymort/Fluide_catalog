@@ -213,9 +213,12 @@ body {
 }
 
 .wardrobe-welcome {
+  display: flex;
+  flex-direction: column;
   width: min(1180px, 100%);
+  min-height: 100%;
   margin: 0 auto;
-  padding-top: clamp(8px, 2vh, 24px);
+  padding-top: clamp(4px, 1vh, 12px);
   text-align: center;
 }
 
@@ -229,31 +232,48 @@ body {
   margin: 14px auto 0;
 }
 
-.welcome-facts {
+.welcome-bottles {
+  position: relative;
   display: flex;
-  align-items: center;
+  flex: 1 1 auto;
+  align-items: flex-end;
   justify-content: center;
-  margin-top: 18px;
-  color: rgb(67 72 101 / 58%);
-  font-size: 12px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  gap: clamp(8px, 1.4vw, 22px);
+  width: min(900px, 86%);
+  min-height: clamp(150px, 22vh, 235px);
+  margin: clamp(12px, 2vh, 22px) auto 0;
+  padding: 0 clamp(18px, 4vw, 54px) 12px;
 }
 
-.welcome-facts span + span::before {
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  margin: 0 14px 3px;
-  border-radius: 50%;
-  background: rgb(67 72 101 / 38%);
+.welcome-bottles::after {
+  position: absolute;
+  right: 0;
+  bottom: 7px;
+  left: 0;
+  height: 1px;
+  background: rgb(67 72 101 / 18%);
   content: "";
 }
+
+.welcome-bottles img {
+  position: relative;
+  z-index: 1;
+  width: min(17%, 150px);
+  height: clamp(135px, 20vh, 215px);
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 12px 14px rgb(40 43 64 / 13%));
+}
+
+.welcome-bottles img:nth-child(1) { transform: scale(.9); transform-origin: center bottom; }
+.welcome-bottles img:nth-child(3) { transform: scale(.84); transform-origin: center bottom; }
+.welcome-bottles img:nth-child(4) { transform: scale(.96); transform-origin: center bottom; }
+.welcome-bottles img:nth-child(5) { transform: scale(.88); transform-origin: center bottom; }
 
 .welcome-process {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: clamp(28px, 4vh, 44px);
+  margin-top: 0;
   border-top: 1px solid rgb(67 72 101 / 16%);
   border-bottom: 1px solid rgb(67 72 101 / 16%);
   text-align: left;
@@ -271,20 +291,6 @@ body {
 .welcome-process__step > span { padding-top: 3px; font-size: 11px; letter-spacing: .12em; opacity: .52; }
 .welcome-process__step h2 { margin: 0; font-size: clamp(17px, 1.45vw, 22px); font-weight: 400; }
 .welcome-process__step p { margin: 7px 0 0; color: rgb(67 72 101 / 62%); font-size: 13px; line-height: 1.4; }
-
-.welcome-result {
-  margin: 17px 0 0;
-  color: rgb(67 72 101 / 72%);
-  font-size: 13px;
-}
-
-.welcome-result span {
-  margin-right: 12px;
-  color: rgb(67 72 101 / 48%);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
 
 .profile-layout {
   display: grid;
@@ -566,9 +572,8 @@ body {
   .role-card__number { margin-bottom: 38px; }
   .wardrobe-welcome { padding-top: 0; }
   .wardrobe-welcome .wardrobe-lead { margin-top: 8px; }
-  .welcome-facts { margin-top: 10px; }
   .wardrobe-welcome .wardrobe-actions { margin-top: 14px; }
-  .welcome-process { margin-top: 18px; }
+  .welcome-bottles { min-height: 120px; margin-top: 8px; }
   .welcome-process__step { padding-top: 14px; padding-bottom: 14px; }
 }
 
