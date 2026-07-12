@@ -134,6 +134,8 @@ body {
   margin-top: clamp(22px, 3.4vh, 38px);
 }
 
+.wardrobe-actions--centered { justify-content: center; }
+
 .wardrobe-button {
   display: inline-flex;
   align-items: center;
@@ -166,7 +168,6 @@ body {
   outline-offset: 3px;
 }
 
-.service-strip,
 .roles-grid,
 .fitting-grid,
 .final-grid {
@@ -176,7 +177,6 @@ body {
   margin-top: clamp(24px, 4vh, 48px);
 }
 
-.service-role,
 .role-card {
   position: relative;
   min-height: clamp(180px, 27vh, 260px);
@@ -187,14 +187,10 @@ body {
   background: rgb(255 255 255 / 40%);
 }
 
-.service-role:nth-child(2),
 .role-card:nth-child(2) { background: rgb(159 182 223 / 46%); }
-.service-role:nth-child(4),
 .role-card:nth-child(4) { background: rgb(236 176 181 / 44%); }
-.service-role:nth-child(5),
 .role-card:nth-child(5) { color: var(--white); background: var(--ink); }
 
-.service-role__number,
 .role-card__number {
   display: block;
   margin-bottom: clamp(38px, 8vh, 84px);
@@ -203,19 +199,91 @@ body {
   opacity: .62;
 }
 
-.service-role h2,
 .role-card h2 {
   margin: 0;
   font-size: clamp(18px, 1.7vw, 27px);
   font-weight: 400;
 }
 
-.service-role p,
 .role-card p {
   margin: 8px 0 0;
   font-size: 13px;
   line-height: 1.35;
   opacity: .68;
+}
+
+.wardrobe-welcome {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding-top: clamp(8px, 2vh, 24px);
+  text-align: center;
+}
+
+.wardrobe-welcome .wardrobe-title {
+  max-width: none;
+  font-size: clamp(38px, 4.8vw, 72px);
+}
+
+.wardrobe-welcome .wardrobe-lead {
+  max-width: 880px;
+  margin: 14px auto 0;
+}
+
+.welcome-facts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  color: rgb(67 72 101 / 58%);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.welcome-facts span + span::before {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin: 0 14px 3px;
+  border-radius: 50%;
+  background: rgb(67 72 101 / 38%);
+  content: "";
+}
+
+.welcome-process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(28px, 4vh, 44px);
+  border-top: 1px solid rgb(67 72 101 / 16%);
+  border-bottom: 1px solid rgb(67 72 101 / 16%);
+  text-align: left;
+}
+
+.welcome-process__step {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 14px;
+  min-width: 0;
+  padding: clamp(18px, 2.4vw, 30px);
+}
+
+.welcome-process__step + .welcome-process__step { border-left: 1px solid rgb(67 72 101 / 14%); }
+.welcome-process__step > span { padding-top: 3px; font-size: 11px; letter-spacing: .12em; opacity: .52; }
+.welcome-process__step h2 { margin: 0; font-size: clamp(17px, 1.45vw, 22px); font-weight: 400; }
+.welcome-process__step p { margin: 7px 0 0; color: rgb(67 72 101 / 62%); font-size: 13px; line-height: 1.4; }
+
+.welcome-result {
+  margin: 17px 0 0;
+  color: rgb(67 72 101 / 72%);
+  font-size: 13px;
+}
+
+.welcome-result span {
+  margin-right: 12px;
+  color: rgb(67 72 101 / 48%);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .profile-layout {
@@ -494,10 +562,14 @@ body {
 @media (max-height: 650px) {
   .wardrobe-screen { grid-template-rows: 68px minmax(0, 1fr); padding-bottom: 14px; }
   .wardrobe-content { padding-top: 14px; }
-  .service-role,
   .role-card { min-height: 190px; }
-  .service-role__number,
   .role-card__number { margin-bottom: 38px; }
+  .wardrobe-welcome { padding-top: 0; }
+  .wardrobe-welcome .wardrobe-lead { margin-top: 8px; }
+  .welcome-facts { margin-top: 10px; }
+  .wardrobe-welcome .wardrobe-actions { margin-top: 14px; }
+  .welcome-process { margin-top: 18px; }
+  .welcome-process__step { padding-top: 14px; padding-bottom: 14px; }
 }
 
 @media (orientation: portrait) and (max-width: 700px) {

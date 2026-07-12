@@ -169,24 +169,32 @@ function setScreen(screen) {
   setProgress(progressStage);
 }
 
-function rolePreviewMarkup(roleId, index, className = "service-role") {
-  const role = roleDefinitions[roleId];
-  return `<article class="${className}">
-    <span class="${className}__number">${String(index + 1).padStart(2, "0")}</span>
-    <h2>${role.name}</h2><p>${role.description}</p>
-  </article>`;
-}
-
 function renderWelcome() {
   setScreen("welcome");
   content.innerHTML = `
-    <p class="wardrobe-kicker">Цифровой парфюмерный стилист FLUIDE</p>
-    <h1 class="wardrobe-title">Соберите свой парфюмерный гардероб</h1>
-    <p class="wardrobe-lead">Пять ароматов, которые не повторяют друг друга и подходят для разных состояний вашей жизни.</p>
-    <div class="service-strip">${defaultRoles.map((role, index) => rolePreviewMarkup(role, index)).join("")}</div>
-    <div class="wardrobe-actions">
-      <button class="wardrobe-button" id="start-wardrobe" type="button">Начать примерку</button>
-      <button class="wardrobe-button wardrobe-button--secondary" id="show-how" type="button">Как проходит подбор</button>
+    <div class="wardrobe-welcome">
+      <p class="wardrobe-kicker">Цифровой парфюмерный стилист FLUIDE</p>
+      <h1 class="wardrobe-title">Парфюмерный гардероб</h1>
+      <p class="wardrobe-lead">Расскажите, какие ароматы вам нравятся и как вы хотите звучать. Стилист соберёт пять разных ароматов, а консультант подготовит их к примерке.</p>
+      <div class="welcome-facts" aria-label="Условия персонального подбора">
+        <span>Бесплатно</span><span>3–5 минут</span><span>5 ароматов</span>
+      </div>
+      <div class="wardrobe-actions wardrobe-actions--centered">
+        <button class="wardrobe-button" id="start-wardrobe" type="button">Начать подбор</button>
+        <button class="wardrobe-button wardrobe-button--secondary" id="show-how" type="button">Как это работает</button>
+      </div>
+      <div class="welcome-process" aria-label="Как проходит подбор">
+        <div class="welcome-process__step">
+          <span>01</span><div><h2>Опишите свой вкус</h2><p>Знакомые ароматы, желаемое впечатление и то, чего хочется избежать.</p></div>
+        </div>
+        <div class="welcome-process__step">
+          <span>02</span><div><h2>Получите пять образов</h2><p>Каждый аромат решает свою задачу и не повторяет остальные.</p></div>
+        </div>
+        <div class="welcome-process__step">
+          <span>03</span><div><h2>Примерьте в бутике</h2><p>Консультант подготовит пять пронумерованных блоттеров.</p></div>
+        </div>
+      </div>
+      <p class="welcome-result"><span>Ваш результат</span> Основа · Собранность · Перезагрузка · Притяжение · Акцент</p>
     </div>`;
   document.querySelector("#start-wardrobe").addEventListener("click", () => {
     resetState();
