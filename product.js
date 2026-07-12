@@ -9,8 +9,9 @@ const fragrancePrices = {
   "Селектив": { 30: 3490, 50: 4990 },
 };
 
-if (returnUrl && /^(?:all|results)\.html(?:\?|$)/.test(returnUrl)) {
+if (returnUrl && /^(?:all|results|wardrobe)\.html(?:\?|$)/.test(returnUrl)) {
   backLink.href = returnUrl;
+  if (returnUrl.startsWith("wardrobe.html")) backLink.setAttribute("aria-label", "Вернуться к примерке");
 }
 
 const noteLabels = {

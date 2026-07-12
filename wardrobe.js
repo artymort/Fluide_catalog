@@ -114,6 +114,8 @@ const moodTargets = {
 let fragrances = [];
 let currentScreen = "welcome";
 const storedState = JSON.parse(sessionStorage.getItem("fluide-wardrobe") || "null");
+const storedRecommendationIds = Array.isArray(storedState?.recommendations) ? storedState.recommendations : [];
+const requestedView = new URLSearchParams(window.location.search).get("view");
 const state = {
   favorites: Array.isArray(storedState?.favorites) ? storedState.favorites : [],
   novice: Boolean(storedState?.novice),
@@ -121,7 +123,7 @@ const state = {
   moods: Array.isArray(storedState?.moods) ? storedState.moods : [],
   roles: Array.isArray(storedState?.roles) && storedState.roles.length === 5 ? storedState.roles : [...defaultRoles],
   recommendations: [],
-  reactions: {},
+  reactions: storedState?.reactions && typeof storedState.reactions === "object" ? storedState.reactions : {},
 };
 
 function escapeHtml(value) {
@@ -140,6 +142,8 @@ function saveState() {
     dislikes: state.dislikes,
     moods: state.moods,
     roles: state.roles,
+    recommendations: state.recommendations.map((item) => item.id),
+    reactions: state.reactions,
   }));
 }
 
@@ -529,6 +533,7 @@ function buildRecommendations() {
     selected.push(pool[0]);
   });
   state.recommendations = selected;
+  saveState();
 }
 
 function descriptorsFor(item) {
@@ -571,18 +576,21 @@ function fragranceVisual(item, className) {
 function fittingCardMarkup(item, index) {
   const role = roleDefinitions[state.roles[index]];
   const reaction = state.reactions[index] || "";
+  const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent("wardrobe.html?view=fitting")}`;
   return `<article class="fitting-card">
-    <div class="fitting-visual"><span class="fitting-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>${fragranceVisual(item)}</div>
-    <div class="fitting-body">
-      <h2>${escapeHtml(item.title)}</h2>
-      <p class="fitting-tags">${descriptorsFor(item).join(" · ")}</p>
-      <p class="fitting-reason">${role.reason}</p>
-      <p class="tester-number">Тестер № ${escapeHtml(item.id)}</p>
-      <div class="reactions">
-        <button class="reaction${reaction === "fit" ? " is-active" : ""}" type="button" data-reaction="fit" data-slot="${index}">Подходит</button>
-        <button class="reaction${reaction === "doubt" ? " is-active" : ""}" type="button" data-reaction="doubt" data-slot="${index}">Сомневаюсь</button>
-        <button class="reaction" type="button" data-replace-slot="${index}">Заменить</button>
+    <a class="fitting-card__link" href="${productUrl}">
+      <div class="fitting-visual"><span class="fitting-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>${fragranceVisual(item)}</div>
+      <div class="fitting-body">
+        <h2>${escapeHtml(item.title)}</h2>
+        <p class="fitting-tags">${descriptorsFor(item).join(" · ")}</p>
+        <p class="fitting-reason">${role.reason}</p>
+        <span class="fitting-card__open">Подробнее <span aria-hidden="true">→</span></span>
       </div>
+    </a>
+    <div class="reactions">
+      <button class="reaction${reaction === "fit" ? " is-active" : ""}" type="button" data-reaction="fit" data-slot="${index}">Подходит</button>
+      <button class="reaction${reaction === "doubt" ? " is-active" : ""}" type="button" data-reaction="doubt" data-slot="${index}">Сомневаюсь</button>
+      <button class="reaction reaction--replace" type="button" data-replace-slot="${index}">Заменить аромат</button>
     </div>
   </article>`;
 }
@@ -600,6 +608,7 @@ function renderFitting() {
     </div>`;
   document.querySelectorAll("[data-reaction]").forEach((button) => button.addEventListener("click", () => {
     state.reactions[button.dataset.slot] = button.dataset.reaction;
+    saveState();
     renderFitting();
   }));
   document.querySelectorAll("[data-replace-slot]").forEach((button) => button.addEventListener("click", () => showReplacementDialog(Number(button.dataset.replaceSlot))));
@@ -634,6 +643,7 @@ function showReplacementDialog(slot) {
     const replacement = fragrances.find((item) => item.id === button.dataset.replacementId);
     if (replacement) state.recommendations[slot] = replacement;
     state.reactions[slot] = "fit";
+    saveState();
     dialog.close();
     renderFitting();
   }));
@@ -696,7 +706,11 @@ fetch("./fragrances.json")
   .then((items) => {
     fragrances = items.map((item) => ({ ...item, _wardrobeProfile: profileFor(item) }));
     state.favorites = state.favorites.filter((id) => fragrances.some((item) => item.id === id));
-    renderWelcome();
+    state.recommendations = storedRecommendationIds
+      .map((id) => fragrances.find((item) => item.id === id))
+      .filter(Boolean);
+    if (requestedView === "fitting" && state.recommendations.length === 5) renderFitting();
+    else renderWelcome();
   })
   .catch(() => {
     content.innerHTML = '<p class="wardrobe-loading">Не удалось загрузить ароматы. Перезапустите приложение при подключённом интернете.</p>';
