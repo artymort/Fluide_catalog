@@ -12,14 +12,23 @@
     <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="app-icon-192.png" />
     <link rel="stylesheet" href="fonts.css?v=1" />
-    <link rel="stylesheet" href="product.css?v=4" />
+    <link rel="stylesheet" href="shared-header.css?v=1" />
+    <link rel="stylesheet" href="product.css?v=5" />
   </head>
   <body>
     <main class="detail-screen">
       <header class="detail-header">
         <a class="detail-back" href="results.html" aria-label="Вернуться к каталогу">←</a>
-        <img class="detail-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
-        <a class="detail-menu" href="index.html">Главное меню</a>
+        <a class="site-logo-link" href="index.html" aria-label="Перейти в главное меню">
+          <img class="detail-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        </a>
+        <div class="site-header-actions">
+          <a class="detail-menu" href="selection.html">Подобрать ароматы</a>
+          <button class="site-cart" type="button" aria-label="Выбранные товары: 0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 12H5.4L4 7Z" /><path d="M8 9V6a4 4 0 0 1 8 0v3" /></svg>
+            <span class="site-cart__count">0</span>
+          </button>
+        </div>
       </header>
 
       <article class="detail" id="product-detail" aria-live="polite">

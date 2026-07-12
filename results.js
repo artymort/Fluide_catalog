@@ -8,13 +8,21 @@ const pageTitle = document.querySelector("#results-title");
 const backLink = document.querySelector("#results-back");
 const recommendedSort = document.querySelector("#recommended-sort");
 const productTypeFilter = document.querySelector("#product-type-filter");
-const checkboxFilters = [...document.querySelectorAll('.filters input[type="checkbox"]')];
+const sectionButtons = [...document.querySelectorAll(".catalog-section")];
+const sectionFilterGroups = [...document.querySelectorAll("[data-filter-section]")];
 const recommendationParams = new URLSearchParams(window.location.search);
 const isAllMode = document.body.dataset.catalogMode === "all" || recommendationParams.get("mode") === "all";
 const catalogPage = isAllMode ? "all.html" : "results.html";
-const catalogStateKeys = ["catalogState", "q", "type", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity", "gender", "family", "occasion", "season"];
+const catalogStateKeys = ["catalogState", "q", "type", "section", "subtype", "catalogGender", "catalogFamily", "occasion", "season", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity", "gender", "family"];
+const catalogSections = {
+  perfume: ["fragrance", "solid-perfume"],
+  care: ["body-cream", "hair-spray", "hand-soap"],
+  home: ["home-fragrance", "candle", "diffuser"],
+  car: ["car-fragrance"],
+};
 
 let fragrances = [];
+let activeSection = catalogSections[recommendationParams.get("section")] ? recommendationParams.get("section") : "perfume";
 const fragrancePrices = {
   "Люкс": { 30: 1990, 50: 2990 },
   "Суперлюкс": { 30: 2490, 50: 3490 },
@@ -27,8 +35,7 @@ function configurePageMode() {
   pageTitle.textContent = "Каталог";
   backLink.href = "index.html";
   backLink.setAttribute("aria-label", "Вернуться в главное меню");
-  recommendedSort.remove();
-  sortSelect.value = "number";
+  recommendedSort?.remove();
 }
 
 function intensityMatches(item, intensity) {
@@ -56,7 +63,7 @@ function metadataMatches(item, key, selectedValues) {
 }
 
 function selectedValues(name) {
-  return checkboxFilters.filter((input) => input.name === name && input.checked).map((input) => input.value);
+  return [...document.querySelectorAll(`.filters input[name="${name}"]:checked`)].map((input) => input.value);
 }
 
 function setRepeatedParam(params, key, values) {
@@ -67,11 +74,23 @@ function setRepeatedParam(params, key, values) {
 function saveCatalogState() {
   const params = new URLSearchParams(window.location.search);
   params.set("catalogState", "1");
+  if (isAllMode) {
+    ["type", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity", "gender", "family"].forEach((key) => params.delete(key));
+    params.set("section", activeSection);
+    const query = searchInput?.value.trim() || "";
+    if (query) params.set("q", query);
+    else params.delete("q");
+    ["subtype", "catalogGender", "catalogFamily", "occasion", "season"].forEach((key) => {
+      setRepeatedParam(params, key, selectedValues(key));
+    });
+    history.replaceState(null, "", `all.html?${params.toString()}`);
+    return;
+  }
   const scalarState = {
-    q: searchInput.value.trim(),
+    q: searchInput?.value.trim() || "",
     type: productTypeFilter?.value || "",
-    filterFamily: familyFilter.value,
-    sort: sortSelect.value,
+    filterFamily: familyFilter?.value || "",
+    sort: sortSelect?.value || "recommended",
   };
   Object.entries(scalarState).forEach(([key, value]) => {
     if (value) params.set(key, value);
@@ -135,13 +154,40 @@ function cardMarkup(item) {
 
 function applyFilters() {
   saveCatalogState();
+  const query = searchInput?.value.trim().toLowerCase() || "";
+  if (isAllMode) {
+    const allowedTypes = catalogSections[activeSection];
+    const subtypes = selectedValues("subtype");
+    const catalogGender = selectedValues("catalogGender")[0] || "";
+    const catalogFamilies = selectedValues("catalogFamily");
+    const occasions = selectedValues("occasion");
+    const seasons = selectedValues("season");
+    const fragranceMetadataActive = Boolean(catalogGender || catalogFamilies.length || occasions.length || seasons.length);
+    const filtered = fragrances.filter((item) => {
+      const haystack = `${item.id} ${item.title} ${item.original || ""} ${item.typeLabel || ""}`.toLowerCase();
+      if (!allowedTypes.includes(item.productType)) return false;
+      if (subtypes.length && !subtypes.includes(item.productType)) return false;
+      if (query && !haystack.includes(query)) return false;
+      if (item.kind === "product") return item.productType === "solid-perfume" ? !fragranceMetadataActive : true;
+      if (catalogGender && !genderValuesForSelection(catalogGender).includes(item.gender)) return false;
+      return (!catalogFamilies.length || catalogFamilies.some((family) => item.families.includes(family)))
+        && metadataMatches(item, "occasion", occasions)
+        && metadataMatches(item, "season", seasons);
+    });
+    filtered.sort((a, b) => (a.kind === "fragrance" ? 0 : 1) - (b.kind === "fragrance" ? 0 : 1)
+      || a.id.localeCompare(b.id, "ru", { numeric: true }));
+    countLabel.textContent = `Найдено: ${filtered.length}`;
+    grid.innerHTML = filtered.length
+      ? filtered.map(cardMarkup).join("")
+      : '<p class="products-empty">По выбранным параметрам товаров не найдено. Измените фильтры.</p>';
+    return;
+  }
   const genders = selectedValues("gender");
   const categories = selectedValues("category");
   const concentrations = selectedValues("concentration");
   const intensities = selectedValues("intensity");
-  const family = familyFilter.value;
+  const family = familyFilter?.value || "";
   const productType = productTypeFilter?.value || "";
-  const query = searchInput.value.trim().toLowerCase();
   const hasSavedState = recommendationParams.get("catalogState") === "1";
   const selectionGenders = !isAllMode && !hasSavedState ? genderValuesForSelection(recommendationParams.get("gender")) : [];
   const selectionFamilies = !isAllMode ? recommendationValues("family") : [];
@@ -165,12 +211,12 @@ function applyFilters() {
   });
 
   filtered.sort((a, b) => {
-    if (sortSelect.value === "recommended") {
+    if (sortSelect?.value === "recommended") {
       return recommendationScore(b) - recommendationScore(a)
         || a.id.localeCompare(b.id, "ru", { numeric: true });
     }
-    if (sortSelect.value === "name") return a.title.localeCompare(b.title, "ru");
-    if (sortSelect.value === "oil-desc") return (b.oilPercent || 0) - (a.oilPercent || 0);
+    if (sortSelect?.value === "name") return a.title.localeCompare(b.title, "ru");
+    if (sortSelect?.value === "oil-desc") return (b.oilPercent || 0) - (a.oilPercent || 0);
     return (a.kind === "fragrance" ? 0 : 1) - (b.kind === "fragrance" ? 0 : 1)
       || a.id.localeCompare(b.id, "ru", { numeric: true });
   });
@@ -183,6 +229,23 @@ function applyFilters() {
 
 function applyQueryDefaults() {
   const params = new URLSearchParams(window.location.search);
+  if (isAllMode) {
+    activeSection = catalogSections[params.get("section")] ? params.get("section") : "perfume";
+    sectionButtons.forEach((button) => {
+      const selected = button.dataset.section === activeSection;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    sectionFilterGroups.forEach((group) => { group.hidden = group.dataset.filterSection !== activeSection; });
+    ["subtype", "catalogGender", "catalogFamily", "occasion", "season"].forEach((name) => {
+      const values = params.getAll(name);
+      document.querySelectorAll(`.filters input[name="${name}"]`).forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+    });
+    if (searchInput) searchInput.value = params.get("q") || "";
+    return;
+  }
   const hasSavedState = params.get("catalogState") === "1";
   const gender = params.get("gender");
   const families = params.getAll("family");
@@ -193,32 +256,44 @@ function applyQueryDefaults() {
     concentration: params.getAll("filterConcentration"),
     intensity: params.getAll("filterIntensity"),
   };
-  checkboxFilters.forEach((input) => {
+  document.querySelectorAll('.filters input[type="checkbox"]').forEach((input) => {
     const savedValues = savedFilters[input.name] || [];
     if (savedValues.includes(input.value) || (!hasSavedState && input.name === "gender" && selectionGenders.includes(input.value))) {
       input.checked = true;
     }
   });
-  familyFilter.value = params.get("filterFamily") || (!hasSavedState && families.length === 1 ? families[0] : "") || "";
-  searchInput.value = params.get("q") || "";
+  if (familyFilter) familyFilter.value = params.get("filterFamily") || (!hasSavedState && families.length === 1 ? families[0] : "") || "";
+  if (searchInput) searchInput.value = params.get("q") || "";
   if (productTypeFilter) productTypeFilter.value = params.get("type") || "";
-  if (params.get("sort")) sortSelect.value = params.get("sort");
+  if (params.get("sort") && sortSelect) sortSelect.value = params.get("sort");
 }
 
-checkboxFilters.forEach((input) => input.addEventListener("change", applyFilters));
+document.querySelectorAll('.filters input').forEach((input) => input.addEventListener("change", applyFilters));
 [searchInput, familyFilter, sortSelect, productTypeFilter].filter(Boolean)
   .forEach((control) => control.addEventListener("input", applyFilters));
 
+sectionButtons.forEach((button) => button.addEventListener("click", () => {
+  activeSection = button.dataset.section;
+  document.querySelectorAll(".filters input").forEach((input) => { input.checked = false; });
+  sectionButtons.forEach((entry) => {
+    const selected = entry === button;
+    entry.classList.toggle("is-active", selected);
+    entry.setAttribute("aria-pressed", String(selected));
+  });
+  sectionFilterGroups.forEach((group) => { group.hidden = group.dataset.filterSection !== activeSection; });
+  applyFilters();
+}));
+
 resetButton.addEventListener("click", () => {
-  checkboxFilters.forEach((input) => { input.checked = false; });
-  familyFilter.value = "";
+  document.querySelectorAll(".filters input").forEach((input) => { input.checked = false; });
+  if (familyFilter) familyFilter.value = "";
   if (productTypeFilter) productTypeFilter.value = "";
-  searchInput.value = "";
+  if (searchInput) searchInput.value = "";
   [...recommendationParams.keys()].forEach((key) => {
     if (key !== "mode") recommendationParams.delete(key);
   });
   catalogStateKeys.forEach((key) => recommendationParams.delete(key));
-  history.replaceState(null, "", isAllMode ? "all.html" : "results.html?mode=selection");
+  history.replaceState(null, "", isAllMode ? `all.html?section=${activeSection}` : "results.html?mode=selection");
   applyFilters();
 });
 

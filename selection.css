@@ -76,8 +76,6 @@ body {
 }
 
 .selection-step {
-  position: absolute;
-  right: 0;
   margin: 0;
   font-size: 14px;
   letter-spacing: 0.14em;

@@ -12,14 +12,23 @@
     <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="app-icon-192.png" />
     <link rel="stylesheet" href="fonts.css?v=1" />
-    <link rel="stylesheet" href="results.css?v=6" />
+    <link rel="stylesheet" href="shared-header.css?v=1" />
+    <link rel="stylesheet" href="results.css?v=7" />
   </head>
   <body data-catalog-mode="selection">
     <main class="store-screen">
       <header class="store-header">
         <a class="round-link" id="results-back" href="selection.html" aria-label="Вернуться к подбору">←</a>
-        <img class="store-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
-        <a class="store-menu-link" href="index.html">Главное меню</a>
+        <a class="site-logo-link" href="index.html" aria-label="Перейти в главное меню">
+          <img class="store-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        </a>
+        <div class="site-header-actions">
+          <a class="store-selection-link" href="selection.html">Подобрать ароматы</a>
+          <button class="site-cart" type="button" aria-label="Выбранные товары: 0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 12H5.4L4 7Z" /><path d="M8 9V6a4 4 0 0 1 8 0v3" /></svg>
+            <span class="site-cart__count">0</span>
+          </button>
+        </div>
       </header>
 
       <section class="store-intro">
@@ -98,6 +107,6 @@
     </main>
 
     <script src="pwa.js?v=2"></script>
-    <script src="results.js?v=9"></script>
+    <script src="results.js?v=10"></script>
   </body>
 </html>

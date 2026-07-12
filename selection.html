@@ -16,14 +16,23 @@
     <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="app-icon-192.png" />
     <link rel="stylesheet" href="fonts.css?v=1" />
-    <link rel="stylesheet" href="selection.css?v=6" />
+    <link rel="stylesheet" href="shared-header.css?v=1" />
+    <link rel="stylesheet" href="selection.css?v=7" />
   </head>
   <body>
     <main class="selection-screen">
       <header class="selection-header">
         <a class="selection-back" href="index.html" aria-label="Вернуться в главное меню">←</a>
-        <img class="selection-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
-        <p class="selection-step" aria-label="Первый шаг из четырех">Шаг 01 / 04</p>
+        <a class="site-logo-link" href="index.html" aria-label="Перейти в главное меню">
+          <img class="selection-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        </a>
+        <div class="site-header-actions">
+          <p class="selection-step" aria-label="Первый шаг из четырех">Шаг 01 / 04</p>
+          <button class="site-cart" type="button" aria-label="Выбранные товары: 0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 12H5.4L4 7Z" /><path d="M8 9V6a4 4 0 0 1 8 0v3" /></svg>
+            <span class="site-cart__count">0</span>
+          </button>
+        </div>
       </header>
 
       <section class="selection-content" aria-labelledby="selection-title">

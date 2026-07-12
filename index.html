@@ -13,18 +13,21 @@
     <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="app-icon-192.png" />
     <link rel="stylesheet" href="fonts.css?v=1" />
+    <link rel="stylesheet" href="shared-header.css?v=1" />
     <link rel="stylesheet" href="catalog.css?v=7" />
   </head>
   <body>
     <main class="menu-screen">
       <header class="menu-header">
-        <img class="menu-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
-        <button class="menu-cart" type="button" aria-label="Выбранные товары: 0">
+        <a class="site-logo-link" href="index.html" aria-label="Перейти в главное меню">
+          <img class="menu-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        </a>
+        <button class="site-cart site-header-actions" type="button" aria-label="Выбранные товары: 0">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 7h16l-1.4 12H5.4L4 7Z" />
             <path d="M8 9V6a4 4 0 0 1 8 0v3" />
           </svg>
-          <span class="menu-cart__count">0</span>
+          <span class="site-cart__count">0</span>
         </button>
       </header>
 

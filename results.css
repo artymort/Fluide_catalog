@@ -68,13 +68,15 @@ button, input, select { font: inherit; }
   text-decoration: none;
 }
 
-.store-menu-link {
-  position: absolute;
-  right: 0;
+.store-menu-link,
+.store-selection-link {
   color: var(--ink);
   font-size: 14px;
   text-decoration: none;
 }
+
+.store-selection-link:hover,
+.store-menu-link:hover { text-decoration: underline; }
 
 .store-intro {
   display: flex;
@@ -82,6 +84,49 @@ button, input, select { font: inherit; }
   justify-content: space-between;
   gap: 24px;
   padding: clamp(18px, 2.6vh, 30px) 0;
+}
+
+body[data-catalog-mode="all"] .store-intro {
+  align-items: center;
+}
+
+.catalog-controls {
+  display: grid;
+  justify-items: end;
+  gap: 12px;
+  width: min(76%, 1120px);
+}
+
+.catalog-sections {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.catalog-section {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid rgb(67 72 101 / 18%);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgb(255 255 255 / 42%);
+  line-height: 1.15;
+  cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+.catalog-section:hover { border-color: rgb(67 72 101 / 45%); }
+
+.catalog-section.is-active {
+  color: var(--white);
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.catalog-section:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
 }
 
 .store-kicker {
@@ -110,6 +155,9 @@ button, input, select { font: inherit; }
   outline: none;
 }
 
+.catalog-controls .store-search,
+.catalog-controls .store-search input { width: 100%; }
+
 .store-search input:focus { border-color: var(--ink); }
 
 .store-layout {
@@ -129,6 +177,10 @@ button, input, select { font: inherit; }
   background: rgb(255 255 255 / 34%);
   scrollbar-width: thin;
 }
+
+[hidden] { display: none !important; }
+
+.catalog-filter-group > fieldset:first-child { margin-top: 20px; }
 
 .filters__heading,
 .products__summary {
@@ -261,6 +313,8 @@ button, input, select { font: inherit; }
 }
 
 @media (max-width: 1120px) {
+  .catalog-controls { width: min(72%, 760px); }
+  .catalog-section { padding-inline: 9px; font-size: 13px; }
   .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -277,6 +331,8 @@ button, input, select { font: inherit; }
   .store-screen { display: block; height: auto; min-height: 100vh; padding: 16px; }
   .store-header { height: 70px; }
   .store-intro { align-items: stretch; flex-direction: column; }
+  .catalog-controls { justify-items: stretch; width: 100%; }
+  .catalog-sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .store-search input { width: 100%; }
   .store-layout { display: block; }
   .filters { margin-bottom: 18px; }
