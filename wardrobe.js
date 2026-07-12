@@ -615,10 +615,12 @@ function showReplacementDialog(slot) {
 
 function finalCardMarkup(item, index) {
   const role = roleDefinitions[state.roles[index]];
+  const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent("wardrobe.html?view=final")}`;
   return `<article class="final-card">
     <span class="final-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>
-    <div class="final-visual">${fragranceVisual(item)}</div>
+    <a class="final-visual" href="${productUrl}" aria-label="Посмотреть аромат ${escapeHtml(item.title)}">${fragranceVisual(item)}</a>
     <div class="final-body"><h2>${escapeHtml(item.title)}</h2><span>30 мл</span></div>
+    <a class="final-view" href="${productUrl}" aria-label="Посмотреть аромат ${escapeHtml(item.title)}">Посмотреть <span aria-hidden="true">→</span></a>
   </article>`;
 }
 
@@ -637,19 +639,28 @@ function renderFinal() {
           <button class="wardrobe-button wardrobe-button--secondary" id="restart-wardrobe" type="button">Собрать заново</button>
         </div>
         <aside class="offer">
-          <div class="offer-heading">
-            <p class="offer-kicker">Персональный комплект</p>
-            <h2>5 ароматов</h2>
-            <p class="offer-volume">5 флаконов × 30 мл</p>
+          <div class="offer-header">
+            <span>Ваш комплект</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 12H5.4L4 7Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
           </div>
-          <div class="offer-pricing">
-            <div class="offer-current"><span>Ваш комплект</span><strong>9 900 ₽</strong></div>
-            <div class="offer-details">
-              <div><span>Обычная цена</span><s>15 000 ₽</s></div>
-              <div><span>Выгода</span><strong>5 100 ₽</strong></div>
+          <div class="offer-content">
+            <div class="offer-summary">
+              <strong>5 ароматов</strong>
+              <p>Персональный парфюмерный гардероб</p>
+              <div class="offer-features" aria-label="Состав комплекта">
+                <span>30 мл</span><span>5 ролей</span><span>Подбор бесплатно</span>
+              </div>
+            </div>
+            <div class="offer-price">
+              <strong>9 900 ₽</strong>
+              <s>15 000 ₽</s>
+              <span>Выгода 5 100 ₽</span>
             </div>
           </div>
-          <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить гардероб</button>
+          <div class="offer-action">
+            <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить гардероб</button>
+            <p>Состав можно изменить перед покупкой</p>
+          </div>
         </aside>
       </div>
     </div>`;
@@ -682,7 +693,8 @@ fetch("./fragrances.json")
     state.recommendations = storedRecommendationIds
       .map((id) => fragrances.find((item) => item.id === id))
       .filter(Boolean);
-    if (requestedView === "fitting" && state.recommendations.length === 5) renderFitting();
+    if (requestedView === "final" && state.recommendations.length === 5) renderFinal();
+    else if (requestedView === "fitting" && state.recommendations.length === 5) renderFitting();
     else renderWelcome();
   })
   .catch(() => {

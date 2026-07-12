@@ -11,7 +11,8 @@ const fragrancePrices = {
 
 if (returnUrl && /^(?:all|results|wardrobe)\.html(?:\?|$)/.test(returnUrl)) {
   backLink.href = returnUrl;
-  if (returnUrl.startsWith("wardrobe.html")) backLink.setAttribute("aria-label", "Вернуться к примерке");
+  if (returnUrl === "wardrobe.html?view=final") backLink.setAttribute("aria-label", "Вернуться к готовому гардеробу");
+  else if (returnUrl.startsWith("wardrobe.html")) backLink.setAttribute("aria-label", "Вернуться к примерке");
 }
 
 const noteLabels = {
