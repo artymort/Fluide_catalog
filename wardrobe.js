@@ -130,6 +130,7 @@ const state = {
   roles: Array.isArray(storedState?.roles) && storedState.roles.length === 5 ? storedState.roles : [...defaultRoles],
   recommendations: [],
   reactions: storedState?.reactions && typeof storedState.reactions === "object" ? storedState.reactions : {},
+  rejectedIds: Array.isArray(storedState?.rejectedIds) ? storedState.rejectedIds : [],
 };
 
 function escapeHtml(value) {
@@ -151,6 +152,7 @@ function saveState() {
     roles: state.roles,
     recommendations: state.recommendations.map((item) => item.id),
     reactions: state.reactions,
+    rejectedIds: state.rejectedIds,
   }));
 }
 
@@ -163,6 +165,7 @@ function resetState() {
   state.roles = [...defaultRoles];
   state.recommendations = [];
   state.reactions = {};
+  state.rejectedIds = [];
   saveState();
 }
 
@@ -241,6 +244,7 @@ function renderGender() {
     state.gender = input.value;
     state.recommendations = [];
     state.reactions = {};
+    state.rejectedIds = [];
     saveState();
     renderGender();
   }));
@@ -457,6 +461,8 @@ function buildRecommendations() {
     roleDefinitions,
     moodTargets,
   );
+  state.reactions = {};
+  state.rejectedIds = [];
   saveState();
 }
 
@@ -525,13 +531,15 @@ function fittingCardMarkup(item, index) {
     <div class="reactions">
       <button class="reaction${reaction === "fit" ? " is-active" : ""}" type="button" data-reaction="fit" data-slot="${index}">Подходит</button>
       <button class="reaction${reaction === "doubt" ? " is-active" : ""}" type="button" data-reaction="doubt" data-slot="${index}">Сомневаюсь</button>
-      <button class="reaction reaction--replace" type="button" data-replace-slot="${index}">Заменить аромат</button>
+      <button class="reaction reaction--replace${reaction === "doubt" ? " is-suggested" : ""}" type="button" data-replace-slot="${index}">${reaction === "doubt" ? "Подобрать замену" : "Заменить аромат"}</button>
     </div>
   </article>`;
 }
 
 function renderFitting() {
   setScreen("fitting");
+  const confirmedCount = state.recommendations.filter((_, index) => state.reactions[index] === "fit").length;
+  const canFinish = state.recommendations.length === 5 && confirmedCount === 5;
   content.innerHTML = `
     <div class="fitting-screen">
       <div class="fitting-heading">
@@ -541,12 +549,20 @@ function renderFitting() {
       </div>
       <div class="fitting-grid">${state.recommendations.map(fittingCardMarkup).join("")}</div>
       <div class="wardrobe-actions fitting-actions">
-        <button class="wardrobe-button wardrobe-button--secondary" id="fitting-back" type="button">Изменить роли</button>
-        <button class="wardrobe-button" id="finish-wardrobe" type="button">Завершить гардероб</button>
+        <p class="fitting-confirmation"><span>Подтверждено</span><strong>${confirmedCount} из 5</strong></p>
+        <button class="wardrobe-button wardrobe-button--secondary" id="fitting-back" type="button">Назад</button>
+        <button class="wardrobe-button" id="finish-wardrobe" type="button" ${canFinish ? "" : "disabled"} title="${canFinish ? "" : "Подтвердите все пять ароматов"}">Завершить гардероб</button>
       </div>
     </div>`;
   document.querySelectorAll("[data-reaction]").forEach((button) => button.addEventListener("click", () => {
-    state.reactions[button.dataset.slot] = button.dataset.reaction;
+    const slot = Number(button.dataset.slot);
+    const item = state.recommendations[slot];
+    state.reactions[slot] = button.dataset.reaction;
+    if (button.dataset.reaction === "doubt") {
+      if (!state.rejectedIds.includes(item.id)) state.rejectedIds.push(item.id);
+    } else {
+      state.rejectedIds = state.rejectedIds.filter((id) => id !== item.id);
+    }
     saveState();
     renderFitting();
   }));
@@ -557,30 +573,38 @@ function renderFitting() {
 
 function replacementCandidates(slot) {
   const roleId = state.roles[slot];
+  const currentItem = state.recommendations[slot];
   const currentIds = new Set(state.recommendations.map((item) => item.id));
   const others = state.recommendations.filter((_, index) => index !== slot);
   const candidates = fragrances.filter((item) => !currentIds.has(item.id)
     && !state.favorites.includes(item.id)
+    && !state.rejectedIds.includes(item.id)
     && window.FluideWardrobeEngine.genderMatches(item.gender, state.gender));
-  return candidates.sort((a, b) => candidateScore(b, roleId, others) - candidateScore(a, roleId, others)).slice(0, 2);
+  const replacementScore = (item) => candidateScore(item, roleId, others)
+    - window.FluideWardrobeEngine.favoriteSimilarity(item, currentItem) * 12;
+  return candidates.sort((a, b) => replacementScore(b) - replacementScore(a)).slice(0, 2);
 }
 
 function showReplacementDialog(slot) {
   const role = roleDefinitions[state.roles[slot]];
   const alternatives = replacementCandidates(slot);
   dialogContent.innerHTML = `<h2>Заменим аромат «${role.name}»</h2>
-    <p>Два варианта сохраняют роль и не повторяют остальные четыре аромата.</p>
+    <p>Два варианта сохраняют роль, но заметнее отличаются от текущего аромата.</p>
     <div class="dialog-options">${alternatives.map((item, index) => `<button class="dialog-option" type="button" data-replacement-id="${escapeHtml(item.id)}">
       <strong>Вариант ${index === 0 ? "A" : "B"}: ${escapeHtml(item.title)}</strong>
       <span>${descriptorsFor(item).join(" · ")}</span>
     </button>`).join("")}
-      <button class="dialog-option" type="button" data-keep-current><strong>Оставить первоначальный</strong><span>${escapeHtml(state.recommendations[slot].title)}</span></button>
+      <button class="dialog-option" type="button" data-keep-current><strong>Назад</strong><span>${escapeHtml(state.recommendations[slot].title)}</span></button>
     </div>`;
   dialog.showModal();
   dialogContent.querySelectorAll("[data-replacement-id]").forEach((button) => button.addEventListener("click", () => {
+    const currentItem = state.recommendations[slot];
     const replacement = fragrances.find((item) => item.id === button.dataset.replacementId);
-    if (replacement) state.recommendations[slot] = replacement;
-    state.reactions[slot] = "fit";
+    if (replacement) {
+      if (!state.rejectedIds.includes(currentItem.id)) state.rejectedIds.push(currentItem.id);
+      state.recommendations[slot] = replacement;
+    }
+    delete state.reactions[slot];
     saveState();
     dialog.close();
     renderFitting();
@@ -615,7 +639,7 @@ function renderFinal() {
       </aside>
     </div>
     <div class="wardrobe-actions">
-      <button class="wardrobe-button wardrobe-button--secondary" id="final-back" type="button">Вернуться к примерке</button>
+      <button class="wardrobe-button wardrobe-button--secondary" id="final-back" type="button">Назад</button>
       <button class="wardrobe-button wardrobe-button--secondary" id="restart-wardrobe" type="button">Собрать заново</button>
     </div>`;
   document.querySelector("#add-wardrobe").addEventListener("click", (event) => {
