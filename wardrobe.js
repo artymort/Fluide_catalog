@@ -163,7 +163,7 @@ function setProgress(stage) {
 function setScreen(screen) {
   currentScreen = screen;
   content.scrollTop = 0;
-  const progressStage = ["welcome", "profile", "moods", "roles", "processing"].includes(screen)
+  const progressStage = ["welcome", "profile", "dislikes", "moods", "roles", "processing"].includes(screen)
     ? "profile"
     : screen === "fitting" ? "fitting" : "wardrobe";
   setProgress(progressStage);
@@ -239,32 +239,32 @@ function choiceMarkup([value, label], selectedValues, groupName, disabled = fals
 
 function renderProfile() {
   setScreen("profile");
-  const dislikeLimitReached = state.dislikes.length >= 3;
+  const canContinue = state.favorites.length > 0 || state.novice;
   content.innerHTML = `
-    <p class="wardrobe-kicker">Профиль вкуса</p>
-    <h1 class="wardrobe-title">Какие ароматы вам уже нравятся?</h1>
-    <p class="wardrobe-lead">Добавьте до трёх знакомых ароматов. Мы не будем искать их копии — они помогут понять ваш вкус.</p>
-    <div class="profile-layout">
-      <section class="profile-section">
-        <h2>Отправная точка</h2>
-        <p>Поиск работает по названию FLUIDE, номеру и оригинальному аромату.</p>
+    <div class="question-heading">
+      <p class="wardrobe-kicker">Профиль вкуса · 01</p>
+      <h1 class="wardrobe-title">Какие ароматы вам уже нравятся?</h1>
+      <p class="wardrobe-lead">Добавьте до трёх знакомых ароматов. Они станут отправной точкой, но мы не будем искать их копии.</p>
+    </div>
+    <div class="profile-focus">
+      <section class="profile-search-panel">
         <div class="favorite-search">
           <input id="favorite-search" type="search" placeholder="Например, Good Girl или FLUIDE 128" autocomplete="off" ${state.favorites.length >= 3 || state.novice ? "disabled" : ""} />
           <div class="search-results" id="favorite-results" hidden></div>
         </div>
-        <div class="favorite-list">${favoriteListMarkup()}</div>
-        <label class="novice-toggle"><input id="novice-toggle" type="checkbox" ${state.novice ? "checked" : ""} /> Не знаю / собираю первый гардероб</label>
-      </section>
-      <section class="choices-section">
-        <h2>Что вам обычно не нравится?</h2>
-        <p>Выберите до трёх характеристик.</p>
-        <div class="choice-grid">${dislikeOptions.map((option) => choiceMarkup(option, state.dislikes, "dislike", dislikeLimitReached)).join("")}</div>
-        <p class="selection-limit">Выбрано: ${state.dislikes.length} из 3</p>
+        <p class="favorite-search-hint">Поиск по названию FLUIDE, номеру или оригинальному аромату</p>
+        <div class="favorite-list favorite-list--profile">${favoriteListMarkup()}</div>
+        <div class="profile-or"><span>или</span></div>
+        <label class="novice-option${state.novice ? " is-selected" : ""}">
+          <input id="novice-toggle" type="checkbox" ${state.novice ? "checked" : ""} />
+          <span class="novice-option__mark" aria-hidden="true"></span>
+          <span><strong>Не знаю знакомых ароматов</strong><small>Собираю свой первый парфюмерный гардероб</small></span>
+        </label>
       </section>
     </div>
-    <div class="wardrobe-actions">
+    <div class="wardrobe-actions wardrobe-actions--centered">
       <button class="wardrobe-button wardrobe-button--secondary" id="profile-back" type="button">Назад</button>
-      <button class="wardrobe-button" id="profile-next" type="button">Продолжить</button>
+      <button class="wardrobe-button" id="profile-next" type="button" ${canContinue ? "" : "disabled"}>Продолжить</button>
     </div>`;
   attachProfileEvents();
 }
@@ -305,14 +305,33 @@ function attachProfileEvents() {
     saveState();
     renderProfile();
   });
+  document.querySelector("#profile-back").addEventListener("click", renderWelcome);
+  document.querySelector("#profile-next").addEventListener("click", renderDislikes);
+}
+
+function renderDislikes() {
+  setScreen("dislikes");
+  const limitReached = state.dislikes.length >= 3;
+  content.innerHTML = `
+    <div class="question-heading">
+      <p class="wardrobe-kicker">Профиль вкуса · 02</p>
+      <h1 class="wardrobe-title">Что вам обычно не нравится?</h1>
+      <p class="wardrobe-lead">Выберите до трёх характеристик. Если ограничений нет, можно продолжить без выбора.</p>
+    </div>
+    <div class="choice-grid choice-grid--dislikes">${dislikeOptions.map((option) => choiceMarkup(option, state.dislikes, "dislike", limitReached)).join("")}</div>
+    <p class="selection-limit selection-limit--centered">Выбрано: ${state.dislikes.length} из 3</p>
+    <div class="wardrobe-actions wardrobe-actions--centered">
+      <button class="wardrobe-button wardrobe-button--secondary" id="dislikes-back" type="button">Назад</button>
+      <button class="wardrobe-button" id="dislikes-next" type="button">Продолжить</button>
+    </div>`;
   document.querySelectorAll('input[name="dislike"]').forEach((input) => input.addEventListener("change", () => {
     if (input.checked && state.dislikes.length < 3) state.dislikes.push(input.value);
     else state.dislikes = state.dislikes.filter((value) => value !== input.value);
     saveState();
-    renderProfile();
+    renderDislikes();
   }));
-  document.querySelector("#profile-back").addEventListener("click", renderWelcome);
-  document.querySelector("#profile-next").addEventListener("click", renderMoods);
+  document.querySelector("#dislikes-back").addEventListener("click", renderProfile);
+  document.querySelector("#dislikes-next").addEventListener("click", renderMoods);
 }
 
 function renderMoods() {
@@ -334,7 +353,7 @@ function renderMoods() {
     saveState();
     renderMoods();
   }));
-  document.querySelector("#moods-back").addEventListener("click", renderProfile);
+  document.querySelector("#moods-back").addEventListener("click", renderDislikes);
   document.querySelector("#moods-next").addEventListener("click", renderRoles);
 }
 
