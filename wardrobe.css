@@ -694,13 +694,12 @@ body {
   min-height: 0;
 }
 
-.final-layout {
+.final-footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(270px, 25vw, 340px);
-  align-items: center;
-  gap: clamp(12px, 1.7vw, 24px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(7px, .9vw, 13px);
   min-height: 0;
-  margin: 0;
 }
 
 .final-grid {
@@ -736,23 +735,36 @@ body {
 .final-visual {
   aspect-ratio: auto;
   min-height: 0;
-  padding: clamp(8px, 1.2vw, 16px);
+  padding: 0;
+  overflow: hidden;
 }
 
-.final-visual img { max-width: 100%; max-height: 100%; }
+.final-visual img {
+  position: absolute;
+  inset: clamp(10px, 1.2vw, 16px);
+  display: block;
+  width: calc(100% - clamp(20px, 2.4vw, 32px));
+  height: calc(100% - clamp(20px, 2.4vw, 32px));
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+}
 .final-body { min-height: 72px; padding: 10px; }
 .final-body h2 { min-height: 2.3em; font-size: clamp(13px, 1.1vw, 17px); line-height: 1.15; overflow-wrap: anywhere; }
 .final-body > span { display: block; margin-top: 7px; font-size: 11px; opacity: .52; }
-.final-actions { margin-top: 0; }
+.final-actions { grid-column: 1 / span 2; margin-top: 0; }
 .final-actions .wardrobe-button { min-height: 48px; padding-top: 10px; padding-bottom: 10px; }
 
 .offer {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: clamp(8px, 1.5vh, 14px);
+  grid-column: 4 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(12px, 1.4vw, 20px);
   height: clamp(230px, 31vh, 270px);
   min-height: 0;
-  padding: clamp(14px, 1.6vw, 20px);
+  padding: clamp(18px, 2vw, 26px);
   overflow: hidden;
   border: 1px solid rgb(67 72 101 / 16%);
   border-radius: 8px;
@@ -761,15 +773,19 @@ body {
 }
 
 .offer-kicker { margin: 0; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; opacity: .65; }
-.offer h2 { margin: 5px 0 0; font-size: clamp(24px, 2.2vw, 32px); font-weight: 400; line-height: 1; }
-.offer-volume { margin: 4px 0 0; font-size: 13px; opacity: .7; }
-.offer-prices { display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); min-height: 0; }
-.offer-price { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 0; padding: 4px 0; border-top: 1px solid rgb(255 255 255 / 18%); }
-.offer-price span { font-size: 12px; opacity: .64; }
-.offer-price strong,
-.offer-price s { min-width: 78px; font-size: 16px; font-weight: 400; line-height: 1; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.offer-price s { opacity: .55; }
-.offer .wardrobe-button { width: 100%; min-height: 42px; margin-top: 0; padding: 9px 14px; color: var(--ink); border-color: var(--white); background: var(--white); }
+.offer h2 { margin: 7px 0 0; font-size: clamp(26px, 2.3vw, 34px); font-weight: 400; line-height: 1; }
+.offer-volume { margin: 6px 0 0; font-size: 13px; opacity: .7; }
+.offer-pricing { min-width: 0; padding-left: clamp(14px, 1.5vw, 22px); border-left: 1px solid rgb(255 255 255 / 18%); }
+.offer-current { display: grid; gap: 5px; }
+.offer-current span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .62; }
+.offer-current strong { font-size: clamp(22px, 2vw, 28px); font-weight: 400; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.offer-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.offer-details > div { display: grid; gap: 3px; min-width: 0; padding-top: 7px; border-top: 1px solid rgb(255 255 255 / 16%); }
+.offer-details span { font-size: 10px; opacity: .56; }
+.offer-details strong,
+.offer-details s { font-size: 14px; font-weight: 400; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.offer-details s { opacity: .62; }
+.offer .wardrobe-button { grid-column: 1 / -1; width: 100%; min-height: 48px; margin-top: 0; padding: 11px 16px; color: var(--ink); border-color: var(--white); background: var(--white); }
 
 .wardrobe-dialog {
   width: min(760px, calc(100vw - 48px));
@@ -796,7 +812,6 @@ body {
 
 @media (max-width: 1250px) {
   .wardrobe-progress { display: none; }
-  .final-layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); }
 }
 
 @media (max-width: 900px) {
@@ -805,16 +820,13 @@ body {
   .fitting-body { padding-right: 8px; padding-left: 8px; }
   .fitting-body h2 { font-size: 14px; }
   .reaction { padding-right: 3px; padding-left: 3px; font-size: 10px; }
-  .final-layout { grid-template-columns: minmax(0, 1fr) 240px; gap: 8px; }
   .final-grid { gap: 5px; }
   .final-role { padding-right: 6px; padding-left: 6px; font-size: 8px; }
   .final-body { min-height: 64px; padding: 7px; }
   .final-body h2 { font-size: 12px; }
-  .offer { padding: 16px; }
-  .offer-price { gap: 8px; }
-  .offer-price span { font-size: 10px; }
-  .offer-price strong,
-  .offer-price s { font-size: 14px; }
+  .final-footer { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+  .offer { grid-column: 3 / span 3; padding: 16px; }
+  .final-actions { grid-column: 1 / span 2; }
 }
 
 @media (max-height: 650px) {
@@ -847,14 +859,14 @@ body {
   .final-heading .wardrobe-kicker { display: none; }
   .final-heading .wardrobe-title { font-size: 30px; }
   .final-card { grid-template-rows: 26px minmax(0, 1fr) auto; }
+  .final-grid,
+  .offer { height: 220px; }
   .final-body { min-height: 56px; padding-top: 7px; padding-bottom: 6px; }
   .final-body h2 { min-height: 2.25em; font-size: 12px; }
   .final-body > span { margin-top: 4px; font-size: 9px; }
   .offer { padding-top: 14px; padding-bottom: 14px; }
-  .offer-kicker { display: none; }
   .offer h2 { margin-top: 0; font-size: 23px; }
   .offer-volume { margin: 3px 0 0; font-size: 12px; }
-  .offer-price { padding-top: 3px; padding-bottom: 3px; }
   .offer .wardrobe-button { min-height: 42px; }
   .final-actions .wardrobe-button { min-height: 42px; }
 }

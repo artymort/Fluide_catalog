@@ -630,25 +630,27 @@ function renderFinal() {
         <p class="wardrobe-kicker">Персональная коллекция</p>
         <h1 class="wardrobe-title">Ваш парфюмерный гардероб готов</h1>
       </div>
-      <div class="final-layout">
-        <div class="final-grid">${state.recommendations.map(finalCardMarkup).join("")}</div>
+      <div class="final-grid">${state.recommendations.map(finalCardMarkup).join("")}</div>
+      <div class="final-footer">
+        <div class="wardrobe-actions final-actions">
+          <button class="wardrobe-button wardrobe-button--secondary" id="final-back" type="button">Назад</button>
+          <button class="wardrobe-button wardrobe-button--secondary" id="restart-wardrobe" type="button">Собрать заново</button>
+        </div>
         <aside class="offer">
           <div class="offer-heading">
             <p class="offer-kicker">Персональный комплект</p>
             <h2>5 ароматов</h2>
             <p class="offer-volume">5 флаконов × 30 мл</p>
           </div>
-          <div class="offer-prices">
-            <div class="offer-price"><span>Обычная стоимость</span><s>15 000 ₽</s></div>
-            <div class="offer-price"><span>Ваш комплект</span><strong>9 900 ₽</strong></div>
-            <div class="offer-price"><span>Ваша выгода</span><strong>5 100 ₽</strong></div>
+          <div class="offer-pricing">
+            <div class="offer-current"><span>Ваш комплект</span><strong>9 900 ₽</strong></div>
+            <div class="offer-details">
+              <div><span>Обычная цена</span><s>15 000 ₽</s></div>
+              <div><span>Выгода</span><strong>5 100 ₽</strong></div>
+            </div>
           </div>
-          <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить весь гардероб</button>
+          <button class="wardrobe-button" id="add-wardrobe" type="button">Добавить гардероб</button>
         </aside>
-      </div>
-      <div class="wardrobe-actions final-actions">
-        <button class="wardrobe-button wardrobe-button--secondary" id="final-back" type="button">Назад</button>
-        <button class="wardrobe-button wardrobe-button--secondary" id="restart-wardrobe" type="button">Собрать заново</button>
       </div>
     </div>`;
   document.querySelector("#add-wardrobe").addEventListener("click", (event) => {
