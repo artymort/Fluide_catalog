@@ -96,6 +96,11 @@ const moodOptions = [
   ["collected", "Собранно"], ["mysterious", "Загадочно"], ["unusual", "Необычно"],
   ["elegant", "Элегантно"], ["clean", "Чисто"], ["bold", "Смело"],
 ];
+const genderOptions = [
+  ["female", "Женские", "Женские и унисекс ароматы"],
+  ["male", "Мужские", "Мужские и унисекс ароматы"],
+  ["unisex", "Унисекс", "Только универсальные ароматы"],
+];
 const moodTargets = {
   confident: { intensity: 4, formality: 4 },
   calm: { intensity: 2, sweetness: 3, warmth: 3 },
@@ -117,6 +122,7 @@ const storedState = JSON.parse(sessionStorage.getItem("fluide-wardrobe") || "nul
 const storedRecommendationIds = Array.isArray(storedState?.recommendations) ? storedState.recommendations : [];
 const requestedView = new URLSearchParams(window.location.search).get("view");
 const state = {
+  gender: ["female", "male", "unisex"].includes(storedState?.gender) ? storedState.gender : null,
   favorites: Array.isArray(storedState?.favorites) ? storedState.favorites : [],
   novice: Boolean(storedState?.novice),
   dislikes: Array.isArray(storedState?.dislikes) ? storedState.dislikes : [],
@@ -137,6 +143,7 @@ function escapeHtml(value) {
 
 function saveState() {
   sessionStorage.setItem("fluide-wardrobe", JSON.stringify({
+    gender: state.gender,
     favorites: state.favorites,
     novice: state.novice,
     dislikes: state.dislikes,
@@ -148,6 +155,7 @@ function saveState() {
 }
 
 function resetState() {
+  state.gender = null;
   state.favorites = [];
   state.novice = false;
   state.dislikes = [];
@@ -168,7 +176,7 @@ function setScreen(screen) {
   currentScreen = screen;
   content.scrollTop = 0;
   content.classList.toggle("wardrobe-content--fitting", screen === "fitting");
-  const progressStage = ["welcome", "profile", "dislikes", "moods", "roles", "processing"].includes(screen)
+  const progressStage = ["welcome", "gender", "profile", "dislikes", "moods", "roles", "processing"].includes(screen)
     ? "profile"
     : screen === "fitting" ? "fitting" : "wardrobe";
   setProgress(progressStage);
@@ -206,9 +214,38 @@ function renderWelcome() {
     </div>`;
   document.querySelector("#start-wardrobe").addEventListener("click", () => {
     resetState();
-    renderProfile();
+    renderGender();
   });
   document.querySelector("#show-how").addEventListener("click", showHowDialog);
+}
+
+function renderGender() {
+  setScreen("gender");
+  content.innerHTML = `
+    <div class="question-heading">
+      <p class="wardrobe-kicker">Профиль вкуса · 01</p>
+      <h1 class="wardrobe-title">Для кого собираем гардероб?</h1>
+      <p class="wardrobe-lead">Выберите один вариант.</p>
+    </div>
+    <div class="gender-grid">${genderOptions.map(([value, label, description], index) => `
+      <label class="gender-choice${state.gender === value ? " is-selected" : ""}">
+        <input type="radio" name="wardrobe-gender" value="${value}" ${state.gender === value ? "checked" : ""} />
+        <span class="gender-choice__number">0${index + 1}</span>
+        <span class="gender-choice__body"><strong>${label}</strong><small>${description}</small></span>
+      </label>`).join("")}</div>
+    <div class="wardrobe-actions wardrobe-actions--centered">
+      <button class="wardrobe-button wardrobe-button--secondary" id="gender-back" type="button">Назад</button>
+      <button class="wardrobe-button" id="gender-next" type="button" ${state.gender ? "" : "disabled"}>Продолжить</button>
+    </div>`;
+  document.querySelectorAll('input[name="wardrobe-gender"]').forEach((input) => input.addEventListener("change", () => {
+    state.gender = input.value;
+    state.recommendations = [];
+    state.reactions = {};
+    saveState();
+    renderGender();
+  }));
+  document.querySelector("#gender-back").addEventListener("click", renderWelcome);
+  document.querySelector("#gender-next").addEventListener("click", renderProfile);
 }
 
 function showHowDialog() {
@@ -257,7 +294,7 @@ function renderProfile() {
   const canContinue = state.favorites.length > 0 || state.novice;
   content.innerHTML = `
     <div class="question-heading">
-      <p class="wardrobe-kicker">Профиль вкуса · 01</p>
+      <p class="wardrobe-kicker">Профиль вкуса · 02</p>
       <h1 class="wardrobe-title">Какие ароматы вам уже нравятся?</h1>
       <p class="wardrobe-lead">Добавьте до трёх знакомых ароматов. Они станут отправной точкой, но мы не будем искать их копии.</p>
     </div>
@@ -320,7 +357,7 @@ function attachProfileEvents() {
     saveState();
     renderProfile();
   });
-  document.querySelector("#profile-back").addEventListener("click", renderWelcome);
+  document.querySelector("#profile-back").addEventListener("click", renderGender);
   document.querySelector("#profile-next").addEventListener("click", renderDislikes);
 }
 
@@ -329,7 +366,7 @@ function renderDislikes() {
   const limitReached = state.dislikes.length >= 3;
   content.innerHTML = `
     <div class="question-heading">
-      <p class="wardrobe-kicker">Профиль вкуса · 02</p>
+      <p class="wardrobe-kicker">Профиль вкуса · 03</p>
       <h1 class="wardrobe-title">Что вам обычно не нравится?</h1>
       <p class="wardrobe-lead">Выберите до трёх характеристик. Если ограничений нет, можно продолжить без выбора.</p>
     </div>
@@ -413,128 +450,26 @@ function showRoleDialog(index) {
   }));
 }
 
-function clamp(value) {
-  return Math.max(1, Math.min(5, value));
-}
-
-function itemText(item) {
-  return Object.values(item.notes || {}).flat().join(" ").toLowerCase();
-}
-
-function hasFamily(item, family) {
-  return item.families.includes(family);
-}
-
-function profileFor(item) {
-  const notes = itemText(item);
-  const freshness = clamp(2
-    + (hasFamily(item, "Свежие") ? 2 : 0)
-    + (hasFamily(item, "Цитрусовые") ? 1 : 0)
-    + (/морск|озон|мят|зелён|чай|бергамот|лимон/.test(notes) ? 1 : 0)
-    - (item.oilPercent >= 30 ? 1 : 0));
-  const sweetness = clamp(2
-    + (hasFamily(item, "Сладкие") ? 2 : 0)
-    + (/ванил|карамел|пралине|шоколад|мёд|сахар|тонка/.test(notes) ? 1 : 0)
-    - (hasFamily(item, "Свежие") ? 1 : 0));
-  const warmth = clamp(2
-    + (hasFamily(item, "Пряные и восточные") ? 2 : 0)
-    + (/амбр|уд|кож|табак|корица|шафран|сандал/.test(notes) ? 1 : 0)
-    + (item.season?.includes("winter") ? 1 : 0)
-    - (item.season?.includes("summer") ? 1 : 0));
-  const intensity = clamp(Math.round(1 + (item.oilPercent - 18) / 3));
-  const formality = clamp(2
-    + (item.category === "Селектив" ? 1 : 0)
-    + (hasFamily(item, "Древесные") ? 1 : 0)
-    + (item.occasion?.includes("evening") ? 1 : 0)
-    - (item.occasion?.includes("gym") ? 1 : 0));
-  const unusual = clamp(2
-    + (item.category === "Селектив" ? 1 : 0)
-    + (hasFamily(item, "Пряные и восточные") ? 1 : 0)
-    + (/уд|ладан|кож|табак|каннабис|металл|порох/.test(notes) ? 1 : 0));
-  return { freshness, sweetness, warmth, intensity, formality, unusual };
-}
-
-function profileDistance(profile, target) {
-  const entries = Object.entries(target);
-  return entries.reduce((sum, [key, value]) => sum + Math.abs(profile[key] - value), 0) / entries.length;
-}
-
-function favoriteSimilarity(item, favorite) {
-  const familyOverlap = item.families.filter((family) => favorite.families.includes(family)).length;
-  const itemNotes = new Set(Object.values(item.notes || {}).flat().map((note) => note.toLowerCase()));
-  const favoriteNotes = new Set(Object.values(favorite.notes || {}).flat().map((note) => note.toLowerCase()));
-  const noteOverlap = [...itemNotes].filter((note) => favoriteNotes.has(note)).length;
-  return familyOverlap * 2.4 + Math.min(noteOverlap, 5) * .55;
-}
-
-function dislikePenalty(item, profile) {
-  const notes = itemText(item);
-  return state.dislikes.reduce((penalty, dislike) => {
-    if (dislike === "tooSweet") return penalty + Math.max(0, profile.sweetness - 2) * 1.8;
-    if (dislike === "heavy") return penalty + Math.max(0, profile.intensity + profile.warmth - 6) * 1.3;
-    if (dislike === "sharp") return penalty + Math.max(0, profile.intensity - 3) + (/перец|имбир|альдегид/.test(notes) ? 2 : 0);
-    if (dislike === "powdery") return penalty + (/пудр|ирис|фиалк|мускус/.test(notes) ? 4 : 0);
-    if (dislike === "tooFresh") return penalty + Math.max(0, profile.freshness - 3) * 1.6;
-    if (dislike === "smoky") return penalty + (/дым|ладан|табак|берёз|кож/.test(notes) ? 4 : 0);
-    if (dislike === "loud") return penalty + Math.max(0, profile.intensity - 3) * 2;
-    if (dislike === "floral") return penalty + (hasFamily(item, "Цветочные") ? 4 : 0);
-    return penalty;
-  }, 0);
-}
-
-function tasteScore(item) {
-  const favoriteItems = selectedFavoriteItems();
-  if (!favoriteItems.length) return 0;
-  return Math.max(...favoriteItems.map((favorite) => favoriteSimilarity(item, favorite)));
-}
-
-function moodScore(profile) {
-  if (!state.moods.length) return 0;
-  const priorityWeights = [1.2, .65, .4];
-  return state.moods.reduce((score, mood, index) => (
-    score + (5 - profileDistance(profile, moodTargets[mood])) * priorityWeights[index]
-  ), 0);
+function buildRecommendations() {
+  state.recommendations = window.FluideWardrobeEngine.buildRecommendations(
+    fragrances,
+    state,
+    roleDefinitions,
+    moodTargets,
+  );
+  saveState();
 }
 
 function candidateScore(item, roleId, selectedItems = []) {
-  const profile = item._wardrobeProfile;
-  const roleFit = (5 - profileDistance(profile, roleDefinitions[roleId].target)) * 7;
-  let diversityPenalty = 0;
-  selectedItems.forEach((selected) => {
-    const sharedFamilies = item.families.filter((family) => selected.families.includes(family)).length;
-    const distance = profileDistance(profile, selected._wardrobeProfile);
-    diversityPenalty += sharedFamilies * 3.2 + Math.max(0, 2.2 - distance) * 2.4;
-  });
-  const primaryFamilyCount = selectedItems.filter((selected) => selected.families[0] === item.families[0]).length;
-  if (primaryFamilyCount >= 2) diversityPenalty += 12;
-  return roleFit + tasteScore(item) + moodScore(profile) - dislikePenalty(item, profile) - diversityPenalty;
-}
-
-function roleEligible(item, roleId) {
-  const profile = item._wardrobeProfile;
-  if (["reset", "warmWeather", "maximumFreshness"].includes(roleId)) return profile.freshness >= 4 && profile.intensity <= 3;
-  if (roleId === "base") return profile.intensity >= 2 && profile.intensity <= 4 && profile.unusual <= 4;
-  if (roleId === "composure") return profile.formality >= 3 && profile.intensity <= 4;
-  if (roleId === "attraction") return profile.sweetness + profile.warmth >= 7 && profile.intensity >= 3;
-  if (["accent", "experiment", "creative"].includes(roleId)) return profile.unusual >= 4 && profile.intensity >= 3;
-  if (roleId === "comfort") return profile.warmth >= 4 && profile.intensity <= 3;
-  if (roleId === "coldWeather") return profile.warmth >= 4 && profile.intensity >= 3;
-  return true;
-}
-
-function buildRecommendations() {
-  const selected = [];
-  state.roles.forEach((roleId) => {
-    const candidates = fragrances.filter((item) => !selected.some((entry) => entry.id === item.id));
-    const diverseCandidates = candidates.filter((item) => selected.filter((entry) => entry.families[0] === item.families[0]).length < 2);
-    const roleCandidates = diverseCandidates.filter((item) => roleEligible(item, roleId));
-    const pool = roleCandidates.length ? roleCandidates : (diverseCandidates.length ? diverseCandidates : candidates);
-    pool.sort((a, b) => candidateScore(b, roleId, selected) - candidateScore(a, roleId, selected)
-      || a.id.localeCompare(b.id, "ru", { numeric: true }));
-    selected.push(pool[0]);
-  });
-  state.recommendations = selected;
-  saveState();
+  return window.FluideWardrobeEngine.candidateScore(
+    item,
+    roleId,
+    selectedItems,
+    state,
+    roleDefinitions,
+    moodTargets,
+    selectedFavoriteItems(),
+  );
 }
 
 function descriptorsFor(item) {
@@ -624,11 +559,10 @@ function replacementCandidates(slot) {
   const roleId = state.roles[slot];
   const currentIds = new Set(state.recommendations.map((item) => item.id));
   const others = state.recommendations.filter((_, index) => index !== slot);
-  const candidates = fragrances.filter((item) => !currentIds.has(item.id));
-  const roleCandidates = candidates.filter((item) => roleEligible(item, roleId));
-  return (roleCandidates.length >= 2 ? roleCandidates : candidates)
-    .sort((a, b) => candidateScore(b, roleId, others) - candidateScore(a, roleId, others)
-      || a.id.localeCompare(b.id, "ru", { numeric: true })).slice(0, 2);
+  const candidates = fragrances.filter((item) => !currentIds.has(item.id)
+    && !state.favorites.includes(item.id)
+    && window.FluideWardrobeEngine.genderMatches(item.gender, state.gender));
+  return candidates.sort((a, b) => candidateScore(b, roleId, others) - candidateScore(a, roleId, others)).slice(0, 2);
 }
 
 function showReplacementDialog(slot) {
@@ -693,7 +627,7 @@ function renderFinal() {
   document.querySelector("#final-back").addEventListener("click", renderFitting);
   document.querySelector("#restart-wardrobe").addEventListener("click", () => {
     resetState();
-    renderProfile();
+    renderGender();
   });
 }
 
@@ -708,7 +642,7 @@ fetch("./fragrances.json")
     return response.json();
   })
   .then((items) => {
-    fragrances = items.map((item) => ({ ...item, _wardrobeProfile: profileFor(item) }));
+    fragrances = window.FluideWardrobeEngine.prepareItems(items);
     state.favorites = state.favorites.filter((id) => fragrances.some((item) => item.id === id));
     state.recommendations = storedRecommendationIds
       .map((id) => fragrances.find((item) => item.id === id))

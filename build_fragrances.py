@@ -76,6 +76,7 @@ OCCASION_OVERRIDES = {
     "018": ["everyday", "gym", "walk"],
     "022": ["everyday", "gym", "walk"],
     "023": ["everyday", "walk"],
+    "030": ["everyday", "date", "walk"],
     "031": ["everyday", "gym", "walk"],
     "036": ["everyday", "gym", "walk"],
     "050": ["evening", "date"],
@@ -96,6 +97,7 @@ SEASON_OVERRIDES = {
     "018": ["summer", "spring"],
     "020": ["summer"],
     "022": ["summer", "spring"],
+    "030": ["summer", "spring"],
     "031": ["summer", "spring"],
     "036": ["summer", "spring"],
     "041": ["autumn", "winter"],
@@ -113,6 +115,11 @@ SEASON_OVERRIDES = {
     "505": ["summer", "spring"],
     "517": ["summer", "spring"],
     "526": ["autumn", "winter"],
+}
+
+GENDER_OVERRIDES = {
+    # В исходной таблице Eclat d'Arpege ошибочно указан как мужской.
+    "030": "женский",
 }
 
 
@@ -245,7 +252,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
             "title": title,
             "original": original,
             "oilPercent": oil_percent,
-            "gender": str(row[5] or "").strip().lower(),
+            "gender": GENDER_OVERRIDES.get(number, str(row[5] or "").strip().lower()),
             "category": str(row[6] or "").strip(),
             "concentration": str(row[8] or "").strip(),
             "notes": split_notes(notes_raw),

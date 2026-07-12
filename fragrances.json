@@ -1895,7 +1895,7 @@
     "title": "30 D'ARPEGE",
     "original": "Lanvin Eclat D'Arpege",
     "oilPercent": 35,
-    "gender": "мужской",
+    "gender": "женский",
     "category": "Люкс",
     "concentration": "Eau de extrait",
     "notes": {
@@ -1925,12 +1925,12 @@
     ],
     "occasion": [
       "everyday",
-      "evening",
-      "date"
+      "date",
+      "walk"
     ],
     "season": [
-      "autumn",
-      "winter"
+      "summer",
+      "spring"
     ],
     "image": "images/fragrances/030.webp",
     "thumbnail": "images/fragrances/thumbs/030.webp"

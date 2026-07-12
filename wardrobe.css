@@ -298,6 +298,40 @@ body {
 
 .question-heading .wardrobe-lead { max-width: 760px; }
 
+.gender-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 20px);
+  width: min(1120px, 100%);
+  margin: clamp(32px, 6vh, 64px) auto 0;
+}
+
+.gender-choice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(180px, 28vh, 270px);
+  padding: clamp(20px, 2.5vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgb(67 72 101 / 16%);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 42%);
+  cursor: pointer;
+}
+
+.gender-choice:nth-child(2) { background: rgb(159 182 223 / 48%); }
+.gender-choice:nth-child(3) { color: var(--white); background: rgb(67 72 101 / 88%); }
+.gender-choice input { position: absolute; opacity: 0; }
+.gender-choice__number { font-size: 12px; letter-spacing: .12em; opacity: .62; }
+.gender-choice__body strong,
+.gender-choice__body small { display: block; }
+.gender-choice__body strong { font-size: clamp(24px, 2.3vw, 36px); font-weight: 400; }
+.gender-choice__body small { margin-top: 8px; font-size: 13px; line-height: 1.4; opacity: .66; }
+.gender-choice.is-selected { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.gender-choice:nth-child(3).is-selected { border-color: var(--white); box-shadow: inset 0 0 0 1px var(--white); }
+.gender-choice:focus-within { outline: 3px solid var(--ink); outline-offset: 3px; }
+
 .profile-focus {
   width: min(780px, 100%);
   margin: clamp(26px, 4.5vh, 50px) auto 0;
