@@ -12,6 +12,7 @@ const sectionButtons = [...document.querySelectorAll(".catalog-section")];
 const sectionFilterGroups = [...document.querySelectorAll("[data-filter-section]")];
 const recommendationParams = new URLSearchParams(window.location.search);
 const isAllMode = document.body.dataset.catalogMode === "all" || recommendationParams.get("mode") === "all";
+const usesCatalogSections = sectionButtons.length > 0;
 const catalogPage = isAllMode ? "all.html" : "results.html";
 const catalogStateKeys = ["catalogState", "q", "type", "section", "subtype", "catalogGender", "catalogFamily", "occasion", "season", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity", "gender", "family"];
 const catalogSections = {
@@ -74,7 +75,7 @@ function setRepeatedParam(params, key, values) {
 function saveCatalogState() {
   const params = new URLSearchParams(window.location.search);
   params.set("catalogState", "1");
-  if (isAllMode) {
+  if (usesCatalogSections) {
     ["type", "filterFamily", "sort", "filterGender", "filterCategory", "filterConcentration", "filterIntensity", "gender", "family"].forEach((key) => params.delete(key));
     params.set("section", activeSection);
     const query = searchInput?.value.trim() || "";
@@ -83,7 +84,7 @@ function saveCatalogState() {
     ["subtype", "catalogGender", "catalogFamily", "occasion", "season"].forEach((key) => {
       setRepeatedParam(params, key, selectedValues(key));
     });
-    history.replaceState(null, "", `all.html?${params.toString()}`);
+    history.replaceState(null, "", `${catalogPage}?${params.toString()}`);
     return;
   }
   const scalarState = {
@@ -155,7 +156,7 @@ function cardMarkup(item) {
 function applyFilters() {
   saveCatalogState();
   const query = searchInput?.value.trim().toLowerCase() || "";
-  if (isAllMode) {
+  if (usesCatalogSections) {
     const allowedTypes = catalogSections[activeSection];
     const subtypes = selectedValues("subtype");
     const catalogGender = selectedValues("catalogGender")[0] || "";
@@ -229,7 +230,7 @@ function applyFilters() {
 
 function applyQueryDefaults() {
   const params = new URLSearchParams(window.location.search);
-  if (isAllMode) {
+  if (usesCatalogSections) {
     activeSection = catalogSections[params.get("section")] ? params.get("section") : "perfume";
     sectionButtons.forEach((button) => {
       const selected = button.dataset.section === activeSection;
@@ -237,8 +238,21 @@ function applyQueryDefaults() {
       button.setAttribute("aria-pressed", String(selected));
     });
     sectionFilterGroups.forEach((group) => { group.hidden = group.dataset.filterSection !== activeSection; });
-    ["subtype", "catalogGender", "catalogFamily", "occasion", "season"].forEach((name) => {
-      const values = params.getAll(name);
+    const hasSavedState = params.get("catalogState") === "1";
+    const initialValues = {
+      subtype: params.getAll("subtype"),
+      catalogGender: params.getAll("catalogGender"),
+      catalogFamily: params.getAll("catalogFamily"),
+      occasion: params.getAll("occasion"),
+      season: params.getAll("season"),
+    };
+    if (!hasSavedState && !isAllMode) {
+      if (!initialValues.catalogGender.length && params.get("gender")) {
+        initialValues.catalogGender = [params.get("gender")];
+      }
+      if (!initialValues.catalogFamily.length) initialValues.catalogFamily = params.getAll("family");
+    }
+    Object.entries(initialValues).forEach(([name, values]) => {
       document.querySelectorAll(`.filters input[name="${name}"]`).forEach((input) => {
         input.checked = values.includes(input.value);
       });
@@ -293,7 +307,9 @@ resetButton.addEventListener("click", () => {
     if (key !== "mode") recommendationParams.delete(key);
   });
   catalogStateKeys.forEach((key) => recommendationParams.delete(key));
-  history.replaceState(null, "", isAllMode ? `all.html?section=${activeSection}` : "results.html?mode=selection");
+  history.replaceState(null, "", usesCatalogSections
+    ? `${catalogPage}?${isAllMode ? "" : "mode=selection&"}section=${activeSection}`
+    : "results.html?mode=selection");
   applyFilters();
 });
 
@@ -303,7 +319,7 @@ const requests = [fetch("./fragrances.json").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];
-if (isAllMode) requests.push(fetch("./products.json").then((response) => response.json()));
+if (usesCatalogSections) requests.push(fetch("./products.json").then((response) => response.json()));
 
 Promise.all(requests)
   .then(([fragranceData, productData = []]) => {

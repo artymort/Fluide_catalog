@@ -86,7 +86,8 @@ button, input, select { font: inherit; }
   padding: clamp(18px, 2.6vh, 30px) 0;
 }
 
-body[data-catalog-mode="all"] .store-intro {
+body[data-catalog-mode="all"] .store-intro,
+body[data-catalog-mode="selection"] .store-intro {
   align-items: center;
 }
 

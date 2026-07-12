@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="app-icon-192.png" />
     <link rel="stylesheet" href="fonts.css?v=1" />
     <link rel="stylesheet" href="shared-header.css?v=1" />
-    <link rel="stylesheet" href="results.css?v=7" />
+    <link rel="stylesheet" href="results.css?v=8" />
   </head>
   <body data-catalog-mode="selection">
     <main class="store-screen">
@@ -25,7 +25,10 @@
         <div class="site-header-actions">
           <a class="store-selection-link" href="selection.html">Подобрать ароматы</a>
           <button class="site-cart" type="button" aria-label="Выбранные товары: 0">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 12H5.4L4 7Z" /><path d="M8 9V6a4 4 0 0 1 8 0v3" /></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16l-1.4 12H5.4L4 7Z" />
+              <path d="M8 9V6a4 4 0 0 1 8 0v3" />
+            </svg>
             <span class="site-cart__count">0</span>
           </button>
         </div>
@@ -36,10 +39,18 @@
           <p class="store-kicker" id="results-kicker">Каталог FLUIDE</p>
           <h1 id="results-title">Подходящие ароматы</h1>
         </div>
-        <label class="store-search">
-          <span class="visually-hidden">Поиск ароматов</span>
-          <input id="search" type="search" placeholder="Поиск по названию или номеру" />
-        </label>
+        <div class="catalog-controls">
+          <nav class="catalog-sections" aria-label="Разделы каталога">
+            <button class="catalog-section is-active" type="button" data-section="perfume" aria-pressed="true">Парфюм</button>
+            <button class="catalog-section" type="button" data-section="care" aria-pressed="false">Уходовая косметика</button>
+            <button class="catalog-section" type="button" data-section="home" aria-pressed="false">Товары для дома</button>
+            <button class="catalog-section" type="button" data-section="car" aria-pressed="false">Автопарфюм</button>
+          </nav>
+          <label class="store-search">
+            <span class="visually-hidden">Поиск по каталогу</span>
+            <input id="search" type="search" placeholder="Поиск по названию или номеру" />
+          </label>
+        </div>
       </section>
 
       <div class="store-layout">
@@ -49,57 +60,74 @@
             <button id="reset-filters" type="button">Сбросить</button>
           </div>
 
-          <fieldset>
-            <legend>Пол</legend>
-            <label><input type="checkbox" name="gender" value="женский" /> Женский</label>
-            <label><input type="checkbox" name="gender" value="мужской" /> Мужской</label>
-            <label><input type="checkbox" name="gender" value="унисекс" /> Унисекс</label>
-          </fieldset>
+          <div class="catalog-filter-group" data-filter-section="perfume">
+            <fieldset>
+              <legend>Тип парфюма</legend>
+              <label><input type="checkbox" name="subtype" value="fragrance" /> Парфюм-спрей</label>
+              <label><input type="checkbox" name="subtype" value="solid-perfume" /> Твёрдый парфюм</label>
+            </fieldset>
+            <fieldset>
+              <legend>Кому подбираем?</legend>
+              <label><input type="radio" name="catalogGender" value="женский" /> Женские</label>
+              <label><input type="radio" name="catalogGender" value="мужской" /> Мужские</label>
+              <label><input type="radio" name="catalogGender" value="унисекс" /> Унисекс</label>
+            </fieldset>
+            <fieldset>
+              <legend>Случай</legend>
+              <label><input type="checkbox" name="occasion" value="everyday" /> На каждый день</label>
+              <label><input type="checkbox" name="occasion" value="evening" /> Вечерние</label>
+              <label><input type="checkbox" name="occasion" value="date" /> Свидание</label>
+              <label><input type="checkbox" name="occasion" value="gym" /> Спортзал</label>
+              <label><input type="checkbox" name="occasion" value="walk" /> Прогулка</label>
+            </fieldset>
+            <fieldset>
+              <legend>Ноты</legend>
+              <label><input type="checkbox" name="catalogFamily" value="Цветочные" /> Цветочные</label>
+              <label><input type="checkbox" name="catalogFamily" value="Фруктовые" /> Фруктовые</label>
+              <label><input type="checkbox" name="catalogFamily" value="Цитрусовые" /> Цитрусовые</label>
+              <label><input type="checkbox" name="catalogFamily" value="Древесные" /> Древесные</label>
+              <label><input type="checkbox" name="catalogFamily" value="Сладкие" /> Сладкие</label>
+              <label><input type="checkbox" name="catalogFamily" value="Свежие" /> Свежие</label>
+              <label><input type="checkbox" name="catalogFamily" value="Пряные и восточные" /> Пряные</label>
+            </fieldset>
+            <fieldset>
+              <legend>Время года</legend>
+              <label><input type="checkbox" name="season" value="summer" /> Лето</label>
+              <label><input type="checkbox" name="season" value="autumn" /> Осень</label>
+              <label><input type="checkbox" name="season" value="winter" /> Зима</label>
+              <label><input type="checkbox" name="season" value="spring" /> Весна</label>
+            </fieldset>
+          </div>
 
-          <fieldset>
-            <legend>Категория</legend>
-            <label><input type="checkbox" name="category" value="Люкс" /> Люкс</label>
-            <label><input type="checkbox" name="category" value="Селектив" /> Селектив</label>
-            <label><input type="checkbox" name="category" value="Суперлюкс" /> Суперлюкс</label>
-          </fieldset>
+          <div class="catalog-filter-group" data-filter-section="care" hidden>
+            <fieldset>
+              <legend>Тип продукции</legend>
+              <label><input type="checkbox" name="subtype" value="body-cream" /> Крем для тела</label>
+              <label><input type="checkbox" name="subtype" value="hair-spray" /> Спрей для волос</label>
+              <label><input type="checkbox" name="subtype" value="hand-soap" /> Мыло</label>
+            </fieldset>
+          </div>
 
-          <fieldset>
-            <legend>Концентрация</legend>
-            <label><input type="checkbox" name="concentration" value="Eau de parfum" /> Парфюмерная вода</label>
-            <label><input type="checkbox" name="concentration" value="Eau de extrait" /> Экстракт</label>
-          </fieldset>
+          <div class="catalog-filter-group" data-filter-section="home" hidden>
+            <fieldset>
+              <legend>Тип продукции</legend>
+              <label><input type="checkbox" name="subtype" value="home-fragrance" /> Парфюм для дома</label>
+              <label><input type="checkbox" name="subtype" value="candle" /> Свечи</label>
+              <label><input type="checkbox" name="subtype" value="diffuser" /> Аромадиффузоры</label>
+            </fieldset>
+          </div>
 
-          <fieldset>
-            <legend>Насыщенность</legend>
-            <label><input type="checkbox" name="intensity" value="light" /> Лёгкая</label>
-            <label><input type="checkbox" name="intensity" value="balanced" /> Сбалансированная</label>
-            <label><input type="checkbox" name="intensity" value="intense" /> Насыщенная</label>
-          </fieldset>
-
-          <fieldset>
-            <legend>Направление</legend>
-            <select id="family-filter">
-              <option value="">Все направления</option>
-              <option>Цветочные</option>
-              <option>Фруктовые</option>
-              <option>Цитрусовые</option>
-              <option>Древесные</option>
-              <option>Сладкие</option>
-              <option>Свежие</option>
-              <option>Пряные и восточные</option>
-            </select>
-          </fieldset>
+          <div class="catalog-filter-group" data-filter-section="car" hidden>
+            <fieldset>
+              <legend>Тип продукции</legend>
+              <label><input type="checkbox" name="subtype" value="car-fragrance" /> Автопарфюм</label>
+            </fieldset>
+          </div>
         </aside>
 
         <section class="products" aria-live="polite">
           <div class="products__summary">
             <p id="result-count">Загрузка ароматов…</p>
-            <select id="sort-products" aria-label="Сортировка">
-              <option id="recommended-sort" value="recommended">Сначала рекомендуемые</option>
-              <option value="number">По номеру</option>
-              <option value="name">По названию</option>
-              <option value="oil-desc">Сначала насыщенные</option>
-            </select>
           </div>
           <div class="products-grid" id="products-grid"></div>
         </section>
@@ -107,6 +135,6 @@
     </main>
 
     <script src="pwa.js?v=2"></script>
-    <script src="results.js?v=10"></script>
+    <script src="results.js?v=11"></script>
   </body>
 </html>
