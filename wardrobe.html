@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f0e6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="FLUIDE" />
+    <title>FLUIDE — парфюмерный гардероб</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="app-icon-192.png" />
+    <link rel="stylesheet" href="fonts.css?v=1" />
+    <link rel="stylesheet" href="shared-header.css?v=1" />
+    <link rel="stylesheet" href="wardrobe.css?v=1" />
+  </head>
+  <body>
+    <main class="wardrobe-screen">
+      <header class="wardrobe-header">
+        <a class="wardrobe-back" href="index.html" aria-label="Вернуться в главное меню">←</a>
+        <a class="site-logo-link" href="index.html" aria-label="Перейти в главное меню">
+          <img class="wardrobe-logo" src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+        </a>
+        <div class="site-header-actions">
+          <nav class="wardrobe-progress" aria-label="Этапы парфюмерного гардероба">
+            <span data-progress="profile">Профиль</span>
+            <span data-progress="fitting">Примерка</span>
+            <span data-progress="wardrobe">Гардероб</span>
+          </nav>
+          <button class="site-cart" type="button" aria-label="Выбранные товары: 0">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16l-1.4 12H5.4L4 7Z" />
+              <path d="M8 9V6a4 4 0 0 1 8 0v3" />
+            </svg>
+            <span class="site-cart__count">0</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="wardrobe-content" id="wardrobe-content" aria-live="polite">
+        <p class="wardrobe-loading">Готовим цифрового парфюмерного стилиста…</p>
+      </section>
+    </main>
+
+    <dialog class="wardrobe-dialog" id="wardrobe-dialog">
+      <button class="dialog-close" type="button" aria-label="Закрыть" title="Закрыть">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <div class="rotate-message" role="status">
+      <img src="логотип FLUIDE сниний.svg" alt="FLUIDE Atelier" />
+      <p>Поверните устройство горизонтально</p>
+    </div>
+
+    <script src="pwa.js?v=3"></script>
+    <script src="wardrobe.js?v=1"></script>
+  </body>
+</html>

@@ -8,6 +8,18 @@ window.addEventListener("resize", updateAppHeight);
 window.addEventListener("orientationchange", () => setTimeout(updateAppHeight, 150));
 window.visualViewport?.addEventListener("resize", updateAppHeight);
 
+function updateSiteCart(count = Number(localStorage.getItem("fluide-cart-count") || 0)) {
+  const safeCount = Number.isFinite(count) ? Math.max(0, count) : 0;
+  document.querySelectorAll(".site-cart").forEach((cart) => {
+    const countLabel = cart.querySelector(".site-cart__count");
+    if (countLabel) countLabel.textContent = String(safeCount);
+    cart.setAttribute("aria-label", `Выбранные товары: ${safeCount}`);
+  });
+}
+
+updateSiteCart();
+document.addEventListener("fluide-cart-change", (event) => updateSiteCart(Number(event.detail?.count)));
+
 let screenWakeLock = null;
 
 async function keepScreenAwake() {
