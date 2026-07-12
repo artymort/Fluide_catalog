@@ -579,13 +579,12 @@ function fittingCardMarkup(item, index) {
   const reaction = state.reactions[index] || "";
   const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent("wardrobe.html?view=fitting")}`;
   return `<article class="fitting-card">
-    <a class="fitting-card__link" href="${productUrl}">
-      <div class="fitting-visual"><span class="fitting-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>${fragranceVisual(item)}</div>
+    <a class="fitting-card__link" href="${productUrl}" aria-label="Открыть карточку аромата ${escapeHtml(item.title)}">
+      <span class="fitting-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>
+      <div class="fitting-visual">${fragranceVisual(item)}</div>
       <div class="fitting-body">
         <h2>${escapeHtml(item.title)}</h2>
-        <p class="fitting-tags">${descriptorsFor(item).join(" · ")}</p>
         <p class="fitting-reason">${role.reason}</p>
-        <span class="fitting-card__open">Подробнее <span aria-hidden="true">→</span></span>
       </div>
     </a>
     <div class="reactions">
