@@ -61,10 +61,11 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 
 .detail-visual {
   position: relative;
-  align-self: start;
+  align-self: stretch;
   display: grid;
   place-items: center;
-  min-height: 420px;
+  min-height: 0;
+  height: 100%;
   border-radius: 28px;
   overflow: hidden;
   border: 1px solid rgb(67 72 101 / 12%);
@@ -78,6 +79,9 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .detail-visual__brand { position: absolute; top: 24px; left: 28px; color: rgb(67 72 101 / 72%); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 .detail-visual__number { font-size: clamp(82px, 12vw, 170px); font-weight: 300; letter-spacing: -.06em; }
 .detail-visual__image {
+  display: block;
+  align-self: center;
+  justify-self: center;
   width: calc(100% - 64px);
   height: calc(100% - 74px);
   object-fit: contain;
@@ -91,12 +95,12 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .detail-content h1 { margin: 0; font-size: 64px; font-weight: 400; line-height: .98; letter-spacing: 0; }
 .detail-original { margin: 14px 0 0; color: rgb(67 72 101 / 64%); font-size: clamp(15px, 1.4vw, 20px); }
 
-.detail-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 24px 0 12px; }
+.detail-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 18px 0 10px; }
 .detail-fact { padding: 13px 16px; border: 1px solid rgb(67 72 101 / 14%); border-radius: 8px; background: rgb(255 255 255 / 38%); }
 .detail-fact span { display: block; color: rgb(67 72 101 / 58%); font-size: 11px; }
 .detail-fact strong { display: block; margin-top: 4px; font-size: 16px; font-weight: 400; }
 
-.purchase-panel { margin: 0 0 26px; overflow: hidden; border: 1px solid rgb(67 72 101 / 16%); border-radius: 8px; background: rgb(255 255 255 / 44%); }
+.purchase-panel { margin: 0 0 20px; overflow: hidden; border: 1px solid rgb(67 72 101 / 16%); border-radius: 8px; background: rgb(255 255 255 / 44%); }
 .purchase-panel__heading,
 .purchase-panel__action { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 16px; }
 .purchase-panel__heading > div:first-child,
@@ -119,14 +123,14 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .add-to-cart span { color: inherit; font-size: inherit; }
 .add-to-cart:disabled { color: rgb(67 72 101 / 72%); border-color: rgb(67 72 101 / 12%); background: rgb(67 72 101 / 8%); cursor: default; }
 
-.detail-notes h2 { margin: 0 0 14px; font-size: 23px; font-weight: 400; }
-.note-row { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid rgb(67 72 101 / 12%); }
+.detail-notes h2 { margin: 0 0 8px; font-size: 23px; font-weight: 400; }
+.note-row { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 10px 0; border-top: 1px solid rgb(67 72 101 / 12%); }
 .note-row h3 { margin: 0; font-size: 14px; font-weight: 400; line-height: 1.5; }
 .note-row p { margin: 0; color: rgb(67 72 101 / 76%); font-size: 14px; line-height: 1.5; }
-.detail-families { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
+.detail-families { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
 .detail-families span { padding: 7px 11px; border-radius: 999px; background: rgb(159 182 223 / 34%); font-size: 12px; }
 
-.similar-products { grid-column: 1 / -1; min-width: 0; margin-top: clamp(18px, 3vh, 34px); padding-top: clamp(20px, 3vh, 34px); border-top: 1px solid rgb(67 72 101 / 14%); }
+.similar-products { grid-column: 1 / -1; min-width: 0; margin-top: 8px; padding-top: 14px; border-top: 1px solid rgb(67 72 101 / 14%); }
 .similar-products__heading { margin-bottom: 18px; }
 .similar-products__heading h2 { margin: 0; font-size: 28px; font-weight: 400; }
 .similar-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, 1.2vw, 16px); }
@@ -166,7 +170,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 @media (max-height: 650px) {
   .detail-screen { grid-template-rows: 68px minmax(0, 1fr); }
   .detail { padding-top: 18px; padding-bottom: 10px; }
-  .detail-visual { min-height: 360px; }
+  .detail-visual { min-height: 0; }
   .detail-facts { margin: 18px 0; }
   .note-row { padding: 10px 0; }
   .similar-card { grid-template-rows: 170px minmax(106px, auto); }
@@ -177,7 +181,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
   .detail-screen { display: block; height: auto; min-height: 100vh; padding: 16px; }
   .detail-header { height: 70px; }
   .detail { display: block; padding: 22px 0; overflow: visible; }
-  .detail-visual { position: relative; min-height: 360px; margin-bottom: 28px; }
+  .detail-visual { position: relative; min-height: 360px; height: auto; margin-bottom: 28px; }
   .detail-content h1 { font-size: 38px; }
   .purchase-panel__heading,
   .purchase-panel__action { align-items: stretch; flex-direction: column; }

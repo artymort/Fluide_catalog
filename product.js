@@ -122,7 +122,6 @@ function renderProduct(item, items) {
       <span class="detail-visual__caption" id="detail-volume-caption">30 мл</span>
     </div>
     <div class="detail-content">
-      <p class="detail-kicker">Аромат № ${escapeHtml(item.id)}</p>
       <h1>${escapeHtml(item.title)}</h1>
       <p class="detail-original">По мотивам: ${escapeHtml(item.original)}</p>
 
