@@ -10,10 +10,12 @@ const fragrancePrices = {
   "Селектив": { 30: 3490, 50: 4990 },
 };
 
-if (returnUrl && /^(?:all|results|wardrobe|product)\.html(?:\?|$)/.test(returnUrl)) {
+if (returnUrl && /^(?:all|results|wardrobe|product|cart)\.html(?:\?|$)/.test(returnUrl)) {
   backLink.href = returnUrl;
   if (returnUrl === "wardrobe.html?view=final") backLink.setAttribute("aria-label", "Вернуться к готовому гардеробу");
   else if (returnUrl.startsWith("wardrobe.html")) backLink.setAttribute("aria-label", "Вернуться к примерке");
+  else if (returnUrl.startsWith("cart.html")) backLink.setAttribute("aria-label", "Вернуться в корзину");
+  else if (returnUrl.startsWith("product.html")) backLink.setAttribute("aria-label", "Вернуться к предыдущему аромату");
 }
 
 const noteLabels = {
@@ -99,12 +101,7 @@ function similarCardMarkup(item) {
 }
 
 function readCartItems() {
-  try {
-    const items = JSON.parse(localStorage.getItem("fluide-cart-items") || "[]");
-    return Array.isArray(items) ? items : [];
-  } catch {
-    return [];
-  }
+  return window.FluideCart.read();
 }
 
 function renderProduct(item, items) {
@@ -188,22 +185,18 @@ function renderProduct(item, items) {
   }));
 
   addButton.addEventListener("click", () => {
-    const cartItems = readCartItems();
     if (variantInCart(selectedVolume)) return;
-    cartItems.push({
+    window.FluideCart.add({
+      kind: "fragrance",
       id: item.id,
       title: item.title,
+      typeLabel: "Парфюмерная вода",
       category: item.category,
       volume: selectedVolume,
       price: prices[selectedVolume],
       quantity: 1,
       image: item.thumbnail || item.image || "",
     });
-    localStorage.setItem("fluide-cart-items", JSON.stringify(cartItems));
-    const storedCount = Number(localStorage.getItem("fluide-cart-count") || 0);
-    const nextCount = (Number.isFinite(storedCount) ? Math.max(0, storedCount) : 0) + 1;
-    localStorage.setItem("fluide-cart-count", String(nextCount));
-    document.dispatchEvent(new CustomEvent("fluide-cart-change", { detail: { count: nextCount } }));
     syncPurchaseState();
   });
 
@@ -211,12 +204,48 @@ function renderProduct(item, items) {
 }
 
 function renderCatalogProduct(item) {
+  const visual = item.image
+    ? `<img class="detail-visual__image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" />`
+    : `<img class="detail-visual__fallback" src="app-icon.svg" alt="" />`;
   document.title = `FLUIDE — ${item.title}`;
   detail.innerHTML = `
-    <div class="detail-visual"><span class="detail-visual__brand">${item.typeLabel}</span><span class="detail-visual__number">${item.id.slice(-2)}</span><span class="detail-visual__caption">${item.volume || "FLUIDE"}</span></div>
-    <div class="detail-content"><p class="detail-kicker">${item.typeLabel}</p><h1>${item.title}</h1><p class="detail-original">Продукция FLUIDE Atelier</p>
-      <div class="detail-facts">${item.volume ? `<div class="detail-fact"><span>Объём</span><strong>${item.volume}</strong></div>` : ""}<div class="detail-fact"><span>Цена</span><strong>${item.price.toLocaleString("ru-RU")} ₽</strong></div></div>
+    <div class="detail-visual"><span class="detail-visual__brand">${escapeHtml(item.typeLabel)}</span>${visual}<span class="detail-visual__caption">${escapeHtml(item.volume || "FLUIDE")}</span></div>
+    <div class="detail-content"><p class="detail-kicker">${escapeHtml(item.typeLabel)}</p><h1>${escapeHtml(item.title)}</h1><p class="detail-original">Продукция FLUIDE Atelier</p>
+      <div class="detail-facts">${item.volume ? `<div class="detail-fact"><span>Объём</span><strong>${escapeHtml(item.volume)}</strong></div>` : ""}<div class="detail-fact"><span>Категория</span><strong>${escapeHtml(item.typeLabel)}</strong></div></div>
+      <section class="purchase-panel product-purchase">
+        <div class="purchase-panel__action">
+          <div><span>Стоимость</span><strong>${formatPrice(item.price)}</strong></div>
+          <button class="add-to-cart" id="add-product-to-cart" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 12H5.4L4 7Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+            <span>Добавить в корзину</span>
+          </button>
+        </div>
+      </section>
     </div>`;
+
+  const cartKey = `product:${item.id}${item.volume ? `:${item.volume}` : ""}`;
+  const addButton = document.querySelector("#add-product-to-cart");
+  const addButtonLabel = addButton.querySelector("span");
+  const syncButton = () => {
+    const added = window.FluideCart.has(cartKey);
+    addButton.disabled = added;
+    addButtonLabel.textContent = added ? "Уже в корзине" : "Добавить в корзину";
+  };
+  addButton.addEventListener("click", () => {
+    window.FluideCart.add({
+      key: cartKey,
+      kind: "product",
+      id: item.id,
+      title: item.title,
+      typeLabel: item.typeLabel,
+      volume: item.volume || "",
+      price: item.price,
+      quantity: 1,
+      image: item.image || "",
+    });
+    syncButton();
+  });
+  syncButton();
 }
 
 fetch("./fragrances.json")

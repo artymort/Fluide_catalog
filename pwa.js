@@ -8,8 +8,70 @@ window.addEventListener("resize", updateAppHeight);
 window.addEventListener("orientationchange", () => setTimeout(updateAppHeight, 150));
 window.visualViewport?.addEventListener("resize", updateAppHeight);
 
-function updateSiteCart(count = Number(localStorage.getItem("fluide-cart-count") || 0)) {
+const cartStorageKey = "fluide-cart-items";
+
+function cartItemKey(item) {
+  if (item.key) return String(item.key);
+  const kind = item.kind || (/^\d+$/.test(String(item.id)) ? "fragrance" : "product");
+  const variant = item.volume ? `:${item.volume}` : "";
+  return `${kind}:${item.id}${variant}`;
+}
+
+function readCartItems() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
+    if (!Array.isArray(stored)) return [];
+    return stored
+      .filter((item) => item && item.id && item.title)
+      .map((item) => {
+        const kind = item.kind || (/^\d+$/.test(String(item.id)) ? "fragrance" : "product");
+        return { ...item, kind, key: cartItemKey({ ...item, kind }), quantity: Math.max(1, Number(item.quantity) || 1) };
+      });
+  } catch {
+    return [];
+  }
+}
+
+function cartCount(items = readCartItems()) {
+  return items.reduce((total, item) => total + item.quantity, 0);
+}
+
+function writeCartItems(items) {
+  localStorage.setItem(cartStorageKey, JSON.stringify(items));
+  const count = cartCount(items);
+  localStorage.setItem("fluide-cart-count", String(count));
+  document.dispatchEvent(new CustomEvent("fluide-cart-change", { detail: { count } }));
+  return count;
+}
+
+window.FluideCart = {
+  read: readCartItems,
+  count: cartCount,
+  total(items = readCartItems()) {
+    return items.reduce((total, item) => total + (Number(item.price) || 0) * item.quantity, 0);
+  },
+  has(key) {
+    return readCartItems().some((item) => item.key === key);
+  },
+  add(item) {
+    const items = readCartItems();
+    const normalized = { ...item, key: cartItemKey(item), quantity: Math.max(1, Number(item.quantity) || 1) };
+    if (items.some((entry) => entry.key === normalized.key)) return false;
+    writeCartItems([...items, normalized]);
+    return true;
+  },
+  remove(key) {
+    const items = readCartItems().filter((item) => item.key !== key);
+    writeCartItems(items);
+  },
+  clear() {
+    writeCartItems([]);
+  },
+};
+
+function updateSiteCart(count = window.FluideCart.count()) {
   const safeCount = Number.isFinite(count) ? Math.max(0, count) : 0;
+  localStorage.setItem("fluide-cart-count", String(safeCount));
   document.querySelectorAll(".site-cart").forEach((cart) => {
     const countLabel = cart.querySelector(".site-cart__count");
     if (countLabel) countLabel.textContent = String(safeCount);
@@ -19,6 +81,9 @@ function updateSiteCart(count = Number(localStorage.getItem("fluide-cart-count")
 
 updateSiteCart();
 document.addEventListener("fluide-cart-change", (event) => updateSiteCart(Number(event.detail?.count)));
+document.querySelectorAll(".site-cart").forEach((cart) => cart.addEventListener("click", () => {
+  window.location.href = "cart.html";
+}));
 
 let screenWakeLock = null;
 
@@ -45,7 +110,7 @@ window.addEventListener("pageshow", keepScreenAwake);
 
 if ("serviceWorker" in navigator) {
   let serviceWorkerRegistration = null;
-  const serviceWorkerUrl = "./sw.js?v=63";
+  const serviceWorkerUrl = "./sw.js?v=66";
 
   async function registerAndUpdateServiceWorker() {
     try {

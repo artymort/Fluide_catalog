@@ -664,12 +664,29 @@ function renderFinal() {
         </aside>
       </div>
     </div>`;
-  document.querySelector("#add-wardrobe").addEventListener("click", (event) => {
-    localStorage.setItem("fluide-cart-count", "5");
-    document.dispatchEvent(new CustomEvent("fluide-cart-change", { detail: { count: 5 } }));
-    event.currentTarget.textContent = "Гардероб добавлен";
-    event.currentTarget.disabled = true;
+  const wardrobeKey = `wardrobe:${state.recommendations.map((item) => item.id).join("-")}`;
+  const wardrobeButton = document.querySelector("#add-wardrobe");
+  const syncWardrobeButton = () => {
+    const added = window.FluideCart.has(wardrobeKey);
+    wardrobeButton.textContent = added ? "Гардероб добавлен" : "Добавить гардероб";
+    wardrobeButton.disabled = added;
+  };
+  wardrobeButton.addEventListener("click", () => {
+    window.FluideCart.add({
+      key: wardrobeKey,
+      kind: "wardrobe",
+      id: wardrobeKey,
+      title: "Парфюмерный гардероб",
+      typeLabel: "Персональный комплект",
+      volume: "5 × 30 мл",
+      price: 9900,
+      quantity: 1,
+      image: state.recommendations[0]?.thumbnail || state.recommendations[0]?.image || "",
+      fragranceIds: state.recommendations.map((item) => item.id),
+    });
+    syncWardrobeButton();
   });
+  syncWardrobeButton();
   document.querySelector("#final-back").addEventListener("click", renderFitting);
   document.querySelector("#restart-wardrobe").addEventListener("click", () => {
     resetState();
