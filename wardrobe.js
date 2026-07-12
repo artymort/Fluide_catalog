@@ -237,6 +237,16 @@ function choiceMarkup([value, label], selectedValues, groupName, disabled = fals
   </label>`;
 }
 
+function moodChoiceMarkup([value, label], disabled = false) {
+  const priorityIndex = state.moods.indexOf(value);
+  const selected = priorityIndex !== -1;
+  return `<label class="choice-card mood-choice${selected ? " is-selected" : ""}${disabled && !selected ? " is-disabled" : ""}">
+    <input type="checkbox" name="mood" value="${value}"${selected ? " checked" : ""}${disabled && !selected ? " disabled" : ""} />
+    ${selected ? `<span class="mood-choice__priority">${priorityIndex + 1}</span>` : ""}
+    <span>${label}</span>
+  </label>`;
+}
+
 function renderProfile() {
   setScreen("profile");
   const canContinue = state.favorites.length > 0 || state.novice;
@@ -340,12 +350,12 @@ function renderMoods() {
   content.innerHTML = `
     <p class="wardrobe-kicker">Желаемое впечатление</p>
     <h1 class="wardrobe-title">Как вы хотите звучать в аромате?</h1>
-    <p class="wardrobe-lead">Выберите три состояния, которые вам ближе.</p>
-    <div class="choice-grid choice-grid--moods">${moodOptions.map((option) => choiceMarkup(option, state.moods, "mood", limitReached)).join("")}</div>
+    <p class="wardrobe-lead">Выберите состояния, которые вам ближе.</p>
+    <div class="choice-grid choice-grid--moods">${moodOptions.map((option) => moodChoiceMarkup(option, limitReached)).join("")}</div>
     <p class="selection-limit">Выбрано: ${state.moods.length} из 3</p>
     <div class="wardrobe-actions">
       <button class="wardrobe-button wardrobe-button--secondary" id="moods-back" type="button">Назад</button>
-      <button class="wardrobe-button" id="moods-next" type="button" ${state.moods.length !== 3 ? "disabled" : ""}>Продолжить</button>
+      <button class="wardrobe-button" id="moods-next" type="button" ${state.moods.length === 0 ? "disabled" : ""}>Продолжить</button>
     </div>`;
   document.querySelectorAll('input[name="mood"]').forEach((input) => input.addEventListener("change", () => {
     if (input.checked && state.moods.length < 3) state.moods.push(input.value);
@@ -475,7 +485,10 @@ function tasteScore(item) {
 
 function moodScore(profile) {
   if (!state.moods.length) return 0;
-  return state.moods.reduce((score, mood) => score + (5 - profileDistance(profile, moodTargets[mood])) * .75, 0);
+  const priorityWeights = [1.2, .65, .4];
+  return state.moods.reduce((score, mood, index) => (
+    score + (5 - profileDistance(profile, moodTargets[mood])) * priorityWeights[index]
+  ), 0);
 }
 
 function candidateScore(item, roleId, selectedItems = []) {
