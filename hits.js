@@ -6,7 +6,6 @@ const hitIds = [
 ];
 
 const grid = document.querySelector("#hits-grid");
-const countLabel = document.querySelector("#hits-count");
 const fragrancePrices = {
   "Люкс": 1990,
   "Суперлюкс": 2490,
@@ -22,28 +21,22 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function displayTitle(item) {
-  return item.title.replace(/^\d+\s+/, "");
-}
-
-function cardMarkup(item, position) {
+function cardMarkup(item) {
   const image = item.thumbnail || item.image;
   const family = item.families?.[0] || "Аромат";
   const price = fragrancePrices[item.category];
   const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent("hits.html")}`;
   const visual = image
-    ? `<img class="product-card__image" src="${escapeHtml(image)}" alt="Флакон ${escapeHtml(displayTitle(item))}" loading="lazy" decoding="async" />
-       <span class="product-card__number product-card__number--with-image">${escapeHtml(item.id)}</span>`
-    : `<span class="product-card__number">${escapeHtml(item.id)}</span>`;
+    ? `<img class="product-card__image" src="${escapeHtml(image)}" alt="Флакон ${escapeHtml(item.title)}" loading="lazy" decoding="async" />`
+    : '<span class="season-card__fallback">FLUIDE<small>ATELIER</small></span>';
 
   return `<a class="product-card season-card" href="${productUrl}">
     <div class="product-card__visual">
       <span class="product-card__meta">Хит сезона</span>
-      <span class="season-card__rank">${String(position).padStart(2, "0")}</span>
       ${visual}
     </div>
     <div class="product-card__body">
-      <h2>${escapeHtml(displayTitle(item))}</h2>
+      <h2>${escapeHtml(item.title)}</h2>
       <p class="product-card__original">${escapeHtml(item.original)}</p>
       <div class="product-card__tags">
         <span>${escapeHtml(item.gender)}</span>
@@ -63,10 +56,8 @@ fetch("./fragrances.json")
   .then((items) => {
     const byId = new Map(items.map((item) => [item.id, item]));
     const hits = hitIds.map((id) => byId.get(id)).filter(Boolean);
-    grid.innerHTML = hits.map((item, index) => cardMarkup(item, index + 1)).join("");
-    countLabel.textContent = `${hits.length} ароматов`;
+    grid.innerHTML = hits.map(cardMarkup).join("");
   })
   .catch(() => {
     grid.innerHTML = '<p class="products-empty">Не удалось загрузить подборку. Попробуйте открыть страницу ещё раз.</p>';
-    countLabel.textContent = "Подборка недоступна";
   });

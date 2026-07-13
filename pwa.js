@@ -110,7 +110,7 @@ window.addEventListener("pageshow", keepScreenAwake);
 
 if ("serviceWorker" in navigator) {
   let serviceWorkerRegistration = null;
-  const serviceWorkerUrl = "./sw.js?v=67";
+  const serviceWorkerUrl = "./sw.js?v=68";
 
   async function registerAndUpdateServiceWorker() {
     try {
