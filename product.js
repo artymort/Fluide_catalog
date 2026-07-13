@@ -10,11 +10,12 @@ const fragrancePrices = {
   "Селектив": { 30: 3490, 50: 4990 },
 };
 
-if (returnUrl && /^(?:all|results|wardrobe|product|cart)\.html(?:\?|$)/.test(returnUrl)) {
+if (returnUrl && /^(?:all|results|hits|wardrobe|product|cart)\.html(?:\?|$)/.test(returnUrl)) {
   backLink.href = returnUrl;
   if (returnUrl === "wardrobe.html?view=final") backLink.setAttribute("aria-label", "Вернуться к готовому гардеробу");
   else if (returnUrl.startsWith("wardrobe.html")) backLink.setAttribute("aria-label", "Вернуться к примерке");
   else if (returnUrl.startsWith("cart.html")) backLink.setAttribute("aria-label", "Вернуться в корзину");
+  else if (returnUrl.startsWith("hits.html")) backLink.setAttribute("aria-label", "Вернуться к хитам сезона");
   else if (returnUrl.startsWith("product.html")) backLink.setAttribute("aria-label", "Вернуться к предыдущему аромату");
 }
 
