@@ -14,5 +14,9 @@ PRODUCT_IMAGE_FILES = {
     "Аромасвеча в стекле балерина 100 мл": ("candle-ballerina-100-200", "балерина 100 мл и 200 мл.png"),
     "Аромасвеча в стекле балерина 200 мл": ("candle-ballerina-100-200", "балерина 100 мл и 200 мл.png"),
     'Аромасвеча гипс "Грут"': ("candle-groot", "свеча грут.png"),
+    "Аромадиффузор Mango & Bergamot 100 мл": ("diffuser-mango-bergamot", "diffuser_mango_bergamot.png"),
+    "Аромадиффузор Black Papper 100 мл": ("diffuser-black-pepper", "diffuser_black_papper.png"),
+    "Аромадиффузор Cashmere 100 мл": ("diffuser-cashmere", "diffuser_cashmere.png"),
+    "Аромадиффузор La Sultan 100 мл": ("diffuser-la-sultan", "diffuser_la_sultan.png"),
     "Спрей для волос FLUIDE 200 мл": ("hair-spray-devils-intrigue", "haier_spray_Devils_intrigue.png"),
 }

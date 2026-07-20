@@ -180,64 +180,28 @@
     "thumbnail": "images/products/thumbs/candle-groot.webp"
   },
   {
-    "id": "product-16",
-    "kind": "product",
-    "name": "Аромадиффузор Белый Лотос 100 мл",
-    "title": "Аромадиффузор Белый Лотос 100 мл",
-    "productType": "diffuser",
-    "typeLabel": "Аромадиффузоры",
-    "volume": "100 мл",
-    "price": 1350
-  },
-  {
-    "id": "product-17",
-    "kind": "product",
-    "name": "Аромадиффузор Orange&Cinnamon 100 мл",
-    "title": "Аромадиффузор Orange&Cinnamon 100 мл",
-    "productType": "diffuser",
-    "typeLabel": "Аромадиффузоры",
-    "volume": "100 мл",
-    "price": 1350
-  },
-  {
-    "id": "product-18",
-    "kind": "product",
-    "name": "Аромадиффузор Sapin Mandarin 100 мл",
-    "title": "Аромадиффузор Sapin Mandarin 100 мл",
-    "productType": "diffuser",
-    "typeLabel": "Аромадиффузоры",
-    "volume": "100 мл",
-    "price": 1350
-  },
-  {
     "id": "product-19",
     "kind": "product",
-    "name": "Аромадиффузор Манго 100 мл",
-    "title": "Аромадиффузор Манго 100 мл",
+    "name": "Аромадиффузор Mango & Bergamot 100 мл",
+    "title": "Аромадиффузор Mango & Bergamot 100 мл",
     "productType": "diffuser",
     "typeLabel": "Аромадиффузоры",
     "volume": "100 мл",
-    "price": 1350
+    "price": 1350,
+    "image": "images/products/diffuser-mango-bergamot.webp",
+    "thumbnail": "images/products/thumbs/diffuser-mango-bergamot.webp"
   },
   {
     "id": "product-20",
     "kind": "product",
-    "name": "Аромадиффузор Black Pepper 100 мл",
-    "title": "Аромадиффузор Black Pepper 100 мл",
+    "name": "Аромадиффузор Black Papper 100 мл",
+    "title": "Аромадиффузор Black Papper 100 мл",
     "productType": "diffuser",
     "typeLabel": "Аромадиффузоры",
     "volume": "100 мл",
-    "price": 1350
-  },
-  {
-    "id": "product-21",
-    "kind": "product",
-    "name": "Аромадиффузор Белый чай 100 мл",
-    "title": "Аромадиффузор Белый чай 100 мл",
-    "productType": "diffuser",
-    "typeLabel": "Аромадиффузоры",
-    "volume": "100 мл",
-    "price": 1350
+    "price": 1350,
+    "image": "images/products/diffuser-black-pepper.webp",
+    "thumbnail": "images/products/thumbs/diffuser-black-pepper.webp"
   },
   {
     "id": "product-22",
@@ -247,7 +211,9 @@
     "productType": "diffuser",
     "typeLabel": "Аромадиффузоры",
     "volume": "100 мл",
-    "price": 1350
+    "price": 1350,
+    "image": "images/products/diffuser-cashmere.webp",
+    "thumbnail": "images/products/thumbs/diffuser-cashmere.webp"
   },
   {
     "id": "product-23",
@@ -257,7 +223,9 @@
     "productType": "diffuser",
     "typeLabel": "Аромадиффузоры",
     "volume": "100 мл",
-    "price": 1350
+    "price": 1350,
+    "image": "images/products/diffuser-la-sultan.webp",
+    "thumbnail": "images/products/thumbs/diffuser-la-sultan.webp"
   },
   {
     "id": "product-24",

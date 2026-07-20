@@ -356,7 +356,7 @@ const requests = [fetch("./fragrances.json?v=2").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];
-if (usesCatalogSections) requests.push(fetch("./products.json?v=2").then((response) => response.json()));
+if (usesCatalogSections) requests.push(fetch("./products.json?v=3").then((response) => response.json()));
 
 Promise.all(requests)
   .then(([fragranceData, productData = []]) => {

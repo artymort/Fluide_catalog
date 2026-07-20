@@ -264,7 +264,7 @@ fetch("./fragrances.json?v=2")
   .then(async (items) => {
     const item = items.find((fragrance) => fragrance.id === id);
     if (item) return renderProduct(item, items);
-    const response = await fetch("./products.json?v=2");
+    const response = await fetch("./products.json?v=3");
     const products = await response.json();
     const product = products.find((entry) => entry.id === id);
     if (!product) throw new Error("Товар не найден");
