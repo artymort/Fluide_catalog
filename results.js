@@ -119,15 +119,19 @@ function recommendationScore(item) {
 function cardMarkup(item) {
   if (item.kind === "product") {
     const returnUrl = `${catalogPage}${window.location.search}`;
-    const details = [item.volume, `${item.price.toLocaleString("ru-RU")} ₽`].filter(Boolean);
+    const details = [item.volume].filter(Boolean);
     return `
       <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
         <div class="product-card__visual"><span class="product-card__meta">${item.typeLabel}</span><span class="product-card__number">${item.id.slice(-2)}</span></div>
         <div class="product-card__body"><h2>${item.title}</h2><p class="product-card__original">Продукция FLUIDE Atelier</p>
-          <div class="product-card__tags">${details.map((value) => `<span>${value}</span>`).join("")}</div></div>
+          <div class="product-card__meta-lines">
+            <div class="product-card__tags">${details.map((value) => `<span>${value}</span>`).join("")}</div>
+            <p class="product-card__price">${item.price.toLocaleString("ru-RU")} ₽</p>
+          </div>
+        </div>
       </a>`;
   }
-  const family = item.families[0] || "Аромат";
+  const group = item.group || item.families[0] || "Аромат";
   const price = fragrancePrices[item.category]?.[30];
   const returnUrl = `${catalogPage}${window.location.search}`;
   const cardImage = item.thumbnail || item.image;
@@ -144,8 +148,11 @@ function cardMarkup(item) {
       <div class="product-card__body">
         <h2>${item.title}</h2>
         <p class="product-card__original">${item.original}</p>
-        <div class="product-card__tags">
-          <span>${item.gender}</span><span>${item.category}</span><span>${family}</span>${price ? `<span>от ${price.toLocaleString("ru-RU")} ₽</span>` : ""}
+        <div class="product-card__meta-lines">
+          <div class="product-card__tags">
+            <span>${item.gender}</span><span>${item.category}</span><span>${group}</span>
+          </div>
+          ${price ? `<p class="product-card__price">от ${price.toLocaleString("ru-RU")} ₽</p>` : ""}
         </div>
       </div>
     </a>`;

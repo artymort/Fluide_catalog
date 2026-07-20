@@ -42,6 +42,11 @@ function capitalizeNote(value) {
   return note ? `${note.charAt(0).toLocaleUpperCase("ru-RU")}${note.slice(1)}` : note;
 }
 
+function capitalizeLabel(value) {
+  const label = String(value || "").trim();
+  return label ? `${label.charAt(0).toLocaleUpperCase("ru-RU")}${label.slice(1)}` : "Аромат";
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -84,6 +89,7 @@ function similarFragrances(item, items) {
 
 function similarCardMarkup(item) {
   const prices = fragrancePrices[item.category];
+  const group = capitalizeLabel(item.group || item.families?.[0]);
   const cardReturn = `product.html?id=${encodeURIComponent(id)}${returnUrl ? `&return=${encodeURIComponent(returnUrl)}` : ""}`;
   const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(cardReturn)}`;
   const image = item.thumbnail || item.image;
@@ -96,7 +102,10 @@ function similarCardMarkup(item) {
     <div class="similar-card__body">
       <h3>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.original)}</p>
-      <div><span>${escapeHtml(item.category)}</span>${prices ? `<strong>от ${formatPrice(prices[30])}</strong>` : ""}</div>
+      <div class="similar-card__meta-lines">
+        <div class="similar-card__tags"><span>${escapeHtml(item.gender)}</span><span>${escapeHtml(item.category)}</span><span>${escapeHtml(group)}</span></div>
+        ${prices ? `<strong class="similar-card__price">от ${formatPrice(prices[30])}</strong>` : ""}
+      </div>
     </div>
   </a>`;
 }
@@ -107,6 +116,7 @@ function readCartItems() {
 
 function renderProduct(item, items) {
   const prices = fragrancePrices[item.category];
+  const group = capitalizeLabel(item.group || item.families?.[0]);
   const similarItems = similarFragrances(item, items);
   const visual = item.image
     ? `<img class="detail-visual__image" src="${escapeHtml(item.image)}" alt="Флакон ${escapeHtml(item.title)}" />
@@ -126,6 +136,7 @@ function renderProduct(item, items) {
       <div class="detail-facts">
         <div class="detail-fact"><span>Пол</span><strong>${escapeHtml(item.gender)}</strong></div>
         <div class="detail-fact"><span>Категория</span><strong>${escapeHtml(item.category)}</strong></div>
+        <div class="detail-fact"><span>Группа</span><strong>${escapeHtml(group)}</strong></div>
       </div>
 
       ${prices ? `<section class="purchase-panel" aria-labelledby="volume-title">
@@ -149,7 +160,6 @@ function renderProduct(item, items) {
         <h2>Ноты аромата</h2>
         ${notesMarkup(item.notes)}
       </section>
-      <div class="detail-families">${item.families.map((family) => `<span>${escapeHtml(family)}</span>`).join("")}</div>
     </div>
     <section class="similar-products" aria-labelledby="similar-title">
       <div class="similar-products__heading"><h2 id="similar-title">Похожие ароматы</h2></div>
