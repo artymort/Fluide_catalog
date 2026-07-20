@@ -7,7 +7,9 @@
     "productType": "home-fragrance",
     "typeLabel": "Парфюм для дома",
     "volume": "300 мл",
-    "price": 550
+    "price": 550,
+    "image": "images/products/perfume-home-la-sultan.webp",
+    "thumbnail": "images/products/thumbs/perfume-home-la-sultan.webp"
   },
   {
     "id": "product-02",
@@ -17,7 +19,9 @@
     "productType": "home-fragrance",
     "typeLabel": "Парфюм для дома",
     "volume": "300 мл",
-    "price": 550
+    "price": 550,
+    "image": "images/products/perfume-home-citrus-rush.webp",
+    "thumbnail": "images/products/thumbs/perfume-home-citrus-rush.webp"
   },
   {
     "id": "product-03",
@@ -27,7 +31,9 @@
     "productType": "home-fragrance",
     "typeLabel": "Парфюм для дома",
     "volume": "300 мл",
-    "price": 550
+    "price": 550,
+    "image": "images/products/perfume-home-sea-salt.webp",
+    "thumbnail": "images/products/thumbs/perfume-home-sea-salt.webp"
   },
   {
     "id": "product-04",
@@ -37,7 +43,9 @@
     "productType": "body-cream",
     "typeLabel": "Крем для тела",
     "volume": "300 мл",
-    "price": 890
+    "price": 890,
+    "image": "images/products/body-cream-la-sultan.webp",
+    "thumbnail": "images/products/thumbs/body-cream-la-sultan.webp"
   },
   {
     "id": "product-05",
@@ -47,7 +55,9 @@
     "productType": "body-cream",
     "typeLabel": "Крем для тела",
     "volume": "300 мл",
-    "price": 890
+    "price": 890,
+    "image": "images/products/body-cream-dream-touch.webp",
+    "thumbnail": "images/products/thumbs/body-cream-dream-touch.webp"
   },
   {
     "id": "product-06",
@@ -57,7 +67,9 @@
     "productType": "hand-soap",
     "typeLabel": "Мыло",
     "volume": "",
-    "price": 550
+    "price": 550,
+    "image": "images/products/hand-soap-amber-garden.webp",
+    "thumbnail": "images/products/thumbs/hand-soap-amber-garden.webp"
   },
   {
     "id": "product-07",
@@ -67,7 +79,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "",
-    "price": 1300
+    "price": 1300,
+    "image": "images/products/candle-set-four.webp",
+    "thumbnail": "images/products/thumbs/candle-set-four.webp"
   },
   {
     "id": "product-08",
@@ -77,7 +91,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "",
-    "price": 1100
+    "price": 1100,
+    "image": "images/products/candle-set-three-bears.webp",
+    "thumbnail": "images/products/thumbs/candle-set-three-bears.webp"
   },
   {
     "id": "product-09",
@@ -87,7 +103,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "",
-    "price": 1100
+    "price": 1100,
+    "image": "images/products/candle-set-three.webp",
+    "thumbnail": "images/products/thumbs/candle-set-three.webp"
   },
   {
     "id": "product-10",
@@ -97,7 +115,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "",
-    "price": 1100
+    "price": 1100,
+    "image": "images/products/candle-set-horse.webp",
+    "thumbnail": "images/products/thumbs/candle-set-horse.webp"
   },
   {
     "id": "product-11",
@@ -107,7 +127,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "",
-    "price": 890
+    "price": 890,
+    "image": "images/products/candle-shell.webp",
+    "thumbnail": "images/products/thumbs/candle-shell.webp"
   },
   {
     "id": "product-12",
@@ -117,7 +139,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "50 мл",
-    "price": 650
+    "price": 650,
+    "image": "images/products/candle-ballerina-50.webp",
+    "thumbnail": "images/products/thumbs/candle-ballerina-50.webp"
   },
   {
     "id": "product-13",
@@ -127,7 +151,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "100 мл",
-    "price": 890
+    "price": 890,
+    "image": "images/products/candle-ballerina-100-200.webp",
+    "thumbnail": "images/products/thumbs/candle-ballerina-100-200.webp"
   },
   {
     "id": "product-14",
@@ -137,7 +163,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "200 мл",
-    "price": 1590
+    "price": 1590,
+    "image": "images/products/candle-ballerina-100-200.webp",
+    "thumbnail": "images/products/thumbs/candle-ballerina-100-200.webp"
   },
   {
     "id": "product-15",
@@ -147,7 +175,9 @@
     "productType": "candle",
     "typeLabel": "Свечи",
     "volume": "",
-    "price": 1350
+    "price": 1350,
+    "image": "images/products/candle-groot.webp",
+    "thumbnail": "images/products/thumbs/candle-groot.webp"
   },
   {
     "id": "product-16",
@@ -337,6 +367,8 @@
     "productType": "hair-spray",
     "typeLabel": "Спрей для волос",
     "volume": "200 мл",
-    "price": 650
+    "price": 650,
+    "image": "images/products/hair-spray-devils-intrigue.webp",
+    "thumbnail": "images/products/thumbs/hair-spray-devils-intrigue.webp"
   }
 ]

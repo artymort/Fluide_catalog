@@ -3,6 +3,8 @@ import json
 import re
 from pathlib import Path
 
+from product_image_map import PRODUCT_IMAGE_FILES
+
 SOURCE = Path("Цены FLUIDE - Лист1.csv")
 OUTPUT = Path("products.json")
 SECTION_TYPES = {
@@ -33,10 +35,16 @@ for row in rows[1:]:
     seen.add(name)
     match = re.search(r"(\d+)\s*мл", name)
     product_type, type_label = current_type
-    products.append({"id": f"product-{len(products) + 1:02d}", "kind": "product",
-                     "name": name, "title": name, "productType": product_type,
-                     "typeLabel": type_label, "volume": f"{match.group(1)} мл" if match else "",
-                     "price": int(price)})
+    product = {"id": f"product-{len(products) + 1:02d}", "kind": "product",
+               "name": name, "title": name, "productType": product_type,
+               "typeLabel": type_label, "volume": f"{match.group(1)} мл" if match else "",
+               "price": int(price)}
+    image_entry = PRODUCT_IMAGE_FILES.get(name)
+    if image_entry:
+        image_stem, _ = image_entry
+        product["image"] = f"images/products/{image_stem}.webp"
+        product["thumbnail"] = f"images/products/thumbs/{image_stem}.webp"
+    products.append(product)
 
 OUTPUT.write_text(json.dumps(products, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Создан {OUTPUT}: {len(products)} товаров")

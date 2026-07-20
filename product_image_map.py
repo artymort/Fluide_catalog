@@ -1,0 +1,18 @@
+PRODUCT_IMAGE_FILES = {
+    "Парфюм для дома La Sultan 300 мл": ("perfume-home-la-sultan", "perfume_home_la_sultan.png"),
+    "Парфюм для дома Citrus Rush 300 мл": ("perfume-home-citrus-rush", "perfume_home_citrus_rush.png"),
+    "Парфюм для дома Sea Salt 300 мл": ("perfume-home-sea-salt", "perfume_home_sea_salt.png"),
+    "Крем для тела La Sultan 300 мл": ("body-cream-la-sultan", "body_cream_la_sultan.png"),
+    "Крем для тела Dream Touch 300 мл": ("body-cream-dream-touch", "body_cream_dream_touch.png"),
+    "Парфюмированное мыло для рук Amber in The Garden": ("hand-soap-amber-garden", "hand_soap_garden.png"),
+    "Набор из четырех свечей": ("candle-set-four", "набор из 4-х свечей.png"),
+    'Набор свечей " Три Медведя"': ("candle-set-three-bears", "три медведя.png"),
+    "Набор из трех свечей": ("candle-set-three", "набор из 3-х свечей.png"),
+    'Набор свечей "Дух лошади"': ("candle-set-horse", "набор дух лошади.png"),
+    'Аромасвеча гипс "Ракушка"': ("candle-shell", "ракушка.png"),
+    "Аромасвеча в стекле балерина 50 мл": ("candle-ballerina-50", "балерина 50мл.png"),
+    "Аромасвеча в стекле балерина 100 мл": ("candle-ballerina-100-200", "балерина 100 мл и 200 мл.png"),
+    "Аромасвеча в стекле балерина 200 мл": ("candle-ballerina-100-200", "балерина 100 мл и 200 мл.png"),
+    'Аромасвеча гипс "Грут"': ("candle-groot", "свеча грут.png"),
+    "Спрей для волос FLUIDE 200 мл": ("hair-spray-devils-intrigue", "haier_spray_Devils_intrigue.png"),
+}

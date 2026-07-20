@@ -116,13 +116,26 @@ function recommendationScore(item) {
   return score;
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 function cardMarkup(item) {
   if (item.kind === "product") {
     const returnUrl = `${catalogPage}${window.location.search}`;
     const details = [item.typeLabel, item.volume].filter(Boolean);
+    const cardImage = item.thumbnail || item.image;
+    const visual = cardImage
+      ? `<img class="product-card__image" src="${cardImage}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" />`
+      : `<span class="product-card__number">${item.id.slice(-2)}</span>`;
     return `
       <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
-        <div class="product-card__visual"><span class="product-card__meta">FLUIDE Atelier</span><span class="product-card__number">${item.id.slice(-2)}</span></div>
+        <div class="product-card__visual"><span class="product-card__meta">FLUIDE Atelier</span>${visual}</div>
         <div class="product-card__body"><h2>${item.title}</h2><p class="product-card__original">Продукция FLUIDE Atelier</p>
           <div class="product-card__meta-lines">
             <div class="product-card__tags">${details.map((value) => `<span>${value}</span>`).join("")}</div>
@@ -343,7 +356,7 @@ const requests = [fetch("./fragrances.json?v=2").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];
-if (usesCatalogSections) requests.push(fetch("./products.json").then((response) => response.json()));
+if (usesCatalogSections) requests.push(fetch("./products.json?v=2").then((response) => response.json()));
 
 Promise.all(requests)
   .then(([fragranceData, productData = []]) => {
