@@ -119,10 +119,10 @@ function recommendationScore(item) {
 function cardMarkup(item) {
   if (item.kind === "product") {
     const returnUrl = `${catalogPage}${window.location.search}`;
-    const details = [item.volume].filter(Boolean);
+    const details = [item.typeLabel, item.volume].filter(Boolean);
     return `
       <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
-        <div class="product-card__visual"><span class="product-card__meta">${item.typeLabel}</span><span class="product-card__number">${item.id.slice(-2)}</span></div>
+        <div class="product-card__visual"><span class="product-card__meta">FLUIDE Atelier</span><span class="product-card__number">${item.id.slice(-2)}</span></div>
         <div class="product-card__body"><h2>${item.title}</h2><p class="product-card__original">Продукция FLUIDE Atelier</p>
           <div class="product-card__meta-lines">
             <div class="product-card__tags">${details.map((value) => `<span>${value}</span>`).join("")}</div>
