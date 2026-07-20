@@ -43,6 +43,33 @@ FAMILY_KEYWORDS = {
     ],
 }
 
+FAMILY_VALUES = [
+    "Цветочные",
+    "Фруктовые",
+    "Цитрусовые",
+    "Древесные",
+    "Сладкие",
+    "Свежие",
+    "Пряные и восточные",
+]
+
+GROUP_FAMILY_KEYWORDS = {
+    "Цветочные": ["цветоч"],
+    "Фруктовые": ["фруктов"],
+    "Цитрусовые": ["цитрусов"],
+    "Древесные": ["древесн", "шипров"],
+    "Сладкие": ["гурманск", "сладк"],
+    "Свежие": ["водян", "зелен", "фужерн"],
+    "Пряные и восточные": ["восточн", "прян", "кожан"],
+}
+
+SEASON_LABELS = {
+    "лето": "summer",
+    "осень": "autumn",
+    "зима": "winter",
+    "весна": "spring",
+}
+
 OCCASION_VALUES = ["everyday", "evening", "date", "gym", "walk"]
 SEASON_VALUES = ["summer", "autumn", "winter", "spring"]
 
@@ -155,6 +182,24 @@ def detect_families(raw):
     return families or ["Другие"]
 
 
+def detect_group_families(group):
+    text = str(group or "").strip().lower()
+    return [
+        family
+        for family, keywords in GROUP_FAMILY_KEYWORDS.items()
+        if any(keyword in text for keyword in keywords)
+    ]
+
+
+def parse_seasons(raw):
+    values = []
+    for value in str(raw or "").split(","):
+        normalized = SEASON_LABELS.get(value.strip().lower())
+        if normalized:
+            values.append(normalized)
+    return ordered_values(values, SEASON_VALUES)
+
+
 def has_any(text, keywords):
     return any(keyword in text for keyword in keywords)
 
@@ -242,7 +287,13 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
     oil_percent = int(row[3]) if row[3] is not None else None
     title = clean_title(row[1])
     original = str(row[2] or "").strip()
-    families = detect_families(notes_raw)
+    group = str(row[10] or "").strip() if len(row) > 10 else ""
+    group_families = detect_group_families(group)
+    note_families = detect_families(notes_raw)
+    families = ordered_values(group_families + note_families, FAMILY_VALUES)
+    seasons = parse_seasons(row[11] if len(row) > 11 else "")
+    if not seasons:
+        seasons = detect_seasons(number, notes_raw, families, oil_percent, title, original)
     image_path = IMAGES / f"{number}.webp"
     thumbnail_path = IMAGES / "thumbs" / f"{number}.webp"
     fragrances.append(
@@ -257,9 +308,11 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
             "concentration": str(row[8] or "").strip(),
             "notes": split_notes(notes_raw),
             "notesRaw": notes_raw,
+            "group": group,
+            "groupFamilies": group_families,
             "families": families,
             "occasion": detect_occasions(number, notes_raw, families, oil_percent, title, original),
-            "season": detect_seasons(number, notes_raw, families, oil_percent, title, original),
+            "season": seasons,
             **({"image": f"images/fragrances/{number}.webp"} if image_path.exists() else {}),
             **({"thumbnail": f"images/fragrances/thumbs/{number}.webp"} if thumbnail_path.exists() else {}),
         }

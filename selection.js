@@ -125,12 +125,16 @@ function countMatches() {
 }
 
 function updateStatus() {
+  if (currentStep !== steps.length - 1) {
+    status.textContent = "";
+    return;
+  }
   const count = countMatches();
   if (count === null) {
     status.textContent = "Считаем подходящие ароматы…";
     return;
   }
-  status.textContent = `Сейчас подходит ароматов: ${count} из ${fragrances.length}`;
+  status.textContent = `Подходит ароматов: ${Math.min(6, count)}`;
 }
 
 function optionMarkup(option, index, step, selectedValues) {
@@ -219,7 +223,7 @@ previousButton.addEventListener("click", () => {
   }
 });
 
-fetch("./fragrances.json")
+fetch("./fragrances.json?v=2")
   .then((response) => {
     if (!response.ok) throw new Error("Не удалось загрузить каталог");
     return response.json();

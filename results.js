@@ -10,6 +10,7 @@ const recommendedSort = document.querySelector("#recommended-sort");
 const productTypeFilter = document.querySelector("#product-type-filter");
 const sectionButtons = [...document.querySelectorAll(".catalog-section")];
 const sectionFilterGroups = [...document.querySelectorAll("[data-filter-section]")];
+const selectionEngine = window.FluideSelectionEngine;
 const recommendationParams = new URLSearchParams(window.location.search);
 const isAllMode = document.body.dataset.catalogMode === "all" || recommendationParams.get("mode") === "all";
 const usesCatalogSections = sectionButtons.length > 0;
@@ -46,10 +47,7 @@ function intensityMatches(item, intensity) {
 }
 
 function genderValuesForSelection(gender) {
-  if (gender === "мужской") return ["мужской", "унисекс"];
-  if (gender === "женский") return ["женский", "унисекс"];
-  if (gender === "унисекс") return ["унисекс"];
-  return [];
+  return selectionEngine.genderValuesForSelection(gender);
 }
 
 function recommendationValues(key) {
@@ -164,6 +162,25 @@ function applyFilters() {
     const occasions = selectedValues("occasion");
     const seasons = selectedValues("season");
     const fragranceMetadataActive = Boolean(catalogGender || catalogFamilies.length || occasions.length || seasons.length);
+    if (!isAllMode && activeSection === "perfume") {
+      const candidates = fragrances.filter((item) => {
+        const haystack = `${item.id} ${item.title} ${item.original || ""}`.toLowerCase();
+        if (item.kind !== "fragrance") return false;
+        if (subtypes.length && !subtypes.includes(item.productType)) return false;
+        return !query || haystack.includes(query);
+      });
+      const ranked = selectionEngine.rankRecommendations(candidates, {
+        gender: catalogGender,
+        families: catalogFamilies,
+        occasions,
+        seasons,
+      }, 6);
+      countLabel.textContent = `Подходит ароматов: ${ranked.items.length}`;
+      grid.innerHTML = ranked.items.length
+        ? ranked.items.map(cardMarkup).join("")
+        : '<p class="products-empty">По выбранным параметрам ароматов не найдено. Измените фильтры.</p>';
+      return;
+    }
     const filtered = fragrances.filter((item) => {
       const haystack = `${item.id} ${item.title} ${item.original || ""} ${item.typeLabel || ""}`.toLowerCase();
       if (!allowedTypes.includes(item.productType)) return false;
@@ -315,7 +332,7 @@ resetButton.addEventListener("click", () => {
 
 configurePageMode();
 
-const requests = [fetch("./fragrances.json").then((response) => {
+const requests = [fetch("./fragrances.json?v=2").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];

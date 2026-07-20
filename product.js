@@ -249,7 +249,7 @@ function renderCatalogProduct(item) {
   syncButton();
 }
 
-fetch("./fragrances.json")
+fetch("./fragrances.json?v=2")
   .then((response) => response.json())
   .then(async (items) => {
     const item = items.find((fragrance) => fragrance.id === id);
