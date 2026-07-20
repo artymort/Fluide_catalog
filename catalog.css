@@ -146,6 +146,9 @@ body {
 }
 
 .menu-card {
+  --card-from: rgb(255 255 255 / 55%);
+  --card-to: rgb(159 182 223 / 28%);
+  --card-glow: rgb(234 182 168 / 30%);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -156,9 +159,11 @@ body {
   border: 1px solid rgb(67 72 101 / 18%);
   border-radius: clamp(16px, 1.7vw, 26px);
   color: var(--ink);
-  background: rgb(255 255 255 / 42%);
+  background:
+    radial-gradient(circle at 82% 14%, var(--card-glow), transparent 38%),
+    linear-gradient(128deg, var(--card-from), var(--card-to));
   text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, filter 180ms ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -167,13 +172,19 @@ body {
   position: absolute;
   top: clamp(15px, 1.6vw, 24px);
   right: clamp(15px, 1.6vw, 24px);
+  z-index: 1;
   font-size: clamp(20px, 1.8vw, 28px);
+}
+
+.menu-card > span {
+  z-index: 1;
 }
 
 .menu-card:hover {
   z-index: 1;
   border-color: rgb(67 72 101 / 36%);
   box-shadow: 0 14px 34px rgb(67 72 101 / 14%);
+  filter: saturate(1.04);
   transform: translateY(-3px);
 }
 
@@ -184,8 +195,10 @@ body {
 }
 
 .menu-card--primary {
+  --card-from: #3f4564;
+  --card-to: #69718f;
+  --card-glow: rgb(159 182 223 / 34%);
   color: var(--white);
-  background: var(--ink);
 }
 
 .menu-card--featured {
@@ -207,15 +220,33 @@ body {
 }
 
 .menu-card--blue {
-  background: rgb(159 182 223 / 68%);
+  --card-from: rgb(159 182 223 / 88%);
+  --card-to: rgb(236 226 215 / 82%);
+  --card-glow: rgb(255 255 255 / 58%);
 }
 
 .menu-card--peach {
-  background: rgb(234 182 168 / 68%);
+  --card-from: rgb(234 182 168 / 78%);
+  --card-to: rgb(244 240 230 / 86%);
+  --card-glow: rgb(236 176 181 / 28%);
 }
 
 .menu-card--pink {
-  background: rgb(236 176 181 / 68%);
+  --card-from: rgb(236 176 181 / 76%);
+  --card-to: rgb(244 240 230 / 84%);
+  --card-glow: rgb(234 182 168 / 30%);
+}
+
+.menu-card--season {
+  --card-from: rgb(181 199 227 / 76%);
+  --card-to: rgb(238 202 190 / 68%);
+  --card-glow: rgb(255 255 255 / 52%);
+}
+
+.menu-card--pearl {
+  --card-from: rgb(255 255 255 / 62%);
+  --card-to: rgb(205 216 230 / 62%);
+  --card-glow: rgb(234 182 168 / 25%);
 }
 
 .menu-card__number {
