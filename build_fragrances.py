@@ -9,7 +9,7 @@ from openpyxl import load_workbook
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT / "Новый Список ароматов FLUIDE (1).xlsx"
+SOURCE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "Новый Список ароматов FLUIDE (1).xlsx"
 OUTPUT = ROOT / "fragrances.json"
 IMAGES = ROOT / "images" / "fragrances"
 
@@ -70,8 +70,44 @@ SEASON_LABELS = {
     "весна": "spring",
 }
 
+OCCASION_LABELS = {
+    "на каждый день": "everyday",
+    "вечерние": "evening",
+    "свидание": "date",
+    "спортзал": "gym",
+    "прогулка": "walk",
+}
+
 OCCASION_VALUES = ["everyday", "evening", "date", "gym", "walk"]
 SEASON_VALUES = ["summer", "autumn", "winter", "spring"]
+
+ACCORD_FAMILY_MAP = {
+    "Цветочные": {
+        "цветочный", "белые цветы", "розовый", "желтые цветы", "тубероза",
+        "фиалковый", "ирис",
+    },
+    "Фруктовые": {
+        "фруктовый", "тропический", "вишневый", "кокосовый",
+    },
+    "Цитрусовые": {"цитрусовый"},
+    "Древесные": {
+        "древесный", "пачулиевый", "землистый", "мшистый", "удовый", "хвойный",
+    },
+    "Сладкие": {
+        "сладкий", "ванильный", "карамельный", "какао", "ореховый", "кофейный",
+        "шоколад", "медовый", "миндальный", "лактонный",
+    },
+    "Свежие": {
+        "свежий", "фужерный", "зеленый", "акватический", "морской", "озоновый",
+        "лаванда", "травяной", "соленый", "минеральный", "мыльный", "альдегидный",
+        "металлический", "камфорный", "каннабис", "водочный",
+    },
+    "Пряные и восточные": {
+        "свежий пряный", "теплый пряный", "мягкий пряный", "амбровый", "мускусный",
+        "животный", "бальзамический", "кожаный", "табачный", "дымный", "коричный",
+        "удовый", "пудровый",
+    },
+}
 
 FRESH_KEYWORDS = [
     "морск", "водн", "озон", "акват", "свеж", "зелен", "мята", "чай",
@@ -200,6 +236,98 @@ def parse_seasons(raw):
     return ordered_values(values, SEASON_VALUES)
 
 
+def parse_accords(raw):
+    accords = []
+    for item in re.split(r"[;\n]+", str(raw or "")):
+        item = item.strip()
+        if not item or ":" not in item:
+            continue
+        name, weight_raw = item.rsplit(":", 1)
+        try:
+            weight = float(weight_raw.strip().replace(",", "."))
+        except ValueError:
+            continue
+        accords.append(
+            {
+                "name": name.strip(),
+                "weight": int(weight) if weight.is_integer() else weight,
+            }
+        )
+    return accords
+
+
+def parse_occasion_scores(raw):
+    scores = {}
+    for item in re.split(r"[;\n]+", str(raw or "")):
+        item = item.strip()
+        if not item or ":" not in item:
+            continue
+        label, score_raw = item.rsplit(":", 1)
+        key = OCCASION_LABELS.get(label.strip().lower())
+        if not key:
+            continue
+        try:
+            score = float(score_raw.strip().replace(",", "."))
+        except ValueError:
+            continue
+        scores[key] = int(score) if score.is_integer() else score
+    return scores
+
+
+def build_family_scores(accords, group_families, note_families):
+    accord_totals = {}
+    for family in FAMILY_VALUES:
+        weights = sorted(
+            (
+                float(accord["weight"])
+                for accord in accords
+                if str(accord["name"]).strip().lower() in ACCORD_FAMILY_MAP[family]
+            ),
+            reverse=True,
+        )
+        # Ведущий аккорд определяет направление, следующие уточняют сложность,
+        # но не могут победить только за счёт большого количества слабых полос.
+        coefficients = (1.0, 0.35, 0.15)
+        accord_totals[family] = sum(
+            weight * coefficients[index]
+            for index, weight in enumerate(weights[: len(coefficients)])
+        )
+
+    peak = max(accord_totals.values(), default=0)
+    accord_scores = {
+        family: (total / peak * 100 if peak else 0)
+        for family, total in accord_totals.items()
+    }
+
+    combined = {}
+    for family in FAMILY_VALUES:
+        accord_score = accord_scores[family]
+        group_score = 100 if family in group_families else 0
+        note_fallback = 30 if family in note_families else 0
+        if accords:
+            value = 0.65 * accord_score + 0.35 * group_score
+        else:
+            value = max(group_score, note_fallback)
+        combined[family] = value
+
+    combined_peak = max(combined.values(), default=0)
+    if not combined_peak:
+        return {family: 0 for family in FAMILY_VALUES}
+    return {
+        family: round(value / combined_peak * 100, 1)
+        for family, value in combined.items()
+    }
+
+
+def select_occasions(scores):
+    if not scores:
+        return []
+    selected = [key for key, score in scores.items() if float(score) >= 60]
+    if not selected:
+        selected = [max(scores, key=lambda key: float(scores[key]))]
+    return ordered_values(selected, OCCASION_VALUES)
+
+
 def has_any(text, keywords):
     return any(keyword in text for keyword in keywords)
 
@@ -292,6 +420,12 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
     note_families = detect_families(notes_raw)
     families = ordered_values(group_families + note_families, FAMILY_VALUES)
     seasons = parse_seasons(row[11] if len(row) > 11 else "")
+    accords = parse_accords(row[12] if len(row) > 12 else "")
+    family_scores = build_family_scores(accords, group_families, note_families)
+    occasion_scores = parse_occasion_scores(row[13] if len(row) > 13 else "")
+    occasions = select_occasions(occasion_scores)
+    if not occasions:
+        occasions = detect_occasions(number, notes_raw, families, oil_percent, title, original)
     if not seasons:
         seasons = detect_seasons(number, notes_raw, families, oil_percent, title, original)
     image_path = IMAGES / f"{number}.webp"
@@ -311,8 +445,11 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
             "group": group,
             "groupFamilies": group_families,
             "families": families,
-            "occasion": detect_occasions(number, notes_raw, families, oil_percent, title, original),
+            "familyScores": family_scores,
+            "occasion": occasions,
+            "occasionScores": occasion_scores,
             "season": seasons,
+            "accords": accords,
             **({"image": f"images/fragrances/{number}.webp"} if image_path.exists() else {}),
             **({"thumbnail": f"images/fragrances/thumbs/{number}.webp"} if thumbnail_path.exists() else {}),
         }

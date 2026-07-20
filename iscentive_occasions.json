@@ -1,0 +1,5318 @@
+{
+  "source": "Iscentive",
+  "sourceDefinition": "occasion suitability values exposed on fragrance profile pages",
+  "mapping": {
+    "everyday": "max(Everyday, Office)",
+    "evening": "Night Out",
+    "date": "Date Night",
+    "gym": "Gym",
+    "walk": "70% Everyday + 30% Gym (closest available source categories for a casual walk)"
+  },
+  "items": {
+    "100": {
+      "original": "Dior Miss Dior Blooming Bouquet",
+      "matchedUrl": "https://iscentive.com/fragrance/dior/miss-dior-blooming-bouquet-2014.html",
+      "matchScore": 1.2,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dior/miss-dior-blooming-bouquet-2014.html",
+          "score": 1.202222222222222
+        },
+        {
+          "url": "https://iscentive.com/fragrance/police/miss-bouquet.html",
+          "score": 0.6714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/miss-dior-2021-eau-de-parfum.html",
+          "score": 0.6571428571428571
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/miss-dior-2012-eau-de-parfum.html",
+          "score": 0.6571428571428571
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/miss-dior-essence.html",
+          "score": 0.6571428571428571
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.614525139664805,
+        "office": 7.821229050279329,
+        "gym": 1.396648044692737,
+        "special": 2.625698324022347,
+        "date": 3.184357541899441,
+        "night": 3.184357541899441
+      },
+      "occasionScores": {
+        "everyday": 96.1,
+        "evening": 31.8,
+        "date": 31.8,
+        "gym": 14,
+        "walk": 71.5
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 492,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "111": {
+      "original": "Dolce & Gabbana The One for Men",
+      "matchedUrl": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-eau-de-toilette.html",
+      "matchScore": 1.4,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-eau-de-parfum.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-eau-de-toilette.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-eau-de-parfum.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-parfum.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-eau-de-parfum-intense.html",
+          "score": 1.0971428571428572
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.876971608832808,
+        "office": 6.561514195583596,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.274447949526813
+      },
+      "occasionScores": {
+        "everyday": 68.8,
+        "evening": 92.7,
+        "date": 100,
+        "gym": 0,
+        "walk": 48.1
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 1409,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "129": {
+      "original": "Essential Parfums Bois Impérial",
+      "matchedUrl": "https://iscentive.com/fragrance/essential-parfums/bois-imperial-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/essential-parfums/bois-imperial-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/essential-parfums/bois-imperial.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/essential-parfums/bois-imperial-extrait-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/essential-parfums/bois-imperial-extrait.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/essential-parfums/bois-imperial-edition-collector.html",
+          "score": 1.055
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.782361308677096,
+        "office": 8.577524893314367,
+        "gym": 3.883357041251778,
+        "special": 4.281650071123756,
+        "date": 4.281650071123756,
+        "night": 4.139402560455192
+      },
+      "occasionScores": {
+        "everyday": 97.8,
+        "evening": 41.4,
+        "date": 42.8,
+        "gym": 38.8,
+        "walk": 80.1
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 3125,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "137": {
+      "original": "Giorgio Armani My Way",
+      "matchedUrl": "https://iscentive.com/fragrance/giorgio-armani/my-way-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/giorgio-armani/my-way-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/giorgio-armani/my-way-sunny-vanilla.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/giorgio-armani/armani-code-parfum.html",
+          "score": 0.6214285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/giorgio-armani/si-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/giorgio-armani/code-elixir.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.348178137651821,
+        "office": 6.356275303643725,
+        "gym": 0,
+        "special": 5.627530364372469,
+        "date": 6.761133603238867,
+        "night": 6.761133603238867
+      },
+      "occasionScores": {
+        "everyday": 93.5,
+        "evening": 67.6,
+        "date": 67.6,
+        "gym": 0,
+        "walk": 65.4
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date",
+        "walk"
+      ],
+      "voteCount": 990,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "141": {
+      "original": "Givenchy Ange Ou Demon Le Secret",
+      "matchedUrl": "https://iscentive.com/fragrance/givenchy/ange-ou-demon-le-secret-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/givenchy/ange-ou-demon-le-secret-eau-de-parfum.html",
+          "score": 1.4833333333333334
+        },
+        {
+          "url": "https://iscentive.com/fragrance/givenchy/ange-ou-demon-eau-de-parfum.html",
+          "score": 1.1813888888888888
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/the-secret-eau-de-toilette.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/givenchy/gentleman-givenchy-eau-de-parfum.html",
+          "score": 0.32857142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/givenchy/givenchy-gentleman-eau-de-toilette.html",
+          "score": 0.32857142857142857
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.472972972972972,
+        "office": 8.243243243243244,
+        "gym": 0,
+        "special": 4.324324324324325,
+        "date": 4.45945945945946,
+        "night": 4.45945945945946
+      },
+      "occasionScores": {
+        "everyday": 94.7,
+        "evening": 44.6,
+        "date": 44.6,
+        "gym": 0,
+        "walk": 66.3
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 195,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "146": {
+      "original": "Gucci Flora by Gucci",
+      "matchedUrl": null,
+      "matchScore": 0.7,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/gucci/flora-gorgeous-gardenia-eau-de-parfum.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/flora-gorgeous-jasmine.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/flora-gorgeous-orchid.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/gucci-by-gucci-pour-homme-eau-de-toilette.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/rush.html",
+          "score": 0.5
+        }
+      ],
+      "occasionScores": {
+        "everyday": 96.4,
+        "evening": 51.3,
+        "date": 51.3,
+        "gym": 5.8,
+        "walk": 69.2
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "141",
+          "similarity": 100
+        },
+        {
+          "id": "027",
+          "similarity": 100
+        },
+        {
+          "id": "137",
+          "similarity": 100
+        },
+        {
+          "id": "100",
+          "similarity": 92.5
+        },
+        {
+          "id": "173",
+          "similarity": 92.5
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "148": {
+      "original": "Guerlain Aqua Allegoria Mandarine Basilic",
+      "matchedUrl": "https://iscentive.com/fragrance/guerlain/aqua-allegoria-mandarine-basilic.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/guerlain/aqua-allegoria-mandarine-basilic.html",
+          "score": 1.4833333333333334
+        },
+        {
+          "url": "https://iscentive.com/fragrance/guerlain/aqua-allegoria-forte-mandarine-basilic.html",
+          "score": 1.029090909090909
+        },
+        {
+          "url": "https://iscentive.com/fragrance/guerlain/aqua-allegoria-pamplelune.html",
+          "score": 0.7416666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/guerlain/aqua-allegoria-herba-fresca.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/guerlain/aqua-allegoria-orange-soleia.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 8,
+        "office": 7,
+        "gym": 6,
+        "special": 4,
+        "date": 4,
+        "night": 2
+      },
+      "occasionScores": {
+        "everyday": 80,
+        "evening": 20,
+        "date": 40,
+        "gym": 60,
+        "walk": 74
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 9611,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "152": {
+      "original": "Baldessarini Ambre",
+      "matchedUrl": "https://iscentive.com/fragrance/baldessarini/ambre-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/baldessarini/ambre-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/baldessarini/ambre-oud.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/baldessarini/ambre-eau-fraiche.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/molinard/ambre-eau-de-parfum.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/reminiscence/ambre-eau-de-toilette.html",
+          "score": 0.6
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7.469879518072289,
+        "office": 6.867469879518072,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 8.313253012048193
+      },
+      "occasionScores": {
+        "everyday": 74.7,
+        "evening": 83.1,
+        "date": 100,
+        "gym": 0,
+        "walk": 52.3
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 295,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "153": {
+      "original": "Hugo Boss Bottled",
+      "matchedUrl": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-eau-de-toilette.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-eau-de-toilette.html",
+          "score": 1.12
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-elixir.html",
+          "score": 1.12
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-parfum.html",
+          "score": 1.12
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-eau-de-parfum.html",
+          "score": 1.12
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-absolu.html",
+          "score": 0.9571428571428571
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.540704738760631,
+        "office": 8.578371810449575,
+        "gym": 3.159173754556501,
+        "special": 4.738760631834751,
+        "date": 4.738760631834751,
+        "night": 4.605103280680438
+      },
+      "occasionScores": {
+        "everyday": 95.4,
+        "evening": 46.1,
+        "date": 47.4,
+        "gym": 31.6,
+        "walk": 76.3
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 3618,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "156": {
+      "original": "Hugo Boss Hugo Now",
+      "matchedUrl": null,
+      "matchScore": 1.1,
+      "matchMethod": "forced_estimate_to_avoid_wrong_version",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/hugo-eau-de-toilette.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-eau-de-toilette.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-elixir.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-alive-eau-de-parfum.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/hugo-boss/boss-bottled-parfum.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "occasionScores": {
+        "everyday": 83.9,
+        "evening": 24.3,
+        "date": 23.8,
+        "gym": 56.2,
+        "walk": 75.6
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "517",
+          "similarity": 100
+        },
+        {
+          "id": "505",
+          "similarity": 100
+        },
+        {
+          "id": "015",
+          "similarity": 93.3
+        },
+        {
+          "id": "070",
+          "similarity": 92.5
+        },
+        {
+          "id": "003",
+          "similarity": 92.5
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "170": {
+      "original": "By Kilian Angel's Share",
+      "matchedUrl": "https://iscentive.com/fragrance/kilian/angels-share-eau-de-parfum.html",
+      "matchScore": 1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/kilian/angels-share-eau-de-parfum.html",
+          "score": 0.9714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kilian/angels-share-paradis.html",
+          "score": 0.7228571428571428
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kilian/angels-share-on-the-rocks.html",
+          "score": 0.6619444444444443
+        },
+        {
+          "url": "https://iscentive.com/fragrance/mugler/angel-eau-de-parfum.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/mugler/angel-elixir.html",
+          "score": 0.3933333333333333
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 2,
+        "office": 2,
+        "gym": 0,
+        "special": 8,
+        "date": 8,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 20,
+        "evening": 100,
+        "date": 80,
+        "gym": 0,
+        "walk": 14
+      },
+      "occasions": [
+        "evening",
+        "date"
+      ],
+      "voteCount": 21771,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "173": {
+      "original": "By Kilian Good Girl Gone Bad",
+      "matchedUrl": "https://iscentive.com/fragrance/kilian/good-girl-gone-bad-perfume.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/kilian/good-girl-gone-bad-perfume.html",
+          "score": 1.4833333333333334
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kilian/good-girl-gone-bad-extreme.html",
+          "score": 1.209090909090909
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-eau-de-parfum.html",
+          "score": 0.5301587301587302
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/very-good-girl-eau-de-parfum.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-blush-eau-de-parfum.html",
+          "score": 0.47500000000000003
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.911392405063291,
+        "gym": 0,
+        "special": 5.886075949367089,
+        "date": 6.392405063291139,
+        "night": 6.392405063291139
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 63.9,
+        "date": 63.9,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "evening",
+        "date"
+      ],
+      "voteCount": 592,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "179": {
+      "original": "By Kilian Princess",
+      "matchedUrl": "https://iscentive.com/fragrance/kilian/i-dont-need-a-prince-by-my-side-to-be-a-princess.html",
+      "matchScore": 0.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/kilian/intoxicated.html",
+          "score": 0.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/princess-musc.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/pink-princess.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/poesie-perfume/goldfish-princess.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lou-de-pre/desert-princess.html",
+          "score": 0.4083333333333333
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 5.833333333333334,
+        "gym": 0,
+        "special": 8.833333333333332,
+        "date": 8.833333333333332,
+        "night": 7.666666666666667
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 76.7,
+        "date": 88.3,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "date",
+        "evening",
+        "walk"
+      ],
+      "voteCount": 562,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "180": {
+      "original": "Kilian Smoke For The Soul",
+      "matchedUrl": null,
+      "matchScore": 0.5,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/akro/smoke.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/curve/soul-by-curve.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/perfumer-h/smoke.html",
+          "score": 0.4083333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/costume-national/soul.html",
+          "score": 0.4083333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kilian/intoxicated.html",
+          "score": 0.4
+        }
+      ],
+      "occasionScores": {
+        "everyday": 84.8,
+        "evening": 52.2,
+        "date": 59.3,
+        "gym": 38.9,
+        "walk": 71
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "035",
+          "similarity": 93.3
+        },
+        {
+          "id": "012",
+          "similarity": 90
+        },
+        {
+          "id": "152",
+          "similarity": 90
+        },
+        {
+          "id": "183",
+          "similarity": 90
+        },
+        {
+          "id": "185",
+          "similarity": 90
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "183": {
+      "original": "Lacoste Essential",
+      "matchedUrl": "https://iscentive.com/fragrance/lacoste/essential-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/essential-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/eau-de-lacoste.html",
+          "score": 0.7666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/eau-de-lacoste-sensuelle.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/lacoste-red-eau-de-toilette.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/lhomme-lacoste.html",
+          "score": 0.575
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.533333333333333,
+        "office": 6.5,
+        "gym": 7.5,
+        "special": 2.5,
+        "date": 2.5,
+        "night": 2.333333333333333
+      },
+      "occasionScores": {
+        "everyday": 95.3,
+        "evening": 23.3,
+        "date": 25,
+        "gym": 75,
+        "walk": 89.2
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 219,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "185": {
+      "original": "Lacoste Eau de Lacoste L.12.12. White",
+      "matchedUrl": "https://iscentive.com/fragrance/lacoste/l1212-blanc-eau-de-toilette.html",
+      "matchScore": 0.6,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/eau-de-lacoste.html",
+          "score": 0.6400000000000001
+        },
+        {
+          "url": "https://iscentive.com/fragrance/puredistance/white.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/widian/white.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/iceberg/iceberg-white.html",
+          "score": 0.3833333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chloe/l-eau-de-chloe.html",
+          "score": 0.3833333333333333
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.919282511210762,
+        "office": 7.309417040358745,
+        "gym": 8.295964125560538,
+        "special": 1.569506726457399,
+        "date": 1.569506726457399,
+        "night": 0
+      },
+      "occasionScores": {
+        "everyday": 99.2,
+        "evening": 0,
+        "date": 15.7,
+        "gym": 83,
+        "walk": 94.3
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 953,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "195": {
+      "original": "Louis Vuitton Afternoon Swim",
+      "matchedUrl": "https://iscentive.com/fragrance/louis-vuitton/afternoon-swim.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/afternoon-swim.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/imagination.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/orage.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/meteore.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/symphony.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 5.808383233532934,
+        "gym": 6.841317365269461,
+        "special": 2.934131736526946,
+        "date": 3.682634730538922,
+        "night": 3.682634730538922
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 36.8,
+        "date": 36.8,
+        "gym": 68.4,
+        "walk": 90.5
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 3245,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "198": {
+      "original": "Louis Vuitton Imagination",
+      "matchedUrl": "https://iscentive.com/fragrance/louis-vuitton/imagination.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/imagination.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/monogram-imagination.html",
+          "score": 0.917142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/orage.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/meteore.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/symphony.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7,
+        "office": 6,
+        "gym": 4,
+        "special": 8,
+        "date": 6,
+        "night": 3
+      },
+      "occasionScores": {
+        "everyday": 70,
+        "evening": 30,
+        "date": 60,
+        "gym": 40,
+        "walk": 61
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "date"
+      ],
+      "voteCount": 17483,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "282": {
+      "original": "Victoria's Secret Bombshell Paradise",
+      "matchedUrl": null,
+      "matchScore": 0.7,
+      "matchMethod": "forced_estimate_to_avoid_wrong_version",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/bombshell-eau-de-parfum.html",
+          "score": 0.73
+        },
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/bombshell-intense-eau-de-parfum.html",
+          "score": 0.4873015873015873
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/the-secret-eau-de-toilette.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/oriflame/paradise-eau-de-parfum.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/victoria.html",
+          "score": 0.3357142857142857
+        }
+      ],
+      "occasionScores": {
+        "everyday": 95.5,
+        "evening": 25.8,
+        "date": 25.8,
+        "gym": 36.7,
+        "walk": 77.9
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "019",
+          "similarity": 100
+        },
+        {
+          "id": "018",
+          "similarity": 100
+        },
+        {
+          "id": "046",
+          "similarity": 100
+        },
+        {
+          "id": "020",
+          "similarity": 100
+        },
+        {
+          "id": "002",
+          "similarity": 95
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "334": {
+      "original": "Ajmal Aurum",
+      "matchedUrl": "https://iscentive.com/fragrance/ajmal/aurum-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/aurum-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/aurum-elixir.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/aurum-winter.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/aurum-summer.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/aurum-perfume-oil.html",
+          "score": 1.055
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.047619047619047,
+        "office": 7.142857142857143,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.523809523809524
+      },
+      "occasionScores": {
+        "everyday": 90.5,
+        "evening": 95.2,
+        "date": 100,
+        "gym": 0,
+        "walk": 63.3
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 56,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "500": {
+      "original": "Victoria's Secret Vanilla Sapphire",
+      "matchedUrl": null,
+      "matchScore": 0.5,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/bare-vanilla.html",
+          "score": 0.4873015873015873
+        },
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/bare-sueded-vanilla-eau-de-parfum.html",
+          "score": 0.4375
+        },
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/vanilla-lace-fragrance-mist.html",
+          "score": 0.396969696969697
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/the-secret-eau-de-toilette.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/monotheme/vanilla-elixir.html",
+          "score": 0.3357142857142857
+        }
+      ],
+      "occasionScores": {
+        "everyday": 79.2,
+        "evening": 91.7,
+        "date": 95.8,
+        "gym": 0,
+        "walk": 55.4
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "507",
+          "similarity": 25
+        },
+        {
+          "id": "509",
+          "similarity": 25
+        },
+        {
+          "id": "526",
+          "similarity": 25
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "502": {
+      "original": "Tom Ford Ombre Leather",
+      "matchedUrl": "https://iscentive.com/fragrance/tom-ford/ombre-leather-2018-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/ombre-leather-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/ombre-leather-2018-eau-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/eau-d-ombre-leather.html",
+          "score": 0.9746031746031746
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/tuscan-leather-eau-de-parfum.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/noir-de-noir-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.15686274509804,
+        "office": 4.026143790849673,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.882352941176471
+      },
+      "occasionScores": {
+        "everyday": 61.6,
+        "evening": 98.8,
+        "date": 100,
+        "gym": 0,
+        "walk": 43.1
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 3616,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "503": {
+      "original": "Ex Nihilo Blue Talisman",
+      "matchedUrl": "https://iscentive.com/fragrance/ex-nihilo/blue-talisman-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/blue-talisman-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/blue-talisman-extrait-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/outcast-blue-extrait-de-parfum.html",
+          "score": 0.7095238095238094
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/the-hedonist-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/explicite.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.76328502415459,
+        "office": 8.019323671497585,
+        "gym": 4.299516908212561,
+        "special": 4.057971014492754,
+        "date": 4.975845410628019,
+        "night": 4.975845410628019
+      },
+      "occasionScores": {
+        "everyday": 97.6,
+        "evening": 49.8,
+        "date": 49.8,
+        "gym": 43,
+        "walk": 81.2
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 1032,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "505": {
+      "original": "Jo Malone Wood Sage & Sea Salt",
+      "matchedUrl": "https://iscentive.com/fragrance/jo-malone/wood-sage-sea-salt-cologne.html",
+      "matchScore": 1.2,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/jo-malone/wood-sage-sea-salt-cologne.html",
+          "score": 1.2121678321678322
+        },
+        {
+          "url": "https://iscentive.com/fragrance/jo-malone/bronze-wood-leather.html",
+          "score": 0.5787878787878787
+        },
+        {
+          "url": "https://iscentive.com/fragrance/monotheme/sea-salt.html",
+          "score": 0.5194444444444444
+        },
+        {
+          "url": "https://iscentive.com/fragrance/4711/pomelo-sea-salt.html",
+          "score": 0.4666666666666667
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bohoboco/sea-salt-caramel.html",
+          "score": 0.4666666666666667
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.816443594646271,
+        "office": 7.896749521988528,
+        "gym": 5.1434034416826,
+        "special": 1.720841300191205,
+        "date": 1.720841300191205,
+        "night": 1.453154875717017
+      },
+      "occasionScores": {
+        "everyday": 98.2,
+        "evening": 14.5,
+        "date": 17.2,
+        "gym": 51.4,
+        "walk": 84.1
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 1697,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "507": {
+      "original": "Attar Collection Crystal Love",
+      "matchedUrl": "https://iscentive.com/fragrance/attar-collection/crystal-love-for-her.html",
+      "matchScore": 1.2,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/crystal-love-for-her.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/crystal-love-for-him.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/floral-crystal.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/blue-crystal.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/platinum-crystal.html",
+          "score": 0.8
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7.8125,
+        "office": 7.5,
+        "gym": 0,
+        "special": 8.4375,
+        "date": 8.75,
+        "night": 8.75
+      },
+      "occasionScores": {
+        "everyday": 78.1,
+        "evening": 87.5,
+        "date": 87.5,
+        "gym": 0,
+        "walk": 54.7
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday"
+      ],
+      "voteCount": 83,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "508": {
+      "original": "Kajal Almaz",
+      "matchedUrl": "https://iscentive.com/fragrance/kajal/almaz.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/kajal/almaz.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kajal/kajal.html",
+          "score": 0.7666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kajal/kajal-homme.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kajal/lamar.html",
+          "score": 0.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kajal/aican.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 3.866666666666667,
+        "gym": 1.866666666666667,
+        "special": 7.733333333333333,
+        "date": 9.066666666666666,
+        "night": 9.066666666666666
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 90.7,
+        "date": 90.7,
+        "gym": 18.7,
+        "walk": 75.6
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date",
+        "walk"
+      ],
+      "voteCount": 341,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "509": {
+      "original": "Dolce & Gabbana The Only One",
+      "matchedUrl": "https://iscentive.com/fragrance/dolce-gabbana/the-only-one-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-only-one-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-only-one-eau-de-parfum-intense.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-eau-de-parfum.html",
+          "score": 0.917142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-for-men-eau-de-toilette.html",
+          "score": 0.917142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/the-one-eau-de-parfum.html",
+          "score": 0.917142857142857
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.291338582677165,
+        "office": 6.220472440944881,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.05511811023622
+      },
+      "occasionScores": {
+        "everyday": 92.9,
+        "evening": 90.6,
+        "date": 100,
+        "gym": 0,
+        "walk": 65
+      },
+      "occasions": [
+        "date",
+        "everyday",
+        "evening",
+        "walk"
+      ],
+      "voteCount": 460,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "510": {
+      "original": "Richard White Chocola",
+      "matchedUrl": null,
+      "matchScore": 0.5,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/puredistance/white.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/widian/white.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/iceberg/iceberg-white.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lalique/lalique-white-eau-de-toilette.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kenneth-cole/white-eau-de-parfum.html",
+          "score": 0.4083333333333333
+        }
+      ],
+      "occasionScores": {
+        "everyday": 71.8,
+        "evening": 90.4,
+        "date": 91.3,
+        "gym": 0,
+        "walk": 50.3
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "509",
+          "similarity": 100
+        },
+        {
+          "id": "526",
+          "similarity": 100
+        },
+        {
+          "id": "507",
+          "similarity": 100
+        },
+        {
+          "id": "179",
+          "similarity": 96.7
+        },
+        {
+          "id": "170",
+          "similarity": 95
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "512": {
+      "original": "Ariana Grande Thank U, Next",
+      "matchedUrl": "https://iscentive.com/fragrance/ariana-grande/thank-u-next-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/ariana-grande/thank-u-next-eau-de-parfum.html",
+          "score": 1.4625000000000001
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ariana-grande/thank-u-next-20-eau-de-parfum.html",
+          "score": 1.1890909090909092
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ariana-grande/thank-u-next-body-mist.html",
+          "score": 1.1033333333333335
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ariana-grande/thank-u-next-20-body-mist.html",
+          "score": 1.0310489510489511
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ariana-grande/cloud-eau-de-parfum.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9,
+        "office": 6,
+        "gym": 4,
+        "special": 7,
+        "date": 9,
+        "night": 8
+      },
+      "occasionScores": {
+        "everyday": 90,
+        "evening": 80,
+        "date": 90,
+        "gym": 40,
+        "walk": 75
+      },
+      "occasions": [
+        "everyday",
+        "date",
+        "evening",
+        "walk"
+      ],
+      "voteCount": 229,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "516": {
+      "original": "Marc-Antoine Barrois Tilia",
+      "matchedUrl": "https://iscentive.com/fragrance/marc-antoine-barrois/tilia.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/tilia.html",
+          "score": 1.4100000000000001
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/tilia-marc-antoine-barrois.html",
+          "score": 1.3299999999999998
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/ganymede-eau-de-parfum.html",
+          "score": 0.75
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/encelade.html",
+          "score": 0.75
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/b683-eau-de-parfum.html",
+          "score": 0.75
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 3.752481800132363,
+        "office": 0.4252150893448048,
+        "gym": 0.1125082726671079,
+        "special": 1.626406353408339,
+        "date": 0.3755790866975512,
+        "night": 0.3755790866975512
+      },
+      "occasionScores": {
+        "everyday": 37.5,
+        "evening": 3.8,
+        "date": 3.8,
+        "gym": 1.1,
+        "walk": 26.6
+      },
+      "occasions": [
+        "everyday"
+      ],
+      "voteCount": 6044,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "517": {
+      "original": "Thomas Kosmala No.4 Neon",
+      "matchedUrl": "https://iscentive.com/fragrance/thomas-kosmala/4-neon.html",
+      "matchScore": 1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/thomas-kosmala/4-neon.html",
+          "score": 0.9746031746031746
+        },
+        {
+          "url": "https://iscentive.com/fragrance/thomas-kosmala/no-4-candy.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/thomas-kosmala/no-4-sport.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/thomas-kosmala/no-4-apres-l-amour.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/thomas-kosmala/no-4-apres-l-amour-elixir-de-parfum.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 6.25,
+        "gym": 6.25,
+        "special": 2.5,
+        "date": 5,
+        "night": 5
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 50,
+        "date": 50,
+        "gym": 62.5,
+        "walk": 88.8
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 28,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "518": {
+      "original": "Parfums de Marly Meliora",
+      "matchedUrl": "https://iscentive.com/fragrance/parfums-de-marly/meliora.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/parfums-de-marly/meliora.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/parfums-de-marly/layton.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/parfums-de-marly/herod.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/parfums-de-marly/althair.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/parfums-de-marly/oajan.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.573221757322176,
+        "gym": 0,
+        "special": 4.476987447698745,
+        "date": 5.439330543933054,
+        "night": 5.439330543933054
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 54.4,
+        "date": 54.4,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 773,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "523": {
+      "original": "Haute Fragrance Company Indian Venus",
+      "matchedUrl": "https://iscentive.com/fragrance/haute-fragrance-company/indian-venus.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/indian-venus.html",
+          "score": 1.4357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/proposal.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/nirvanesque.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/sunmusk.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/or-noir.html",
+          "score": 0.6
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 8,
+        "office": 6.5,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 8
+      },
+      "occasionScores": {
+        "everyday": 80,
+        "evening": 80,
+        "date": 100,
+        "gym": 0,
+        "walk": 56
+      },
+      "occasions": [
+        "date",
+        "everyday",
+        "evening"
+      ],
+      "voteCount": 66,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "526": {
+      "original": "Matiere Premiere Vanilla Powder",
+      "matchedUrl": "https://iscentive.com/fragrance/matiere-premiere/vanilla-powder-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/matiere-premiere/vanilla-powder-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/matiere-premiere/vanilla-powder.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/matiere-premiere/vanilla-powder-extrait-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/matiere-premiere/falcon-leather-eau-de-parfum.html",
+          "score": 0.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/matiere-premiere/encens-suave-eau-de-parfum.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.646616541353384,
+        "office": 3.533834586466165,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.699248120300751
+      },
+      "occasionScores": {
+        "everyday": 66.5,
+        "evening": 97,
+        "date": 100,
+        "gym": 0,
+        "walk": 46.5
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 729,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "527": {
+      "original": "Kayali Eden Juicy Apple 01",
+      "matchedUrl": "https://iscentive.com/fragrance/kayali/eden-juicy-apple-01.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/kayali/eden-juicy-apple-01.html",
+          "score": 1.4833333333333334
+        },
+        {
+          "url": "https://iscentive.com/fragrance/kayali/eden-sparkling-lychee-39.html",
+          "score": 0.43333333333333335
+        },
+        {
+          "url": "https://iscentive.com/fragrance/cacharel/eden.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/juicy-couture/juicy-couture-eau-de-parfum.html",
+          "score": 0.32857142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/the-woods-collection/eden.html",
+          "score": 0.3
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 4.095238095238095,
+        "gym": 2.095238095238095,
+        "special": 2.476190476190476,
+        "date": 2.952380952380953,
+        "night": 2.952380952380953
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 29.5,
+        "date": 29.5,
+        "gym": 21,
+        "walk": 76.3
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 393,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "528": {
+      "original": "Creed Absolu Aventus",
+      "matchedUrl": "https://iscentive.com/fragrance/creed/absolu-aventus.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/creed/absolu-aventus.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/aventus.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/aventus-cologne.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/aventus-for-her.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rochas/absolu.html",
+          "score": 0.47500000000000003
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7,
+        "office": 6,
+        "gym": 2,
+        "special": 8,
+        "date": 7,
+        "night": 4
+      },
+      "occasionScores": {
+        "everyday": 70,
+        "evening": 40,
+        "date": 70,
+        "gym": 20,
+        "walk": 55
+      },
+      "occasions": [
+        "everyday",
+        "date"
+      ],
+      "voteCount": 1200,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "532": {
+      "original": "Clive Christian Hedonistic",
+      "matchedUrl": "https://iscentive.com/fragrance/clive-christian/jump-up-and-kiss-me-hedonistic.html",
+      "matchScore": 0.7,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/x-for-men.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/1872-for-men.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/matsukita.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/c-for-men.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/1872-for-women.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 5.24390243902439,
+        "office": 2.439024390243902,
+        "gym": 0,
+        "special": 9.878048780487806,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 52.4,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 36.7
+      },
+      "occasions": [
+        "evening",
+        "date"
+      ],
+      "voteCount": 1485,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "533": {
+      "original": "Clive Christian Matsukita",
+      "matchedUrl": "https://iscentive.com/fragrance/clive-christian/matsukita.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/matsukita.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/x-for-men.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/1872-for-men.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/c-for-men.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/clive-christian/1872-for-women.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 8.020833333333334,
+        "gym": 0,
+        "special": 9.583333333333334,
+        "date": 9.583333333333334,
+        "night": 9.166666666666666
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 91.7,
+        "date": 95.8,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "date",
+        "evening",
+        "walk"
+      ],
+      "voteCount": 363,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "535": {
+      "original": "Louis Vuitton Stellar Times",
+      "matchedUrl": null,
+      "matchScore": 0.6,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/imagination.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/orage.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/meteore.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/symphony.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/ombre-nomade.html",
+          "score": 0.5
+        }
+      ],
+      "occasionScores": {
+        "everyday": 71.9,
+        "evening": 73.1,
+        "date": 75.4,
+        "gym": 22.8,
+        "walk": 57.2
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "087",
+          "similarity": 95
+        },
+        {
+          "id": "025",
+          "similarity": 95
+        },
+        {
+          "id": "022",
+          "similarity": 95
+        },
+        {
+          "id": "021",
+          "similarity": 95
+        },
+        {
+          "id": "041",
+          "similarity": 95
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "536": {
+      "original": "Hormone Paris Gaba",
+      "matchedUrl": null,
+      "matchScore": 0.5,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/rammstein/paris.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/paris-hilton/paris-hilton-eau-de-parfum.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/paris-hilton/paris-hilton-for-men.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/memo-paris/eau-de-memo.html",
+          "score": 0.4
+        },
+        {
+          "url": "https://iscentive.com/fragrance/adopt/paris-reverie.html",
+          "score": 0.3933333333333333
+        }
+      ],
+      "occasionScores": {
+        "everyday": 95.6,
+        "evening": 40.3,
+        "date": 43.1,
+        "gym": 36.9,
+        "walk": 78
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "518",
+          "similarity": 90
+        },
+        {
+          "id": "030",
+          "similarity": 90
+        },
+        {
+          "id": "129",
+          "similarity": 87.5
+        },
+        {
+          "id": "031",
+          "similarity": 87.5
+        },
+        {
+          "id": "038",
+          "similarity": 87.5
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "541": {
+      "original": "Lattafa Yara Elixir",
+      "matchedUrl": null,
+      "matchScore": 1.5,
+      "matchMethod": "forced_estimate_to_avoid_wrong_version",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/yara-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/yara-tous-eau-de-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/yara-candy-eau-de-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/fakhar-lattafa-men.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/fakhar-lattafa-women-eau-de-parfum.html",
+          "score": 0.575
+        }
+      ],
+      "occasionScores": {
+        "everyday": 72.1,
+        "evening": 90.2,
+        "date": 91.2,
+        "gym": 0,
+        "walk": 50.4
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "179",
+          "similarity": 100
+        },
+        {
+          "id": "507",
+          "similarity": 96.7
+        },
+        {
+          "id": "509",
+          "similarity": 96.7
+        },
+        {
+          "id": "526",
+          "similarity": 96.7
+        },
+        {
+          "id": "170",
+          "similarity": 93.3
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "011": {
+      "original": "Cacharel Amor Amor",
+      "matchedUrl": "https://iscentive.com/fragrance/cacharel/amor-amor-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/cacharel/amor-amor-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/cacharel/amor-amor-tentation.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/cacharel/amor-amor-love-festival.html",
+          "score": 0.9066666666666667
+        },
+        {
+          "url": "https://iscentive.com/fragrance/cacharel/cacharel-pour-lhomme-eau-de-toilette.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/cacharel/loulou-eau-de-parfum.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 6.436781609195402,
+        "gym": 0,
+        "special": 5.574712643678161,
+        "date": 5.804597701149426,
+        "night": 5.804597701149426
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 58,
+        "date": 58,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 456,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "046": {
+      "original": "Victoria's Secret Bombshell",
+      "matchedUrl": "https://iscentive.com/fragrance/victorias-secret/bombshell-eau-de-parfum.html",
+      "matchScore": 1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/bombshell-eau-de-parfum.html",
+          "score": 0.9814285714285713
+        },
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/bombshell-intense-eau-de-parfum.html",
+          "score": 0.73
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/the-secret-eau-de-toilette.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/victoria.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bortnikoff/victoria.html",
+          "score": 0.3933333333333333
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 5.283018867924528,
+        "gym": 3.962264150943397,
+        "special": 2.452830188679245,
+        "date": 3.018867924528302,
+        "night": 3.018867924528302
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 30.2,
+        "date": 30.2,
+        "gym": 39.6,
+        "walk": 81.9
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 150,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "044": {
+      "original": "Versace Bright Crystal",
+      "matchedUrl": "https://iscentive.com/fragrance/versace/bright-crystal-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/versace/bright-crystal-eau-de-toilette.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/bright-crystal-parfum.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/bright-crystal-absolu.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/crystal-noir-eau-de-parfum.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/crystal-noir-eau-de-toilette.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.5,
+        "gym": 2.558139534883721,
+        "special": 2.325581395348837,
+        "date": 2.674418604651163,
+        "night": 2.674418604651163
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 26.7,
+        "date": 26.7,
+        "gym": 25.6,
+        "walk": 77.7
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 593,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "087": {
+      "original": "Carolina Herrera Good Girl",
+      "matchedUrl": "https://iscentive.com/fragrance/carolina-herrera/good-girl-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-blush-eau-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-eau-de-parfum-legere.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-eau-de-parfum-supreme.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/good-girl-blush-elixir.html",
+          "score": 1.1546031746031744
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 4.361370716510903,
+        "office": 2.710280373831775,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.937694704049845
+      },
+      "occasionScores": {
+        "everyday": 43.6,
+        "evening": 99.4,
+        "date": 100,
+        "gym": 0,
+        "walk": 30.5
+      },
+      "occasions": [
+        "date",
+        "evening"
+      ],
+      "voteCount": 1368,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "013": {
+      "original": "Chanel Chance",
+      "matchedUrl": "https://iscentive.com/fragrance/chanel/chance-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-fraiche-eau-de-toilette.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-toilette.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-parfum.html",
+          "score": 0.575
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.679611650485436,
+        "office": 9.223300970873787,
+        "gym": 1.844660194174757,
+        "special": 5.87378640776699,
+        "date": 6.262135922330097,
+        "night": 6.262135922330097
+      },
+      "occasionScores": {
+        "everyday": 96.8,
+        "evening": 62.6,
+        "date": 62.6,
+        "gym": 18.4,
+        "walk": 73.3
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "evening",
+        "date"
+      ],
+      "voteCount": 653,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "019": {
+      "original": "Escada Cherry In The Air",
+      "matchedUrl": "https://iscentive.com/fragrance/escada/cherry-in-the-air.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/escada/cherry-in-the-air.html",
+          "score": 1.4785714285714286
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escada/cherry-in-japan.html",
+          "score": 0.8357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/annayake/poetry-in-the-air.html",
+          "score": 0.5857142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escada/born-in-paradise.html",
+          "score": 0.5428571428571428
+        },
+        {
+          "url": "https://iscentive.com/fragrance/house-of-sillage/love-is-in-the-air.html",
+          "score": 0.43863636363636366
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.211267605633802,
+        "office": 5.352112676056338,
+        "gym": 1.549295774647887,
+        "special": 2.394366197183099,
+        "date": 2.676056338028169,
+        "night": 2.676056338028169
+      },
+      "occasionScores": {
+        "everyday": 92.1,
+        "evening": 26.8,
+        "date": 26.8,
+        "gym": 15.5,
+        "walk": 69.1
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 198,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "049": {
+      "original": "Yves Saint Laurent Black Opium",
+      "matchedUrl": "https://iscentive.com/fragrance/yves-saint-laurent/black-opium-eau-de-parfum.html",
+      "matchScore": 1.4,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/yves-saint-laurent/black-opium-eau-de-parfum.html",
+          "score": 1.4357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/yves-saint-laurent/black-opium-le-parfum.html",
+          "score": 1.4357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/yves-saint-laurent/black-opium-over-red.html",
+          "score": 1.08
+        },
+        {
+          "url": "https://iscentive.com/fragrance/yves-saint-laurent/opium-pour-homme-eau-de-toilette.html",
+          "score": 0.8428571428571429
+        },
+        {
+          "url": "https://iscentive.com/fragrance/yves-saint-laurent/opium-pour-homme-eau-de-parfum.html",
+          "score": 0.8428571428571429
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 5.152671755725191,
+        "office": 3.034351145038168,
+        "gym": 0,
+        "special": 9.923664122137405,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 51.5,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 36.1
+      },
+      "occasions": [
+        "evening",
+        "date"
+      ],
+      "voteCount": 1968,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "091": {
+      "original": "Chanel Chance Eau Fraiche",
+      "matchedUrl": "https://iscentive.com/fragrance/chanel/chance-eau-fraiche-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-fraiche-eau-de-toilette.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-de-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-toilette.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-parfum.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/eisenberg/eau-fraiche.html",
+          "score": 0.47500000000000003
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.844380403458214,
+        "office": 8.760806916426514,
+        "gym": 5.360230547550432,
+        "special": 1.786743515850144,
+        "date": 1.959654178674352,
+        "night": 1.959654178674352
+      },
+      "occasionScores": {
+        "everyday": 98.4,
+        "evening": 19.6,
+        "date": 19.6,
+        "gym": 53.6,
+        "walk": 85
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 864,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "027": {
+      "original": "Gucci Flora Gorgeous Gardenia",
+      "matchedUrl": "https://iscentive.com/fragrance/gucci/flora-gorgeous-gardenia-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/gucci/flora-gorgeous-gardenia-eau-de-parfum.html",
+          "score": 1.4785714285714286
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/flora-gorgeous-jasmine.html",
+          "score": 0.8357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/flora-gorgeous-orchid.html",
+          "score": 0.8357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/gucci/gucci-by-gucci-pour-homme-eau-de-toilette.html",
+          "score": 0.3833333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/elizabeth-taylor/gardenia.html",
+          "score": 0.3457142857142857
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.805555555555555,
+        "office": 6.805555555555555,
+        "gym": 1.527777777777778,
+        "special": 4.375,
+        "date": 4.791666666666667,
+        "night": 4.791666666666667
+      },
+      "occasionScores": {
+        "everyday": 98.1,
+        "evening": 47.9,
+        "date": 47.9,
+        "gym": 15.3,
+        "walk": 73.2
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 590,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "017": {
+      "original": "Dolce & Gabbana 3 L'Imperatrice",
+      "matchedUrl": "https://iscentive.com/fragrance/dolce-gabbana/l-imperatrice.html",
+      "matchScore": 1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/l-imperatrice.html",
+          "score": 0.9746031746031746
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/dolce-eau-de-parfum.html",
+          "score": 0.6214285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/dolce-magnolia.html",
+          "score": 0.5428571428571428
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/dolce-gabbana-pour-homme-2012-eau-de-toilette.html",
+          "score": 0.5111111111111111
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/dolce-gabbana-pour-homme-intenso-eau-de-parfum.html",
+          "score": 0.5111111111111111
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 6.853658536585367,
+        "gym": 3.926829268292683,
+        "special": 2.219512195121951,
+        "date": 2.51219512195122,
+        "night": 2.51219512195122
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 25.1,
+        "date": 25.1,
+        "gym": 39.3,
+        "walk": 81.8
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 1144,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "029": {
+      "original": "Lacoste pour Femme",
+      "matchedUrl": "https://iscentive.com/fragrance/lacoste/pour-femme-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/pour-femme-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/pour-femme-intense.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lacoste/eau-de-lacoste.html",
+          "score": 0.7666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/prada/la-femme.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/joop/joop-femme-eau-de-toilette.html",
+          "score": 0.575
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.557377049180326,
+        "office": 8.797814207650273,
+        "gym": 3.60655737704918,
+        "special": 3.032786885245902,
+        "date": 3.032786885245902,
+        "night": 2.923497267759563
+      },
+      "occasionScores": {
+        "everyday": 95.6,
+        "evening": 29.2,
+        "date": 30.3,
+        "gym": 36.1,
+        "walk": 77.7
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 963,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "018": {
+      "original": "Dolce & Gabbana Light Blue",
+      "matchedUrl": "https://iscentive.com/fragrance/dolce-gabbana/light-blue-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/light-blue-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/light-blue-eau-intense.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/light-blue-pour-homme-eau-de-toilette.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/light-blue-pour-homme-eau-intense.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dolce-gabbana/light-blue-pour-homme-forever.html",
+          "score": 1.055
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.396694214876033,
+        "gym": 6.528925619834711,
+        "special": 1.776859504132231,
+        "date": 1.900826446280992,
+        "night": 1.900826446280992
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 19,
+        "date": 19,
+        "gym": 65.3,
+        "walk": 89.6
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 1487,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "048": {
+      "original": "Victoria's Secret Scandalous",
+      "matchedUrl": "https://iscentive.com/fragrance/victorias-secret/scandalous-eau-de-parfum.html",
+      "matchScore": 1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/scandalous-eau-de-parfum.html",
+          "score": 0.9814285714285713
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/the-secret-eau-de-toilette.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/victoria.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bortnikoff/victoria.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/alexandria-fragrances/scandalous.html",
+          "score": 0.3457142857142857
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 8.181818181818182,
+        "office": 3.636363636363637,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.09090909090909
+      },
+      "occasionScores": {
+        "everyday": 81.8,
+        "evening": 90.9,
+        "date": 100,
+        "gym": 0,
+        "walk": 57.3
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 25,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "047": {
+      "original": "Victoria's Secret Eau So Sexy",
+      "matchedUrl": null,
+      "matchScore": 0.5,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/very-sexy-eau-de-parfum.html",
+          "score": 0.4873015873015873
+        },
+        {
+          "url": "https://iscentive.com/fragrance/victorias-secret/sexy-little-things-noir.html",
+          "score": 0.396969696969697
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/the-secret-eau-de-toilette.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lattafa/victoria.html",
+          "score": 0.3357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bortnikoff/victoria.html",
+          "score": 0.3357142857142857
+        }
+      ],
+      "occasionScores": {
+        "everyday": 96.4,
+        "evening": 51.4,
+        "date": 53.4,
+        "gym": 27,
+        "walk": 75.6
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "508",
+          "similarity": 95
+        },
+        {
+          "id": "512",
+          "similarity": 95
+        },
+        {
+          "id": "527",
+          "similarity": 95
+        },
+        {
+          "id": "046",
+          "similarity": 95
+        },
+        {
+          "id": "019",
+          "similarity": 95
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "020": {
+      "original": "Escada Taj Sunset",
+      "matchedUrl": "https://iscentive.com/fragrance/escada/taj-sunset.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/escada/taj-sunset.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escada/especially-escada.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escada/escada-1990-eau-de-parfum.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escada/especially-escada-elixir.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escada/escada-pour-homme-eau-de-toilette.html",
+          "score": 0.46
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 8.582278481012658,
+        "office": 4.683544303797468,
+        "gym": 2.151898734177215,
+        "special": 2.151898734177215,
+        "date": 2.784810126582278,
+        "night": 2.784810126582278
+      },
+      "occasionScores": {
+        "everyday": 85.8,
+        "evening": 27.8,
+        "date": 27.8,
+        "gym": 21.5,
+        "walk": 66.5
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 181,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "014": {
+      "original": "Chanel Chance Eau Tendre",
+      "matchedUrl": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-toilette.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-tendre-eau-de-parfum.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-de-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/chance-eau-fraiche-eau-de-toilette.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-parfum.html",
+          "score": 0.46
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.724590163934426,
+        "office": 8.918032786885245,
+        "gym": 2.590163934426229,
+        "special": 2.524590163934426,
+        "date": 3.442622950819672,
+        "night": 3.442622950819672
+      },
+      "occasionScores": {
+        "everyday": 97.2,
+        "evening": 34.4,
+        "date": 34.4,
+        "gym": 25.9,
+        "walk": 75.8
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 850,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "028": {
+      "original": "Haute Fragrance Company Devil's Intrigue",
+      "matchedUrl": "https://iscentive.com/fragrance/haute-fragrance-company/devils-intrigue.html",
+      "matchScore": 1.1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/devils-intrigue.html",
+          "score": 1.1147727272727272
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/proposal.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/nirvanesque.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/sunmusk.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/haute-fragrance-company/or-noir.html",
+          "score": 0.5454545454545454
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.619047619047619,
+        "gym": 0,
+        "special": 8.571428571428571,
+        "date": 8.571428571428571,
+        "night": 7.619047619047619
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 76.2,
+        "date": 85.7,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "date",
+        "evening",
+        "walk"
+      ],
+      "voteCount": 75,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "057": {
+      "original": "Anna Sui Fantasia",
+      "matchedUrl": "https://iscentive.com/fragrance/anna-sui/fantasia.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/fantasia.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/fantasia-mermaid.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/fantasia-rose.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/fantasia-forever.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/fantasia-pop-surprise.html",
+          "score": 0.98
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 3.636363636363637,
+        "gym": 3.636363636363637,
+        "special": 3.636363636363637,
+        "date": 3.636363636363637,
+        "night": 3.636363636363637
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 36.4,
+        "date": 36.4,
+        "gym": 36.4,
+        "walk": 80.9
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 21,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "002": {
+      "original": "Anna Sui Lucky Wish",
+      "matchedUrl": "https://iscentive.com/fragrance/anna-sui/secret-wish-lucky-wish.html",
+      "matchScore": 1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/secret-wish-lucky-wish.html",
+          "score": 0.9746031746031746
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/secret-wish.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/anna-sui.html",
+          "score": 0.7666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/secret-wish-fairy-dance.html",
+          "score": 0.6375
+        },
+        {
+          "url": "https://iscentive.com/fragrance/anna-sui/secret-wish-magic-romance.html",
+          "score": 0.6375
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 6.666666666666666,
+        "gym": 4.166666666666667,
+        "special": 1.666666666666667,
+        "date": 2.5,
+        "night": 2.5
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 25,
+        "date": 25,
+        "gym": 41.7,
+        "walk": 82.5
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 17,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "090": {
+      "original": "Chanel Allure Homme Sport",
+      "matchedUrl": "https://iscentive.com/fragrance/chanel/allure-homme-sport-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/chanel/allure-homme-sport-eau-de-toilette.html",
+          "score": 1.4785714285714286
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/allure-homme-sport-superleggera.html",
+          "score": 1.1813888888888888
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/allure-homme-eau-de-toilette.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/allure-eau-de-parfum.html",
+          "score": 0.9066666666666667
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/allure-homme-edition-blanche-eau-de-parfum.html",
+          "score": 0.7416666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.944990176817289,
+        "office": 8.074656188605108,
+        "gym": 8.212180746561886,
+        "special": 2.966601178781925,
+        "date": 3.418467583497053,
+        "night": 3.418467583497053
+      },
+      "occasionScores": {
+        "everyday": 99.4,
+        "evening": 34.2,
+        "date": 34.2,
+        "gym": 82.1,
+        "walk": 94.3
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 2260,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "070": {
+      "original": "Bvlgari Aqva Pour Homme Atlantiqve",
+      "matchedUrl": "https://iscentive.com/fragrance/bvlgari/aqva-pour-homme-atlantiqve.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/aqva-pour-homme-atlantiqve.html",
+          "score": 1.4785714285714286
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/aqva-pour-homme-eau-de-toilette.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/aqva-pour-homme-marine-eau-de-toilette.html",
+          "score": 0.8357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/bvlgari-pour-homme-eau-de-toilette.html",
+          "score": 0.7666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/bvlgari-pour-homme-eau-de-parfum.html",
+          "score": 0.7666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 5.930232558139536,
+        "gym": 7.558139534883721,
+        "special": 2.790697674418605,
+        "date": 2.790697674418605,
+        "night": 2.093023255813954
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 20.9,
+        "date": 27.9,
+        "gym": 75.6,
+        "walk": 92.7
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 404,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "035": {
+      "original": "Paco Rabanne Black XS L´Exces",
+      "matchedUrl": "https://iscentive.com/fragrance/rabanne/black-xs-l-exces-for-him.html",
+      "matchScore": 0.9,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/black-xs-l-exces-for-him.html",
+          "score": 0.9424242424242425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/black-xs-eau-de-toilette.html",
+          "score": 0.9216666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/black-xs-for-her-eau-de-toilette.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/paco.html",
+          "score": 0.5428571428571428
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/paco-rabanne-pour-homme-eau-de-toilette.html",
+          "score": 0.5111111111111111
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 5.939393939393939,
+        "office": 4.545454545454545,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 59.4,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 41.6
+      },
+      "occasions": [
+        "evening",
+        "date"
+      ],
+      "voteCount": 125,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "012": {
+      "original": "Chanel Bleu de Chanel",
+      "matchedUrl": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-parfum.html",
+          "score": 1.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-toilette.html",
+          "score": 1.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-parfum.html",
+          "score": 1.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-lexclusif.html",
+          "score": 1.1
+        },
+        {
+          "url": "https://iscentive.com/fragrance/orientica/bleu.html",
+          "score": 0.6
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.637254901960784,
+        "office": 9.281045751633988,
+        "gym": 3.80718954248366,
+        "special": 5.408496732026143,
+        "date": 5.408496732026143,
+        "night": 5.294117647058823
+      },
+      "occasionScores": {
+        "everyday": 96.4,
+        "evening": 52.9,
+        "date": 54.1,
+        "gym": 38.1,
+        "walk": 78.9
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 2628,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "003": {
+      "original": "Antonio Banderas Blue Seduction For Man",
+      "matchedUrl": "https://iscentive.com/fragrance/banderas/blue-seduction-for-men-eau-de-toilette.html",
+      "matchScore": 1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/banderas/blue-seduction-for-men-eau-de-toilette.html",
+          "score": 1.0157142857142856
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/blue-seduction-for-women.html",
+          "score": 1.0157142857142856
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/blue-seduction-wave-for-men.html",
+          "score": 0.7416666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/banderas/blue-seduction-energy-aqua.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/benetton/colors-de-benetton-man-blue.html",
+          "score": 0.5111111111111111
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.772727272727273,
+        "office": 6.818181818181817,
+        "gym": 8.181818181818182,
+        "special": 2.272727272727272,
+        "date": 2.272727272727272,
+        "night": 1.96969696969697
+      },
+      "occasionScores": {
+        "everyday": 97.7,
+        "evening": 19.7,
+        "date": 22.7,
+        "gym": 81.8,
+        "walk": 93
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 274,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "030": {
+      "original": "Lanvin Eclat D'Arpege",
+      "matchedUrl": "https://iscentive.com/fragrance/lanvin/eclat-d-arpege-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/lanvin/eclat-d-arpege-eau-de-parfum.html",
+          "score": 1.4785714285714286
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lanvin/eclat-d-arpege-pour-homme.html",
+          "score": 1.1813888888888888
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lanvin/eclat-d-arpege-sheer.html",
+          "score": 1.1813888888888888
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lanvin/mon-eclat-eclat-d-arpege.html",
+          "score": 1.0013888888888889
+        },
+        {
+          "url": "https://iscentive.com/fragrance/lanvin/eau-arpege-eau-de-toilette.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 8.333333333333334,
+        "gym": 3.468468468468469,
+        "special": 2.117117117117117,
+        "date": 2.117117117117117,
+        "night": 1.891891891891892
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 18.9,
+        "date": 21.2,
+        "gym": 34.7,
+        "walk": 80.4
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 521,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "093": {
+      "original": "Chanel Egoiste",
+      "matchedUrl": "https://iscentive.com/fragrance/chanel/egoiste-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/chanel/egoiste-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/platinum-egoiste-eau-de-toilette.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-parfum.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-eau-de-toilette.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/chanel/bleu-de-chanel-parfum.html",
+          "score": 0.575
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.389006342494714,
+        "office": 6.109936575052854,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.238900634249472
+      },
+      "occasionScores": {
+        "everyday": 63.9,
+        "evening": 92.4,
+        "date": 100,
+        "gym": 0,
+        "walk": 44.7
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 1938,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "045": {
+      "original": "Versace Eros",
+      "matchedUrl": "https://iscentive.com/fragrance/versace/eros-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/versace/eros-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/eros-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/eros-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/eros-flame.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/versace/eros-energy.html",
+          "score": 1.055
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7.876960193003619,
+        "office": 2.726176115802171,
+        "gym": 2.038600723763571,
+        "special": 8.552472858866103,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 78.8,
+        "evening": 100,
+        "date": 100,
+        "gym": 20.4,
+        "walk": 61.3
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 4408,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "096": {
+      "original": "Christian Dior Fahrenheit",
+      "matchedUrl": "https://iscentive.com/fragrance/dior/fahrenheit-eau-de-toilette.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dior/fahrenheit-eau-de-toilette.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/fahrenheit-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/fahrenheit-32-eau-de-toilette.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/fahrenheit-absolute.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/gris-dior-eau-de-parfum.html",
+          "score": 0.46
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7,
+        "office": 7,
+        "gym": 3,
+        "special": 9,
+        "date": 8,
+        "night": 9
+      },
+      "occasionScores": {
+        "everyday": 70,
+        "evening": 90,
+        "date": 80,
+        "gym": 30,
+        "walk": 58
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday"
+      ],
+      "voteCount": 2902,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "034": {
+      "original": "Paco Rabanne 1 Million",
+      "matchedUrl": "https://iscentive.com/fragrance/rabanne/1-million-eau-de-toilette.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/1-million-eau-de-toilette.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/1-million-parfum.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/1-million-elixir.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/1-million-lucky.html",
+          "score": 0.8357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/1-million-prive.html",
+          "score": 0.8357142857142857
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.071964017991005,
+        "office": 2.143928035982009,
+        "gym": 0,
+        "special": 9.5952023988006,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 60.7,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 42.5
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday"
+      ],
+      "voteCount": 3331,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "081": {
+      "original": "Carolina Herrera 212 VIP Men",
+      "matchedUrl": "https://iscentive.com/fragrance/carolina-herrera/212-vip-men-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/212-vip-men-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/212-vip-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/212-vip-black-eau-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/212-vip-rose-eau-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/carolina-herrera/212-men-eau-de-toilette.html",
+          "score": 1.0971428571428572
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7.18181818181818,
+        "office": 4.090909090909091,
+        "gym": 0,
+        "special": 8.93939393939394,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 71.8,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 50.3
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday"
+      ],
+      "voteCount": 266,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "036": {
+      "original": "Paco Rabanne Invictus",
+      "matchedUrl": "https://iscentive.com/fragrance/rabanne/invictus-eau-de-toilette.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/invictus-eau-de-toilette.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/invictus-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/paco.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/paco-rabanne-pour-homme-eau-de-toilette.html",
+          "score": 0.7666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/rabanne/invictus-victory.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 5.698924731182796,
+        "gym": 5.887096774193549,
+        "special": 4.973118279569892,
+        "date": 5.887096774193549,
+        "night": 5.887096774193549
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 58.9,
+        "date": 58.9,
+        "gym": 58.9,
+        "walk": 87.7
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 2025,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "015": {
+      "original": "Dior Sauvage",
+      "matchedUrl": "https://iscentive.com/fragrance/dior/sauvage-eau-de-toilette.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/dior/sauvage-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/sauvage-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/eau-sauvage-eau-de-toilette.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/sauvage-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/dior/sauvage-elixir.html",
+          "score": 1.4500000000000002
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 2.192704203013482,
+        "office": 1.752577319587629,
+        "gym": 1.02101506740682,
+        "special": 1.457176843774782,
+        "date": 0,
+        "night": 1.520618556701031
+      },
+      "occasionScores": {
+        "everyday": 21.9,
+        "evening": 15.2,
+        "date": 0,
+        "gym": 10.2,
+        "walk": 18.4
+      },
+      "occasions": [
+        "everyday"
+      ],
+      "voteCount": 6150,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "016": {
+      "original": "Creed Aventus",
+      "matchedUrl": "https://iscentive.com/fragrance/creed/aventus.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/creed/aventus.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/aventus-cologne.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/aventus-for-her.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/absolu-aventus.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/creed/viking.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.879584775086505,
+        "office": 8.837370242214533,
+        "gym": 4.186851211072664,
+        "special": 7.633217993079585,
+        "date": 8.359861591695502,
+        "night": 8.359861591695502
+      },
+      "occasionScores": {
+        "everyday": 98.8,
+        "evening": 83.6,
+        "date": 83.6,
+        "gym": 41.9,
+        "walk": 81.7
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date",
+        "walk"
+      ],
+      "voteCount": 7807,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "031": {
+      "original": "Louis Vuitton L’Immensité",
+      "matchedUrl": "https://iscentive.com/fragrance/louis-vuitton/l-immensite.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/l-immensite.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/imagination.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/orage.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/meteore.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/symphony.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 8.198757763975156,
+        "gym": 5.186335403726709,
+        "special": 4.37888198757764,
+        "date": 4.720496894409938,
+        "night": 4.720496894409938
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 47.2,
+        "date": 47.2,
+        "gym": 51.9,
+        "walk": 85.6
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 1629,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "071": {
+      "original": "Bvlgari Tygar",
+      "matchedUrl": "https://iscentive.com/fragrance/bvlgari/le-gemme-tygar-eau-de-parfum.html",
+      "matchScore": 0.9,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/le-gemme-tygar-eau-de-parfum.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/bvlgari-black.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/bvlgari-man-eau-de-toilette.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/bvlgari-pour-homme-eau-de-toilette.html",
+          "score": 0.575
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bvlgari/bvlgari-pour-femme-eau-de-parfum.html",
+          "score": 0.575
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 8.80503144654088,
+        "gym": 4.213836477987422,
+        "special": 6.415094339622641,
+        "date": 6.918238993710691,
+        "night": 6.918238993710691
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 69.2,
+        "date": 69.2,
+        "gym": 42.1,
+        "walk": 82.6
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "evening",
+        "date"
+      ],
+      "voteCount": 806,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "004": {
+      "original": "Arabic Zam Zam",
+      "matchedUrl": null,
+      "matchScore": 0,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/19-69/capri.html",
+          "score": 0
+        },
+        {
+          "url": "https://iscentive.com/fragrance/19-69/chinese-tobacco.html",
+          "score": 0
+        },
+        {
+          "url": "https://iscentive.com/fragrance/19-69/kasbah.html",
+          "score": 0
+        },
+        {
+          "url": "https://iscentive.com/fragrance/19-69/purple-haze.html",
+          "score": 0
+        },
+        {
+          "url": "https://iscentive.com/fragrance/19-69/female-christ.html",
+          "score": 0
+        }
+      ],
+      "occasionScores": {
+        "everyday": 97.3,
+        "evening": 45.1,
+        "date": 47.3,
+        "gym": 26.2,
+        "walk": 75.9
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "022",
+          "similarity": 95
+        },
+        {
+          "id": "021",
+          "similarity": 95
+        },
+        {
+          "id": "137",
+          "similarity": 92.5
+        },
+        {
+          "id": "141",
+          "similarity": 92.5
+        },
+        {
+          "id": "027",
+          "similarity": 92.5
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "037": {
+      "original": "Sospiro Accento",
+      "matchedUrl": "https://iscentive.com/fragrance/xerjoff/accento.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/accento-viola.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/accento-luminoso.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/xerjoff/accento.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/vibrato.html",
+          "score": 0.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/basso.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 6.540483701366982,
+        "gym": 2.250262881177707,
+        "special": 7.139852786540484,
+        "date": 8.201892744479496,
+        "night": 8.201892744479496
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 82,
+        "date": 82,
+        "gym": 22.5,
+        "walk": 76.8
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date",
+        "walk"
+      ],
+      "voteCount": 4913,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "001": {
+      "original": "Ajmal Amber Wood",
+      "matchedUrl": "https://iscentive.com/fragrance/ajmal/amber-wood-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/amber-wood-eau-de-parfum.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/amber-eau-de-parfum.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/amber-wood-hair-mist.html",
+          "score": 1.0157142857142856
+        },
+        {
+          "url": "https://iscentive.com/fragrance/monotheme/amber-wood.html",
+          "score": 0.7866666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ajmal/cashmere-wood.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.333333333333333,
+        "office": 4.5,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 8.333333333333334
+      },
+      "occasionScores": {
+        "everyday": 63.3,
+        "evening": 83.3,
+        "date": 100,
+        "gym": 0,
+        "walk": 44.3
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "voteCount": 225,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "008": {
+      "original": "Boadicea the Victorious Aurica",
+      "matchedUrl": null,
+      "matchScore": 0.7,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/ardent-eau-de-parfum.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/bodacious.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/energizer.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/imperial.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/intense.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "occasionScores": {
+        "everyday": 80.9,
+        "evening": 63.3,
+        "date": 66.8,
+        "gym": 11.3,
+        "walk": 60
+      },
+      "occasions": [
+        "everyday",
+        "date",
+        "evening",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "153",
+          "similarity": 95
+        },
+        {
+          "id": "026",
+          "similarity": 95
+        },
+        {
+          "id": "037",
+          "similarity": 95
+        },
+        {
+          "id": "152",
+          "similarity": 90
+        },
+        {
+          "id": "516",
+          "similarity": 90
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "025": {
+      "original": "Maison Francis Kurkdjian Baccarat Rouge 540",
+      "matchedUrl": "https://iscentive.com/fragrance/maison-francis-kurkdjian/baccarat-rouge-540-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/maison-francis-kurkdjian/baccarat-rouge-540-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/maison-francis-kurkdjian/baccarat-rouge-540.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/maison-francis-kurkdjian/baccarat-rouge-540-extrait-de-parfum.html",
+          "score": 1.1930769230769231
+        },
+        {
+          "url": "https://iscentive.com/fragrance/maison-francis-kurkdjian/724-eau-de-parfum.html",
+          "score": 0.6
+        },
+        {
+          "url": "https://iscentive.com/fragrance/maison-francis-kurkdjian/oud-eau-de-parfum.html",
+          "score": 0.6
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 4.632282712511938,
+        "office": 2.884431709646609,
+        "gym": 0,
+        "special": 9.780324737344795,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 46.3,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 32.4
+      },
+      "occasions": [
+        "evening",
+        "date"
+      ],
+      "voteCount": 4909,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "033": {
+      "original": "Nasomatto Black Afgano",
+      "matchedUrl": "https://iscentive.com/fragrance/nasomatto/black-afgano-extrait-de-parfum.html",
+      "matchScore": 1.1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/nasomatto/black-afgano-extrait-de-parfum.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/nasomatto/black-afgano-oil-based-extrait-de-parfum.html",
+          "score": 0.9216666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/puredistance/black.html",
+          "score": 0.47500000000000003
+        },
+        {
+          "url": "https://iscentive.com/fragrance/aigner/aigner-black-for-men-eau-de-toilette.html",
+          "score": 0.46
+        },
+        {
+          "url": "https://iscentive.com/fragrance/aigner/aigner-black-for-women.html",
+          "score": 0.46
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 4.985549132947977,
+        "office": 1.315028901734104,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.508670520231213
+      },
+      "occasionScores": {
+        "everyday": 49.9,
+        "evening": 95.1,
+        "date": 100,
+        "gym": 0,
+        "walk": 34.9
+      },
+      "occasions": [
+        "date",
+        "evening"
+      ],
+      "voteCount": 2793,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "050": {
+      "original": "Zielinski & Rozen Black Pepper",
+      "matchedUrl": null,
+      "matchScore": 0.7,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/korres/black-pepper-eau-de-toilette.html",
+          "score": 0.6714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/bohoboco/vanilla-black-pepper.html",
+          "score": 0.5857142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/acca-kappa/black-pepper-sandalwood.html",
+          "score": 0.5301587301587302
+        },
+        {
+          "url": "https://iscentive.com/fragrance/molton-brown/re-charge-black-pepper-2014-eau-de-toilette.html",
+          "score": 0.4303030303030303
+        },
+        {
+          "url": "https://iscentive.com/fragrance/puredistance/black.html",
+          "score": 0.3933333333333333
+        }
+      ],
+      "occasionScores": {
+        "everyday": 74.5,
+        "evening": 80.9,
+        "date": 88.7,
+        "gym": 13.5,
+        "walk": 56.2
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "152",
+          "similarity": 90
+        },
+        {
+          "id": "053",
+          "similarity": 90
+        },
+        {
+          "id": "129",
+          "similarity": 87.5
+        },
+        {
+          "id": "502",
+          "similarity": 87.5
+        },
+        {
+          "id": "532",
+          "similarity": 87.5
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "039": {
+      "original": "Tiziana Terenzi Cassiopea",
+      "matchedUrl": "https://iscentive.com/fragrance/tiziana-terenzi/cassiopea-extrait-de-parfum.html",
+      "matchScore": 1.1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/cassiopea-extrait-de-parfum.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/lillipur.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/chimaera.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/burdel.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/telea.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.375,
+        "gym": 0,
+        "special": 6.8125,
+        "date": 7.6875,
+        "night": 7.6875
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 76.9,
+        "date": 76.9,
+        "gym": 0,
+        "walk": 70
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date",
+        "walk"
+      ],
+      "voteCount": 535,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "053": {
+      "original": "Al Rehab Dalal",
+      "matchedUrl": "https://iscentive.com/fragrance/al-rehab/dalal-eau-de-parfum.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/al-rehab/dalal-eau-de-parfum.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/al-rehab/dalal-perfume-oil.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/al-rehab/for-men-perfume.html",
+          "score": 0.98
+        },
+        {
+          "url": "https://iscentive.com/fragrance/al-rehab/rehab.html",
+          "score": 0.875
+        },
+        {
+          "url": "https://iscentive.com/fragrance/al-rehab/al-rehab-pearl.html",
+          "score": 0.7666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 8.571428571428571,
+        "office": 6.190476190476191,
+        "gym": 2.857142857142857,
+        "special": 10,
+        "date": 10,
+        "night": 8.095238095238095
+      },
+      "occasionScores": {
+        "everyday": 85.7,
+        "evening": 81,
+        "date": 100,
+        "gym": 28.6,
+        "walk": 68.6
+      },
+      "occasions": [
+        "date",
+        "everyday",
+        "evening",
+        "walk"
+      ],
+      "voteCount": 57,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "038": {
+      "original": "Sospiro Erba Pura",
+      "matchedUrl": "https://iscentive.com/fragrance/xerjoff/erba-pura.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/erba-pura-magica.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/xerjoff/erba-pura.html",
+          "score": 0.7866666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/erba-oud.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/sospiro/erba-leather.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/maison-alhambra/pura.html",
+          "score": 0.4083333333333333
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 8,
+        "office": 7,
+        "gym": 6,
+        "special": 6,
+        "date": 5,
+        "night": 4
+      },
+      "occasionScores": {
+        "everyday": 80,
+        "evening": 40,
+        "date": 50,
+        "gym": 60,
+        "walk": 74
+      },
+      "occasions": [
+        "everyday",
+        "walk",
+        "gym"
+      ],
+      "voteCount": 17238,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "022": {
+      "original": "Escentric Molecules Escentric 02",
+      "matchedUrl": "https://iscentive.com/fragrance/escentric-molecules/escentric-02.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-02.html",
+          "score": 1.4700000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-02-extrait-de-parfum.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/molecule-02.html",
+          "score": 0.917142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-01.html",
+          "score": 0.7266666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-04.html",
+          "score": 0.7266666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 9.385474860335195,
+        "gym": 5.698324022346368,
+        "special": 3.854748603351955,
+        "date": 3.854748603351955,
+        "night": 3.29608938547486
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 33,
+        "date": 38.5,
+        "gym": 57,
+        "walk": 87.1
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 581,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "021": {
+      "original": "Escentric Molecules Escentric 02 Black",
+      "matchedUrl": "https://iscentive.com/fragrance/escentric-molecules/escentric-02.html",
+      "matchScore": 1.1,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-02.html",
+          "score": 1.1371428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-02-extrait-de-parfum.html",
+          "score": 0.8357142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/molecule-02.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/molecule-01-black-tea.html",
+          "score": 0.6375
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-01.html",
+          "score": 0.6214285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 9.385474860335195,
+        "gym": 5.698324022346368,
+        "special": 3.854748603351955,
+        "date": 3.854748603351955,
+        "night": 3.29608938547486
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 33,
+        "date": 38.5,
+        "gym": 57,
+        "walk": 87.1
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 581,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "024": {
+      "original": "Ex Nihilo Fleur Narcotique",
+      "matchedUrl": "https://iscentive.com/fragrance/ex-nihilo/fleur-narcotique-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/fleur-narcotique-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/fleur-narcotique-extrait-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/fleur-narcotique-signature-musc.html",
+          "score": 1.055
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/fleur-narcotique-signature-rose-de-mai.html",
+          "score": 0.9739393939393939
+        },
+        {
+          "url": "https://iscentive.com/fragrance/ex-nihilo/the-hedonist-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.959183673469386,
+        "office": 7.891156462585034,
+        "gym": 0,
+        "special": 5.170068027210885,
+        "date": 5.578231292517007,
+        "night": 5.578231292517007
+      },
+      "occasionScores": {
+        "everyday": 99.6,
+        "evening": 55.8,
+        "date": 55.8,
+        "gym": 0,
+        "walk": 69.7
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 569,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "023": {
+      "original": "Escentric Molecules The Beautiful Mind series Volume 1 Intelligence & Fantasy",
+      "matchedUrl": null,
+      "matchScore": 0.4,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-02.html",
+          "score": 0.3606060606060606
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-01.html",
+          "score": 0.3606060606060606
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-04.html",
+          "score": 0.3606060606060606
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-03.html",
+          "score": 0.3606060606060606
+        },
+        {
+          "url": "https://iscentive.com/fragrance/escentric-molecules/escentric-05.html",
+          "score": 0.3606060606060606
+        }
+      ],
+      "occasionScores": {
+        "everyday": 86,
+        "evening": 36.4,
+        "date": 36.7,
+        "gym": 26.9,
+        "walk": 68.3
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "503",
+          "similarity": 100
+        },
+        {
+          "id": "091",
+          "similarity": 100
+        },
+        {
+          "id": "063",
+          "similarity": 100
+        },
+        {
+          "id": "516",
+          "similarity": 95
+        },
+        {
+          "id": "029",
+          "similarity": 95
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    },
+    "026": {
+      "original": "Marc-Antoine Barrois Ganymede",
+      "matchedUrl": "https://iscentive.com/fragrance/marc-antoine-barrois/ganymede-eau-de-parfum.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/ganymede-eau-de-parfum.html",
+          "score": 1.4100000000000001
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/ganymede-extrait.html",
+          "score": 1.1188888888888888
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/tilia-marc-antoine-barrois.html",
+          "score": 0.8625
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/tilia.html",
+          "score": 0.75
+        },
+        {
+          "url": "https://iscentive.com/fragrance/marc-antoine-barrois/encelade.html",
+          "score": 0.75
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.433823529411766,
+        "office": 8.327205882352942,
+        "gym": 0,
+        "special": 9.742647058823529,
+        "date": 9.944852941176471,
+        "night": 9.944852941176471
+      },
+      "occasionScores": {
+        "everyday": 94.3,
+        "evening": 99.4,
+        "date": 99.4,
+        "gym": 0,
+        "walk": 66
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 3318,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "063": {
+      "original": "Boadicea the Victorious Hanuman",
+      "matchedUrl": "https://iscentive.com/fragrance/boadicea-the-victorious/hanuman.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/hanuman.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/ardent-eau-de-parfum.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/bodacious.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/energizer.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/boadicea-the-victorious/imperial.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.888888888888888,
+        "office": 8.518518518518519,
+        "gym": 0,
+        "special": 6.666666666666666,
+        "date": 7.777777777777778,
+        "night": 7.777777777777778
+      },
+      "occasionScores": {
+        "everyday": 98.9,
+        "evening": 77.8,
+        "date": 77.8,
+        "gym": 0,
+        "walk": 69.2
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date",
+        "walk"
+      ],
+      "voteCount": 114,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "006": {
+      "original": "Attar Collection Hayati",
+      "matchedUrl": "https://iscentive.com/fragrance/attar-collection/hayati.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/hayati.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/azora.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/azalea.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/areej.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/annabella.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 7.75,
+        "office": 4.642857142857143,
+        "gym": 0,
+        "special": 5.535714285714286,
+        "date": 6.607142857142857,
+        "night": 6.607142857142857
+      },
+      "occasionScores": {
+        "everyday": 77.5,
+        "evening": 66.1,
+        "date": 66.1,
+        "gym": 0,
+        "walk": 54.3
+      },
+      "occasions": [
+        "everyday",
+        "evening",
+        "date"
+      ],
+      "voteCount": 166,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "040": {
+      "original": "Tiziana Terenzi Kirkè",
+      "matchedUrl": "https://iscentive.com/fragrance/tiziana-terenzi/kirke-extrait-de-parfum.html",
+      "matchScore": 1.1,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/kirke-extrait-de-parfum.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/kirke-overdose.html",
+          "score": 1.0971428571428572
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/lillipur.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/chimaera.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tiziana-terenzi/burdel.html",
+          "score": 0.6666666666666666
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.981684981684982,
+        "office": 3.205128205128205,
+        "gym": 0,
+        "special": 8.351648351648352,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 99.8,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 69.9
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 2987,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "041": {
+      "original": "Tom Ford Lost Cherry",
+      "matchedUrl": "https://iscentive.com/fragrance/tom-ford/lost-cherry-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/lost-cherry-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/noir-de-noir-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/noir-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/oud-wood-eau-de-parfum.html",
+          "score": 0.5
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/tobacco-vanille-eau-de-parfum.html",
+          "score": 0.5
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 6.973125884016973,
+        "office": 2.56011315417256,
+        "gym": 0,
+        "special": 9.787835926449787,
+        "date": 10,
+        "night": 10
+      },
+      "occasionScores": {
+        "everyday": 69.7,
+        "evening": 100,
+        "date": 100,
+        "gym": 0,
+        "walk": 48.8
+      },
+      "occasions": [
+        "evening",
+        "date",
+        "everyday"
+      ],
+      "voteCount": 3656,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "007": {
+      "original": "Attar Collection Musk Kashmir",
+      "matchedUrl": "https://iscentive.com/fragrance/attar-collection/musk-kashmir-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/musk-kashmir-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/musk-kashmir-extrait-de-parfum.html",
+          "score": 1.1546031746031744
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/floral-musk.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/musk-shell.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/attar-collection/glory-musk.html",
+          "score": 0.8
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 9.499999999999998,
+        "office": 8.333333333333334,
+        "gym": 2.5,
+        "special": 4.166666666666667,
+        "date": 4.166666666666667,
+        "night": 3.333333333333333
+      },
+      "occasionScores": {
+        "everyday": 95,
+        "evening": 33.3,
+        "date": 41.7,
+        "gym": 25,
+        "walk": 74
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 47,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "032": {
+      "original": "Louis Vuitton Symphony",
+      "matchedUrl": "https://iscentive.com/fragrance/louis-vuitton/symphony.html",
+      "matchScore": 1.4,
+      "matchMethod": "automatic",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/symphony.html",
+          "score": 1.425
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/imagination.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/orage.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/meteore.html",
+          "score": 0.6666666666666666
+        },
+        {
+          "url": "https://iscentive.com/fragrance/louis-vuitton/ombre-nomade.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 10,
+        "office": 7.454545454545455,
+        "gym": 4.181818181818182,
+        "special": 5.272727272727272,
+        "date": 5.818181818181818,
+        "night": 5.818181818181818
+      },
+      "occasionScores": {
+        "everyday": 100,
+        "evening": 58.2,
+        "date": 58.2,
+        "gym": 41.8,
+        "walk": 82.5
+      },
+      "occasions": [
+        "everyday",
+        "walk"
+      ],
+      "voteCount": 400,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "042": {
+      "original": "Tom Ford Tobacco Vanille",
+      "matchedUrl": "https://iscentive.com/fragrance/tom-ford/tobacco-vanille-eau-de-parfum.html",
+      "matchScore": 1.5,
+      "matchMethod": "verified_override",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/tobacco-vanille-eau-de-parfum.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/tobacco-vanille.html",
+          "score": 1.4500000000000002
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/tobacco-oud.html",
+          "score": 0.8
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/noir-de-noir-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        },
+        {
+          "url": "https://iscentive.com/fragrance/tom-ford/noir-eau-de-parfum.html",
+          "score": 0.5714285714285714
+        }
+      ],
+      "sourceOccasions": {
+        "everyday": 4.430091185410334,
+        "office": 1.907294832826748,
+        "gym": 0,
+        "special": 10,
+        "date": 10,
+        "night": 9.559270516717325
+      },
+      "occasionScores": {
+        "everyday": 44.3,
+        "evening": 95.6,
+        "date": 100,
+        "gym": 0,
+        "walk": 31
+      },
+      "occasions": [
+        "date",
+        "evening"
+      ],
+      "voteCount": 5436,
+      "isEstimated": false,
+      "dataMethod": "source_profile",
+      "status": "ok"
+    },
+    "043": {
+      "original": "Zielinski & Rozen Vanilla Blend",
+      "matchedUrl": null,
+      "matchScore": 0.4,
+      "matchMethod": "unresolved",
+      "candidates": [
+        {
+          "url": "https://iscentive.com/fragrance/monotheme/vanilla-elixir.html",
+          "score": 0.3933333333333333
+        },
+        {
+          "url": "https://iscentive.com/fragrance/theodoros-kalotinis/vanilla.html",
+          "score": 0.3457142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/alyssa-ashley/vanilla-eau-de-toilette.html",
+          "score": 0.3457142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/maison-tahite/vanilla.html",
+          "score": 0.3457142857142857
+        },
+        {
+          "url": "https://iscentive.com/fragrance/fragrance-world/vanilla.html",
+          "score": 0.3457142857142857
+        }
+      ],
+      "occasionScores": {
+        "everyday": 71.8,
+        "evening": 90.4,
+        "date": 91.3,
+        "gym": 0,
+        "walk": 50.3
+      },
+      "occasions": [
+        "date",
+        "evening",
+        "everyday"
+      ],
+      "dataMethod": "nearest_neighbors_estimate",
+      "estimatedFrom": [
+        {
+          "id": "507",
+          "similarity": 100
+        },
+        {
+          "id": "509",
+          "similarity": 100
+        },
+        {
+          "id": "526",
+          "similarity": 100
+        },
+        {
+          "id": "179",
+          "similarity": 96.7
+        },
+        {
+          "id": "170",
+          "similarity": 95
+        }
+      ],
+      "isEstimated": true,
+      "status": "ok"
+    }
+  }
+}

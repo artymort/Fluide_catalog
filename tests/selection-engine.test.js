@@ -11,6 +11,11 @@ const profiles = [
   { gender: "унисекс", occasions: ["evening"], families: ["Пряные и восточные"], seasons: ["winter"] },
 ];
 
+const allGenders = ["женский", "мужской", "унисекс"];
+const allOccasions = ["everyday", "evening", "date", "gym", "walk"];
+const allFamilies = ["Цветочные", "Фруктовые", "Цитрусовые", "Древесные", "Сладкие", "Свежие", "Пряные и восточные"];
+const allSeasons = ["summer", "autumn", "winter", "spring"];
+
 profiles.forEach((criteria) => {
   const result = engine.rankRecommendations(fragrances, criteria);
   assert.ok(result.items.length <= 6, "Подбор не должен показывать больше шести ароматов");
@@ -51,6 +56,71 @@ const shortResult = engine.rankRecommendations(synthetic, {
 });
 assert.equal(shortResult.items.length, 4, "Если подходят только четыре аромата, нельзя дополнять выдачу случайными");
 
+const occasionPriority = [
+  {
+    ...fragrances[0],
+    id: "occasion-weak",
+    gender: "унисекс",
+    families: ["Свежие"],
+    groupFamilies: ["Свежие"],
+    familyScores: { Свежие: 100 },
+    occasion: ["date"],
+    occasionScores: { date: 72 },
+    season: ["summer"],
+  },
+  {
+    ...fragrances[1],
+    id: "occasion-strong",
+    gender: "унисекс",
+    families: ["Свежие"],
+    groupFamilies: ["Свежие"],
+    familyScores: { Свежие: 100 },
+    occasion: ["date"],
+    occasionScores: { date: 100 },
+    season: ["summer"],
+  },
+];
+const occasionRanked = engine.rankRecommendations(occasionPriority, {
+  gender: "унисекс",
+  families: ["Свежие"],
+  occasions: ["date"],
+  seasons: ["summer"],
+});
+assert.equal(occasionRanked.items[0].id, "occasion-strong", "Более сильное соответствие случаю должно быть выше");
+
+const familyPriority = occasionPriority.map((item, index) => ({
+  ...item,
+  id: index ? "family-strong" : "family-weak",
+  occasionScores: { date: 100 },
+  familyScores: { Свежие: index ? 100 : 40 },
+}));
+const familyRanked = engine.rankRecommendations(familyPriority, {
+  gender: "унисекс",
+  families: ["Свежие"],
+  occasions: ["date"],
+  seasons: ["summer"],
+});
+assert.equal(familyRanked.items[0].id, "family-strong", "Ведущее направление аккордов должно быть выше слабого");
+
+let checkedCombinations = 0;
+allGenders.forEach((gender) => {
+  allOccasions.forEach((occasion) => {
+    allFamilies.forEach((family) => {
+      allSeasons.forEach((season) => {
+        const criteria = { gender, occasions: [occasion], families: [family], seasons: [season] };
+        const result = engine.rankRecommendations(fragrances, criteria);
+        assert.ok(result.items.length <= 6);
+        assert.ok(result.items.every((item) => engine.isEligible(item, criteria)));
+        const scores = result.items.map((item) => engine.scoreItem(item, criteria));
+        assert.deepEqual(scores, [...scores].sort((a, b) => b - a));
+        checkedCombinations += 1;
+      });
+    });
+  });
+});
+
 assert.equal(fragrances.length, 99);
 assert.ok(fragrances.every((item) => item.group && item.groupFamilies.length && item.season.length));
-console.log(`Проверено профилей: ${profiles.length}; лимит: 6; ароматов в базе: ${fragrances.length}`);
+assert.ok(fragrances.every((item) => item.occasion.length && Object.keys(item.occasionScores).length === 5));
+assert.ok(fragrances.every((item) => Object.keys(item.familyScores).length === allFamilies.length));
+console.log(`Проверено профилей: ${profiles.length}; комбинаций: ${checkedCombinations}; лимит: 6; ароматов в базе: ${fragrances.length}`);

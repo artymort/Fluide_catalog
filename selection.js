@@ -7,6 +7,7 @@ const nextButton = form.querySelector(".selection-next");
 const previousButton = form.querySelector(".selection-previous");
 const skipButton = form.querySelector(".selection-skip");
 const status = form.querySelector(".selection-status");
+const selectionEngine = window.FluideSelectionEngine;
 
 const steps = [
   {
@@ -96,19 +97,6 @@ function clearStepAnswer(key) {
   sessionStorage.setItem("fluide-selection", JSON.stringify(answers));
 }
 
-function genderMatches(item, selectedGender) {
-  if (!selectedGender) return true;
-  if (selectedGender === "унисекс") return item.gender === "унисекс";
-  return item.gender === selectedGender || item.gender === "унисекс";
-}
-
-function metadataMatches(item, key, selectedValues) {
-  if (!selectedValues.length) return true;
-  const itemValues = Array.isArray(item[key]) ? item[key] : [];
-  if (!itemValues.length) return true;
-  return selectedValues.some((value) => itemValues.includes(value));
-}
-
 function countMatches() {
   if (!fragrances.length) return null;
   const activeKeys = activeStepKeys();
@@ -116,12 +104,12 @@ function countMatches() {
   const families = activeKeys.includes("family") ? answerValues("family") : [];
   const occasions = activeKeys.includes("occasion") ? answerValues("occasion") : [];
   const seasons = activeKeys.includes("season") ? answerValues("season") : [];
-  return fragrances.filter((item) => (
-    genderMatches(item, gender)
-    && (!families.length || families.some((family) => item.families.includes(family)))
-    && metadataMatches(item, "occasion", occasions)
-    && metadataMatches(item, "season", seasons)
-  )).length;
+  return fragrances.filter((item) => selectionEngine.isEligible(item, {
+    gender,
+    families,
+    occasions,
+    seasons,
+  })).length;
 }
 
 function updateStatus() {
@@ -223,7 +211,7 @@ previousButton.addEventListener("click", () => {
   }
 });
 
-fetch("./fragrances.json?v=2")
+fetch("./fragrances.json?v=3")
   .then((response) => {
     if (!response.ok) throw new Error("Не удалось загрузить каталог");
     return response.json();
