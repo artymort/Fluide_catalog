@@ -79,7 +79,7 @@ const roleDefinitions = {
   },
 };
 
-const defaultRoles = ["base", "composure", "reset", "attraction", "accent"];
+const defaultRoles = ["base", "reset", "attraction", "accent"];
 const dislikeOptions = [
   ["tooSweet", "Слишком сладкие"],
   ["heavy", "Тяжёлые"],
@@ -127,10 +127,11 @@ const state = {
   novice: Boolean(storedState?.novice),
   dislikes: Array.isArray(storedState?.dislikes) ? storedState.dislikes : [],
   moods: Array.isArray(storedState?.moods) ? storedState.moods : [],
-  roles: Array.isArray(storedState?.roles) && storedState.roles.length === 5 ? storedState.roles : [...defaultRoles],
+  roles: Array.isArray(storedState?.roles) && storedState.roles.length === 4 ? storedState.roles : [...defaultRoles],
   recommendations: [],
   reactions: storedState?.reactions && typeof storedState.reactions === "object" ? storedState.reactions : {},
   rejectedIds: Array.isArray(storedState?.rejectedIds) ? storedState.rejectedIds : [],
+  volumes: storedState?.volumes && typeof storedState.volumes === "object" ? storedState.volumes : {},
 };
 
 function escapeHtml(value) {
@@ -153,6 +154,7 @@ function saveState() {
     recommendations: state.recommendations.map((item) => item.id),
     reactions: state.reactions,
     rejectedIds: state.rejectedIds,
+    volumes: state.volumes,
   }));
 }
 
@@ -166,6 +168,7 @@ function resetState() {
   state.recommendations = [];
   state.reactions = {};
   state.rejectedIds = [];
+  state.volumes = {};
   saveState();
 }
 
@@ -192,14 +195,13 @@ function renderWelcome() {
     <div class="wardrobe-welcome">
       <p class="wardrobe-kicker">Цифровой парфюмерный стилист FLUIDE</p>
       <h1 class="wardrobe-title">Парфюмерный гардероб</h1>
-      <p class="wardrobe-lead">Расскажите, какие ароматы вам нравятся и как вы хотите звучать. Стилист соберёт пять разных ароматов, а консультант подготовит их к примерке.</p>
+      <p class="wardrobe-lead">Расскажите, какие ароматы вам нравятся и как вы хотите звучать. Стилист соберёт четыре разных аромата, а консультант подготовит их к примерке.</p>
       <div class="wardrobe-actions wardrobe-actions--centered">
         <button class="wardrobe-button" id="start-wardrobe" type="button">Начать подбор</button>
         <button class="wardrobe-button wardrobe-button--secondary" id="show-how" type="button">Как это работает</button>
       </div>
       <div class="welcome-bottles" aria-hidden="true">
         <img src="images/fragrances/thumbs/129.webp" alt="" loading="eager" />
-        <img src="images/fragrances/thumbs/029.webp" alt="" loading="eager" />
         <img src="images/fragrances/thumbs/195.webp" alt="" loading="eager" />
         <img src="images/fragrances/thumbs/087.webp" alt="" loading="eager" />
         <img src="images/fragrances/thumbs/041.webp" alt="" loading="eager" />
@@ -209,10 +211,10 @@ function renderWelcome() {
           <span>01</span><div><h2>Опишите свой вкус</h2><p>Любимые ароматы и границы вкуса.</p></div>
         </div>
         <div class="welcome-process__step">
-          <span>02</span><div><h2>Получите пять образов</h2><p>Пять разных задач без повторов.</p></div>
+          <span>02</span><div><h2>Получите четыре образа</h2><p>Четыре разные задачи без повторов.</p></div>
         </div>
         <div class="welcome-process__step">
-          <span>03</span><div><h2>Примерьте в бутике</h2><p>Пять блоттеров у консультанта.</p></div>
+          <span>03</span><div><h2>Примерьте в бутике</h2><p>Четыре блоттера у консультанта.</p></div>
         </div>
       </div>
     </div>`;
@@ -246,6 +248,7 @@ function renderGender() {
     state.recommendations = [];
     state.reactions = {};
     state.rejectedIds = [];
+    state.volumes = {};
     saveState();
     renderGender();
   }));
@@ -255,11 +258,11 @@ function renderGender() {
 
 function showHowDialog() {
   dialogContent.innerHTML = `<h2>Персональная примерка</h2>
-    <p>Сначала определим границы вашего вкуса и желаемое впечатление. Затем соберём пять разных ролей и подготовим по одному аромату для каждой.</p>
+    <p>Сначала определим границы вашего вкуса и желаемое впечатление. Затем соберём четыре разные роли и подготовим по одному аромату для каждой.</p>
     <div class="dialog-options">
       <div class="dialog-option"><strong>01. Профиль</strong><span>Любимые ароматы и границы вкуса</span></div>
-      <div class="dialog-option"><strong>02. Примерка</strong><span>Пять пронумерованных блоттеров</span></div>
-      <div class="dialog-option"><strong>03. Гардероб</strong><span>Готовый комплект со специальной ценой</span></div>
+      <div class="dialog-option"><strong>02. Примерка</strong><span>Четыре пронумерованных блоттера</span></div>
+      <div class="dialog-option"><strong>03. Гардероб</strong><span>Готовый комплект с выбором объёма</span></div>
     </div>`;
   dialog.showModal();
 }
@@ -418,7 +421,7 @@ function renderRoles() {
   setScreen("roles");
   content.innerHTML = `
     <p class="wardrobe-kicker">Каркас гардероба</p>
-    <h1 class="wardrobe-title">Ваш гардероб будет состоять из пяти образов</h1>
+    <h1 class="wardrobe-title">Ваш гардероб будет состоять из четырёх образов</h1>
     <p class="wardrobe-lead">Каждый аромат получит собственную задачу. Ненужную роль можно заменить.</p>
     <div class="roles-grid">${state.roles.map((roleId, index) => {
       const role = roleDefinitions[roleId];
@@ -464,6 +467,7 @@ function buildRecommendations() {
   );
   state.reactions = {};
   state.rejectedIds = [];
+  state.volumes = Object.fromEntries(state.recommendations.map((item) => [item.id, 30]));
   saveState();
 }
 
@@ -540,19 +544,19 @@ function fittingCardMarkup(item, index) {
 function renderFitting() {
   setScreen("fitting");
   const confirmedCount = state.recommendations.filter((_, index) => state.reactions[index] === "fit").length;
-  const canFinish = state.recommendations.length === 5 && confirmedCount === 5;
+  const canFinish = state.recommendations.length === 4 && confirmedCount === 4;
   content.innerHTML = `
     <div class="fitting-screen">
       <div class="fitting-heading">
         <p class="wardrobe-kicker">Первая примерка</p>
-        <h1 class="wardrobe-title">Ваши пять ароматов готовы</h1>
-        <p class="wardrobe-lead">Покажите экран консультанту: он подготовит пять блоттеров, по одному на каждую роль.</p>
+        <h1 class="wardrobe-title">Ваши четыре аромата готовы</h1>
+        <p class="wardrobe-lead">Покажите экран консультанту: он подготовит четыре блоттера, по одному на каждую роль.</p>
       </div>
       <div class="fitting-grid">${state.recommendations.map(fittingCardMarkup).join("")}</div>
       <div class="wardrobe-actions fitting-actions">
-        <p class="fitting-confirmation"><span>Подтверждено</span><strong>${confirmedCount} из 5</strong></p>
+        <p class="fitting-confirmation"><span>Подтверждено</span><strong>${confirmedCount} из 4</strong></p>
         <button class="wardrobe-button wardrobe-button--secondary" id="fitting-back" type="button">Назад</button>
-        <button class="wardrobe-button" id="finish-wardrobe" type="button" ${canFinish ? "" : "disabled"} title="${canFinish ? "" : "Подтвердите все пять ароматов"}">Завершить гардероб</button>
+        <button class="wardrobe-button" id="finish-wardrobe" type="button" ${canFinish ? "" : "disabled"} title="${canFinish ? "" : "Подтвердите все четыре аромата"}">Завершить гардероб</button>
       </div>
     </div>`;
   document.querySelectorAll("[data-reaction]").forEach((button) => button.addEventListener("click", () => {
@@ -616,16 +620,32 @@ function showReplacementDialog(slot) {
 function finalCardMarkup(item, index) {
   const role = roleDefinitions[state.roles[index]];
   const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent("wardrobe.html?view=final")}`;
+  const volume = Number(state.volumes[item.id]) === 50 ? 50 : 30;
   return `<article class="final-card">
     <span class="final-role">${String(index + 1).padStart(2, "0")} · ${role.name}</span>
     <a class="final-visual" href="${productUrl}" aria-label="Посмотреть аромат ${escapeHtml(item.title)}">${fragranceVisual(item)}</a>
-    <div class="final-body"><h2>${escapeHtml(item.title)}</h2><span>30 мл</span></div>
+    <div class="final-body">
+      <h2>${escapeHtml(item.title)}</h2>
+      <div class="final-volume" aria-label="Выберите объём ${escapeHtml(item.title)}">
+        <button class="${volume === 30 ? "is-active" : ""}" type="button" data-volume-id="${escapeHtml(item.id)}" data-volume="30">30 мл</button>
+        <button class="${volume === 50 ? "is-active" : ""}" type="button" data-volume-id="${escapeHtml(item.id)}" data-volume="50">50 мл</button>
+      </div>
+    </div>
     <a class="final-view" href="${productUrl}" aria-label="Посмотреть аромат ${escapeHtml(item.title)}">Посмотреть <span aria-hidden="true">→</span></a>
   </article>`;
 }
 
+function formatPrice(value) {
+  return `${Number(value).toLocaleString("ru-RU")} ₽`;
+}
+
 function renderFinal() {
   setScreen("final");
+  state.recommendations.forEach((item) => {
+    if (![30, 50].includes(Number(state.volumes[item.id]))) state.volumes[item.id] = 30;
+  });
+  const totalPrice = window.FluideWardrobeEngine.wardrobePrice(state.recommendations, state.volumes);
+  const volumesLabel = window.FluideWardrobeEngine.volumeSummary(state.recommendations, state.volumes);
   content.innerHTML = `
     <div class="final-screen">
       <div class="final-heading">
@@ -645,16 +665,15 @@ function renderFinal() {
           </div>
           <div class="offer-content">
             <div class="offer-summary">
-              <strong>5 ароматов</strong>
+              <strong>4 аромата</strong>
               <p>Персональный парфюмерный гардероб</p>
               <div class="offer-features" aria-label="Состав комплекта">
-                <span>30 мл</span><span>5 ролей</span><span>Подбор бесплатно</span>
+                <span>${volumesLabel}</span><span>4 роли</span><span>Подбор бесплатно</span>
               </div>
             </div>
             <div class="offer-price">
-              <strong>9 900 ₽</strong>
-              <s>15 000 ₽</s>
-              <span>Выгода 5 100 ₽</span>
+              <strong>${formatPrice(totalPrice)}</strong>
+              <small>По выбранным объёмам</small>
             </div>
           </div>
           <div class="offer-action">
@@ -664,7 +683,7 @@ function renderFinal() {
         </aside>
       </div>
     </div>`;
-  const wardrobeKey = `wardrobe:${state.recommendations.map((item) => item.id).join("-")}`;
+  const wardrobeKey = `wardrobe:${state.recommendations.map((item) => `${item.id}-${state.volumes[item.id]}`).join("-")}`;
   const wardrobeButton = document.querySelector("#add-wardrobe");
   const syncWardrobeButton = () => {
     const added = window.FluideCart.has(wardrobeKey);
@@ -678,15 +697,25 @@ function renderFinal() {
       id: wardrobeKey,
       title: "Парфюмерный гардероб",
       typeLabel: "Персональный комплект",
-      volume: "5 × 30 мл",
-      price: 9900,
+      volume: volumesLabel,
+      price: totalPrice,
       quantity: 1,
       image: state.recommendations[0]?.thumbnail || state.recommendations[0]?.image || "",
       fragranceIds: state.recommendations.map((item) => item.id),
+      fragranceVolumes: state.recommendations.map((item) => ({
+        id: item.id,
+        volume: Number(state.volumes[item.id]) === 50 ? 50 : 30,
+        price: window.FluideWardrobeEngine.fragrancePrice(item, state.volumes[item.id]),
+      })),
     });
     syncWardrobeButton();
   });
   syncWardrobeButton();
+  document.querySelectorAll("[data-volume-id]").forEach((button) => button.addEventListener("click", () => {
+    state.volumes[button.dataset.volumeId] = Number(button.dataset.volume);
+    saveState();
+    renderFinal();
+  }));
   document.querySelector("#final-back").addEventListener("click", renderFitting);
   document.querySelector("#restart-wardrobe").addEventListener("click", () => {
     resetState();
@@ -699,7 +728,7 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 
-fetch("./fragrances.json?v=2")
+fetch("./fragrances.json?v=3")
   .then((response) => {
     if (!response.ok) throw new Error("Не удалось загрузить ароматы");
     return response.json();
@@ -710,8 +739,8 @@ fetch("./fragrances.json?v=2")
     state.recommendations = storedRecommendationIds
       .map((id) => fragrances.find((item) => item.id === id))
       .filter(Boolean);
-    if (requestedView === "final" && state.recommendations.length === 5) renderFinal();
-    else if (requestedView === "fitting" && state.recommendations.length === 5) renderFitting();
+    if (requestedView === "final" && state.recommendations.length === 4) renderFinal();
+    else if (requestedView === "fitting" && state.recommendations.length === 4) renderFitting();
     else renderWelcome();
   })
   .catch(() => {

@@ -41,12 +41,12 @@ const profiles = [
 ];
 
 const prepared = engine.prepareItems(fragrances);
-const roles = ["base", "composure", "reset", "attraction", "accent"];
+const roles = ["base", "reset", "attraction", "accent"];
 const resultSets = profiles.map((profile) => {
   const state = { ...profile, roles };
   const result = engine.buildRecommendations(prepared, state, roleDefinitions, moodTargets);
-  assert.equal(result.length, 5, "Каждый профиль должен получить пять ароматов");
-  assert.equal(new Set(result.map((item) => item.id)).size, 5, "В одном гардеробе не должно быть повторов");
+  assert.equal(result.length, 4, "Каждый профиль должен получить четыре аромата");
+  assert.equal(new Set(result.map((item) => item.id)).size, 4, "В одном гардеробе не должно быть повторов");
   result.forEach((item) => assert.equal(engine.genderMatches(item.gender, profile.gender), true));
   profile.favorites.forEach((id) => assert.equal(result.some((item) => item.id === id), false));
   return result.map((item) => item.id).join(",");
@@ -60,5 +60,28 @@ const setA = engine.buildRecommendations(prepared, priorityA, roleDefinitions, m
 const setB = engine.buildRecommendations(prepared, priorityB, roleDefinitions, moodTargets).map((item) => item.id).join(",");
 assert.notEqual(setA, setB, "Первое выбранное состояние должно менять приоритет выдачи");
 
-console.log(`Проверено профилей: ${profiles.length}; уникальных пятёрок: ${new Set(resultSets).size}`);
+const lux = fragrances.find((item) => item.category === "Люкс");
+const superLux = fragrances.find((item) => item.category === "Суперлюкс");
+const selective = fragrances.find((item) => item.category === "Селектив");
+assert.equal(engine.fragrancePrice(lux, 30), 1990);
+assert.equal(engine.fragrancePrice(lux, 50), 2990);
+assert.equal(engine.fragrancePrice(superLux, 30), 2490);
+assert.equal(engine.fragrancePrice(selective, 50), 4990);
+const priceSeeds = [lux, superLux, selective];
+const fourthPriceItem = fragrances.find((item) => !priceSeeds.some((seed) => seed.id === item.id));
+const priceItems = [...priceSeeds, fourthPriceItem];
+const volumes = {
+  [priceItems[0].id]: 30,
+  [priceItems[1].id]: 50,
+  [priceItems[2].id]: 50,
+  [priceItems[3].id]: 30,
+};
+assert.equal(
+  engine.wardrobePrice(priceItems, volumes),
+  priceItems.reduce((sum, item) => sum + engine.fragrancePrice(item, volumes[item.id]), 0),
+);
+assert.equal(engine.volumeSummary(priceItems, volumes), "2 × 30 мл · 2 × 50 мл");
+assert.ok(prepared.every((item) => item._wardrobeFamilies && item._wardrobeAccords));
+
+console.log(`Проверено профилей: ${profiles.length}; уникальных четвёрок: ${new Set(resultSets).size}`);
 profiles.forEach((profile, index) => console.log(`${profile.gender}\t${profile.favorites.join("+") || "новичок"}\t${profile.moods.join("+")}\t${resultSets[index]}`));
