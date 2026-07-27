@@ -83,5 +83,5 @@ fetch("./fragrances.json?v=6")
     grid.innerHTML = hits.map(cardMarkup).join("");
   })
   .catch(() => {
-    grid.innerHTML = '<p class="products-empty">Не удалось загрузить подборку. Попробуйте открыть страницу ещё раз.</p>';
+    grid.innerHTML = '<p class="products-empty">Не удалось загрузить подборку. Попробуйте открыть страницу еще раз.</p>';
   });

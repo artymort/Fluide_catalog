@@ -31,8 +31,8 @@ const steps = [
       { value: "everyday", label: "На каждый день", caption: "Спокойные и универсальные", tone: "cream" },
       { value: "evening", label: "Вечерние", caption: "Более выразительные", tone: "ink" },
       { value: "date", label: "Свидание", caption: "Мягкие и запоминающиеся", tone: "pink" },
-      { value: "gym", label: "Спортзал", caption: "Чистые и лёгкие", tone: "blue" },
-      { value: "walk", label: "Прогулка", caption: "Свежие и непринуждённые", tone: "peach" },
+      { value: "gym", label: "Спортзал", caption: "Чистые и легкие", tone: "blue" },
+      { value: "walk", label: "Прогулка", caption: "Свежие и непринужденные", tone: "peach" },
     ],
   },
   {
@@ -47,7 +47,7 @@ const steps = [
       { value: "Цитрусовые", label: "Цитрусовые", caption: "Бергамот, лимон, мандарин", tone: "cream" },
       { value: "Древесные", label: "Древесные", caption: "Кедр, сандал, ветивер", tone: "ink" },
       { value: "Сладкие", label: "Сладкие", caption: "Ваниль, пралине, какао", tone: "pink" },
-      { value: "Свежие", label: "Свежие", caption: "Морские, зелёные, чайные", tone: "blue" },
+      { value: "Свежие", label: "Свежие", caption: "Морские, зеленые, чайные", tone: "blue" },
       { value: "Пряные и восточные", label: "Пряные", caption: "Перец, амбра, шафран", tone: "peach" },
     ],
   },
@@ -57,8 +57,8 @@ const steps = [
     help: "Можно выбрать несколько сезонов",
     type: "multi",
     options: [
-      { value: "summer", label: "Лето", caption: "Лёгкие и свежие", tone: "blue" },
-      { value: "autumn", label: "Осень", caption: "Тёплые и мягкие", tone: "peach" },
+      { value: "summer", label: "Лето", caption: "Легкие и свежие", tone: "blue" },
+      { value: "autumn", label: "Осень", caption: "Теплые и мягкие", tone: "peach" },
       { value: "winter", label: "Зима", caption: "Плотные и стойкие", tone: "ink" },
       { value: "spring", label: "Весна", caption: "Цветочные и чистые", tone: "pink" },
     ],
@@ -221,7 +221,7 @@ fetch("./fragrances.json?v=6")
     updateStatus();
   })
   .catch(() => {
-    status.textContent = "Не удалось посчитать ароматы. Подбор всё равно доступен.";
+    status.textContent = "Не удалось посчитать ароматы. Подбор все равно доступен.";
   });
 
 renderStep();

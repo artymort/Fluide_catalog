@@ -146,8 +146,8 @@ function renderProduct(item, items) {
 
       ${prices ? `<section class="purchase-panel" aria-labelledby="volume-title">
         <div class="purchase-panel__heading">
-          <div><span>Выберите объём</span><strong id="volume-title">Парфюмерная вода</strong></div>
-          <div class="volume-options" role="group" aria-label="Объём аромата">
+          <div><span>Выберите объем</span><strong id="volume-title">Парфюмерная вода</strong></div>
+          <div class="volume-options" role="group" aria-label="Объем аромата">
             <button class="volume-option is-active" type="button" data-volume="30" aria-pressed="true">30 мл</button>
             <button class="volume-option" type="button" data-volume="50" aria-pressed="false">50 мл</button>
           </div>
@@ -226,9 +226,9 @@ function renderCatalogProduct(item, fragrances) {
     : `<img class="detail-visual__fallback" src="app-icon.svg" alt="" />`;
   document.title = `FLUIDE — ${item.title}`;
   detail.innerHTML = `
-    <div class="detail-visual"><span class="detail-visual__brand">${escapeHtml(item.typeLabel)}</span>${visual}<span class="detail-visual__caption">${escapeHtml(item.volume || "FLUIDE")}</span></div>
-    <div class="detail-content"><p class="detail-kicker">${escapeHtml(item.typeLabel)}</p><h1>${escapeHtml(item.title)}</h1><p class="detail-original">Продукция FLUIDE ATELIER</p>
-      <div class="detail-facts">${item.volume ? `<div class="detail-fact"><span>Объём</span><strong>${escapeHtml(item.volume)}</strong></div>` : ""}<div class="detail-fact"><span>Категория</span><strong>${escapeHtml(item.typeLabel)}</strong></div></div>
+    <div class="detail-visual">${visual}<span class="detail-visual__caption">${escapeHtml(item.volume || "FLUIDE")}</span></div>
+    <div class="detail-content"><h1>${escapeHtml(item.title)}</h1><p class="detail-original">Продукция FLUIDE ATELIER</p>
+      <div class="detail-facts">${item.volume ? `<div class="detail-fact"><span>Объем</span><strong>${escapeHtml(item.volume)}</strong></div>` : ""}<div class="detail-fact"><span>Категория</span><strong>${escapeHtml(item.typeLabel)}</strong></div></div>
       ${isCarFragrance ? `<section class="car-scent-picker" id="car-scent-picker" aria-labelledby="car-scent-title">
         <div class="car-scent-picker__heading">
           <div><span>Аромат автопарфюма</span><strong id="car-scent-title">Выберите любой аромат из каталога</strong></div>
@@ -359,7 +359,7 @@ fetch("./fragrances.json?v=6")
   .then(async (items) => {
     const item = items.find((fragrance) => fragrance.id === id);
     if (item) return renderProduct(item, items);
-    const response = await fetch("./products.json?v=5");
+    const response = await fetch("./products.json?v=6");
     const products = await response.json();
     const product = products.find((entry) => entry.id === id);
     if (!product) throw new Error("Товар не найден");

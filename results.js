@@ -381,7 +381,7 @@ const requests = [fetch("./fragrances.json?v=6").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];
-if (usesCatalogSections) requests.push(fetch("./products.json?v=5").then((response) => response.json()));
+if (usesCatalogSections) requests.push(fetch("./products.json?v=6").then((response) => response.json()));
 
 Promise.all(requests)
   .then(([fragranceData, productData = []]) => {
@@ -394,5 +394,5 @@ Promise.all(requests)
   })
   .catch(() => {
     countLabel.textContent = "Ошибка загрузки каталога";
-    grid.innerHTML = '<p class="products-empty">Перезапустите приложение при подключённом интернете.</p>';
+    grid.innerHTML = '<p class="products-empty">Перезапустите приложение при подключенном интернете.</p>';
   });

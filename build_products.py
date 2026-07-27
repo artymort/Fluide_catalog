@@ -13,7 +13,7 @@ SECTION_TYPES = {
     "Мыло": ("hand-soap", "Мыло"),
     "Свечи": ("candle", "Свечи"),
     "Аромадиффузоры": ("diffuser", "Аромадиффузоры"),
-    "Твердый парфюм": ("solid-perfume", "Твёрдый парфюм"),
+    "Твердый парфюм": ("solid-perfume", "Твердый парфюм"),
     "Автопарфюм": ("car-fragrance", "Автопарфюм"),
     "Спрей для волос": ("hair-spray", "Спрей для волос"),
 }
@@ -45,7 +45,7 @@ for row in rows[1:]:
                 "name": item["title"],
                 "title": item["title"],
                 "productType": "solid-perfume",
-                "typeLabel": "Твёрдый парфюм",
+                "typeLabel": "Твердый парфюм",
                 "volume": "",
                 "price": 990,
                 "image": f"images/products/{item['stem']}.webp",

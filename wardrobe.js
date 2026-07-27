@@ -19,8 +19,8 @@ const roleDefinitions = {
   },
   reset: {
     name: "Перезагрузка",
-    description: "Лёгкий аромат для отдыха, движения и ощущения свежести.",
-    reason: "Добавит лёгкости, воздуха и ощущения нового начала.",
+    description: "Легкий аромат для отдыха, движения и ощущения свежести.",
+    reason: "Добавит легкости, воздуха и ощущения нового начала.",
     target: { freshness: 5, sweetness: 2, warmth: 1, intensity: 2, formality: 2, unusual: 2 },
   },
   attraction: {
@@ -48,21 +48,21 @@ const roleDefinitions = {
     target: { freshness: 4, sweetness: 3, warmth: 3, intensity: 2, formality: 1, unusual: 3 },
   },
   warmWeather: {
-    name: "Тёплая погода",
+    name: "Теплая погода",
     description: "Прозрачный аромат для солнца и высокой температуры.",
-    reason: "Сохранит свежесть и прозрачность в тёплую погоду.",
+    reason: "Сохранит свежесть и прозрачность в теплую погоду.",
     target: { freshness: 5, sweetness: 2, warmth: 2, intensity: 1, formality: 2, unusual: 2 },
   },
   coldWeather: {
     name: "Холодная погода",
-    description: "Тёплый и стойкий аромат для прохладных дней.",
-    reason: "Даст объём, тепло и стойкость в холодную погоду.",
+    description: "Теплый и стойкий аромат для прохладных дней.",
+    reason: "Даст объем, тепло и стойкость в холодную погоду.",
     target: { freshness: 1, sweetness: 4, warmth: 5, intensity: 5, formality: 3, unusual: 3 },
   },
   creative: {
     name: "Творческий образ",
     description: "Необычная композиция для свободного самовыражения.",
-    reason: "Подчеркнёт индивидуальность и творческую свободу.",
+    reason: "Подчеркнет индивидуальность и творческую свободу.",
     target: { freshness: 3, sweetness: 3, warmth: 3, intensity: 4, formality: 2, unusual: 5 },
   },
   maximumFreshness: {
@@ -82,7 +82,7 @@ const roleDefinitions = {
 const defaultRoles = ["base", "reset", "attraction", "accent"];
 const dislikeOptions = [
   ["tooSweet", "Слишком сладкие"],
-  ["heavy", "Тяжёлые"],
+  ["heavy", "Тяжелые"],
   ["sharp", "Резкие"],
   ["powdery", "Пудровые"],
   ["tooFresh", "Слишком свежие"],
@@ -180,7 +180,7 @@ function renderWelcome() {
     <div class="wardrobe-welcome">
       <p class="wardrobe-kicker">Цифровой парфюмерный стилист FLUIDE</p>
       <h1 class="wardrobe-title">Парфюмерный гардероб</h1>
-      <p class="wardrobe-lead">Расскажите, какие ароматы вам нравятся и как вы хотите звучать. Стилист соберёт четыре разных аромата, а консультант подготовит их к примерке.</p>
+      <p class="wardrobe-lead">Расскажите, какие ароматы вам нравятся и как вы хотите звучать. Стилист соберет четыре разных аромата, а консультант подготовит их к примерке.</p>
       <div class="wardrobe-actions wardrobe-actions--centered">
         <button class="wardrobe-button" id="start-wardrobe" type="button">Начать подбор</button>
         <button class="wardrobe-button wardrobe-button--secondary" id="show-how" type="button">Как это работает</button>
@@ -243,11 +243,11 @@ function renderGender() {
 
 function showHowDialog() {
   dialogContent.innerHTML = `<h2>Персональная примерка</h2>
-    <p>Сначала определим границы вашего вкуса и желаемое впечатление. Затем соберём четыре разные роли и подготовим по одному аромату для каждой.</p>
+    <p>Сначала определим границы вашего вкуса и желаемое впечатление. Затем соберем четыре разные роли и подготовим по одному аромату для каждой.</p>
     <div class="dialog-options">
       <div class="dialog-option"><strong>01. Профиль</strong><span>Любимые ароматы и границы вкуса</span></div>
       <div class="dialog-option"><strong>02. Примерка</strong><span>Четыре пронумерованных блоттера</span></div>
-      <div class="dialog-option"><strong>03. Гардероб</strong><span>Готовый комплект с выбором объёма</span></div>
+      <div class="dialog-option"><strong>03. Гардероб</strong><span>Готовый комплект с выбором объема</span></div>
     </div>`;
   dialog.showModal();
 }
@@ -289,7 +289,7 @@ function renderProfile() {
     <div class="question-heading">
       <p class="wardrobe-kicker">Профиль вкуса · 02</p>
       <h1 class="wardrobe-title">Какие ароматы вам уже нравятся?</h1>
-      <p class="wardrobe-lead">Добавьте до трёх знакомых ароматов. Они станут отправной точкой, но мы не будем искать их копии.</p>
+      <p class="wardrobe-lead">Добавьте до трех знакомых ароматов. Они станут отправной точкой, но мы не будем искать их копии.</p>
     </div>
     <div class="profile-focus">
       <section class="profile-search-panel">
@@ -361,7 +361,7 @@ function renderDislikes() {
     <div class="question-heading">
       <p class="wardrobe-kicker">Профиль вкуса · 03</p>
       <h1 class="wardrobe-title">Что вам обычно не нравится?</h1>
-      <p class="wardrobe-lead">Выберите до трёх характеристик. Если ограничений нет, можно продолжить без выбора.</p>
+      <p class="wardrobe-lead">Выберите до трех характеристик. Если ограничений нет, можно продолжить без выбора.</p>
     </div>
     <div class="choice-grid choice-grid--dislikes">${dislikeOptions.map((option) => choiceMarkup(option, state.dislikes, "dislike", limitReached)).join("")}</div>
     <p class="selection-limit selection-limit--centered">Выбрано: ${state.dislikes.length} из 3</p>
@@ -406,7 +406,7 @@ function renderRoles() {
   setScreen("roles");
   content.innerHTML = `
     <p class="wardrobe-kicker">Каркас гардероба</p>
-    <h1 class="wardrobe-title">Ваш гардероб будет состоять из четырёх образов</h1>
+    <h1 class="wardrobe-title">Ваш гардероб будет состоять из четырех образов</h1>
     <p class="wardrobe-lead">Каждый аромат получит собственную задачу. Ненужную роль можно заменить.</p>
     <div class="roles-grid">${state.roles.map((roleId, index) => {
       const role = roleDefinitions[roleId];
@@ -469,7 +469,7 @@ function candidateScore(item, roleId, selectedItems = []) {
 function descriptorsFor(item) {
   const profile = item._wardrobeProfile;
   const values = [
-    [profile.freshness, "свежий"], [profile.sweetness, "мягкий"], [profile.warmth, "тёплый"],
+    [profile.freshness, "свежий"], [profile.sweetness, "мягкий"], [profile.warmth, "теплый"],
     [profile.intensity, "выразительный"], [profile.formality, "элегантный"], [profile.unusual, "необычный"],
   ].sort((a, b) => b[0] - a[0]);
   return values.slice(0, 3).map((entry) => entry[1]);
@@ -609,7 +609,7 @@ function finalCardMarkup(item, index) {
     <a class="final-visual" href="${productUrl}" aria-label="Посмотреть аромат ${escapeHtml(item.title)}">${fragranceVisual(item)}</a>
     <div class="final-body">
       <h2>${escapeHtml(item.title)}</h2>
-      <div class="final-volume" aria-label="Выберите объём ${escapeHtml(item.title)}">
+      <div class="final-volume" aria-label="Выберите объем ${escapeHtml(item.title)}">
         <button class="${volume === 30 ? "is-active" : ""}" type="button" data-volume-id="${escapeHtml(item.id)}" data-volume="30">30 мл</button>
         <button class="${volume === 50 ? "is-active" : ""}" type="button" data-volume-id="${escapeHtml(item.id)}" data-volume="50">50 мл</button>
       </div>
@@ -656,7 +656,7 @@ function renderFinal() {
             </div>
             <div class="offer-price">
               <strong>${formatPrice(totalPrice)}</strong>
-              <small>По выбранным объёмам</small>
+              <small>По выбранным объемам</small>
             </div>
           </div>
           <div class="offer-action">
@@ -727,5 +727,5 @@ fetch("./fragrances.json?v=6")
     else renderWelcome();
   })
   .catch(() => {
-    content.innerHTML = '<p class="wardrobe-loading">Не удалось загрузить ароматы. Перезапустите приложение при подключённом интернете.</p>';
+    content.innerHTML = '<p class="wardrobe-loading">Не удалось загрузить ароматы. Перезапустите приложение при подключенном интернете.</p>';
   });
