@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent
 SOURCE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "Новый Список ароматов FLUIDE (1).xlsx"
 OUTPUT = ROOT / "fragrances.json"
 IMAGES = ROOT / "images" / "fragrances"
+EXCLUDED_FRAGRANCE_IDS = {"004", "180", "536"}
 
 FAMILY_KEYWORDS = {
     "Цветочные": [
@@ -411,6 +412,8 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
     if not row[0]:
         continue
     number = str(row[0]).strip().zfill(3)
+    if number in EXCLUDED_FRAGRANCE_IDS:
+        continue
     notes_raw = str(row[9] or "").strip()
     oil_percent = int(row[3]) if row[3] is not None else None
     title = clean_title(row[1])

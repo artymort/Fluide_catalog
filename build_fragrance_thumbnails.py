@@ -1,3 +1,4 @@
+import argparse
 import sys
 from pathlib import Path
 
@@ -13,8 +14,20 @@ CANVAS_SIZE = (480, 360)
 OBJECT_SIZE = (400, 310)
 
 
+parser = argparse.ArgumentParser(description="Создаёт миниатюры ароматов для каталога.")
+parser.add_argument("--ids", nargs="*", help="Номера ароматов для точечной пересборки")
+args = parser.parse_args()
+
 OUTPUT.mkdir(parents=True, exist_ok=True)
 sources = sorted(path for path in SOURCE.glob("*.webp") if path.is_file())
+requested_ids = {
+    value.strip().zfill(3)
+    for argument in (args.ids or [])
+    for value in argument.split(",")
+    if value.strip()
+}
+if requested_ids:
+    sources = [path for path in sources if path.stem in requested_ids]
 
 for index, source in enumerate(sources, start=1):
     with Image.open(source) as image:

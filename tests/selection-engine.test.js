@@ -119,7 +119,7 @@ allGenders.forEach((gender) => {
   });
 });
 
-assert.equal(fragrances.length, 99);
+assert.equal(fragrances.length, 96);
 assert.ok(fragrances.every((item) => item.group && item.groupFamilies.length && item.season.length));
 assert.ok(fragrances.every((item) => item.occasion.length && Object.keys(item.occasionScores).length === 5));
 assert.ok(fragrances.every((item) => Object.keys(item.familyScores).length === allFamilies.length));

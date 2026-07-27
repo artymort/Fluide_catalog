@@ -354,7 +354,7 @@ resetButton.addEventListener("click", () => {
 
 configurePageMode();
 
-const requests = [fetch("./fragrances.json?v=3").then((response) => {
+const requests = [fetch("./fragrances.json?v=4").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];

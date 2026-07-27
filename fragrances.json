@@ -823,7 +823,9 @@
         "name": "миндальный",
         "weight": 46
       }
-    ]
+    ],
+    "image": "images/fragrances/019.webp",
+    "thumbnail": "images/fragrances/thumbs/019.webp"
   },
   {
     "id": "049",
@@ -2595,7 +2597,9 @@
         "name": "амбровый",
         "weight": 46.7
       }
-    ]
+    ],
+    "image": "images/fragrances/334.webp",
+    "thumbnail": "images/fragrances/thumbs/334.webp"
   },
   {
     "id": "507",
@@ -5991,107 +5995,6 @@
     "thumbnail": "images/fragrances/thumbs/071.webp"
   },
   {
-    "id": "004",
-    "name": "FLUIDE 4 ZAM ZAM 30 мл",
-    "title": "4 ZAM ZAM",
-    "original": "Arabic Zam Zam",
-    "oilPercent": 30,
-    "gender": "унисекс",
-    "category": "Люкс",
-    "concentration": "Eau de extrait",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [],
-      "main": [
-        "натуральный мускус",
-        "шафран",
-        "иланг-иланг",
-        "роза",
-        "сандал",
-        "жасмин"
-      ]
-    },
-    "notesRaw": "Основные: натуральный мускус, шафран, иланг-иланг, роза, сандал, жасмин",
-    "group": "восточные цветочные",
-    "groupFamilies": [
-      "Цветочные",
-      "Пряные и восточные"
-    ],
-    "families": [
-      "Цветочные",
-      "Древесные",
-      "Пряные и восточные"
-    ],
-    "familyScores": {
-      "Цветочные": 87.8,
-      "Фруктовые": 0.0,
-      "Цитрусовые": 0.0,
-      "Древесные": 40.7,
-      "Сладкие": 28.8,
-      "Свежие": 25.7,
-      "Пряные и восточные": 100.0
-    },
-    "occasion": [
-      "everyday",
-      "walk"
-    ],
-    "occasionScores": {
-      "everyday": 97.3,
-      "walk": 75.9,
-      "date": 47.3,
-      "evening": 45.1,
-      "gym": 26.2
-    },
-    "season": [
-      "spring"
-    ],
-    "accords": [
-      {
-        "name": "мускусный",
-        "weight": 100
-      },
-      {
-        "name": "теплый пряный",
-        "weight": 91.8
-      },
-      {
-        "name": "древесный",
-        "weight": 90.7
-      },
-      {
-        "name": "желтые цветы",
-        "weight": 84.4
-      },
-      {
-        "name": "пудровый",
-        "weight": 84.4
-      },
-      {
-        "name": "розовый",
-        "weight": 68.9
-      },
-      {
-        "name": "сладкий",
-        "weight": 64.2
-      },
-      {
-        "name": "белые цветы",
-        "weight": 61.1
-      },
-      {
-        "name": "металлический",
-        "weight": 57.2
-      },
-      {
-        "name": "цветочный",
-        "weight": 53.3
-      }
-    ],
-    "image": "images/fragrances/004.webp",
-    "thumbnail": "images/fragrances/thumbs/004.webp"
-  },
-  {
     "id": "037",
     "name": "FLUIDE 37 ACCENTO 30 мл",
     "title": "37 ACCENTO",
@@ -7019,7 +6922,9 @@
         "name": "белые цветы",
         "weight": 43.4
       }
-    ]
+    ],
+    "image": "images/fragrances/050.webp",
+    "thumbnail": "images/fragrances/thumbs/050.webp"
   },
   {
     "id": "503",
@@ -7805,99 +7710,6 @@
     "thumbnail": "images/fragrances/thumbs/024.webp"
   },
   {
-    "id": "536",
-    "name": "FLUIDE 536 GABA 30 мл",
-    "title": "536 GABA",
-    "original": "Hormone Paris Gaba",
-    "oilPercent": 25,
-    "gender": "унисекс",
-    "category": "Селектив",
-    "concentration": "Eau de parfum",
-    "notes": {
-      "top": [
-        "мандарин",
-        "маракуйя"
-      ],
-      "middle": [
-        "фрезия",
-        "жасмин",
-        "ландыш"
-      ],
-      "base": [
-        "амбра",
-        "мох"
-      ],
-      "main": []
-    },
-    "notesRaw": "Верхние: мандарин, маракуйя\nСредние: фрезия, жасмин, ландыш\nБазовые: амбра, мох",
-    "group": "фужерные пряные",
-    "groupFamilies": [
-      "Свежие",
-      "Пряные и восточные"
-    ],
-    "families": [
-      "Цветочные",
-      "Фруктовые",
-      "Цитрусовые",
-      "Древесные",
-      "Свежие",
-      "Пряные и восточные"
-    ],
-    "familyScores": {
-      "Цветочные": 96.6,
-      "Фруктовые": 91.7,
-      "Цитрусовые": 99.8,
-      "Древесные": 0.0,
-      "Сладкие": 59.0,
-      "Свежие": 100.0,
-      "Пряные и восточные": 53.7
-    },
-    "occasion": [
-      "everyday",
-      "walk"
-    ],
-    "occasionScores": {
-      "everyday": 95.6,
-      "walk": 78,
-      "date": 43.1,
-      "evening": 40.3,
-      "gym": 36.9
-    },
-    "season": [
-      "spring"
-    ],
-    "accords": [
-      {
-        "name": "цитрусовый",
-        "weight": 100
-      },
-      {
-        "name": "цветочный",
-        "weight": 77.2
-      },
-      {
-        "name": "фруктовый",
-        "weight": 70.6
-      },
-      {
-        "name": "тропический",
-        "weight": 61
-      },
-      {
-        "name": "сладкий",
-        "weight": 59.1
-      },
-      {
-        "name": "белые цветы",
-        "weight": 56
-      },
-      {
-        "name": "свежий",
-        "weight": 46.4
-      }
-    ]
-  },
-  {
     "id": "023",
     "name": "FLUIDE 23 GAMES 1 30 мл",
     "title": "23 GAMES 1",
@@ -8314,7 +8126,9 @@
         "name": "медовый",
         "weight": 39.4
       }
-    ]
+    ],
+    "image": "images/fragrances/006.webp",
+    "thumbnail": "images/fragrances/thumbs/006.webp"
   },
   {
     "id": "532",
@@ -8436,7 +8250,9 @@
         "name": "табачный",
         "weight": 66.1
       }
-    ]
+    ],
+    "image": "images/fragrances/532.webp",
+    "thumbnail": "images/fragrances/thumbs/532.webp"
   },
   {
     "id": "527",
@@ -8860,108 +8676,6 @@
     "thumbnail": "images/fragrances/thumbs/533.webp"
   },
   {
-    "id": "180",
-    "name": "FLUIDE 180 Maya's Ritual 30 мл",
-    "title": "180 Maya's Ritual",
-    "original": "Kilian Smoke For The Soul",
-    "oilPercent": 25,
-    "gender": "унисекс",
-    "category": "Селектив",
-    "concentration": "Eau de parfum",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [],
-      "main": [
-        "каннабис",
-        "эвкалипт",
-        "мате",
-        "береза",
-        "табак",
-        "кардамон",
-        "грейпфрут",
-        "кашемировое дерево"
-      ]
-    },
-    "notesRaw": "Основные: каннабис, эвкалипт, мате, береза, табак, кардамон, грейпфрут, кашемировое дерево",
-    "group": "древесные фужерные",
-    "groupFamilies": [
-      "Древесные",
-      "Свежие"
-    ],
-    "families": [
-      "Цитрусовые",
-      "Древесные",
-      "Свежие",
-      "Пряные и восточные"
-    ],
-    "familyScores": {
-      "Цветочные": 0.0,
-      "Фруктовые": 0.0,
-      "Цитрусовые": 0.0,
-      "Древесные": 76.7,
-      "Сладкие": 0.0,
-      "Свежие": 100.0,
-      "Пряные и восточные": 44.8
-    },
-    "occasion": [
-      "everyday",
-      "walk"
-    ],
-    "occasionScores": {
-      "everyday": 84.8,
-      "walk": 71,
-      "date": 59.3,
-      "evening": 52.2,
-      "gym": 38.9
-    },
-    "season": [
-      "autumn"
-    ],
-    "accords": [
-      {
-        "name": "фужерный",
-        "weight": 100
-      },
-      {
-        "name": "древесный",
-        "weight": 85.7
-      },
-      {
-        "name": "Каннабис",
-        "weight": 71.8
-      },
-      {
-        "name": "дымный",
-        "weight": 65.6
-      },
-      {
-        "name": "камфорный",
-        "weight": 57
-      },
-      {
-        "name": "кожаный",
-        "weight": 53.7
-      },
-      {
-        "name": "зеленый",
-        "weight": 52.8
-      },
-      {
-        "name": "табачный",
-        "weight": 51.4
-      },
-      {
-        "name": "травяной",
-        "weight": 50.9
-      },
-      {
-        "name": "теплый пряный",
-        "weight": 48.7
-      }
-    ]
-  },
-  {
     "id": "007",
     "name": "FLUIDE 7 MUSK KASHMIR 30 мл",
     "title": "7 MUSK KASHMIR",
@@ -9046,7 +8760,9 @@
         "name": "животный",
         "weight": 45.7
       }
-    ]
+    ],
+    "image": "images/fragrances/007.webp",
+    "thumbnail": "images/fragrances/thumbs/007.webp"
   },
   {
     "id": "502",
