@@ -1,4 +1,4 @@
-const CACHE_NAME = "fluide-shell-v81";
+const CACHE_NAME = "fluide-shell-v83";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -14,21 +14,21 @@ const APP_SHELL = [
   "./shared-header.css?v=1",
   "./catalog.css?v=7",
   "./selection.css?v=7",
-  "./results.css?v=10",
+  "./results.css?v=11",
   "./hits.css?v=2",
   "./wardrobe.css?v=25",
-  "./product.css?v=12",
+  "./product.css?v=13",
   "./cart.css?v=2",
   "./pwa.js?v=36",
-  "./selection.js?v=9",
+  "./selection.js?v=10",
   "./selection-engine.js?v=2",
-  "./results.js?v=21",
-  "./hits.js?v=4",
+  "./results.js?v=22",
+  "./hits.js?v=5",
   "./wardrobe-engine.js?v=3",
-  "./wardrobe.js?v=23",
-  "./product.js?v=19",
+  "./wardrobe.js?v=24",
+  "./product.js?v=20",
   "./cart.js?v=3",
-  "./fragrances.json?v=4",
+  "./fragrances.json?v=5",
   "./products.json?v=4",
   "./images/fragrances/thumbs/129.webp",
   "./images/fragrances/thumbs/029.webp",
@@ -104,7 +104,9 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const networkFirst = [".css", ".js", ".json", ".webmanifest"].some((extension) => url.pathname.endsWith(extension));
+  const networkFirst =
+    url.pathname.includes("/images/") ||
+    [".css", ".js", ".json", ".webmanifest"].some((extension) => url.pathname.endsWith(extension));
   if (networkFirst) {
     event.respondWith(
       fetch(request)

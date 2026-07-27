@@ -47,6 +47,18 @@ function capitalizeLabel(value) {
   return label ? `${label.charAt(0).toLocaleUpperCase("ru-RU")}${label.slice(1)}` : "Аромат";
 }
 
+function groupToneClass(value) {
+  const group = String(value || "").toLocaleLowerCase("ru-RU");
+  if (group.startsWith("цветоч")) return "fragrance-group--floral";
+  if (group.startsWith("древес")) return "fragrance-group--wood";
+  if (group.startsWith("восточ")) return "fragrance-group--amber";
+  if (group.startsWith("фужер")) return "fragrance-group--fougere";
+  if (group.startsWith("шипров")) return "fragrance-group--chypre";
+  if (group.startsWith("цитрус")) return "fragrance-group--citrus";
+  if (group.startsWith("кожан")) return "fragrance-group--leather";
+  return "fragrance-group--neutral";
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -89,7 +101,10 @@ function similarFragrances(item, items) {
 
 function similarCardMarkup(item) {
   const prices = fragrancePrices[item.category];
+  const gender = capitalizeLabel(item.gender);
+  const category = capitalizeLabel(item.category);
   const group = capitalizeLabel(item.group || item.families?.[0]);
+  const groupTone = groupToneClass(group);
   const cardReturn = `product.html?id=${encodeURIComponent(id)}${returnUrl ? `&return=${encodeURIComponent(returnUrl)}` : ""}`;
   const productUrl = `product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(cardReturn)}`;
   const image = item.thumbnail || item.image;
@@ -103,7 +118,10 @@ function similarCardMarkup(item) {
       <h3>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.original)}</p>
       <div class="similar-card__meta-lines">
-        <div class="similar-card__tags"><span>${escapeHtml(item.gender)}</span><span>${escapeHtml(item.category)}</span><span>${escapeHtml(group)}</span></div>
+        <div class="similar-card__tags similar-card__tags--fragrance">
+          <div class="similar-card__tag-row"><span>${escapeHtml(gender)}</span><span>${escapeHtml(category)}</span></div>
+          <span class="fragrance-group ${groupTone}">${escapeHtml(group)}</span>
+        </div>
         ${prices ? `<strong class="similar-card__price">от ${formatPrice(prices[30])}</strong>` : ""}
       </div>
     </div>
@@ -116,6 +134,8 @@ function readCartItems() {
 
 function renderProduct(item, items) {
   const prices = fragrancePrices[item.category];
+  const gender = capitalizeLabel(item.gender);
+  const category = capitalizeLabel(item.category);
   const group = capitalizeLabel(item.group || item.families?.[0]);
   const similarItems = similarFragrances(item, items);
   const visual = item.image
@@ -134,8 +154,8 @@ function renderProduct(item, items) {
       <p class="detail-original">По мотивам: ${escapeHtml(item.original)}</p>
 
       <div class="detail-facts">
-        <div class="detail-fact"><span>Пол</span><strong>${escapeHtml(item.gender)}</strong></div>
-        <div class="detail-fact"><span>Категория</span><strong>${escapeHtml(item.category)}</strong></div>
+        <div class="detail-fact"><span>Пол</span><strong>${escapeHtml(gender)}</strong></div>
+        <div class="detail-fact"><span>Категория</span><strong>${escapeHtml(category)}</strong></div>
         <div class="detail-fact"><span>Группа</span><strong>${escapeHtml(group)}</strong></div>
       </div>
 
@@ -259,7 +279,7 @@ function renderCatalogProduct(item) {
   syncButton();
 }
 
-fetch("./fragrances.json?v=4")
+fetch("./fragrances.json?v=5")
   .then((response) => response.json())
   .then(async (items) => {
     const item = items.find((fragrance) => fragrance.id === id);

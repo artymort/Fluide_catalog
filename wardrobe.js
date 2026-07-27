@@ -711,7 +711,7 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 
-fetch("./fragrances.json?v=4")
+fetch("./fragrances.json?v=5")
   .then((response) => {
     if (!response.ok) throw new Error("Не удалось загрузить ароматы");
     return response.json();

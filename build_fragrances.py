@@ -186,6 +186,10 @@ GENDER_OVERRIDES = {
     "030": "женский",
 }
 
+ORIGINAL_OVERRIDES = {
+    "023": "Escentric Molecules Volume 1",
+}
+
 
 def split_notes(raw):
     groups = {"top": [], "middle": [], "base": [], "main": []}
@@ -417,7 +421,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
     notes_raw = str(row[9] or "").strip()
     oil_percent = int(row[3]) if row[3] is not None else None
     title = clean_title(row[1])
-    original = str(row[2] or "").strip()
+    original = ORIGINAL_OVERRIDES.get(number, str(row[2] or "").strip())
     group = str(row[10] or "").strip() if len(row) > 10 else ""
     group_families = detect_group_families(group)
     note_families = detect_families(notes_raw)

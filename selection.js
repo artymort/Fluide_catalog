@@ -211,7 +211,7 @@ previousButton.addEventListener("click", () => {
   }
 });
 
-fetch("./fragrances.json?v=4")
+fetch("./fragrances.json?v=5")
   .then((response) => {
     if (!response.ok) throw new Error("Не удалось загрузить каталог");
     return response.json();

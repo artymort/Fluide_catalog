@@ -307,6 +307,24 @@ body[data-catalog-mode="selection"] .store-intro {
 .product-card__meta-lines { display: grid; gap: 11px; margin-top: auto; }
 .product-card__tags { display: flex; align-content: flex-start; flex-wrap: wrap; gap: 5px; min-height: 20px; }
 .product-card__tags span { padding: 5px 8px; border-radius: 999px; background: rgb(67 72 101 / 7%); font-size: 10px; }
+.product-card__tags--fragrance { display: grid; justify-items: start; gap: 6px; min-height: 48px; }
+.product-card__tag-row { display: flex; flex-wrap: nowrap; gap: 5px; }
+.product-card__tags .fragrance-group {
+  --group-bg: rgb(67 72 101 / 7%);
+  --group-ink: rgb(67 72 101 / 78%);
+  max-width: 100%;
+  color: var(--group-ink);
+  background: var(--group-bg);
+  line-height: 1.15;
+}
+.product-card__tags .fragrance-group--floral { --group-bg: rgb(231 192 202 / 38%); --group-ink: #765460; }
+.product-card__tags .fragrance-group--wood { --group-bg: rgb(202 174 139 / 34%); --group-ink: #69533f; }
+.product-card__tags .fragrance-group--amber { --group-bg: rgb(224 185 144 / 34%); --group-ink: #76563a; }
+.product-card__tags .fragrance-group--fougere { --group-bg: rgb(168 196 174 / 34%); --group-ink: #4f6755; }
+.product-card__tags .fragrance-group--chypre { --group-bg: rgb(187 194 157 / 35%); --group-ink: #5c6346; }
+.product-card__tags .fragrance-group--citrus { --group-bg: rgb(226 213 137 / 36%); --group-ink: #6c6334; }
+.product-card__tags .fragrance-group--leather { --group-bg: rgb(180 159 145 / 30%); --group-ink: #654f43; }
+.product-card__tags .fragrance-group--neutral { --group-bg: rgb(170 181 204 / 24%); --group-ink: #576078; }
 .product-card__price { margin: 0; color: var(--ink); font-size: 14px; line-height: 1.25; font-variant-numeric: tabular-nums; }
 
 .products-empty { grid-column: 1 / -1; padding: 60px 20px; text-align: center; }
