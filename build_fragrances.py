@@ -13,6 +13,7 @@ SOURCE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "Новы�
 OUTPUT = ROOT / "fragrances.json"
 IMAGES = ROOT / "images" / "fragrances"
 EXCLUDED_FRAGRANCE_IDS = {"004", "180", "536"}
+IMAGE_VERSIONS = {"015": 2}
 
 FAMILY_KEYWORDS = {
     "Цветочные": [
@@ -437,6 +438,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
         seasons = detect_seasons(number, notes_raw, families, oil_percent, title, original)
     image_path = IMAGES / f"{number}.webp"
     thumbnail_path = IMAGES / "thumbs" / f"{number}.webp"
+    image_version = f"?v={IMAGE_VERSIONS[number]}" if number in IMAGE_VERSIONS else ""
     fragrances.append(
         {
             "id": number,
@@ -457,8 +459,8 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
             "occasionScores": occasion_scores,
             "season": seasons,
             "accords": accords,
-            **({"image": f"images/fragrances/{number}.webp"} if image_path.exists() else {}),
-            **({"thumbnail": f"images/fragrances/thumbs/{number}.webp"} if thumbnail_path.exists() else {}),
+            **({"image": f"images/fragrances/{number}.webp{image_version}"} if image_path.exists() else {}),
+            **({"thumbnail": f"images/fragrances/thumbs/{number}.webp{image_version}"} if thumbnail_path.exists() else {}),
         }
     )
 

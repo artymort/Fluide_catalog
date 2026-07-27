@@ -118,6 +118,7 @@ PRODUCT_IMAGE_FILES = {
     "Аромадиффузор Black Papper 100 мл": ("diffuser-black-pepper", "diffuser_black_papper.png"),
     "Аромадиффузор Cashmere 100 мл": ("diffuser-cashmere", "diffuser_cashmere.png"),
     "Аромадиффузор La Sultan 100 мл": ("diffuser-la-sultan", "diffuser_la_sultan.png"),
+    "Парфюм для машины": ("car-fragrance", "autoparfume.png"),
     "Спрей для волос FLUIDE 200 мл": ("hair-spray-devils-intrigue", "haier_spray_Devils_intrigue.png"),
 }
 

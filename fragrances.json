@@ -5481,8 +5481,8 @@
         "weight": 45.3
       }
     ],
-    "image": "images/fragrances/015.webp",
-    "thumbnail": "images/fragrances/thumbs/015.webp"
+    "image": "images/fragrances/015.webp?v=2",
+    "thumbnail": "images/fragrances/thumbs/015.webp?v=2"
   },
   {
     "id": "016",

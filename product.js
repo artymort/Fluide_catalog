@@ -72,6 +72,18 @@ function formatPrice(value) {
   return `${value.toLocaleString("ru-RU")} ₽`;
 }
 
+function normalizeSearch(value) {
+  return String(value || "")
+    .toLocaleLowerCase("ru-RU")
+    .replaceAll("ё", "е")
+    .trim();
+}
+
+function fragranceChoiceLabel(item) {
+  const title = String(item.title || "").replace(/^\d+\s+/, "");
+  return `${item.id} - ${title}`;
+}
+
 function overlapCount(first, second) {
   const secondSet = new Set(second.map((value) => String(value).toLocaleLowerCase("ru-RU")));
   return first.reduce((count, value) => count + Number(secondSet.has(String(value).toLocaleLowerCase("ru-RU"))), 0);
@@ -110,7 +122,7 @@ function similarCardMarkup(item) {
   const image = item.thumbnail || item.image;
   return `<a class="similar-card" href="${productUrl}">
     <div class="similar-card__visual">
-      <span>FLUIDE Atelier</span>
+      <span>FLUIDE ATELIER</span>
       ${image ? `<img src="${escapeHtml(image)}" alt="Флакон ${escapeHtml(item.title)}" loading="lazy" decoding="async" />` : `<strong>${escapeHtml(item.id)}</strong>`}
       <i>${escapeHtml(item.id)}</i>
     </div>
@@ -145,7 +157,7 @@ function renderProduct(item, items) {
   document.title = `FLUIDE ${item.title}`;
   detail.innerHTML = `
     <div class="detail-visual">
-      <span class="detail-visual__brand">FLUIDE Atelier</span>
+      <span class="detail-visual__brand">FLUIDE ATELIER</span>
       ${visual}
       <span class="detail-visual__caption" id="detail-volume-caption">30 мл</span>
     </div>
@@ -234,15 +246,27 @@ function renderProduct(item, items) {
   syncPurchaseState();
 }
 
-function renderCatalogProduct(item) {
+function renderCatalogProduct(item, fragrances) {
+  const isCarFragrance = item.productType === "car-fragrance";
   const visual = item.image
     ? `<img class="detail-visual__image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" />`
     : `<img class="detail-visual__fallback" src="app-icon.svg" alt="" />`;
   document.title = `FLUIDE — ${item.title}`;
   detail.innerHTML = `
     <div class="detail-visual"><span class="detail-visual__brand">${escapeHtml(item.typeLabel)}</span>${visual}<span class="detail-visual__caption">${escapeHtml(item.volume || "FLUIDE")}</span></div>
-    <div class="detail-content"><p class="detail-kicker">${escapeHtml(item.typeLabel)}</p><h1>${escapeHtml(item.title)}</h1><p class="detail-original">Продукция FLUIDE Atelier</p>
+    <div class="detail-content"><p class="detail-kicker">${escapeHtml(item.typeLabel)}</p><h1>${escapeHtml(item.title)}</h1><p class="detail-original">Продукция FLUIDE ATELIER</p>
       <div class="detail-facts">${item.volume ? `<div class="detail-fact"><span>Объём</span><strong>${escapeHtml(item.volume)}</strong></div>` : ""}<div class="detail-fact"><span>Категория</span><strong>${escapeHtml(item.typeLabel)}</strong></div></div>
+      ${isCarFragrance ? `<section class="car-scent-picker" id="car-scent-picker" aria-labelledby="car-scent-title">
+        <div class="car-scent-picker__heading">
+          <div><span>Аромат автопарфюма</span><strong id="car-scent-title">Выберите любой аромат из каталога</strong></div>
+          <span>Поиск по номеру или названию</span>
+        </div>
+        <div class="car-scent-picker__control">
+          <input id="car-scent-search" type="search" placeholder="Например, 015 или SAUVAGE" autocomplete="off" aria-controls="car-scent-results" aria-expanded="false" />
+          <div class="car-scent-results" id="car-scent-results" role="listbox" hidden></div>
+        </div>
+        <p class="car-scent-picker__selected" id="car-scent-selected" aria-live="polite">Аромат пока не выбран</p>
+      </section>` : ""}
       <section class="purchase-panel product-purchase">
         <div class="purchase-panel__action">
           <div><span>Стоимость</span><strong>${formatPrice(item.price)}</strong></div>
@@ -254,9 +278,87 @@ function renderCatalogProduct(item) {
       </section>
     </div>`;
 
-  const cartKey = `product:${item.id}${item.volume ? `:${item.volume}` : ""}`;
   const addButton = document.querySelector("#add-product-to-cart");
   const addButtonLabel = addButton.querySelector("span");
+
+  if (isCarFragrance) {
+    const picker = document.querySelector("#car-scent-picker");
+    const searchInput = document.querySelector("#car-scent-search");
+    const results = document.querySelector("#car-scent-results");
+    const selectedLabel = document.querySelector("#car-scent-selected");
+    let selectedFragrance = null;
+
+    const variantKey = () => selectedFragrance ? `product:${item.id}:${selectedFragrance.id}` : "";
+    const syncButton = () => {
+      const added = selectedFragrance && window.FluideCart.has(variantKey());
+      addButton.disabled = !selectedFragrance || added;
+      addButtonLabel.textContent = !selectedFragrance
+        ? "Сначала выберите аромат"
+        : added ? "Уже в корзине" : "Добавить в корзину";
+    };
+    const closeResults = () => {
+      results.hidden = true;
+      searchInput.setAttribute("aria-expanded", "false");
+    };
+    const renderOptions = () => {
+      const query = normalizeSearch(searchInput.value);
+      const matches = fragrances
+        .filter((fragrance) => normalizeSearch(`${fragrance.id} ${fragrance.title} ${fragrance.original}`).includes(query))
+        .slice(0, 8);
+      results.innerHTML = matches.length
+        ? matches.map((fragrance) => `<button class="car-scent-option" type="button" role="option" data-car-scent-id="${escapeHtml(fragrance.id)}">
+            <strong>${escapeHtml(fragranceChoiceLabel(fragrance))}</strong>
+            <span>${escapeHtml(fragrance.original)}</span>
+          </button>`).join("")
+        : '<p class="car-scent-results__empty">Аромат не найден</p>';
+      results.hidden = false;
+      searchInput.setAttribute("aria-expanded", "true");
+    };
+
+    searchInput.addEventListener("focus", renderOptions);
+    searchInput.addEventListener("input", () => {
+      selectedFragrance = null;
+      selectedLabel.textContent = "Аромат пока не выбран";
+      syncButton();
+      renderOptions();
+    });
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeResults();
+    });
+    results.addEventListener("click", (event) => {
+      const option = event.target.closest("[data-car-scent-id]");
+      if (!option) return;
+      selectedFragrance = fragrances.find((fragrance) => fragrance.id === option.dataset.carScentId) || null;
+      if (!selectedFragrance) return;
+      const label = fragranceChoiceLabel(selectedFragrance);
+      searchInput.value = label;
+      selectedLabel.textContent = `Выбран аромат: ${label}`;
+      closeResults();
+      syncButton();
+    });
+    document.addEventListener("click", (event) => {
+      if (!picker.contains(event.target)) closeResults();
+    });
+    addButton.addEventListener("click", () => {
+      if (!selectedFragrance || window.FluideCart.has(variantKey())) return;
+      window.FluideCart.add({
+        key: variantKey(),
+        kind: "product",
+        id: item.id,
+        title: item.title,
+        typeLabel: item.typeLabel,
+        variant: fragranceChoiceLabel(selectedFragrance),
+        price: item.price,
+        quantity: 1,
+        image: item.image || "",
+      });
+      syncButton();
+    });
+    syncButton();
+    return;
+  }
+
+  const cartKey = `product:${item.id}${item.volume ? `:${item.volume}` : ""}`;
   const syncButton = () => {
     const added = window.FluideCart.has(cartKey);
     addButton.disabled = added;
@@ -279,16 +381,16 @@ function renderCatalogProduct(item) {
   syncButton();
 }
 
-fetch("./fragrances.json?v=5")
+fetch("./fragrances.json?v=6")
   .then((response) => response.json())
   .then(async (items) => {
     const item = items.find((fragrance) => fragrance.id === id);
     if (item) return renderProduct(item, items);
-    const response = await fetch("./products.json?v=4");
+    const response = await fetch("./products.json?v=5");
     const products = await response.json();
     const product = products.find((entry) => entry.id === id);
     if (!product) throw new Error("Товар не найден");
-    renderCatalogProduct(product);
+    renderCatalogProduct(product, items);
   })
   .catch(() => {
     detail.innerHTML = '<p class="detail-loading">Аромат не найден. Вернитесь в каталог.</p>';

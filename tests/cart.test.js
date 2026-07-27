@@ -62,4 +62,32 @@ cart.clear();
 assert.deepEqual(cart.read(), []);
 assert.equal(localStorage.getItem("fluide-cart-count"), "0");
 
+assert.equal(cart.add({
+  key: "product:product-33:015",
+  kind: "product",
+  id: "product-33",
+  title: "Парфюм для машины",
+  variant: "015 - SAUVAGE",
+  price: 300,
+}), true);
+assert.equal(cart.add({
+  key: "product:product-33:015",
+  kind: "product",
+  id: "product-33",
+  title: "Парфюм для машины",
+  variant: "015 - SAUVAGE",
+  price: 300,
+}), false);
+assert.equal(cart.add({
+  key: "product:product-33:016",
+  kind: "product",
+  id: "product-33",
+  title: "Парфюм для машины",
+  variant: "016 - AVENTUS",
+  price: 300,
+}), true);
+assert.equal(cart.count(), 2);
+assert.deepEqual(cart.read().map((item) => item.variant), ["015 - SAUVAGE", "016 - AVENTUS"]);
+cart.clear();
+
 console.log("Cart storage, migration, duplicate protection, totals and removal checked");

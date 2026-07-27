@@ -427,7 +427,9 @@
     "productType": "car-fragrance",
     "typeLabel": "Автопарфюм",
     "volume": "",
-    "price": 300
+    "price": 300,
+    "image": "images/products/car-fragrance.webp",
+    "thumbnail": "images/products/thumbs/car-fragrance.webp"
   },
   {
     "id": "product-34",

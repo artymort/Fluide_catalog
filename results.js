@@ -152,8 +152,8 @@ function cardMarkup(item) {
       : `<span class="product-card__number">${item.id.slice(-2)}</span>`;
     return `
       <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
-        <div class="product-card__visual"><span class="product-card__meta">FLUIDE Atelier</span>${visual}</div>
-        <div class="product-card__body"><h2>${item.title}</h2><p class="product-card__original">Продукция FLUIDE Atelier</p>
+        <div class="product-card__visual"><span class="product-card__meta">FLUIDE ATELIER</span>${visual}</div>
+        <div class="product-card__body"><h2>${item.title}</h2><p class="product-card__original">Продукция FLUIDE ATELIER</p>
           <div class="product-card__meta-lines">
             <div class="product-card__tags">${details.map((value) => `<span>${value}</span>`).join("")}</div>
             <p class="product-card__price">${item.price.toLocaleString("ru-RU")} ₽</p>
@@ -175,7 +175,7 @@ function cardMarkup(item) {
   return `
     <a class="product-card" href="product.html?id=${encodeURIComponent(item.id)}&return=${encodeURIComponent(returnUrl)}">
       <div class="product-card__visual">
-        <span class="product-card__meta">FLUIDE Atelier</span>
+        <span class="product-card__meta">FLUIDE ATELIER</span>
         ${visual}
       </div>
       <div class="product-card__body">
@@ -377,11 +377,11 @@ resetButton.addEventListener("click", () => {
 
 configurePageMode();
 
-const requests = [fetch("./fragrances.json?v=5").then((response) => {
+const requests = [fetch("./fragrances.json?v=6").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];
-if (usesCatalogSections) requests.push(fetch("./products.json?v=4").then((response) => response.json()));
+if (usesCatalogSections) requests.push(fetch("./products.json?v=5").then((response) => response.json()));
 
 Promise.all(requests)
   .then(([fragranceData, productData = []]) => {

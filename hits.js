@@ -72,7 +72,7 @@ function cardMarkup(item) {
   </a>`;
 }
 
-fetch("./fragrances.json?v=5")
+fetch("./fragrances.json?v=6")
   .then((response) => {
     if (!response.ok) throw new Error("Не удалось загрузить каталог");
     return response.json();

@@ -25,15 +25,16 @@ function productUrl(item) {
 
 function itemVisual(item) {
   if (item.image) return `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" />`;
-  return `<div class="cart-card__placeholder"><img src="app-icon.svg" alt="" /><span>${escapeHtml(item.typeLabel || "FLUIDE Atelier")}</span></div>`;
+  return `<div class="cart-card__placeholder"><img src="app-icon.svg" alt="" /><span>${escapeHtml(item.typeLabel || "FLUIDE ATELIER")}</span></div>`;
 }
 
 function cardMarkup(item) {
-  return `<article class="cart-card">
+  const kindClass = item.kind === "fragrance" ? " cart-card--fragrance" : "";
+  return `<article class="cart-card${kindClass}">
     <a class="cart-card__link" href="${productUrl(item)}" aria-label="Открыть ${escapeHtml(item.title)}">${itemVisual(item)}</a>
     <div class="cart-card__body">
       <h2>${escapeHtml(item.title)}</h2>
-      <div class="cart-card__meta">${item.volume ? `<span>${escapeHtml(item.volume)}${typeof item.volume === "number" ? " мл" : ""}</span>` : ""}${item.category ? `<span>${escapeHtml(item.category)}</span>` : ""}</div>
+      <div class="cart-card__meta">${item.variant ? `<span>${escapeHtml(item.variant)}</span>` : ""}${item.volume ? `<span>${escapeHtml(item.volume)}${typeof item.volume === "number" ? " мл" : ""}</span>` : ""}${item.category ? `<span>${escapeHtml(item.category)}</span>` : ""}</div>
       <strong class="cart-card__price">${formatPrice(item.price)}</strong>
     </div>
     <button class="cart-card__remove" type="button" data-remove-key="${escapeHtml(item.key)}" aria-label="Удалить ${escapeHtml(item.title)}">
