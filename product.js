@@ -84,33 +84,6 @@ function fragranceChoiceLabel(item) {
   return `${item.id} - ${title}`;
 }
 
-function overlapCount(first, second) {
-  const secondSet = new Set(second.map((value) => String(value).toLocaleLowerCase("ru-RU")));
-  return first.reduce((count, value) => count + Number(secondSet.has(String(value).toLocaleLowerCase("ru-RU"))), 0);
-}
-
-function fragranceNotes(item) {
-  return Object.values(item.notes || {}).flat();
-}
-
-function similarFragrances(item, items) {
-  return items
-    .filter((candidate) => candidate.id !== item.id)
-    .map((candidate) => ({
-      item: candidate,
-      score:
-        overlapCount(item.families || [], candidate.families || []) * 12
-        + overlapCount(fragranceNotes(item), fragranceNotes(candidate)) * 2
-        + overlapCount(item.occasion || [], candidate.occasion || []) * 2
-        + overlapCount(item.season || [], candidate.season || []) * 2
-        + Number(item.gender === candidate.gender) * 5
-        + Number(item.category === candidate.category) * 4,
-    }))
-    .sort((first, second) => second.score - first.score || first.item.id.localeCompare(second.item.id, "ru"))
-    .slice(0, 4)
-    .map((entry) => entry.item);
-}
-
 function similarCardMarkup(item) {
   const prices = fragrancePrices[item.category];
   const gender = capitalizeLabel(item.gender);
@@ -149,7 +122,7 @@ function renderProduct(item, items) {
   const gender = capitalizeLabel(item.gender);
   const category = capitalizeLabel(item.category);
   const group = capitalizeLabel(item.group || item.families?.[0]);
-  const similarItems = similarFragrances(item, items);
+  const similarItems = window.FluideSimilarity.rankSimilar(item, items, 4);
   const visual = item.image
     ? `<img class="detail-visual__image" src="${escapeHtml(item.image)}" alt="Флакон ${escapeHtml(item.title)}" />
        <span class="detail-visual__number detail-visual__number--with-image">${escapeHtml(item.id)}</span>`
