@@ -213,7 +213,9 @@ function applyFilters() {
         && metadataMatches(item, "season", seasons);
     });
     filtered.sort((a, b) => (a.kind === "fragrance" ? 0 : 1) - (b.kind === "fragrance" ? 0 : 1)
-      || a.id.localeCompare(b.id, "ru", { numeric: true }));
+      || (a.productType === "solid-perfume" && b.productType === "solid-perfume"
+        ? a.title.localeCompare(b.title, "ru")
+        : a.id.localeCompare(b.id, "ru", { numeric: true })));
     countLabel.textContent = `Найдено: ${filtered.length}`;
     grid.innerHTML = filtered.length
       ? filtered.map(cardMarkup).join("")
@@ -356,7 +358,7 @@ const requests = [fetch("./fragrances.json?v=3").then((response) => {
   if (!response.ok) throw new Error("Не удалось загрузить каталог");
   return response.json();
 })];
-if (usesCatalogSections) requests.push(fetch("./products.json?v=3").then((response) => response.json()));
+if (usesCatalogSections) requests.push(fetch("./products.json?v=4").then((response) => response.json()));
 
 Promise.all(requests)
   .then(([fragranceData, productData = []]) => {

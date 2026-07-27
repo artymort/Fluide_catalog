@@ -3,7 +3,7 @@ import json
 import re
 from pathlib import Path
 
-from product_image_map import PRODUCT_IMAGE_FILES
+from product_image_map import PRODUCT_IMAGE_FILES, SOLID_PERFUMES
 
 SOURCE = Path("Цены FLUIDE - Лист1.csv")
 OUTPUT = Path("products.json")
@@ -33,10 +33,25 @@ current_type = None
 products = []
 seen = set()
 source_product_index = 0
+solid_perfumes_added = False
 for row in rows[1:]:
     name, price = row[0].strip(), row[2].strip()
     if name in SECTION_TYPES and not price:
         current_type = SECTION_TYPES[name]
+        if current_type[0] == "solid-perfume" and not solid_perfumes_added:
+            products.extend({
+                "id": item["id"],
+                "kind": "product",
+                "name": item["title"],
+                "title": item["title"],
+                "productType": "solid-perfume",
+                "typeLabel": "Твёрдый парфюм",
+                "volume": "",
+                "price": 990,
+                "image": f"images/products/{item['stem']}.webp",
+                "thumbnail": f"images/products/thumbs/{item['stem']}.webp",
+            } for item in SOLID_PERFUMES)
+            solid_perfumes_added = True
         continue
     if name == "Пакеты":
         current_type = None
@@ -46,6 +61,8 @@ for row in rows[1:]:
     seen.add(name)
     source_product_index += 1
     product_type, type_label = current_type
+    if product_type == "solid-perfume":
+        continue
     if product_type == "diffuser" and name not in AVAILABLE_DIFFUSERS:
         continue
     display_name = DISPLAY_NAMES.get(name, name)
