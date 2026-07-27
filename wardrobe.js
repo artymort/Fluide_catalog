@@ -101,21 +101,6 @@ const genderOptions = [
   ["male", "Мужские", "Мужские и унисекс ароматы"],
   ["unisex", "Унисекс", "Только универсальные ароматы"],
 ];
-const moodTargets = {
-  confident: { intensity: 4, formality: 4 },
-  calm: { intensity: 2, sweetness: 3, warmth: 3 },
-  attractive: { sweetness: 4, warmth: 4, intensity: 4 },
-  free: { freshness: 4, formality: 1, unusual: 3 },
-  energetic: { freshness: 5, intensity: 3 },
-  soft: { sweetness: 4, intensity: 2, warmth: 4 },
-  collected: { freshness: 3, formality: 5, intensity: 3 },
-  mysterious: { warmth: 5, unusual: 4, intensity: 4 },
-  unusual: { unusual: 5 },
-  elegant: { formality: 5, sweetness: 3, intensity: 3 },
-  clean: { freshness: 5, sweetness: 1, warmth: 1 },
-  bold: { intensity: 5, unusual: 5 },
-};
-
 let fragrances = [];
 let currentScreen = "welcome";
 const storedState = JSON.parse(sessionStorage.getItem("fluide-wardrobe") || "null");
@@ -463,7 +448,6 @@ function buildRecommendations() {
     fragrances,
     state,
     roleDefinitions,
-    moodTargets,
   );
   state.reactions = {};
   state.rejectedIds = [];
@@ -478,7 +462,6 @@ function candidateScore(item, roleId, selectedItems = []) {
     selectedItems,
     state,
     roleDefinitions,
-    moodTargets,
     selectedFavoriteItems(),
   );
 }

@@ -64,19 +64,94 @@
     experiment: { families: ["Пряные и восточные", "Древесные", "Сладкие"], occasions: ["evening"], seasons: ["autumn", "winter"] },
   };
 
-  const MOOD_CONTEXT = {
-    confident: { families: ["Древесные", "Пряные и восточные"], occasions: ["everyday", "evening"] },
-    calm: { families: ["Цветочные", "Древесные"], occasions: ["everyday"] },
-    attractive: { families: ["Цветочные", "Сладкие", "Пряные и восточные"], occasions: ["date", "evening"] },
-    free: { families: ["Свежие", "Цитрусовые", "Фруктовые"], occasions: ["walk"] },
-    energetic: { families: ["Свежие", "Цитрусовые", "Фруктовые"], occasions: ["gym", "walk"] },
-    soft: { families: ["Цветочные", "Сладкие"], occasions: ["date", "everyday"] },
-    collected: { families: ["Древесные", "Свежие"], occasions: ["everyday"] },
-    mysterious: { families: ["Пряные и восточные", "Древесные", "Сладкие"], occasions: ["evening"] },
-    unusual: { families: ["Пряные и восточные", "Древесные"], occasions: ["evening", "walk"] },
-    elegant: { families: ["Цветочные", "Древесные"], occasions: ["evening", "date"] },
-    clean: { families: ["Свежие", "Цитрусовые"], occasions: ["gym", "walk", "everyday"] },
-    bold: { families: ["Пряные и восточные", "Древесные"], occasions: ["evening"] },
+  // Модель опирается на GEOS и исследования эмоционального восприятия ароматов:
+  // аккорды и их сила важнее широкого семейства, а неоднозначные впечатления
+  // описываются через интенсивность, деликатность и редкость композиции.
+  const EMOTION_MODELS = {
+    confident: {
+      traits: { woody: 1, musky: .8, aromatic: .5, spicy: .35, citrus: .25 },
+      avoid: { smoky: .25, gourmand: .15 },
+      profile: { intensity: 3.6, formality: 4.1, unusual: 2.7 },
+      occasions: { everyday: .7, evening: .3 },
+      weights: { traits: .38, profile: .4, occasion: .17, rarity: .05 },
+    },
+    calm: {
+      traits: { floral: 1, powdery: .9, musky: .75, gourmand: .55, woody: .35, aromatic: .3 },
+      avoid: { smoky: 1, tobacco: .8, leather: .6, oud: .55, spicy: .45, mineral: .3 },
+      profile: { intensity: 2, sweetness: 3, warmth: 3.2, unusual: 1.9 },
+      occasions: { everyday: .8, date: .2 },
+      weights: { traits: .48, profile: .34, occasion: .15, rarity: .03 },
+    },
+    attractive: {
+      traits: { floral: 1, musky: .9, powdery: .75, amber: .65, gourmand: .5, spicy: .25 },
+      avoid: { smoky: .45, tobacco: .3 },
+      profile: { sweetness: 3.4, warmth: 3.8, intensity: 3.5, unusual: 2.8 },
+      occasions: { date: 1, evening: .6 },
+      weights: { traits: .46, profile: .31, occasion: .2, rarity: .03 },
+    },
+    free: {
+      traits: { fresh: 1, citrus: .95, green: .85, fruity: .55, mineral: .45, aromatic: .4 },
+      avoid: { smoky: .75, tobacco: .6, gourmand: .4 },
+      profile: { freshness: 4.5, intensity: 2.5, formality: 1.5, unusual: 2.8 },
+      occasions: { walk: 1 },
+      weights: { traits: .48, profile: .31, occasion: .18, rarity: .03 },
+    },
+    energetic: {
+      traits: { citrus: 1, fresh: 1, green: .85, aromatic: .65, fruity: .5, spicy: .25 },
+      avoid: { smoky: .6, gourmand: .25, powdery: .15 },
+      profile: { freshness: 4.8, intensity: 3.2, warmth: 2 },
+      occasions: { gym: 1, walk: .8 },
+      weights: { traits: .52, profile: .28, occasion: .18, rarity: .02 },
+    },
+    soft: {
+      traits: { floral: 1, powdery: .95, musky: .85, gourmand: .55, amber: .25 },
+      avoid: { smoky: .85, tobacco: .65, spicy: .6, mineral: .6, leather: .5 },
+      profile: { intensity: 1.9, warmth: 3.4, sweetness: 3.3, unusual: 1.8 },
+      occasions: { everyday: .6, date: .4 },
+      weights: { traits: .51, profile: .34, occasion: .13, rarity: .02 },
+    },
+    collected: {
+      traits: { woody: .8, fresh: .75, aromatic: .65, musky: .5, citrus: .45, green: .35 },
+      avoid: { gourmand: .45, smoky: .4 },
+      profile: { freshness: 3.3, formality: 4.5, intensity: 3, unusual: 2 },
+      occasions: { everyday: 1 },
+      weights: { traits: .39, profile: .43, occasion: .16, rarity: .02 },
+    },
+    mysterious: {
+      traits: { amber: 1, smoky: .8, oud: .75, woody: .65, spicy: .65, powdery: .25 },
+      avoid: { citrus: .3, fruity: .25 },
+      profile: { warmth: 4.3, unusual: 4.3, intensity: 3.8 },
+      occasions: { evening: 1 },
+      weights: { traits: .4, profile: .32, occasion: .14, rarity: .14 },
+    },
+    unusual: {
+      traits: { mineral: 1, smoky: .8, oud: .8, leather: .65, tobacco: .55, green: .35 },
+      avoid: {},
+      profile: { unusual: 5, formality: 2.2 },
+      occasions: { evening: .6, walk: .4 },
+      weights: { traits: .2, profile: .25, occasion: .05, rarity: .5 },
+    },
+    elegant: {
+      traits: { floral: .95, powdery: .85, musky: .8, woody: .55, amber: .25, citrus: .2 },
+      avoid: { smoky: .6, tobacco: .5, oud: .35, gourmand: .2 },
+      profile: { formality: 4.8, intensity: 3, sweetness: 2.8, unusual: 2.3 },
+      occasions: { evening: .7, date: .3 },
+      weights: { traits: .43, profile: .4, occasion: .15, rarity: .02 },
+    },
+    clean: {
+      traits: { fresh: 1, citrus: .95, green: .75, musky: .65, aromatic: .45, mineral: .35 },
+      avoid: { gourmand: .8, smoky: .8, tobacco: .7, oud: .5, amber: .4 },
+      profile: { freshness: 5, sweetness: 1.3, warmth: 1.5, intensity: 2.2 },
+      occasions: { everyday: 1, gym: .7, walk: .7 },
+      weights: { traits: .53, profile: .31, occasion: .14, rarity: .02 },
+    },
+    bold: {
+      traits: { spicy: 1, amber: .85, leather: .75, smoky: .7, oud: .7, tobacco: .5, mineral: .35 },
+      avoid: {},
+      profile: { intensity: 4.8, unusual: 4.5, warmth: 4 },
+      occasions: { evening: 1 },
+      weights: { traits: .36, profile: .35, occasion: .12, rarity: .17 },
+    },
   };
 
   const FRAGRANCE_PRICES = {
@@ -164,7 +239,7 @@
   }
 
   function prepareItems(items) {
-    return items.map((item) => {
+    const prepared = items.map((item) => {
       const traits = traitStrengths(item);
       return {
         ...item,
@@ -174,6 +249,32 @@
         _wardrobeFamilies: normalizedFamilies(item),
       };
     });
+    const accordCounts = prepared.reduce((counts, item) => {
+      Object.keys(item._wardrobeAccords).forEach((accord) => {
+        counts[accord] = (counts[accord] || 0) + 1;
+      });
+      return counts;
+    }, {});
+    const totalItems = Math.max(1, prepared.length);
+    const withRarity = prepared.map((item) => {
+      const entries = Object.entries(item._wardrobeAccords);
+      const totalWeight = entries.reduce((sum, [, weight]) => sum + weight, 0);
+      const rarity = totalWeight
+        ? entries.reduce((sum, [accord, weight]) => {
+          const inverseFrequency = Math.log((totalItems + 1) / ((accordCounts[accord] || 0) + 1))
+            / Math.log(totalItems + 1);
+          return sum + weight * inverseFrequency;
+        }, 0) / totalWeight
+        : 0;
+      return { ...item, _wardrobeRarity: rarity };
+    });
+    const rarityValues = withRarity.map((item) => item._wardrobeRarity);
+    const minRarity = Math.min(...rarityValues);
+    const rarityRange = Math.max(...rarityValues) - minRarity;
+    return withRarity.map((item) => ({
+      ...item,
+      _wardrobeRarity: rarityRange ? (item._wardrobeRarity - minRarity) / rarityRange : 0,
+    }));
   }
 
   function profileDistance(profile, target) {
@@ -261,18 +362,38 @@
     return (best * .75 + average * .25) / 100;
   }
 
-  function moodScore(item, moods, moodTargets) {
-    const profileWeights = [18, 5, 2.5];
-    const dataWeights = [10, 3, 1.5];
+  function weightedStrength(values, weights, scale = 5) {
+    const entries = Object.entries(weights || {});
+    const totalWeight = entries.reduce((sum, [, weight]) => sum + weight, 0);
+    if (!totalWeight) return 0;
+    return entries.reduce((sum, [key, weight]) => (
+      sum + Math.max(0, Math.min(scale, Number(values?.[key]) || 0)) / scale * weight
+    ), 0) / totalWeight;
+  }
+
+  function emotionFit(item, mood) {
+    const model = EMOTION_MODELS[mood];
+    if (!model) return 0;
+    const positiveTraits = weightedStrength(item._wardrobeTraits, model.traits);
+    const avoidedTraits = weightedStrength(item._wardrobeTraits, model.avoid);
+    const traitFit = Math.max(0, positiveTraits - avoidedTraits * .55);
+    const profileFit = profileSimilarity(item._wardrobeProfile, model.profile);
+    const occasionFit = weightedStrength(item.occasionScores, model.occasions, 100);
+    const rarityFit = Math.max(0, Math.min(1, Number(item._wardrobeRarity) || 0));
+    const weights = model.weights;
+    const totalWeight = Object.values(weights).reduce((sum, weight) => sum + weight, 0);
+    return totalWeight ? (
+      traitFit * weights.traits
+      + profileFit * weights.profile
+      + occasionFit * weights.occasion
+      + rarityFit * weights.rarity
+    ) / totalWeight : 0;
+  }
+
+  function moodScore(item, moods) {
+    const priorityWeights = [28, 8, 4];
     return moods.reduce((score, mood, index) => {
-      const target = moodTargets[mood];
-      const context = MOOD_CONTEXT[mood];
-      const profileScore = target
-        ? profileSimilarity(item._wardrobeProfile, target) * profileWeights[index]
-        : 0;
-      const familyScore = context ? preferenceStrength(item.familyScores || {}, context.families) : 0;
-      const occasionScore = context ? preferenceStrength(item.occasionScores || {}, context.occasions) : 0;
-      return score + profileScore + (familyScore * .62 + occasionScore * .38) * dataWeights[index];
+      return score + emotionFit(item, mood) * (priorityWeights[index] || 0);
     }, 0);
   }
 
@@ -296,7 +417,7 @@
     return ((hash >>> 0) % 1000) / 4000;
   }
 
-  function candidateScore(item, roleId, selectedItems, state, roleDefinitions, moodTargets, favoriteItems) {
+  function candidateScore(item, roleId, selectedItems, state, roleDefinitions, favoriteItems) {
     const role = roleDefinitions[roleId];
     const roleScore = profileSimilarity(item._wardrobeProfile, role.target) * 24;
     const favoriteScores = favoriteItems.map((favorite) => favoriteSimilarity(item, favorite));
@@ -314,22 +435,22 @@
     }, 0);
     return roleScore
       + tasteScore
-      + moodScore(item, state.moods, moodTargets)
+      + moodScore(item, state.moods)
       + contextScore(item, roleId)
       - dislikePenalty(item, state.dislikes)
       - diversityPenalty
       + stableTieBreak(item, roleId, state);
   }
 
-  function buildRecommendations(items, state, roleDefinitions, moodTargets) {
+  function buildRecommendations(items, state, roleDefinitions) {
     const favoriteIds = new Set(state.favorites || []);
     const favoriteItems = (state.favorites || []).map((id) => items.find((item) => item.id === id)).filter(Boolean);
     const eligible = items.filter((item) => genderMatches(item.gender, state.gender) && !favoriteIds.has(item.id));
     const selected = [];
     state.roles.forEach((roleId) => {
       const pool = eligible.filter((item) => !selected.some((chosen) => chosen.id === item.id));
-      pool.sort((a, b) => candidateScore(b, roleId, selected, state, roleDefinitions, moodTargets, favoriteItems)
-        - candidateScore(a, roleId, selected, state, roleDefinitions, moodTargets, favoriteItems));
+      pool.sort((a, b) => candidateScore(b, roleId, selected, state, roleDefinitions, favoriteItems)
+        - candidateScore(a, roleId, selected, state, roleDefinitions, favoriteItems));
       if (pool[0]) selected.push(pool[0]);
     });
     return selected;
@@ -358,6 +479,7 @@
   const api = {
     buildRecommendations,
     candidateScore,
+    emotionFit,
     accordSimilarity,
     familySimilarity,
     favoriteSimilarity,
@@ -366,6 +488,7 @@
     prepareItems,
     profileDistance,
     profileFor,
+    moodScore,
     traitStrengths,
     volumeSummary,
     wardrobePrice,
