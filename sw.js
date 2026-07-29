@@ -1,5 +1,6 @@
-const CACHE_NAME = "fluide-shell-v100";
+const CACHE_NAME = "fluide-shell-v101";
 const APP_SHELL = [
+  "./mobile.css?v=1",
   "./",
   "./index.html",
   "./catalog.html",

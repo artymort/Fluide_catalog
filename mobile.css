@@ -1,0 +1,1015 @@
+/*
+ * Phone layout for FLUIDE.
+ * This file is intentionally isolated from the tablet catalogue:
+ * every rule below is active only when the viewport is 640px or narrower.
+ */
+@media (max-width: 640px) {
+  :root {
+    --mobile-gutter: 14px;
+    --mobile-header-height: 68px;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-width: 0 !important;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body {
+    min-height: 100dvh;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  button,
+  input,
+  select,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .rotate-message {
+    display: none !important;
+  }
+
+  .site-header-actions {
+    right: 0;
+  }
+
+  .site-cart {
+    min-width: 58px;
+    height: 42px;
+    padding: 0 10px;
+  }
+
+  .site-cart svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .site-cart__count {
+    min-width: 19px;
+    height: 19px;
+    font-size: 10px;
+  }
+
+  /* Main menu */
+  .menu-screen {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(22px, env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .menu-header,
+  .store-header,
+  .detail-header,
+  .cart-header,
+  .selection-header,
+  .wardrobe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    height: var(--mobile-header-height);
+    background: rgb(244 240 230 / 94%);
+    backdrop-filter: blur(12px);
+  }
+
+  .menu-logo,
+  .store-logo,
+  .detail-logo,
+  .cart-logo,
+  .selection-logo,
+  .wardrobe-logo {
+    width: 132px;
+  }
+
+  .menu-content {
+    display: block;
+    padding-top: 24px;
+  }
+
+  .menu-kicker {
+    margin-bottom: 8px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .menu-heading h1 {
+    font-size: clamp(32px, 10vw, 42px);
+    line-height: 1;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px;
+    padding-top: 24px;
+  }
+
+  .menu-card,
+  .menu-card--featured {
+    grid-column: auto;
+    min-height: 164px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .menu-card--featured .menu-card__number {
+    left: 20px;
+  }
+
+  .menu-card__number {
+    top: 18px;
+    left: 20px;
+    font-size: 11px;
+  }
+
+  .menu-card::after {
+    top: 16px;
+    right: 18px;
+    font-size: 24px;
+  }
+
+  .menu-card__title,
+  .menu-card--featured .menu-card__title {
+    min-height: 0 !important;
+    font-size: 27px;
+    line-height: 1.05;
+  }
+
+  .menu-card__caption,
+  .menu-card--featured .menu-card__caption {
+    display: block;
+    max-width: 88%;
+    min-height: 0 !important;
+    margin-top: 7px;
+    font-size: 14px;
+  }
+
+  /* Catalogue and selection results */
+  .store-screen,
+  .season-screen {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(22px, env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .round-link,
+  .detail-back,
+  .cart-back,
+  .selection-back,
+  .wardrobe-back {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+  }
+
+  .store-intro,
+  body[data-catalog-mode="all"] .store-intro,
+  body[data-catalog-mode="selection"] .store-intro {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px 0 20px;
+  }
+
+  .store-intro h1 {
+    font-size: 38px;
+    line-height: 1;
+  }
+
+  .catalog-controls {
+    justify-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .catalog-sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .catalog-section {
+    min-height: 48px;
+    padding: 8px 9px;
+    font-size: 13px;
+  }
+
+  .store-search input {
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  .store-layout {
+    display: block;
+  }
+
+  .filters,
+  .products {
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .filters {
+    max-height: 340px;
+    margin-bottom: 22px;
+    padding: 18px;
+    overflow-y: auto;
+    border-radius: 16px;
+  }
+
+  .filters h2 {
+    font-size: 20px;
+  }
+
+  .filters label {
+    min-height: 30px;
+    font-size: 14px;
+  }
+
+  .products {
+    padding-right: 0;
+  }
+
+  .products__summary {
+    margin-bottom: 12px;
+  }
+
+  .products__summary select {
+    min-width: 0;
+    max-width: 52%;
+  }
+
+  .products-grid,
+  .hits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-card {
+    grid-template-rows: 190px minmax(188px, auto);
+    border-radius: 15px;
+    contain: none;
+  }
+
+  .product-card__body {
+    padding: 12px;
+  }
+
+  .product-card__body h2 {
+    font-size: 15px;
+    line-height: 1.15;
+  }
+
+  .product-card__original {
+    min-height: 0;
+    margin: 6px 0 10px;
+    font-size: 11px;
+  }
+
+  .product-card__tags span,
+  .product-card__tags--fragrance span {
+    padding: 5px 7px;
+    font-size: 10px;
+  }
+
+  .product-card__tags--fragrance {
+    gap: 6px;
+    min-height: 49px;
+  }
+
+  .product-card__tag-row {
+    flex-wrap: wrap;
+  }
+
+  .product-card__number--with-image {
+    right: 10px;
+    bottom: 8px;
+    font-size: 14px;
+  }
+
+  .product-card__meta {
+    top: 10px;
+    left: 10px;
+    font-size: 8px;
+  }
+
+  .product-card__price {
+    font-size: 13px;
+  }
+
+  /* Product page */
+  .detail-screen {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .detail {
+    display: block;
+    padding: 20px 0 0;
+    overflow: visible;
+  }
+
+  .detail-visual {
+    height: 420px;
+    min-height: 420px;
+    margin-bottom: 26px;
+    border-radius: 22px;
+  }
+
+  .detail-visual__brand {
+    top: 18px;
+    left: 18px;
+    font-size: 10px;
+  }
+
+  .detail-visual__image {
+    width: 88%;
+    height: 82%;
+  }
+
+  .detail-visual__number--with-image {
+    left: 18px;
+    bottom: 16px;
+    font-size: 20px;
+  }
+
+  .detail-visual__caption {
+    right: 18px;
+    bottom: 17px;
+    font-size: 12px;
+  }
+
+  .detail-content {
+    padding-top: 0;
+  }
+
+  .detail-content h1 {
+    font-size: clamp(34px, 10.5vw, 44px);
+    line-height: .98;
+    overflow-wrap: anywhere;
+  }
+
+  .detail-original {
+    margin-top: 11px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .detail-facts {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 18px 0 10px;
+  }
+
+  .detail-fact {
+    padding: 13px 14px;
+  }
+
+  .purchase-panel,
+  .product-purchase,
+  .car-scent-picker {
+    margin-top: 12px;
+  }
+
+  .purchase-panel__heading,
+  .purchase-panel__action,
+  .car-scent-picker__heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .volume-options,
+  .add-to-cart {
+    width: 100%;
+    max-width: none;
+  }
+
+  .car-scent-option {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .car-scent-option span {
+    width: 100%;
+  }
+
+  .detail-notes {
+    margin-top: 24px;
+  }
+
+  .detail-notes h2 {
+    font-size: 24px;
+  }
+
+  .note-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+
+  .similar-products {
+    margin-top: 30px;
+  }
+
+  .similar-products__heading h2 {
+    font-size: 27px;
+  }
+
+  .similar-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .similar-card {
+    grid-template-columns: 124px minmax(0, 1fr);
+    grid-template-rows: minmax(192px, auto);
+  }
+
+  .similar-card__visual {
+    border-right: 1px solid rgb(67 72 101 / 10%);
+    border-bottom: 0;
+  }
+
+  .similar-card__visual img {
+    width: 90%;
+    height: 88%;
+  }
+
+  .similar-card__body {
+    padding: 14px;
+  }
+
+  .similar-card__body h3 {
+    min-height: 0;
+    font-size: 16px;
+  }
+
+  .similar-card__body p {
+    white-space: normal;
+  }
+
+  /* Cart */
+  .cart-screen {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .cart-content {
+    padding: 24px 0 0;
+    overflow: visible;
+  }
+
+  .cart-heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cart-heading h1 {
+    font-size: 42px;
+  }
+
+  .clear-cart {
+    align-self: flex-start;
+  }
+
+  .cart-status {
+    margin-top: 20px;
+  }
+
+  .cart-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-card {
+    grid-template-columns: 112px minmax(0, 1fr);
+    height: 190px;
+  }
+
+  .cart-card__link {
+    height: 190px;
+  }
+
+  .cart-card__link img {
+    width: 92%;
+    height: 164px;
+  }
+
+  .cart-card__body {
+    padding: 16px 12px 14px 14px;
+  }
+
+  .cart-card__body h2 {
+    max-width: calc(100% - 40px);
+    font-size: 17px;
+  }
+
+  .cart-card__meta {
+    flex-wrap: wrap;
+  }
+
+  .cart-card__remove {
+    top: 10px;
+    right: 8px;
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .cart-card__remove span {
+    display: none;
+  }
+
+  .cart-catalog {
+    display: none;
+  }
+
+  /* Guided fragrance selection */
+  .selection-screen {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .selection-content {
+    display: block;
+    padding-top: 24px;
+  }
+
+  .selection-step {
+    display: none;
+  }
+
+  .selection-heading h1 {
+    margin: 7px 0 8px;
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1;
+  }
+
+  .selection-form {
+    display: block;
+    padding-top: 22px;
+  }
+
+  .selection-options,
+  .selection-options[data-compact="true"] {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 10px;
+    height: auto;
+  }
+
+  .selection-option,
+  .selection-options[data-compact="true"] .selection-option {
+    justify-content: flex-end;
+    min-height: 132px;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .selection-options[data-compact="true"] .selection-option {
+    min-height: 112px;
+  }
+
+  .selection-option__number,
+  .selection-options[data-compact="true"] .selection-option__number {
+    top: 16px;
+    left: 18px;
+  }
+
+  .selection-option__mark,
+  .selection-options[data-compact="true"] .selection-option__mark {
+    top: 17px;
+    right: 17px;
+  }
+
+  .selection-option__title,
+  .selection-options[data-compact="true"] .selection-option__title {
+    font-size: 25px;
+  }
+
+  .selection-options[data-compact="true"] .selection-option__caption {
+    font-size: 13px;
+  }
+
+  .selection-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .selection-next,
+  .selection-previous,
+  .selection-skip {
+    min-width: 0;
+    min-height: 52px;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .selection-next {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .selection-status {
+    margin-top: 14px;
+  }
+
+  /* Perfume wardrobe */
+  .wardrobe-screen {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .wardrobe-content,
+  .wardrobe-content--fitting,
+  .wardrobe-content--final {
+    min-height: 0;
+    padding: 24px 0 0;
+    overflow: visible;
+  }
+
+  .wardrobe-title,
+  .wardrobe-welcome .wardrobe-title {
+    font-size: clamp(32px, 9.5vw, 42px);
+    line-height: 1;
+  }
+
+  .wardrobe-lead {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .wardrobe-welcome {
+    min-height: 0;
+    padding-top: 0;
+  }
+
+  .welcome-bottles {
+    width: 100%;
+    min-height: 190px;
+    margin: 14px 0;
+    overflow: hidden;
+  }
+
+  .welcome-bottles img {
+    flex-basis: 24%;
+    width: 24%;
+    transform: scale(1.05);
+  }
+
+  .welcome-bottles img:nth-child(1),
+  .welcome-bottles img:nth-child(3),
+  .welcome-bottles img:nth-child(4) {
+    transform: scale(1);
+  }
+
+  .welcome-process {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-process__step {
+    padding: 18px 10px;
+  }
+
+  .welcome-process__step + .welcome-process__step {
+    border-top: 1px solid rgb(67 72 101 / 14%);
+    border-left: 0;
+  }
+
+  .wardrobe-actions,
+  .wardrobe-actions--centered {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 9px;
+    margin-top: 22px;
+  }
+
+  .wardrobe-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 16px;
+  }
+
+  .question-heading {
+    text-align: left;
+  }
+
+  .gender-grid,
+  .roles-grid,
+  .choice-grid,
+  .choice-grid--moods,
+  .choice-grid--dislikes,
+  .fitting-grid,
+  .final-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    margin-top: 22px;
+  }
+
+  .gender-choice {
+    min-height: 150px;
+    padding: 20px;
+  }
+
+  .profile-focus {
+    margin-top: 22px;
+  }
+
+  .profile-search-panel {
+    padding: 16px;
+  }
+
+  .favorite-search input {
+    height: 54px;
+    padding: 0 14px;
+    font-size: 16px;
+  }
+
+  .search-result {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  .choice-grid--moods .choice-card,
+  .choice-grid--dislikes .choice-card,
+  .choice-card {
+    min-height: 76px;
+    padding: 16px;
+  }
+
+  .role-card {
+    min-height: 190px;
+    padding: 20px;
+  }
+
+  .role-card__number {
+    margin-bottom: 42px;
+  }
+
+  .stylist-work {
+    min-height: 62dvh;
+  }
+
+  .stylist-lines {
+    width: 100%;
+  }
+
+  .fitting-screen,
+  .final-screen {
+    display: block;
+    height: auto;
+  }
+
+  .fitting-card {
+    height: auto;
+  }
+
+  .fitting-card__link {
+    flex: none;
+  }
+
+  .fitting-visual {
+    flex-basis: 260px;
+    height: 260px;
+  }
+
+  .fitting-body h2 {
+    min-height: 0;
+    font-size: 19px;
+  }
+
+  .reaction {
+    min-height: 46px;
+    font-size: 13px;
+  }
+
+  .fitting-actions {
+    margin-top: 14px;
+  }
+
+  .fitting-confirmation {
+    grid-column: 1 / -1;
+  }
+
+  .final-card {
+    grid-template-rows: 36px 260px auto 44px;
+    height: auto;
+  }
+
+  .final-body {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .final-body h2 {
+    min-height: 0;
+    font-size: 18px;
+  }
+
+  .final-volume button {
+    min-height: 38px;
+    font-size: 12px;
+  }
+
+  .final-view {
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .final-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .final-actions {
+    order: 2;
+    width: 100%;
+  }
+
+  .offer {
+    order: 1;
+    width: 100%;
+    height: auto;
+    min-height: 290px;
+  }
+
+  .offer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-price {
+    padding: 14px 0 0;
+    border-top: 1px dashed rgb(255 255 255 / 24%);
+    border-left: 0;
+  }
+
+  .offer-price span {
+    margin-top: 12px;
+  }
+
+  .offer-features {
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  .wardrobe-dialog {
+    width: calc(100vw - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: 20px;
+  }
+
+  .wardrobe-dialog h2 {
+    font-size: 24px;
+  }
+
+  .dialog-options {
+    grid-template-columns: 1fr;
+  }
+
+  /* Season hits */
+  .season-scroll {
+    padding: 18px 0 0;
+    overflow: visible;
+  }
+
+  .season-hero {
+    align-items: flex-end;
+    min-height: 420px;
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .season-hero h1 {
+    font-size: clamp(47px, 14vw, 62px);
+  }
+
+  .season-lead {
+    font-size: 15px;
+  }
+
+  .season-moods span {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .season-catalog {
+    padding-top: 32px;
+  }
+
+  /* Coming-soon pages */
+  .placeholder-screen {
+    grid-template-rows: var(--mobile-header-height) auto;
+    min-height: 100dvh;
+    padding:
+      env(safe-area-inset-top)
+      max(var(--mobile-gutter), env(safe-area-inset-right))
+      max(var(--mobile-gutter), env(safe-area-inset-bottom))
+      max(var(--mobile-gutter), env(safe-area-inset-left));
+  }
+
+  .placeholder-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgb(244 240 230 / 94%);
+    backdrop-filter: blur(12px);
+  }
+
+  .placeholder-logo {
+    width: 132px;
+  }
+
+  .placeholder-catalog-link {
+    display: none;
+  }
+
+  .placeholder-card {
+    min-height: calc(100dvh - 96px);
+    margin-top: 14px;
+    border-radius: 22px;
+  }
+
+  .placeholder-content {
+    width: calc(100% - 28px);
+  }
+
+  .placeholder-content h1 {
+    font-size: clamp(48px, 15vw, 68px);
+    overflow-wrap: anywhere;
+  }
+
+  .placeholder-message {
+    margin-top: 22px;
+    font-size: 22px;
+  }
+
+  .placeholder-description {
+    font-size: 15px;
+  }
+
+  .placeholder-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .placeholder-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
