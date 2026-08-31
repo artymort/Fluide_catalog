@@ -52,11 +52,11 @@ assert.equal(migrated[0].key, "fragrance:011:30");
 assert.equal(cart.add({ kind: "product", id: "product-01", title: "La Sultan", volume: "300 мл", price: 550 }), true);
 assert.equal(cart.add({ kind: "product", id: "product-01", title: "La Sultan", volume: "300 мл", price: 550 }), false);
 assert.equal(cart.count(), 2);
-assert.equal(cart.total(), 2540);
+assert.equal(cart.total(), 2480);
 
 cart.remove("fragrance:011:30");
 assert.equal(cart.count(), 1);
-assert.equal(cart.total(), 550);
+assert.equal(cart.total(), 490);
 
 cart.clear();
 assert.deepEqual(cart.read(), []);
@@ -88,6 +88,7 @@ assert.equal(cart.add({
 }), true);
 assert.equal(cart.count(), 2);
 assert.deepEqual(cart.read().map((item) => item.variant), ["015 - SAUVAGE", "016 - AVENTUS"]);
+assert.deepEqual(cart.read().map((item) => item.price), [500, 500]);
 cart.clear();
 
 console.log("Cart storage, migration, duplicate protection, totals and removal checked");

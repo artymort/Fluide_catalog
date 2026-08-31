@@ -9,6 +9,12 @@ window.addEventListener("orientationchange", () => setTimeout(updateAppHeight, 1
 window.visualViewport?.addEventListener("resize", updateAppHeight);
 
 const cartStorageKey = "fluide-cart-items";
+const currentProductPrices = {
+  "product-01": 490,
+  "product-02": 490,
+  "product-03": 490,
+  "product-33": 500,
+};
 
 function cartItemKey(item) {
   if (item.key) return String(item.key);
@@ -25,7 +31,14 @@ function readCartItems() {
       .filter((item) => item && item.id && item.title)
       .map((item) => {
         const kind = item.kind || (/^\d+$/.test(String(item.id)) ? "fragrance" : "product");
-        return { ...item, kind, key: cartItemKey({ ...item, kind }), quantity: Math.max(1, Number(item.quantity) || 1) };
+        const currentPrice = kind === "product" ? currentProductPrices[item.id] : undefined;
+        return {
+          ...item,
+          kind,
+          key: cartItemKey({ ...item, kind }),
+          price: currentPrice ?? item.price,
+          quantity: Math.max(1, Number(item.quantity) || 1),
+        };
       });
   } catch {
     return [];
@@ -110,7 +123,7 @@ window.addEventListener("pageshow", keepScreenAwake);
 
 if ("serviceWorker" in navigator) {
   let serviceWorkerRegistration = null;
-  const serviceWorkerUrl = "./sw.js?v=77";
+  const serviceWorkerUrl = "./sw.js?v=78";
 
   async function registerAndUpdateServiceWorker() {
     try {

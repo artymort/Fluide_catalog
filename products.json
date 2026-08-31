@@ -7,7 +7,7 @@
     "productType": "home-fragrance",
     "typeLabel": "Парфюм для дома",
     "volume": "300 мл",
-    "price": 550,
+    "price": 490,
     "image": "images/products/perfume-home-la-sultan.webp",
     "thumbnail": "images/products/thumbs/perfume-home-la-sultan.webp"
   },
@@ -19,7 +19,7 @@
     "productType": "home-fragrance",
     "typeLabel": "Парфюм для дома",
     "volume": "300 мл",
-    "price": 550,
+    "price": 490,
     "image": "images/products/perfume-home-citrus-rush.webp",
     "thumbnail": "images/products/thumbs/perfume-home-citrus-rush.webp"
   },
@@ -31,7 +31,7 @@
     "productType": "home-fragrance",
     "typeLabel": "Парфюм для дома",
     "volume": "300 мл",
-    "price": 550,
+    "price": 490,
     "image": "images/products/perfume-home-sea-salt.webp",
     "thumbnail": "images/products/thumbs/perfume-home-sea-salt.webp"
   },
@@ -427,7 +427,7 @@
     "productType": "car-fragrance",
     "typeLabel": "Автопарфюм",
     "volume": "",
-    "price": 300,
+    "price": 500,
     "image": "images/products/car-fragrance.webp",
     "thumbnail": "images/products/thumbs/car-fragrance.webp"
   },
