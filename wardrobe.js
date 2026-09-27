@@ -627,7 +627,8 @@ function renderFinal() {
   state.recommendations.forEach((item) => {
     if (![30, 50].includes(Number(state.volumes[item.id]))) state.volumes[item.id] = 30;
   });
-  const totalPrice = window.FluideWardrobeEngine.wardrobePrice(state.recommendations, state.volumes);
+  const pricing = window.FluideWardrobeEngine.wardrobePricing(state.recommendations, state.volumes);
+  const totalPrice = pricing.total;
   const volumesLabel = window.FluideWardrobeEngine.volumeSummary(state.recommendations, state.volumes);
   content.innerHTML = `
     <div class="final-screen">
@@ -655,7 +656,9 @@ function renderFinal() {
               </div>
             </div>
             <div class="offer-price">
+              <s>${formatPrice(pricing.subtotal)}</s>
               <strong>${formatPrice(totalPrice)}</strong>
+              <span>1 аромат в подарок</span>
               <small>По выбранным объемам</small>
             </div>
           </div>
@@ -682,6 +685,8 @@ function renderFinal() {
       typeLabel: "Персональный комплект",
       volume: volumesLabel,
       price: totalPrice,
+      originalPrice: pricing.subtotal,
+      discount: pricing.discount,
       quantity: 1,
       image: state.recommendations[0]?.thumbnail || state.recommendations[0]?.image || "",
       fragranceIds: state.recommendations.map((item) => item.id),

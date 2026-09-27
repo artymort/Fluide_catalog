@@ -120,10 +120,14 @@ const volumes = {
   [priceItems[2].id]: 50,
   [priceItems[3].id]: 30,
 };
-assert.equal(
-  engine.wardrobePrice(priceItems, volumes),
-  priceItems.reduce((sum, item) => sum + engine.fragrancePrice(item, volumes[item.id]), 0),
-);
+const wardrobePricing = engine.wardrobePricing(priceItems, volumes);
+const wardrobeSubtotal = priceItems.reduce((sum, item) => sum + engine.fragrancePrice(item, volumes[item.id]), 0);
+const wardrobeGiftPrice = Math.min(...priceItems.map((item) => engine.fragrancePrice(item, volumes[item.id])));
+assert.equal(wardrobePricing.subtotal, wardrobeSubtotal);
+assert.equal(wardrobePricing.discount, wardrobeGiftPrice);
+assert.equal(wardrobePricing.total, wardrobeSubtotal - wardrobeGiftPrice);
+assert.equal(engine.wardrobePrice(priceItems, volumes), wardrobePricing.total);
+assert.equal(priceItems[wardrobePricing.giftIndex].id, wardrobePricing.giftId);
 assert.equal(engine.volumeSummary(priceItems, volumes), "2 × 30 мл · 2 × 50 мл");
 assert.ok(prepared.every((item) => item._wardrobeFamilies && item._wardrobeAccords));
 assert.ok(prepared.every((item) => Number.isFinite(item._wardrobeRarity)));

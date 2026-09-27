@@ -28,14 +28,28 @@ function itemVisual(item) {
   return `<div class="cart-card__placeholder"><img src="app-icon.svg" alt="" /><span>${escapeHtml(item.typeLabel || "FLUIDE ATELIER")}</span></div>`;
 }
 
-function cardMarkup(item) {
+function priceMarkup(item, pricing) {
+  const quantity = Math.max(1, Number(item.quantity) || 1);
+  const itemTotal = (Number(item.price) || 0) * quantity;
+  const giftQuantity = pricing.giftQuantities[item.key] || 0;
+  const dynamicDiscount = giftQuantity * (Number(item.price) || 0);
+  const storedOriginalPrice = Math.max(0, Number(item.originalPrice) || 0);
+  const hasStoredDiscount = storedOriginalPrice > itemTotal;
+  const originalPrice = hasStoredDiscount ? storedOriginalPrice : itemTotal;
+  const finalPrice = Math.max(0, itemTotal - dynamicDiscount);
+  const hasDiscount = hasStoredDiscount || dynamicDiscount > 0;
+  if (!hasDiscount) return `<strong>${formatPrice(itemTotal)}</strong>`;
+  return `<s>${formatPrice(originalPrice)}</s><strong>${formatPrice(finalPrice)}</strong><span>1 аромат в подарок</span>`;
+}
+
+function cardMarkup(item, pricing) {
   const kindClass = item.kind === "fragrance" ? " cart-card--fragrance" : "";
   return `<article class="cart-card${kindClass}">
     <a class="cart-card__link" href="${productUrl(item)}" aria-label="Открыть ${escapeHtml(item.title)}">${itemVisual(item)}</a>
     <div class="cart-card__body">
       <h2>${escapeHtml(item.title)}</h2>
       <div class="cart-card__meta">${item.variant ? `<span>${escapeHtml(item.variant)}</span>` : ""}${item.volume ? `<span>${escapeHtml(item.volume)}${typeof item.volume === "number" ? " мл" : ""}</span>` : ""}${item.category ? `<span>${escapeHtml(item.category)}</span>` : ""}</div>
-      <strong class="cart-card__price">${formatPrice(item.price)}</strong>
+      <div class="cart-card__price${pricing.giftQuantities[item.key] ? " is-gift" : ""}">${priceMarkup(item, pricing)}</div>
     </div>
     <button class="cart-card__remove" type="button" data-remove-key="${escapeHtml(item.key)}" aria-label="Удалить ${escapeHtml(item.title)}">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg>
@@ -47,10 +61,11 @@ function cardMarkup(item) {
 function renderCart() {
   const items = window.FluideCart.read();
   const count = window.FluideCart.count(items);
+  const pricing = window.FluideCart.pricing(items);
   clearCartButton.disabled = items.length === 0;
-  cartStatus.innerHTML = `<span>${count ? `Добавлено позиций: ${count}` : "Корзина пуста"}</span><strong>${count ? formatPrice(window.FluideCart.total(items)) : "0 ₽"}</strong>`;
+  cartStatus.innerHTML = `<span>${count ? `Добавлено позиций: ${count}` : "Корзина пуста"}</span><strong>${count ? formatPrice(pricing.total) : "0 ₽"}</strong>`;
   cartList.innerHTML = items.length
-    ? items.map(cardMarkup).join("")
+    ? items.map((item) => cardMarkup(item, pricing)).join("")
     : `<div class="empty-cart"><div><h2>Здесь пока ничего нет</h2><p>Добавьте ароматы или другую продукцию из каталога.</p><a href="all.html">Перейти в каталог</a></div></div>`;
   document.querySelectorAll("[data-remove-key]").forEach((button) => button.addEventListener("click", () => {
     window.FluideCart.remove(button.dataset.removeKey);

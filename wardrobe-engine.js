@@ -460,8 +460,28 @@
     return FRAGRANCE_PRICES[item.category]?.[Number(volume)] || 0;
   }
 
+  function wardrobePricing(items, volumes) {
+    const lines = items.map((item, index) => ({
+      id: item.id,
+      index,
+      price: fragrancePrice(item, volumes[item.id] || 30),
+    }));
+    const subtotal = lines.reduce((total, line) => total + line.price, 0);
+    const gift = lines.length >= 4
+      ? lines.reduce((cheapest, line) => (line.price < cheapest.price ? line : cheapest), lines[0])
+      : null;
+    const discount = gift?.price || 0;
+    return {
+      subtotal,
+      discount,
+      total: subtotal - discount,
+      giftId: gift?.id || "",
+      giftIndex: gift?.index ?? -1,
+    };
+  }
+
   function wardrobePrice(items, volumes) {
-    return items.reduce((total, item) => total + fragrancePrice(item, volumes[item.id] || 30), 0);
+    return wardrobePricing(items, volumes).total;
   }
 
   function volumeSummary(items, volumes) {
@@ -492,6 +512,7 @@
     traitStrengths,
     volumeSummary,
     wardrobePrice,
+    wardrobePricing,
   };
 
   globalScope.FluideWardrobeEngine = api;

@@ -32,11 +32,20 @@ function readCartItems() {
       .map((item) => {
         const kind = item.kind || (/^\d+$/.test(String(item.id)) ? "fragrance" : "product");
         const currentPrice = kind === "product" ? currentProductPrices[item.id] : undefined;
+        const wardrobePrices = kind === "wardrobe" && Array.isArray(item.fragranceVolumes)
+          ? item.fragranceVolumes.map((entry) => Math.max(0, Number(entry.price) || 0)).filter(Boolean)
+          : [];
+        const wardrobeSubtotal = wardrobePrices.length >= 4
+          ? wardrobePrices.reduce((total, price) => total + price, 0)
+          : 0;
+        const wardrobeDiscount = wardrobeSubtotal ? Math.min(...wardrobePrices) : 0;
         return {
           ...item,
           kind,
           key: cartItemKey({ ...item, kind }),
-          price: currentPrice ?? item.price,
+          price: currentPrice ?? (wardrobeSubtotal ? wardrobeSubtotal - wardrobeDiscount : item.price),
+          originalPrice: wardrobeSubtotal || item.originalPrice,
+          discount: wardrobeDiscount || item.discount,
           quantity: Math.max(1, Number(item.quantity) || 1),
         };
       });
@@ -47,6 +56,41 @@ function readCartItems() {
 
 function cartCount(items = readCartItems()) {
   return items.reduce((total, item) => total + item.quantity, 0);
+}
+
+function cartPricing(items = readCartItems()) {
+  const giftQuantities = {};
+  const fragranceUnits = [];
+  let subtotal = 0;
+
+  items.forEach((item, itemIndex) => {
+    const quantity = Math.max(1, Number(item.quantity) || 1);
+    const price = Math.max(0, Number(item.price) || 0);
+    subtotal += price * quantity;
+    if (item.kind !== "fragrance") return;
+    for (let unitIndex = 0; unitIndex < quantity; unitIndex += 1) {
+      fragranceUnits.push({ key: item.key, price, itemIndex, unitIndex });
+    }
+  });
+
+  const giftCount = Math.floor(fragranceUnits.length / 4);
+  const gifts = fragranceUnits
+    .sort((left, right) => left.price - right.price
+      || left.itemIndex - right.itemIndex
+      || left.unitIndex - right.unitIndex)
+    .slice(0, giftCount);
+  const discount = gifts.reduce((total, gift) => {
+    giftQuantities[gift.key] = (giftQuantities[gift.key] || 0) + 1;
+    return total + gift.price;
+  }, 0);
+
+  return {
+    subtotal,
+    discount,
+    total: subtotal - discount,
+    giftCount,
+    giftQuantities,
+  };
 }
 
 function writeCartItems(items) {
@@ -60,8 +104,9 @@ function writeCartItems(items) {
 window.FluideCart = {
   read: readCartItems,
   count: cartCount,
+  pricing: cartPricing,
   total(items = readCartItems()) {
-    return items.reduce((total, item) => total + (Number(item.price) || 0) * item.quantity, 0);
+    return cartPricing(items).total;
   },
   has(key) {
     return readCartItems().some((item) => item.key === key);
@@ -123,7 +168,7 @@ window.addEventListener("pageshow", keepScreenAwake);
 
 if ("serviceWorker" in navigator) {
   let serviceWorkerRegistration = null;
-  const serviceWorkerUrl = "./sw.js?v=78";
+  const serviceWorkerUrl = "./sw.js?v=79";
 
   async function registerAndUpdateServiceWorker() {
     try {
